@@ -1,0 +1,19 @@
+@use "global" as *;
+
+.button-base {
+  font-family: $second-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(22/14);
+  display: inline-block;
+  background-color: $green;
+  padding-top: rem(16);
+  padding-right: rem(88);
+  padding-bottom: rem(16);
+  padding-left: rem(40);
+  border: 1px solid $green;
+  text-align: center;
+  position: relative;
+}
+
