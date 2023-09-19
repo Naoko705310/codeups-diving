@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.fv {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.fv__inner {
+width: 100%;
+max-width: 100%;
+height: 100%;
+position: relative;
+}
+
+.fv__slider {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.fv__image {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+.fv__image img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fv__heading {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fv__main-copy {
+  font-family: $second-font-family;
+  font-size: rem(40);
+  color: $white;
+  font-weight: $normal;
+  line-height: 1.5;
+  letter-spacing: rem(21.6);
+  text-transform: uppercase;
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: calc(100/80);
+    letter-spacing: rem(43.2);
+  }
+
+
+}
+
+.fv__sub-copy {
+  font-family: $second-font-family;
+  font-size: rem(20);
+  color: $white;
+  font-weight: $normal;
+  line-height: 1.5;
+}
