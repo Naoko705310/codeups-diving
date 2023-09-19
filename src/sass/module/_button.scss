@@ -1,0 +1,72 @@
+@use "global" as *;
+
+.button {
+  width: rem(202);
+  max-width: 100%;
+  height: rem(54);
+  background-color: $green;
+  border: 1px solid $green;
+  position: relative;
+}
+
+.button__link {
+  font-family: $second-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(22/14);
+  display: inline-block;
+  padding-top: rem(16);
+  // padding-right: rem(88); //あとで修正
+  padding-bottom: rem(16);
+  padding-left: rem(40);
+  background-color: $green;
+  border: 1px solid $green;
+}
+
+// 右矢印
+.button__link::after {
+  content: "";
+  display: inline-block;
+  width: rem(40);
+  max-width: 100%;
+  height: rem(6);
+  border-bottom: 1px solid $white;
+  border-right: 1px solid $white;
+  transition: 0.2s;
+  z-index: 1;
+  position: absolute;
+  top: 44.4444%;
+  right: rem(40);
+  transform: skew(45deg);
+}
+
+// ボタンの影
+.button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 1px solid $green;
+  width: 100%;
+  height: 100%;
+  transition: .3s;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+// スライドアニメーション
+.button::after{
+  background: $green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+
