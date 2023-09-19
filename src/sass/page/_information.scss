@@ -1,0 +1,67 @@
+@use "global" as *;
+
+.information {
+  background-color: $green-light;
+  padding-top: rem(80);
+  padding-bottom: rem(80);
+  margin-top: rem(70);
+  @include mq(md) {
+    padding-top: rem(100);
+    margin-top: rem(140);
+  }
+}
+
+.information__inner {
+  padding-right: rem(15);
+  padding-left: rem(15);
+  @include mq(md) {
+    padding-right: rem(180);
+    padding-left: rem(180);
+  }
+}
+
+.information__image {
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.information__body {
+
+}
+
+.information__heading {
+  font-family: $base-font-family;
+  font-size: rem(20);
+  color: $green-deep;
+  font-weight: $bold;
+  line-height: calc(24/20);
+  margin-top: rem(24);
+  border-bottom: 1px solid $green;
+  padding-bottom: rem(4);
+}
+
+.information__text {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(24/16);
+  margin-top: rem(8);
+}
+
+.information__button {
+  margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.button {
+
+}
+
+.button__link {
+
+}
+
