@@ -7,14 +7,6 @@
   }
 }
 
-.about-us__inner {
-
-}
-
-.about-us__section-title {
-
-}
-
 .about-us__contents-wrapper {
   position: relative;
 }
@@ -64,10 +56,11 @@
   width: 100%;
   max-width: 100%;
   @include mq(md) {
+    width: 81.924%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 43.956%;//image-wrapperに対する割合
+    right: 3.7962%;
+    transform: translateY(-50%);
     z-index: 8888;
     display: flex;
     justify-content: center;
@@ -89,6 +82,7 @@
     line-height: calc(100/80);
     display: inline-block;
     width: 50%;
+    margin-top: 0;
   }
 }
 
@@ -103,6 +97,7 @@
     color: $white;
     display: inline-block;
     width: 50%;
+    margin-top: 0;
   }
 }
 
