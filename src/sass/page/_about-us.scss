@@ -1,7 +1,10 @@
 @use "global" as *;
 
 .about-us {
-
+  margin-top: rem(80);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
 }
 
 .about-us__inner {
@@ -9,10 +12,7 @@
 }
 
 .about-us__section-title {
-  margin-top: rem(80);
-  @include mq(md) {
-    margin-top: rem(140);
-  }
+
 }
 
 .about-us__contents-wrapper {

@@ -4,10 +4,6 @@
   text-shadow: 2px 2px 5px rgba(13, 41, 54, 0.3); //水平、垂直、ぼかし。0.3は透明度
 }
 
-.contact__inner {
-
-}
-
 .contact__body {
   padding: 0 rem(40);
 }
@@ -17,6 +13,21 @@
   margin-top: rem(80);
   padding-bottom: rem(6);
 }
+
+.contact__logo img {
+  width: 58.983%;
+  max-width: 100%;
+  aspect-ratio: 174/65;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
 
 .contact__address-wrapper {
   font-family: $base-font-family;
@@ -96,21 +107,6 @@ display: block;
   margin-left: auto;
 }
 
-.button-to-top {
-  width: rem(48);
-  max-width: 100%;
-  height: rem(48);
-  background-color: $white;
-  border: 1px solid $green;
-  border-radius: 50%;
-  margin-top: rem(36);
-
-
-}
-
-.button-to-top__link {
-
-}
 
 
 
