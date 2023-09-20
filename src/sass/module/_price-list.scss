@@ -1,0 +1,36 @@
+@use "global" as *;
+
+.price__list {
+  margin-top: rem(40);
+}
+
+.price-list {
+
+}
+
+.price-list__items {
+
+}
+
+.price-list__heading {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $bold;
+  line-height: calc(24/16);
+  border-bottom: 1px solid $green;
+  padding-bottom: rem(4);
+  margin-top: rem(40);
+}
+
+.price-list__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(24/14);
+  margin-top: rem(8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
