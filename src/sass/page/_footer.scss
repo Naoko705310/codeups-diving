@@ -2,4 +2,7 @@
 
 .footer {
   background-color: $green;
+  @include mq(md) {
+    margin-top: rem(160);
+  }
 }

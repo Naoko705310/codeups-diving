@@ -2,33 +2,81 @@
 
 .contact {
   text-shadow: 2px 2px 5px rgba(13, 41, 54, 0.3); //水平、垂直、ぼかし。0.3は透明度
+  margin-top: rem(140);
+}
+.contact__inner {
+  padding: 0 rem(30);
+  @include mq(md) {
+    // padding: 0 rem(180);
+  }
+}
+.contact__contents-wrapper {
+  @include mq(md) {
+    width: 100%;
+    max-width: rem(1080);
+    display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    // background-color: $white;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+  }
 }
 
 .contact__body {
-  padding: 0 rem(40);
+  width: 100%;
+  // max-width: rem(295);
+  padding: 0 rem(10);
+  margin-top: rem(80);
+  @include mq(md) {
+    // width: rem(440);
+    // max-width: rem(440);
+    // display: grid;
+    // grid-template-columns: 1fr 273px; /* 左側133px、右側273px */
+    // grid-template-columns: repeat(2, 1fr); /* 2列のグリッドを作成 */
+    // grid-template-columns: calc(273px + 21px) calc(146px - 21px); /* 右側273px、左側146px、gap21px */
+    // grid-gap: rem(24); /* グリッドアイテム間の間隔 */
+    // grid-gap: rem(24)  rem(21); /* 縦のgapを21pxに設定 */
+    // max-width: rem(572);
+    // padding-top: rem(80);
+    padding-right: rem(82);
+    // padding-bottom: rem(80);
+    padding-left: rem(50);
+    margin-bottom: rem(80);
+
+  }
 }
 
 .contact__logo {
+  width: 100%;
+  max-width: 100%;
   border-bottom: 1px solid $green;
-  margin-top: rem(80);
   padding-bottom: rem(6);
+  @include mq(md) {
+
+  }
 }
 
 .contact__logo img {
-  width: 58.983%;
-  max-width: 100%;
+  max-width: rem(174);
   aspect-ratio: 174/65;
   object-fit: cover;
   margin: 0 auto;
+  @include mq(md) {
+    max-width: rem(200);
+  }
 }
 
+.contact__company-information {
+  @include mq(md) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(21);
+    margin-top: rem(24);
+  }
 
-
-
-
-
-
-
+}
 .contact__address-wrapper {
   font-family: $base-font-family;
   font-size: rem(16);
@@ -37,6 +85,12 @@
   line-height: calc(24/16);
   margin-top: rem(16);
   text-align: center;
+  @include mq(md) {
+    width: 100%;
+    max-width: rem(146);
+    margin-top: 0;
+    text-align: left;
+  }
 }
 
 .contact__address-wrapper > * {
@@ -45,6 +99,9 @@
 
 .contact__address-wrapper > :first-child {
   margin-top: rem(16);
+  @include mq(md) {
+    margin-top: 0;
+  }
 }
 
 .contact__address-wrapper p {
@@ -56,10 +113,17 @@ display: block;
 
 .contact__map {
   width: 100%;
-  max-width: 100%;
+  // max-width: rem(295);
   margin-top: rem(16);
+  margin-right: auto;
+  margin-left: auto;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: relative;
+  @include mq(md) {
+    width: 100%;
+    max-width: rem(273);
+    margin-top: 0;
+  }
 }
 .contact__map::before {
   content: "";
@@ -79,11 +143,33 @@ display: block;
 }
 
 .contact__header {
-  padding: 0 rem(30);
+  width: 100%;
+  max-width: 100%;
   margin-top: rem(40);
   text-align: center;
+  @include mq(md) {
+    // width: 100%;
+
+    // max-width: rem(508);
+    border-left: 1px solid $green;
+
+    margin-top: rem(80);
+    margin-bottom: rem(80);
+    // padding-top: rem(20);
+    padding-right: rem(112);
+    // padding-bottom: rem(19);
+    padding-left: rem(81);
+
+  }
 }
 
+.contact__section-title {
+  @include mq(md) {
+    // width: 100%;
+    // max-width: rem(315);
+    // margin: 0 auto;
+  }
+}
 .contact__section-title .section-title__en {
   font-size: rem(80);
 }
