@@ -18,13 +18,38 @@
     padding-right: rem(182);
     padding-left: rem(181);
   }
-
 }
 
-.price__section-title {
-
+.price__contents-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(24);
+  @include mq(md) {
+    max-width: rem(1077);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(93);
+    margin-top: rem(40);
+    position: relative;
+  }
 }
-
+.price__contents-wrapper::after {
+  @include mq(md) {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    max-width: rem(437);
+    aspect-ratio: 437/201;
+    background-image: url(../images/common/price-fish.png);
+    background-size: contain;
+    position: absolute;
+    //PCの写真に差し替えてから位置調整
+    bottom: -36.178%;
+    left: rem(-81);
+  }
+}
 
 .price-button {
   margin-top: rem(40);
@@ -36,8 +61,13 @@
 }
 
 .price__image {
-  margin-top: rem(24);
+  width: 100%;
+  max-width: 100%;
   position: relative;
+  @include mq(md) {
+    max-width: rem(746);
+    margin-top: 0;
+  }
 }
 .price__image::before {
   content: "";
