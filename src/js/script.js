@@ -7,13 +7,30 @@ jQuery(function ($) {
       $(this).removeClass('is-open');
       // メニューが閉じたときにスクロールを有効にする
       $('body').css('overflow', 'auto');
+      // メニューが閉じたときにヘッダーの色を元に戻す
+      $('.js-header').css('background-color', '');
     } else {
       $('.js-drawer-menu').fadeIn();
       $(this).addClass('is-open');
       // メニューが開いたときにスクロールを無効にする
       $('body').css('overflow', 'hidden');
+      // メニューが開いたときにヘッダーの色を設定
+      $('.js-header').css('background-color', '$green'); // 背景色を設定
     }
   }); // ハンバーガー：閉じタグ
+
+  // ナビのリンクがクリックされたときの処理
+  $('.global-nav__link, .global-nav__heading').on('click', function () {
+    // SPナビを閉じる
+    $('.js-drawer-menu').fadeOut();
+    $('.js-hamburger').removeClass('is-open');
+    $('body').css('overflow', 'auto');
+    // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
+    var targetSection = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $(targetSection).offset().top
+    }, 1000); // スクロールのアニメーション時間を調整
+  });
 
   // ヘッダーの色を変える（FadeInすなわちdisplay:blockにする）
   $('.js-header').on('click', function () {
@@ -26,36 +43,28 @@ jQuery(function ($) {
     }
   });
 
+    // スワイパー
+
+      // Swiper スワイパー
+  let swiper = new Swiper(".swiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true, // ループ有効
+    autoplay: {
+      delay: 3000, // 自動再生の遅延時間（ミリ秒）
+    },
+    slidesPerView: 1, // 1度に1枚のスライドを表示
+  });
+  // }); //Swiper:閉じタグ
+  
+
+
+
+
 }); //jQuery 閉じタグ
 
 
 
 
-
-
-
-// jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
-
-//   //ハンバーガーメニュー（FadeInすなわちdisplay:blockにする）
-//   $('.js-hamburger').on('click', function () {
-//     if ($('.js-hamburger').hasClass('is-open')) {
-//       $('.js-drawer-menu').fadeOut();
-//       $(this).removeClass('is-open');
-//     } else {
-//       $('.js-drawer-menu').fadeIn();
-//       $(this).addClass('is-open');
-//     }
-//   }); //ハンバーガー：閉じタグ
-
-// //ヘッダーの色を変える（FadeInすなわちdisplay:blockにする）
-// $('.js-header').on('click', function () {
-//   if ($('.js-header').hasClass('is-open')) {
-//     $('.js-header').removeClass('is-open'); // .is-open クラスを削除
-//     $('.js-header').css('background-color', ''); // 背景色をクリア（元に戻す）
-//   } else {
-//     $('.js-header').addClass('is-open'); // .is-open クラスを追加
-//     $('.js-header').css('background-color', '$green'); // 背景色を設定
-//   }
-// });
-
-// }); //jQuery 閉じタグ

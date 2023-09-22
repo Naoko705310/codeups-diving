@@ -10,6 +10,9 @@
   left: 0;
   right: 0;
   z-index: 99999;
+  @include mq(md) {
+    height: rem(90);
+  }
 }
 .header.is-open {
   background-color: $green;
@@ -22,4 +25,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 rem(15);
+  @include mq(md) {
+    padding: 0 rem(40);
+  }
 }

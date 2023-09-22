@@ -1,9 +1,55 @@
 @use "global" as *;
 
-.pc-nav {
-  display: none;
-  // SPナビを作り終わるまで消しておく
+.header__pc-nav {
+
 }
+
+.pc-nav {
+  display: none; //最初(SP)は非表示
+  height: 100%;
+}
+
+.pc-nav__items {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+
+}
+
+.pc-nav__item {
+  padding: 0 rem(20);
+
+}
+
+.pc-nav__link {
+  font-family: $second-font-family;
+  font-size: rem(18);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(18/18);
+  text-transform: capitalize;
+  display: block;
+  text-align: center;
+  padding-top: rem(28);
+  // padding-right: rem(20);
+  padding-bottom: rem(27);
+  // padding-left: rem(20);
+  white-space: nowrap;
+}
+.pc-nav__link span {
+  font-family: $base-font-family;
+  font-size: rem(10);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(15/10);
+  display: block;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 
 
 // // PCナビ
