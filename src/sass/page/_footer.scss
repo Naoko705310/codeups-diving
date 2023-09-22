@@ -2,7 +2,6 @@
 
 .footer {
   background-color: $green;
-  // padding-top: rem(48);
   padding-bottom: rem(56);
   margin-top: rem(100);
   @include mq(md) {
@@ -15,9 +14,12 @@
 }
 
 .footer__logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
   padding-top: rem(48);
   @include mq(md) {
-    display: flex;
+    flex-direction: row;
     align-items: flex-end;
     gap: rem(40);
     padding-top: rem(80);

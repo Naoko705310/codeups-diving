@@ -73,6 +73,9 @@
   content: "";
   display: block;
   padding-top: 65.797%;// 227/345（高さ/幅）
+  @include mq(md) {
+    padding-top: 151.626%;// 746/492（高さ/幅）
+  }
 }
 .price__image img {
   width: 100%;
