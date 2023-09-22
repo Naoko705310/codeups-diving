@@ -2,7 +2,53 @@
 
 .footer {
   background-color: $green;
+  // padding-top: rem(48);
+  padding-bottom: rem(56);
+  margin-top: rem(100);
   @include mq(md) {
     margin-top: rem(160);
   }
 }
+
+.footer__inner {
+
+}
+
+.footer__logo-wrapper {
+  padding-top: rem(48);
+  @include mq(md) {
+    display: flex;
+    align-items: flex-end;
+    gap: rem(40);
+    padding-top: rem(80);
+  }
+}
+.footer__logo {
+
+}
+
+
+.footer__sns {
+
+}
+
+
+.footer__nav {
+
+}
+
+.footer__copyright {
+  font-family: $second-font-family;
+  font-size: rem(12);
+  color: $white;
+  font-weight: $bold;
+  line-height: calc(18/12);
+  display: block;
+  padding: 0 rem(14);
+  margin-top: rem(20);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}
+

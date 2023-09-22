@@ -1,6 +1,8 @@
 @use "global" as *;
 
 .button-to-top {
+display: none;
+
   width: rem(48);
   max-width: 100%;
   height: rem(48);
