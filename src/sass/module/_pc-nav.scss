@@ -1,1 +1,57 @@
 @use "global" as *;
+
+.pc-nav {
+  display: none;
+  // SPナビを作り終わるまで消しておく
+}
+
+
+// // PCナビ
+// .p-pc-nav {
+  
+//   height: inherit;
+//   display: none;
+//   @include mq(md) {
+//     display: block;
+//     margin-left: auto;
+//   }
+// }
+// .p-pc-nav__items {
+//   height: inherit;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .p-pc-nav__item {
+//   height: inherit;
+// }
+
+// .p-pc-nav__item a {
+//   font-family: "Noto Sans JP";
+//   font-size: 1.6rem;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: calc(32/16);
+//   color: $col-main-blue;
+//   height: inherit;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 0 16px;
+// }
+// .p-pc-nav__item a span {
+//   font-family: "Noto Sans JP";
+//   font-size: 1.4rem;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1;
+//   color: $col-main-blue;
+//   display: inline-block;
+//   text-transform: capitalize;
+// }
+
+// .p-pc-nav__item a:hover {
+//   cursor: pointer;
+//   background-color: $col-main-light-blue;
+// }

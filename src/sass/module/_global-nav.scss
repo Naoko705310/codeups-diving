@@ -1,0 +1,66 @@
+@use "global" as *;
+// SPナビとfooterナビ共通
+
+.global-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  // margin-top: rem(40);
+  padding-left: rem(22);
+  @include mq(md) {
+    grid-template-columns: repeat(4, 1fr); 
+    // margin-top: rem(29);
+  }
+}
+
+.global-nav__item-wrapper {
+
+
+}
+
+.global-nav__heading {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $bold;
+  line-height: calc(18/16);
+  display: block;
+  padding: rem(20) 0;
+}
+.global-nav__heading:first-child {
+  padding-top: 0;
+}
+
+.global-nav__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(24);
+  margin-top: rem(4);
+}
+
+.global-nav__item {
+
+}
+
+.global-nav__link {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(18/16);
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+

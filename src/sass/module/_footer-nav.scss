@@ -1,65 +1,8 @@
 @use "global" as *;
 
 .footer-nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 20px;
   margin-top: rem(40);
-  padding-left: rem(22);
   @include mq(md) {
-    grid-template-columns: repeat(4, 1fr); 
     margin-top: rem(29);
   }
 }
-
-.footer-nav__item-wrapper {
-
-
-}
-
-.footer-nav__heading {
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $white;
-  font-weight: $bold;
-  line-height: calc(18/16);
-  display: block;
-  padding: rem(20) 0;
-}
-.footer-nav__heading:first-child {
-  padding-top: 0;
-}
-
-.footer-nav__items {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: rem(24);
-  margin-top: rem(4);
-}
-
-.footer-nav__item {
-
-}
-
-.footer-nav__link {
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $white;
-  font-weight: $normal;
-  line-height: calc(18/16);
-  display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
-

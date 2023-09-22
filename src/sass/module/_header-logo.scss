@@ -1,0 +1,12 @@
+@use "global" as *;
+
+.header-logo {
+  width: rem(102);
+  max-width: 100%;
+  aspect-ratio: 102/38;
+}
+.header-logo img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
