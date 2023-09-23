@@ -13,12 +13,33 @@
 .campaign__section-title {
 
 }
+
+// Campaign スワイパー
 .campaign__swiper {
+  width: 100%;
+  max-width: 100%;
+  // height: rem(445);
   margin-top: rem(24);
   @include mq(md) {
     margin-top: rem(40);
   }
 }
+
+.campaign__swiper .swiper-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+}
+
+
+
+.campaign__swiper .swiper-slide {
+  width: rem(333);
+  max-width: 100%;
+  height: inherit;
+  aspect-ratio: 333/445;
+}
+
 .campaign__button {
   margin-top: rem(40);
   margin-right: auto;

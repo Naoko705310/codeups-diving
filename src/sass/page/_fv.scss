@@ -19,7 +19,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 888888;
+  z-index: 7777;
 }
 .fv__main-copy {
   font-family: $second-font-family;
@@ -46,23 +46,21 @@
 
 
 // /* スライダーの追加スタイル */
-.swiper {
+.fv__swiper {
   width: 100%;
   max-width: 100%;
   height: 100vh;
 }
 
-.swiper-wrapper {
+.fv__swiper .swiper-wrapper {
   width: 100%;
   max-width: 100%;
   height: inherit;
 }
 
-.swiper-slide {
 
-}
 
-.fv__swiper-slide {
+.fv__swiper .swiper-slide {
   width: rem(1440);
   max-width: 100%;
   height: inherit;
@@ -70,7 +68,7 @@
 
   
 }
-.fv__swiper-slide img {
+.fv__swiper .swiper-slide img {
   width: 100%;
   max-width: 100%;
   height: inherit;

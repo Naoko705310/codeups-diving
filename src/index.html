@@ -34,15 +34,10 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- AOS アニメーションのスタイルシート -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Swiperのスタイルシート -->
-  <!-- Swiperの最新バージョンのスタイルシートリンク -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-<!-- Swiperの最新バージョンのスクリプトリンク -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"> -->
+  <!-- Swiperのスタイルシート ver.8 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
@@ -293,34 +288,32 @@
         <!-- /.fv__heading -->
 
         <!-- fvスライダー -->
-        <!-- Slider main container -->
-        <div class="swiper fv__swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper fv__swiper-wrapper">
+        <div class="swiper fv__swiper js-fv-swiper">
+          <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide fv__swiper-slide">
-              <img src="./assets/images/common/fv-pc-01.jpg" alt="ウミガメのアップの画像">
-            </div>
-            <div class="swiper-slide fv__swiper-slide">
-              <img src="./assets/images/common/fv-pc-02.jpg" alt="ウミガメと二人のダイバーの画像">
-            </div>
-            <div class="swiper-slide fv__swiper-slide">
-              <img src="./assets/images/common/fv-pc-03.jpg" alt="海上のボートの画像">
-            </div>
-            <div class="swiper-slide fv__swiper-slide">
-              <img src="./assets/images/common/fv-pc-04.jpg" alt="明るい砂浜の画像">
-            </div>
-
+            <picture class="swiper-slide">
+              <source srcset="./assets/images/common/fv-pc-01.jpg" media="(min-width: 768px)" />
+              <img src="./assets/images/common/fv-sp-01.jpg" alt="ウミガメのアップの画像">
+            </picture>
+            <picture class="swiper-slide">
+              <source srcset="./assets/images/common/fv-pc-02.jpg" media="(min-width: 768px)" />
+              <img src="./assets/images/common/fv-sp-02.jpg" alt="ウミガメとダイバー二人の画像">
+            </picture>
+            <picture class="swiper-slide">
+              <source srcset="./assets/images/common/fv-pc-03.jpg" media="(min-width: 768px)" />
+              <img src="./assets/images/common/fv-sp-03.jpg" alt="海と船の画像">
+            </picture>
+            <picture class="swiper-slide">
+              <source srcset="./assets/images/common/fv-pc-04.jpg" media="(min-width: 768px)" />
+              <img src="./assets/images/common/fv-sp-04.jpg" alt="砂浜の画像">
+            </picture>
           </div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
+        <!-- swiper fv__swiper js-fv-swiper -->
       </div>
       <!-- /.fv__inner -->
     </section>
     <!-- /.fv -->
-
 
     <!-- Campaignセクション -->
     <section id="campaign" class="campaign">
@@ -338,47 +331,173 @@
         </div>
         <!-- /.section-title -->
 
-        <!-- swiper -->
-        <div class="campaign__swiper">
-          <!-- campaignカード -->
-          <div class="campaign-card">
-            <a href="#" class="campaign-card__link">
-              <figure class="campaign-card__image">
-                <img src="./assets/images/common/campaign-01.jpg" alt="海中の、色とりどりの魚の画像">
-              </figure>
-              <!-- /.campaign-card__image -->
-              <div class="campaign-card__body">
-                <p class="campaign-card__tag category-tag">
-                  ライセンス講習
-                </p>
-                <!-- /.campaign-card__tag -->
-                <h4 class="campaign-card__heading">
-                  ライセンス取得
-                </h4>
-                <!-- /.campaign-card__heading -->
-                <p class="campaign-card__text">
-                  全部コミコミ(お一人様)
-                </p>
-                <!-- /.campaign-card__text -->
-                <div class="campaign-card__price-wrapper">
-                  <p class="campaign-card__old-price">
-                    ¥56,000
-                  </p>
-                  <!-- /.campaign-card__old-price -->
-                  <p class="campaign-card__new-price">
-                    ¥46,000
-                  </p>
-                  <!-- /.campaign-card__new-price -->
+        <!-- Campaign スライダー -->
+          <div class="swiper campaign__swiper js-campaign-swiper">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <!-- campaignカード01 -->
+                <div class="campaign-card">
+                  <a href="#" class="campaign-card__link">
+                    <figure class="campaign-card__image">
+                      <img src="./assets/images/common/campaign-01.jpg" alt="海中の、色とりどりの魚の画像">
+                    </figure>
+                    <!-- /.campaign-card__image -->
+                    <div class="campaign-card__body">
+                      <p class="campaign-card__tag category-tag">
+                        ライセンス講習
+                      </p>
+                      <!-- /.campaign-card__tag -->
+                      <h4 class="campaign-card__heading">
+                        ライセンス取得
+                      </h4>
+                      <!-- /.campaign-card__heading -->
+                      <p class="campaign-card__text">
+                        全部コミコミ(お一人様)
+                      </p>
+                      <!-- /.campaign-card__text -->
+                      <div class="campaign-card__price-wrapper">
+                        <p class="campaign-card__old-price">
+                          ¥56,000
+                        </p>
+                        <!-- /.campaign-card__old-price -->
+                        <p class="campaign-card__new-price">
+                          ¥46,000
+                        </p>
+                        <!-- /.campaign-card__new-price -->
+                      </div>
+                      <!-- /.campaign-card__price-wrapper -->
+                    </div>
+                    <!-- /.campaign-card__body -->
+                  </a>
+                  <!-- /.campaign-card__link -->
                 </div>
-                <!-- /.campaign-card__price-wrapper -->
+                <!-- /.campaign-card -->
               </div>
-              <!-- /.campaign-card__body -->
-            </a>
-            <!-- /.campaign-card__link -->
+              <div class="swiper-slide">
+                <!-- campaignカード02 -->
+                <div class="campaign-card">
+                  <a href="#" class="campaign-card__link">
+                    <figure class="campaign-card__image">
+                      <img src="./assets/images/common/campaign-02.jpg" alt="海中の、色とりどりの魚の画像">
+                    </figure>
+                    <!-- /.campaign-card__image -->
+                    <div class="campaign-card__body">
+                      <p class="campaign-card__tag category-tag">
+                        ライセンス講習
+                      </p>
+                      <!-- /.campaign-card__tag -->
+                      <h4 class="campaign-card__heading">
+                        ライセンス取得
+                      </h4>
+                      <!-- /.campaign-card__heading -->
+                      <p class="campaign-card__text">
+                        全部コミコミ(お一人様)
+                      </p>
+                      <!-- /.campaign-card__text -->
+                      <div class="campaign-card__price-wrapper">
+                        <p class="campaign-card__old-price">
+                          ¥56,000
+                        </p>
+                        <!-- /.campaign-card__old-price -->
+                        <p class="campaign-card__new-price">
+                          ¥46,000
+                        </p>
+                        <!-- /.campaign-card__new-price -->
+                      </div>
+                      <!-- /.campaign-card__price-wrapper -->
+                    </div>
+                    <!-- /.campaign-card__body -->
+                  </a>
+                  <!-- /.campaign-card__link -->
+                </div>
+                <!-- /.campaign-card -->
+              </div>
+              <div class="swiper-slide">
+                <!-- campaignカード03 -->
+                <div class="campaign-card">
+                  <a href="#" class="campaign-card__link">
+                    <figure class="campaign-card__image">
+                      <img src="./assets/images/common/campaign-03.jpg" alt="海中の、色とりどりの魚の画像">
+                    </figure>
+                    <!-- /.campaign-card__image -->
+                    <div class="campaign-card__body">
+                      <p class="campaign-card__tag category-tag">
+                        ライセンス講習
+                      </p>
+                      <!-- /.campaign-card__tag -->
+                      <h4 class="campaign-card__heading">
+                        ライセンス取得
+                      </h4>
+                      <!-- /.campaign-card__heading -->
+                      <p class="campaign-card__text">
+                        全部コミコミ(お一人様)
+                      </p>
+                      <!-- /.campaign-card__text -->
+                      <div class="campaign-card__price-wrapper">
+                        <p class="campaign-card__old-price">
+                          ¥56,000
+                        </p>
+                        <!-- /.campaign-card__old-price -->
+                        <p class="campaign-card__new-price">
+                          ¥46,000
+                        </p>
+                        <!-- /.campaign-card__new-price -->
+                      </div>
+                      <!-- /.campaign-card__price-wrapper -->
+                    </div>
+                    <!-- /.campaign-card__body -->
+                  </a>
+                  <!-- /.campaign-card__link -->
+                </div>
+                <!-- /.campaign-card -->
+              </div>
+              <div class="swiper-slide">
+                <!-- campaignカード04 -->
+                <div class="campaign-card">
+                  <a href="#" class="campaign-card__link">
+                    <figure class="campaign-card__image">
+                      <img src="./assets/images/common/campaign-04.jpg" alt="海中の、色とりどりの魚の画像">
+                    </figure>
+                    <!-- /.campaign-card__image -->
+                    <div class="campaign-card__body">
+                      <p class="campaign-card__tag category-tag">
+                        ライセンス講習
+                      </p>
+                      <!-- /.campaign-card__tag -->
+                      <h4 class="campaign-card__heading">
+                        ライセンス取得
+                      </h4>
+                      <!-- /.campaign-card__heading -->
+                      <p class="campaign-card__text">
+                        全部コミコミ(お一人様)
+                      </p>
+                      <!-- /.campaign-card__text -->
+                      <div class="campaign-card__price-wrapper">
+                        <p class="campaign-card__old-price">
+                          ¥56,000
+                        </p>
+                        <!-- /.campaign-card__old-price -->
+                        <p class="campaign-card__new-price">
+                          ¥46,000
+                        </p>
+                        <!-- /.campaign-card__new-price -->
+                      </div>
+                      <!-- /.campaign-card__price-wrapper -->
+                    </div>
+                    <!-- /.campaign-card__body -->
+                  </a>
+                  <!-- /.campaign-card__link -->
+                </div>
+                <!-- /.campaign-card -->
+              </div>
+            </div>
+
+            <!-- ナビゲーションボタン -->
+            <div class="campaign-swiper__btn-prev swiper-button-prev"></div>
+            <div class="campaign-swiper__btn-next swiper-button-next"></div>
           </div>
-          <!-- /.campaign-card -->
-        </div>
-        <!-- /.campaign__swiper -->
+          <!-- swiper campaign__swiper js-campaign-swiper -->
 
         <!-- ボタン -->
         <div class="campaign__button button">
@@ -419,29 +538,33 @@
             </figure>
           </div>
           <!-- /.about-us__image-wrapper -->
-          <div class="about-us__text-wrapper">
+          <div class="about-us__body">
             <h2 class="about-us__main-copy">
               Dive into the Ocean
             </h2>
             <!-- /.about-us__main-copy -->
-            <p class="about-us__text">
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-            </p>
-            <!-- /.about-us__text -->
-          </div>
-          <!-- /.about-us__text-wrapper -->
+            <div class="about-us__text-wrapper">
+              <p class="about-us__text">
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
+                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
+              </p>
+              <!-- /.about-us__text -->
+              <!-- ボタン -->
+              <div class="about-us__button button">
+                <a href="#" class="button__link">
+                  view more
+                </a>
+                <!-- /.button__link -->
+              </div>
+              <!-- /.button -->
+            </div>
+            <!-- /.about-us__text-wrapper -->
 
-          <!-- ボタン -->
-          <div class="about-us__button button">
-            <a href="#" class="button__link">
-              view more
-            </a>
-            <!-- /.button__link -->
           </div>
-          <!-- /.button -->
+          <!-- /.about-us__body -->
         </div>
         <!-- /.about-us__contents-wrapper -->
+
       </div>
       <!-- /.about-us__inner inner -->
     </section>
@@ -734,10 +857,7 @@
             <!-- ↓上記全て表示条件に当てはまらない場合に表示↓ -->
             <img src="./assets/images/common/price-sp.jpg" alt="ウミガメのアップの画像">
           </picture>
-
-
-
-
+          
           <!-- price リスト -->
           <div class="price__list price-list">
             <dl class="price-list__items">
