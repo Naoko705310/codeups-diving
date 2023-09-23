@@ -2,8 +2,11 @@
 
 .about-us {
   margin-top: rem(80);
+  padding-bottom: rem(70); 
   @include mq(md) {
     margin-top: rem(140);
+    padding-bottom: rem(140);//サンゴイラストがあるからmarginでなくpaddingでとる
+    overflow: hidden;
   }
 }
 
@@ -14,6 +17,22 @@
     margin-top: rem(40);
   }
 }
+// サンゴのイラスト
+.about-us__contents-wrapper::after {
+  @include mq(md) {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    max-width: rem(194);
+    aspect-ratio: 194/181;
+    background-image: url(../images/common/aboutus-sango.png);
+    background-size: contain;
+    position: absolute;
+    right: -8.981%; //97/1080
+    bottom: -13.615%;//90/661
+    z-index: 999999;
+  }
+}
 
 .about-us__image-wrapper {
   width: 100%;
@@ -22,6 +41,7 @@
   position: relative;
 }
 
+// シーサーの画像
 .about-us__image-left {
   width: 37.3177%;
   max-width: 100%;
@@ -37,6 +57,7 @@
   object-fit: cover;
 }
 
+// 黄色い魚の画像
 .about-us__image-right {
   width: 81.924%;
   max-width: 100%;
@@ -45,6 +66,10 @@
   right: 0;
   top: 12.264%; //26/212
   z-index: 8;
+  @include mq(md) {
+    aspect-ratio:  880/581;
+    top: 12.102%; //80/661
+  }
 }
 .about-us__image-right img {
   width: 100%;
