@@ -15,9 +15,16 @@
 }
 
 .information__contents-wrapper {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: rem(24);
   margin-top: rem(24);
   @include mq(md) {
-    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: rem(48);
@@ -26,9 +33,30 @@
 }
 
 .information__image {
-
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 345/227;
+  @include mq(md) {
+    width: rem(540);
+    aspect-ratio: 540/356;
+  }
 }
 
+.information__image img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.information__body {
+  width: 100%;
+  max-width: 100%;
+  @include mq(md) {
+    width: rem(492);
+  }
+
+
+}
 .information__heading {
   font-family: $base-font-family;
   font-size: rem(20);
@@ -54,4 +82,5 @@
   margin-right: auto;
   margin-left: auto;
 }
+
 

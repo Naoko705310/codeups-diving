@@ -15,14 +15,27 @@
 }
 
 // Campaign スワイパー
-.campaign__swiper {
+.campaign__swiper-wrapper {
   width: 100%;
-  max-width: 100%;
-  // height: rem(445);
+  // height: rem(366);
+  height: rem(400);
+  overflow: hidden;
   margin-top: rem(24);
+  // display: flex; /* コンテナ内の要素を中央に配置 */
+  // justify-content: center; /* 水平方向に中央配置 */
+  // align-items: center; /* 垂直方向に中央配置 */
+  // overflow: hidden; /* 子要素の影が見切れないようにする */
   @include mq(md) {
     margin-top: rem(40);
   }
+}
+
+
+.campaign__swiper {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  // height: rem(445);
 }
 
 .campaign__swiper .swiper-wrapper {

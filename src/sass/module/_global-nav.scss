@@ -5,17 +5,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
-  // margin-top: rem(40);
   padding-left: rem(22);
   @include mq(md) {
     grid-template-columns: repeat(4, 1fr); 
-    // margin-top: rem(29);
   }
-}
-
-.global-nav__item-wrapper {
-
-
 }
 
 .global-nav__heading {
@@ -26,10 +19,32 @@
   line-height: calc(18/16);
   display: block;
   padding: rem(20) 0;
+  display: block;
+  position: relative;
 }
 .global-nav__heading:first-child {
   padding-top: 0;
 }
+
+// ヒトデのアイコン
+.global-nav__heading::before {
+    content: "";
+    display: inline-block;
+    width: rem(18);
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    background-image: url(../images/common/footer-hitode-icon.png);
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    transform: translate(0, -50%);
+    z-index: 999999;
+  }
+  .global-nav__heading:first-child::before {
+    top: 0;
+    transform: none;
+  }
 
 .global-nav__items {
   display: flex;
@@ -38,10 +53,6 @@
   align-items: flex-start;
   gap: rem(24);
   margin-top: rem(4);
-}
-
-.global-nav__item {
-
 }
 
 .global-nav__link {

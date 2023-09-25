@@ -6,6 +6,23 @@
     margin-top: 0;
     padding-top: rem(100);
     position: relative;
+    z-index: 1;
+  }
+}
+// 魚のイラスト
+.blog::after {
+  @include mq(md) {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    max-width: rem(437);
+    aspect-ratio: 437/201;
+    background-image: url(../images/common/blog-fish.png);
+    background-size: contain;
+    position: absolute;
+    top: 2.902%;//24/827
+    left: 6.944%;//100/1440
+    z-index: 999999;
   }
 }
 .blog__background-image {
@@ -25,19 +42,18 @@
 }
 
 .blog__inner {
-  padding-right: rem(21);
-  padding-left: rem(21);
+
 }
 
-// .blog__section-title {
-//   @include mq(md) {
-//     color: $white;
-//   }
-// }
-
-.blog__section-title {
+.section-title__en--blog,
+.section-title__jp--blog {
   @include mq(md) {
-    color: $white; // PCの場合、文字色を白に設定
+    color: $white;
+  }
+}
+.section-title__en--blog::first-letter {
+  @include mq(md) {
+    color: $white;
   }
 }
 
@@ -45,23 +61,20 @@
   margin-top: rem(24);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  // 最小幅はウィンドウ幅の100％または320pxのいずれか小さい方で、最大幅は1フラクション（1等分の幅）です。これにより、ウィンドウの幅に合わせて列の幅が調整され、最大1列になります。
   gap: rem(40);
   justify-items: center; 
-
-  // margin-top: rem(24);
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // gap: rem(40);
-  // @include mq(md) {
-  //   flex-direction: inherit;
-  // }
+  @include mq(md) {
+    margin-top: rem(80);
+  }
 }
 
 .blog__button {
   margin-top: rem(40);
   margin-right: auto;
   margin-left: auto;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
 }
 

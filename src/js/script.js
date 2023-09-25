@@ -72,7 +72,7 @@ jQuery(function ($) {
   // Campaignスワイパーここまで
 
 
-
+// Information 画像アニメーション
 
 
 
