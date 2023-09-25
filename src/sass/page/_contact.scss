@@ -3,7 +3,6 @@
 .contact {
   text-shadow: 2px 2px 5px rgba(13, 41, 54, 0.3); //水平、垂直、ぼかし。0.3は透明度
   margin-top: rem(80);
-  overflow: hidden;
   @include mq(md) {
     margin-top: rem(140);
   }
@@ -38,27 +37,23 @@
 
 
 .contact__contents-wrapper {
-  padding-right: 0;
-  padding-left: rem(15);
   @include mq(md) {
     width: 100%;
     max-width: rem(1080);
     display: flex;
     box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
-    padding-left: 0;
+    padding: rem(80) rem(50);
   }
 }
 
 .contact__body {
   width: 100%;
-  padding-right: rem(25);
-  padding-left: rem(10);
+  padding: 0 rem(25);
   @include mq(md) {
     padding-right: rem(82);
-    padding-left: rem(50);
-    margin-top: rem(80);
-    margin-bottom: rem(80);
+    padding-left: 0;
+
   }
 }
 
@@ -123,11 +118,9 @@ display: block;
 
 .contact__map {
   width: 100%;
-  max-width: rem(295);
+  max-width: 100%;
   aspect-ratio: 295/160;
   margin-top: rem(16);
-  margin-right: auto;
-  margin-left: auto;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: relative;
   @include mq(md) {
@@ -149,14 +142,12 @@ display: block;
   max-width: 100%;
   margin-top: rem(40);
   text-align: center;
-  padding-right: rem(15);
-  padding-left: 0;
+  padding: 0 rem(15);
   @include mq(md) {
     border-left: 1px solid $green;
-    margin-top: rem(100);
-    margin-bottom: rem(100);
-    padding-right: rem(112);
-    padding-left: rem(81);
+    margin-top: 0;
+    padding-right: rem(62);
+    padding-left: 0;
   }
 }
 
