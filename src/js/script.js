@@ -54,129 +54,26 @@ jQuery(function ($) {
   });
   // FVスワイパーここまで
 
+
+
   // スワイパー(Campaign)
-  let CampaignSwiper = new Swiper('.js-campaign-swiper', {
-    loop: true, // ループ有効
+  let campaignSwiper = new Swiper('.js-campaign-swiper', {
+    loop: true,
     autoplay: {
-      delay: 5000, // 自動再生の遅延時間（ミリ秒）
+      delay: 5000,
     },
-    spaceBetween: 24, // スライド間の余白
-    allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    allowTouchMove: true,
+    allowSlideNext: true,
+    allowSlidePrev: true,
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    breakpoints: {
+      768: {
+        spaceBetween: 40
+      }
     },
   });
-  // Campaignスワイパーここまで
 
-
-// Information 画像アニメーション
-
-
-
-
-  // サンプル
-
-//   // ファーストビュースライダー
-// var swiper01 = new Swiper(".fv-swiper", {
-//   loop: true,
-//   effect: "fade",
-//   autoplay: {
-//     delay: 4000,
-//     disableOnInteraction: false
-//   },
-//   speed: 2000,
-//   pagination: {
-//     el: ".swiper-pagination",
-//     clickable: true
-//   }
-// });
-
-// // キャンペーンカードスライダー
-// var mySwiper02 = new Swiper('.campaign-swiper ', {
-//   loop: true,
-//   loopSlide: 8,
-//   speed: 2000,
-//   slidesPerView: '1.22',
-//   spaceBetween: 24,
-//   grabCursor: true,
-//   width: 280,
-//   autoplay: {
-//     delay: 2000,
-//     disableOnInteraction: false
-//   },
-//   breakpoints: {
-//     768: {
-//       spaceBetween: 40,
-//       slidesPerView: '3.5',
-//       width: 1265.5
-//     },
-//     1920: {
-//       slidesPerView: "5",
-//       spaceBetween: 40,
-//       width: 1825
-//     }
-//   },
-//   pagination: {
-//     el: '.js-campaign-card .swiper-pagination',
-//     clickable: true
-//   },
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev'
-//   }
-// });
-
-
-
-
-
-
-
-
-// // Swiper スワイパー(FV)
-// let fvSwiper = new Swiper(".fv-swiper", {
-//   loop: true, // ループ有効
-//   autoplay: {
-//     delay: 3000, // 自動再生の遅延時間（ミリ秒）
-//   },
-//   slidesPerView: 1, // 1度に1枚のスライドを表示
-//   allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
-// });
-
-// // Campaignスワイパー
-// let slidesPerViewResponsive = 1; // 初期値
-
-// if (window.innerWidth >= 375) {
-//   // 375px以上の場合、画面幅に合わせてスライド数を設定
-//   slidesPerViewResponsive = Math.floor(window.innerWidth / 375); // スライド数は375pxのスライドを基準に調整
-// }
-
-// let campaignSwiper = new Swiper(".campaign-swiper", {
-//   loop: true, // ループ有効
-//   autoplay: {
-//     delay: 5000, // 自動再生の遅延時間（ミリ秒）
-//   },
-//   slidesPerView: slidesPerViewResponsive, // スライド数を自動調整
-//   spaceBetween: 24, // スライド間の余白
-//   allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
-//   navigation: {
-//     nextEl: '.campaign-swiper__btn-next', // 次のスライドへのナビゲーションボタン
-//     prevEl: '.campaign-swiper__btn-prev', // 前のスライドへのナビゲーションボタン
-//   },
-// });
-
-
-
-
-
-
-
-  
-  
-  
 
 }); //jQuery 閉じタグ
 

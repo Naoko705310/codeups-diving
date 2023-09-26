@@ -1,0 +1,38 @@
+@use "global" as *;
+// Campaign スワイパー
+
+.campaign-swiper.swiper {//一番外側のコンテナ
+  // width: 100%;
+  // max-width: 100%;
+  // margin-top: rem(24);
+  // // margin-right: calc(50% - 50vw);
+  // overflow: hidden;
+  // @include mq(md) {
+  //   margin-top: rem(40);
+  // }
+}
+
+.campaign-swiper .swiper-wrapper {
+  // width: 100%;
+  // max-width: 100%;
+  // height: 100%;
+}
+
+.campaign-swiper .swiper-slide {
+  // // width: rem(280);
+  // max-width: 100%;
+  // height: 100%;
+  // @include mq(md) {
+  //   // width: rem(333);
+  // }
+}
+
+
+.swiper-button-prev {
+
+}
+
+.swiper-button-next {
+
+}
+

@@ -8,34 +8,32 @@
 
 }
 .campaign__inner {
-  padding: 0 rem(15);
-}
-.campaign__section-title {
-
-}
-
-// Campaign スワイパー
-.campaign__swiper-wrapper {
   width: 100%;
-  // height: rem(366);
-  height: rem(400);
-  overflow: hidden;
-  margin-top: rem(24);
-  // display: flex; /* コンテナ内の要素を中央に配置 */
-  // justify-content: center; /* 水平方向に中央配置 */
-  // align-items: center; /* 垂直方向に中央配置 */
-  // overflow: hidden; /* 子要素の影が見切れないようにする */
+  padding-left: rem(15);
   @include mq(md) {
-    margin-top: rem(40);
+    width: rem(1260);
+    max-width: 100%;
+    padding-left: rem(25);
+    margin-left: auto;
   }
 }
 
+.campaign__section-title {
+  // margin-right: calc(50% - 50vw);
+}
 
+// Campaign スワイパー
+// /* スライダーの追加スタイル */
 .campaign__swiper {
   width: 100%;
   max-width: 100%;
-  height: inherit;
-  // height: rem(445);
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+    padding-right: rem(180);
+    position: relative;
+    // margin-right: calc(50% - 50vw);
+  }
 }
 
 .campaign__swiper .swiper-wrapper {
@@ -47,11 +45,12 @@
 
 
 .campaign__swiper .swiper-slide {
-  width: rem(333);
+  width: rem(280);
   max-width: 100%;
   height: inherit;
-  aspect-ratio: 333/445;
+  // aspect-ratio: 1440/768;
 }
+
 
 .campaign__button {
   margin-top: rem(40);

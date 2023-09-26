@@ -8,13 +8,27 @@
 }
 .voice__inner {
   padding: 0 rem(15);
+}
+
+.voice__card-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(40);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: rem(40);
+  position: relative;
+  z-index: 1;
   @include mq(md) {
-    position: relative;
-    z-index: 1;
+    margin-top: rem(30);
+    flex-direction: row;
+    justify-content: center;
   }
 }
 // 魚のイラスト
-.voice__inner::before {
+.voice__card-wrapper::before {
   @include mq(md) {
     content: "";
     display: inline-block;
@@ -24,13 +38,14 @@
     background-image: url(../images/common/voice-fish.png);
     background-size: contain;
     position: absolute;
-    top: -19.169%; //120/626
-    left: -5.555%; //80/1080
+    top: rem(-216);
+    left: rem(-80);
     z-index: 999999;
   }
 }
+
 // 竜の落とし子のイラスト
-.voice__inner::after {
+.voice__card-wrapper::after {
   @include mq(md) {
     content: "";
     display: inline-block;
@@ -40,32 +55,13 @@
     background-image: url(../images/common/voice-doragon.png);
     background-size: contain;
     position: absolute;
-    bottom: -12.939%; //81/626
-    bottom: -10.634%; //67/630
+    // bottom: rem(-205);
+    bottom: rem(-205);
     right: 0;
     z-index: 999999;
   }
 }
-.voice__card-wrapper {
-  width: 100%;
-  max-width: 100%;
-  margin-top: rem(40);
-  display: grid;
-  grid-template-columns: 1fr; /* スマホでは1列に配置 */
-  justify-items: center;
-  gap: rem(20);
-  @include mq(md) {
-    margin-top: rem(30);
-    gap: rem(40);
-    // grid-template-columns: repeat(auto-fit, minmax(50%, 1fr)); /* 画面幅に応じて列数が調整される */
-    // grid-template-columns: repeat(2, 1fr); /* 画面幅が768px以上では2列に配置 */
-    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 最小幅300px、最大幅1frで可変幅 */
 
-  }
-  @include mq(lg) {
-    // grid-template-columns: repeat(2, 1fr); /* 画面幅が1080px以上では2列に配置 */
-  }
-}
 
 
 
