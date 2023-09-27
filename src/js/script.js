@@ -33,33 +33,37 @@ jQuery(function ($) {
     }, 1000); // スクロールのアニメーション時間を調整
   });
 
-
-  // ヘッダーの色を変える（FadeInすなわちdisplay:blockにする）
-  // $('.js-header').on('click', function () {
-  //   if ($('.js-header').hasClass('is-open')) {
-  //     $('.js-header').removeClass('is-open'); // .is-open クラスを削除
-  //     $('.js-header').css('background-color', ''); // 背景色をクリア（元に戻す）
-  //   } else {
-  //     $('.js-header').addClass('is-open'); // .is-open クラスを追加
-  //     $('.js-header').css('background-color', '#408F95'); // 背景色を設定
-  //   }
-  // });
-
-  // スワイパー(FV)
-  let fvSwiper = new Swiper('.js-fv-swiper', {
-    loop: true, // ループ有効
+  // スワイパーはここに書く
+  // FV スワイパー
+  var fvSwiper = new Swiper('.js-fv-swiper', {
+    loop: true,
+    effect: "fade",
+    speed: 3000,
+    allowTouchMove: false,// ユーザーのスワイプ操作を無効にする
     autoplay: {
-      delay: 3000, // 自動再生の遅延時間（ミリ秒）
+        delay: 3000// 自動再生の遅延時間（ミリ秒）
     },
     slidesPerView: 1, // 1度に1枚のスライドを表示
-    allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
   });
-  // FVスワイパーここまで
 
-
-
-  // スワイパー(Campaign)
-  let campaignSwiper = new Swiper('.js-campaign-swiper', {
+  // Campaign スワイパー
+  var campaignSwiper = new Swiper('.js-campaign-swiper', {
     loop: true,
     autoplay: {
       delay: 5000,
@@ -74,10 +78,26 @@ jQuery(function ($) {
         spaceBetween: 40
       }
     },
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
   });
 
 
-  // ボタンのアニメーション
+// 画像出現アニメーション(カラーボックスの後に画像表示)
 //要素の取得とスピードの設定
 var box = $('.colorbox'),
     speed = 700;  
