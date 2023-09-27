@@ -7,6 +7,13 @@
   z-index: 1;
 }
 
+.button__color-box {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .button__link {
   font-family: $second-font-family;
   font-size: rem(14);
@@ -32,7 +39,6 @@
 .button__link::before {
   content: "";
   display: block;
-  position: absolute;
   border: 1px solid $green;
   width: 100%;
   height: 100%;
@@ -43,7 +49,7 @@
 }
 
 // 右矢印
-.button__link::after {
+.button__link span::after {
   content: "";
   display: inline-block;
   width: rem(40);
@@ -53,7 +59,6 @@
   border-bottom: 1px solid $white;
   transform: skew(45deg);
   position: absolute;
-  // top: 44.4444%; //ボタンの高さ54pxで計算
   top: 42.857%;//ボタンの高さ56pxで計算
   right: rem(40);
   z-index: 1;
@@ -62,20 +67,20 @@
 // スライドアニメーション
 
 //ボタンを囲むラインが消えてしまったので、後から修正（キャンペーンのボタンでテスト）
-.btn03 {
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-.btn03::before {
-  width: 100%;
-  height: 100%;
-  background-color: $green-deep;
-  position: absolute;
-  left: -100%;
-  top: 0;
-  z-index: -2;
-}
-.btn03:hover::before {
-  left: 0;
-}
+// .btn03 {
+//   position: relative;
+//   z-index: 2;
+//   overflow: hidden;
+// }
+// .btn03::before {
+//   width: 100%;
+//   height: 100%;
+//   background-color: $green-deep;
+//   position: absolute;
+//   left: -100%;
+//   top: 0;
+//   z-index: -2;
+// }
+// .btn03:hover::before {
+//   left: 0;
+// }

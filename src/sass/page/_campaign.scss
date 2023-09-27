@@ -18,9 +18,6 @@
   }
 }
 
-.campaign__section-title {
-  // margin-right: calc(50% - 50vw);
-}
 
 // Campaign スワイパー
 // /* スライダーの追加スタイル */
@@ -49,6 +46,9 @@
   max-width: 100%;
   height: inherit;
   // aspect-ratio: 1440/768;
+  @include mq(md) {
+    width: rem(333);
+  }
 }
 
 
