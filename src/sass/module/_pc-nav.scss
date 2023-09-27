@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.header__pc-nav {
-
-}
-
 .pc-nav {
   display: none; //最初(SP)は非表示
   height: 100%;
@@ -13,13 +9,11 @@
   display: flex;
   align-items: center;
   height: 100%;
-
-
 }
 
 .pc-nav__item {
   padding: 0 rem(20);
-
+  position: relative;//hover時の下線用
 }
 
 .pc-nav__link {
@@ -32,9 +26,7 @@
   display: block;
   text-align: center;
   padding-top: rem(28);
-  // padding-right: rem(20);
   padding-bottom: rem(27);
-  // padding-left: rem(20);
   white-space: nowrap;
 }
 .pc-nav__link span {
@@ -50,54 +42,25 @@
   text-transform: uppercase;
 }
 
+.pc-nav__link.current,
+.pc-nav__item:hover {
+  color: $white;
+}
 
+.pc-nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: rem(20);
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background:$white;
+  transition: all .3s;
+  transform: scale(0, 1);/*X方向0、Y方向1*/
+  transform-origin: center top;/*上部中央基点*/
+}
 
-// // PCナビ
-// .p-pc-nav {
-  
-//   height: inherit;
-//   display: none;
-//   @include mq(md) {
-//     display: block;
-//     margin-left: auto;
-//   }
-// }
-// .p-pc-nav__items {
-//   height: inherit;
-//   display: flex;
-//   align-items: center;
-// }
-
-// .p-pc-nav__item {
-//   height: inherit;
-// }
-
-// .p-pc-nav__item a {
-//   font-family: "Noto Sans JP";
-//   font-size: 1.6rem;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: calc(32/16);
-//   color: $col-main-blue;
-//   height: inherit;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 0 16px;
-// }
-// .p-pc-nav__item a span {
-//   font-family: "Noto Sans JP";
-//   font-size: 1.4rem;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 1;
-//   color: $col-main-blue;
-//   display: inline-block;
-//   text-transform: capitalize;
-// }
-
-// .p-pc-nav__item a:hover {
-//   cursor: pointer;
-//   background-color: $col-main-light-blue;
-// }
+.pc-nav__link.current a::after,
+.pc-nav__link:hover::after {
+  transform: scale(1, 1);/*X方向にスケール拡大*/
+}

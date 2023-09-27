@@ -14,8 +14,9 @@ jQuery(function ($) {
       $(this).addClass('is-open');
       // メニューが開いたときにスクロールを無効にする
       $('body').css('overflow', 'hidden');
+
       // メニューが開いたときにヘッダーの色を設定
-      $('.js-header').css('background-color', '$green'); // 背景色を設定
+      $('.js-header').css('background-color', '#408F95'); // 背景色を設定
     }
   }); // ハンバーガー：閉じタグ
 
@@ -33,15 +34,15 @@ jQuery(function ($) {
   });
 
   // ヘッダーの色を変える（FadeInすなわちdisplay:blockにする）
-  $('.js-header').on('click', function () {
-    if ($('.js-header').hasClass('is-open')) {
-      $('.js-header').removeClass('is-open'); // .is-open クラスを削除
-      $('.js-header').css('background-color', ''); // 背景色をクリア（元に戻す）
-    } else {
-      $('.js-header').addClass('is-open'); // .is-open クラスを追加
-      $('.js-header').css('background-color', '$green'); // 背景色を設定
-    }
-  });
+  // $('.js-header').on('click', function () {
+  //   if ($('.js-header').hasClass('is-open')) {
+  //     $('.js-header').removeClass('is-open'); // .is-open クラスを削除
+  //     $('.js-header').css('background-color', ''); // 背景色をクリア（元に戻す）
+  //   } else {
+  //     $('.js-header').addClass('is-open'); // .is-open クラスを追加
+  //     $('.js-header').css('background-color', '#408F95'); // 背景色を設定
+  //   }
+  // });
 
   // スワイパー(FV)
   let fvSwiper = new Swiper('.js-fv-swiper', {
