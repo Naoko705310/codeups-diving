@@ -124,6 +124,45 @@ box.each(function(){
     });
 });//画像エフェクト閉じタグ
 
+// TOPへ戻るボタン
+const returnTop = document.querySelector('.js-button-to-top');
+const footer = document.querySelector('footer'); // footer要素のセレクタを適切に変更してください
+const footerHeight = footer.clientHeight; // footerの高さを取得
+
+window.addEventListener('scroll', () => {
+  let scrollY = window.scrollY;
+  
+  if (scrollY > 768) {
+    returnTop.classList.add('active');
+    
+    // スクロール位置がfooterの上に達したらボタンの色を変更
+    if (scrollY + window.innerHeight > footer.offsetTop) {
+      returnTop.classList.add('white'); // whiteクラスを追加してボタンの色を変更
+    } else {
+      returnTop.classList.remove('white'); // whiteクラスを削除して通常の色に戻す
+    }
+  } else {
+    returnTop.classList.remove('active');
+    returnTop.classList.remove('white'); // スクロール位置が768未満の場合も色を通常に戻す
+  }
+});
+
+
+
+
+// const returnTop = 
+// document.querySelector('.js-button-to-top');
+// window.addEventListener('scroll', () => {
+//   let scroll_Y = window.scrollY;
+//   if(scroll_Y > 768) {
+//     returnTop.classList.add('active');
+//   }
+//   else {
+//     returnTop.classList.remove('active');
+//   }
+  
+// } )
+
 
 }); //jQuery 閉じタグ
 
