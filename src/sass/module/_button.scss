@@ -65,6 +65,11 @@
 }
 
 .button__link span {
+  font-family: $second-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(22/14);
   padding-right: rem(40);
 }
 // 右矢印
@@ -77,6 +82,7 @@
   border-right: 1px solid $white;
   border-bottom: 1px solid $white;
   transform: skew(45deg);
+  margin-left: rem(8);
   position: absolute;
   top: 42.857%;//ボタンの高さ56pxで計算
   right: rem(40);

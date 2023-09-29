@@ -30,14 +30,14 @@
   object-fit: cover;
 }
 .blog-card__body {
-  margin-top: rem(24);
+  margin-top: rem(20);
 }
 .blog-card__time {
   font-family: $second-font-family;
   font-size: rem(12);
   color: $green-deep;
   font-weight: $normal;
-  line-height: calc(18/12);margin-top: rem(24);
+  line-height: calc(18/12);
 }
 
 .blog-card__heading {
