@@ -65,8 +65,9 @@ jQuery(function ($) {
   // Campaign スワイパー
   var campaignSwiper = new Swiper('.js-campaign-swiper', {
     loop: true,
+    speed: 4000, // ループの時間
     autoplay: {
-      delay: 5000,
+      delay: 0,
     },
     allowTouchMove: true,
     allowSlideNext: true,
@@ -78,21 +79,11 @@ jQuery(function ($) {
         spaceBetween: 40
       }
     },
-
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
   
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
+      nextEl: '.campaign__swiper-btn--prev',
+      prevEl: '.campaign__swiper-btn--next',
     },
   });
 
@@ -137,13 +128,13 @@ window.addEventListener('scroll', () => {
     
     // スクロール位置がfooterの上に達したらボタンの色を変更
     if (scrollY + window.innerHeight > footer.offsetTop) {
-      returnTop.classList.add('white'); // whiteクラスを追加してボタンの色を変更
+      returnTop.classList.add('change-color'); // change-colorクラスを追加してボタンの色を変更
     } else {
-      returnTop.classList.remove('white'); // whiteクラスを削除して通常の色に戻す
+      returnTop.classList.remove('change-color'); // change-colorクラスを削除して通常の色に戻す
     }
   } else {
     returnTop.classList.remove('active');
-    returnTop.classList.remove('white'); // スクロール位置が768未満の場合も色を通常に戻す
+    returnTop.classList.remove('change-color'); // スクロール位置が768未満の場合も色を通常に戻す
   }
 });
 

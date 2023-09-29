@@ -1,27 +1,52 @@
 @use "global" as *;
+// TOPへ戻るボタン
 
 .button-to-top {
-display: none;
-
+  display: inline-block;
   width: rem(48);
   max-width: 100%;
   height: rem(48);
-  background-color: $white;
   border: 1px solid $green;
   border-radius: 50%;
-  margin-top: rem(36);
-  position: relative;
+  position:fixed;
+  right: rem(20);
+  bottom: rem(20);
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  @include mq(md) {
+    width: rem(80);
+    height: rem(80);
+  }
 }
-.button-to-top::before {
-  content: "";
+
+.button-to-top.change-color {
+  border: 1px solid $white;
+    /* span要素の色を変更 */
+    span {
+      border-top: 1px solid $white;
+      border-right: 1px solid $white;
+    }
+}
+
+
+.button-to-top span {
+  display: block;
   width: rem(6);
   height: rem(28);
-  border-bottom: solid 1px $green;
-  border-right: solid 1px $green;
-  transform: skew(45deg);
-  display: inline-block;
+  border-top: 1px solid $green;
+  border-right: 1px solid $green;
+  transform: skewY(-45deg);
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  @include mq(md) {
+    width: rem(10);
+    height: rem(40);
+  }
 }
 
-.button-to-top__link {
-
+.button-to-top.active {
+  opacity: 1;
+  visibility: visible;
 }

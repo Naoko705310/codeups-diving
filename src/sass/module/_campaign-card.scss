@@ -35,7 +35,10 @@ width: rem(280);
 .campaign-card__body {
   padding-right: rem(16);
   padding-left: rem(16);
-  padding-bottom: rem(40);
+  padding-bottom: rem(24);
+  @include mq(md) {
+    padding-bottom: rem(40);
+  }
 }
 
 .campaign-card__tag {

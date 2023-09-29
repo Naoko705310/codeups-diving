@@ -21,11 +21,17 @@
 
 
 // Campaign スワイパー
-// /* スライダーの追加スタイル */
+.campaign__swiper-container {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
 .campaign__swiper {
   width: 100%;
   max-width: 100%;
+  height: auto;
   margin-top: rem(24);
+  padding-bottom: rem(10);
   @include mq(md) {
     margin-top: rem(40);
     position: relative;
@@ -37,6 +43,7 @@
   width: 100%;
   max-width: 100%;
   height: inherit;
+  transition-timing-function: linear;
 }
 
 
@@ -45,31 +52,65 @@
   width: rem(280);
   max-width: 100%;
   height: inherit;
-  // aspect-ratio: 1440/768;
   @include mq(md) {
     width: rem(333);
   }
 }
 
+// スワイパー左右矢印
+.campaign__swiper-button-wrapper {
+  width: rem(240);
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* 前へ次への矢印カスタマイズ */
+.swiper-button-prev,
+.swiper-button-next {
+  height: rem(80);
+  width: rem(80);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* 前へ次への矢印カスタマイズ */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "";
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+}
+/* 前への矢印カスタマイズ */
+.swiper-button-prev::after {
+  background-image: url(../images/common/swiper-btn--prev.png);
+}
+/* 次への矢印カスタマイズ */
+.swiper-button-next::after {
+  background-image: url(../images/common/swiper-btn--next.png);
+}
+/* 画像サイズ調整 */
+.swiper-slide img {
+  height: auto;
+  width: 100%;
+}
 
-.campaign__button {
-  margin-top: rem(40);
-  margin-right: auto;
-  margin-left: auto;
-  @include mq(md) {
-    margin-top: rem(80);
-  }
-}
-.campaign__swiper-btn--prev {
-width: rem(80);
-max-width: 100%;
-height: rem(80);
-background-color: aquamarine;
-position: absolute;
-top: 4%;
-right: 50%;
-}
-.campaign__swiper-btn--prev::after {
+
+// .campaign__swiper-btn--prev {
+// width: rem(80);
+// max-width: 100%;
+// height: rem(80);
+// background-color: aquamarine;
+// background-image: url(./assets/images/common/swiper-btn-prev.png);
+// position: absolute;
+// top: 4%;
+// right: 50%;
+// }
+// .campaign__swiper-btn--prev::after {
   // content: "";
   //   display: inline-block;
   //   width: 100%;
@@ -81,33 +122,42 @@ right: 50%;
   //   top: 0;
   //   left: 0;
   //   z-index: 999999;
-}
 
-.campaign__swiper-btn--next {
-  width: rem(80);
-  max-width: 100%;
-  height: rem(80);
-  background-color: pink;
-  position: absolute;
-  top: 4%;
-  right: 0;
-  z-index: 88888;
-}
-.campaign__swiper-btn--next::after {
-  // content: "";
-  //   display: inline-block;
-  //   width: 100%;
-  //   max-width: rem(80);
-  //   aspect-ratio: 80/80;
-  //   background-image: url(../images/common/campaign__swiper-btn--next.png);
-  //   background-size: contain;
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   z-index: 999999;
-}
 
-.swiper-button-next {
+// .campaign__swiper-btn--next {
+//   width: rem(80);
+//   max-width: 100%;
+//   height: rem(80);
+//   background-color: pink;
+//   position: absolute;
+//   top: 4%;
+//   right: 0;
+//   z-index: 88888;
+// }
+// .campaign__swiper-btn--next::after {
+//   // content: "";
+//   //   display: inline-block;
+//   //   width: 100%;
+//   //   max-width: rem(80);
+//   //   aspect-ratio: 80/80;
+//   //   background-image: url(../images/common/campaign__swiper-btn--next.png);
+//   //   background-size: contain;
+//   //   position: absolute;
+//   //   top: 0;
+//   //   right: 0;
+//   //   z-index: 999999;
+// }
 
+// .swiper-button-next {
+
+// }
+
+// view more ボタン
+.campaign__button {
+  margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
 }
-

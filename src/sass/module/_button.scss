@@ -83,34 +83,3 @@
   z-index: 1;
 }
 
-
-// TOPへ戻るボタン
-.button-to-top {
-  display: inline-block;
-  width: rem(80);
-  max-width: 100%;
-  height: rem(80);
-  background-color: pink;
-  border: 1px solid $green;
-  border-radius: 50%;
-  position:fixed;
-  right: rem(20);
-  bottom: rem(20);
-  z-index: 999999;
-  opacity: 0;
-  visibility: hidden;
-}
-.button-to-top span {
-  display: block;
-  width: rem(10);
-  height: rem(40);
-  border: 1px solid $green;
-  transform: skewY(-45deg);
-  position: absolute;
-  top: 30%;
-  right: 50%;
-}
-.button-to-top.active {
-  opacity: 1;
-  visibility: visible;
-}
