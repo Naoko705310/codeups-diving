@@ -46,20 +46,20 @@ jQuery(function ($) {
     slidesPerView: 1, // 1度に1枚のスライドを表示
 
     // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+    // pagination: {
+    //   el: '.swiper-pagination',
+    // },
   
     // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
   
     // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
   });
 
   // Campaign スワイパー
@@ -82,8 +82,8 @@ jQuery(function ($) {
   
     // Navigation arrows
     navigation: {
-      nextEl: '.campaign__swiper-btn--prev',
-      prevEl: '.campaign__swiper-btn--next',
+      nextEl: '.swiper-button-prev',
+      prevEl: '.swiper-button-next',
     },
   });
 

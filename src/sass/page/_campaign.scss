@@ -5,27 +5,13 @@
   @include mq(md) {
     margin-top: rem(120);
   }
-
 }
 .campaign__inner {
-  width: 100%;
-  padding-left: rem(15);
   position: relative;
-  @include mq(md) {
-    width: rem(1260);
-    max-width: 100%;
-    padding-left: rem(25);
-    margin-left: auto;
-  }
 }
 
 
 // Campaign スワイパー
-.campaign__swiper-container {
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-}
 .campaign__swiper {
   width: 100%;
   max-width: 100%;
@@ -34,8 +20,7 @@
   padding-bottom: rem(10);
   @include mq(md) {
     margin-top: rem(40);
-    position: relative;
-    // margin-right: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
 }
 
@@ -45,8 +30,6 @@
   height: inherit;
   transition-timing-function: linear;
 }
-
-
 
 .campaign__swiper .swiper-slide {
   width: rem(280);
@@ -61,23 +44,24 @@
 .campaign__swiper-button-wrapper {
   width: rem(240);
   max-width: 100%;
+  height: rem(80);
   position: absolute;
   top: 0;
   right: 0;
 }
-/* 前へ次への矢印カスタマイズ */
+
 .swiper-button-prev,
 .swiper-button-next {
   height: rem(80);
   width: rem(80);
   position: absolute;
-  top: 0;
+  top: 30%;
   right: 0;
 }
-/* 前へ次への矢印カスタマイズ */
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  content: "";
+  content: "";//空にしてデフォルトのスタイルを打ち消す
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -85,72 +69,19 @@
   background-size: contain;
   margin: auto;
 }
-/* 前への矢印カスタマイズ */
+
 .swiper-button-prev::after {
   background-image: url(../images/common/swiper-btn--prev.png);
 }
-/* 次への矢印カスタマイズ */
+
 .swiper-button-next::after {
   background-image: url(../images/common/swiper-btn--next.png);
 }
-/* 画像サイズ調整 */
+
 .swiper-slide img {
   height: auto;
   width: 100%;
 }
-
-
-// .campaign__swiper-btn--prev {
-// width: rem(80);
-// max-width: 100%;
-// height: rem(80);
-// background-color: aquamarine;
-// background-image: url(./assets/images/common/swiper-btn-prev.png);
-// position: absolute;
-// top: 4%;
-// right: 50%;
-// }
-// .campaign__swiper-btn--prev::after {
-  // content: "";
-  //   display: inline-block;
-  //   width: 100%;
-  //   max-width: rem(80);
-  //   aspect-ratio: 80/80;
-  //   background-image: url(../images/common/campaign__swiper-btn--prev.png);
-  //   background-size: contain;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: 999999;
-
-
-// .campaign__swiper-btn--next {
-//   width: rem(80);
-//   max-width: 100%;
-//   height: rem(80);
-//   background-color: pink;
-//   position: absolute;
-//   top: 4%;
-//   right: 0;
-//   z-index: 88888;
-// }
-// .campaign__swiper-btn--next::after {
-//   // content: "";
-//   //   display: inline-block;
-//   //   width: 100%;
-//   //   max-width: rem(80);
-//   //   aspect-ratio: 80/80;
-//   //   background-image: url(../images/common/campaign__swiper-btn--next.png);
-//   //   background-size: contain;
-//   //   position: absolute;
-//   //   top: 0;
-//   //   right: 0;
-//   //   z-index: 999999;
-// }
-
-// .swiper-button-next {
-
-// }
 
 // view more ボタン
 .campaign__button {
