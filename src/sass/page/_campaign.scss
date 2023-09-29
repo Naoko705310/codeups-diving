@@ -10,17 +10,16 @@
   position: relative;
 }
 
-
 // Campaign スワイパー
 .campaign__swiper {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+  // width: 100vw;
+  // max-width: 100%;
+  // height: auto;
   margin-top: rem(24);
   padding-bottom: rem(10);
+  margin-right: calc(50% - 50vw);
   @include mq(md) {
     margin-top: rem(40);
-    margin-right: calc(50% - 50vw);
   }
 }
 
@@ -29,6 +28,7 @@
   max-width: 100%;
   height: inherit;
   transition-timing-function: linear;
+
 }
 
 .campaign__swiper .swiper-slide {
@@ -47,7 +47,7 @@
   height: rem(80);
   position: absolute;
   top: 0;
-  right: 0;
+  right: rem(25);
 }
 
 .swiper-button-prev,
