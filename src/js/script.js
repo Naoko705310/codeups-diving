@@ -49,9 +49,9 @@ jQuery(function ($) {
   var campaignSwiper = new Swiper('.js-campaign-swiper', {
     loop: true,
     speed: 4000, // ループの時間
-    // autoplay: {
-    //   delay: 0,
-    // },
+    autoplay: {
+      delay: 0,
+    },
     allowTouchMove: true,
     allowSlideNext: true,
     allowSlidePrev: true,
