@@ -100,24 +100,26 @@ jQuery(function ($) {
 
   // TOPへ戻るボタン
   const returnTop = document.querySelector('.js-button-to-top');
-  const footer = document.querySelector('footer'); 
+  const footer = document.querySelector('footer');
   const footerHeight = footer.clientHeight; // footerの高さを取得
+  
   window.addEventListener('scroll', () => {
     let scrollY = window.scrollY;
-    
+  
     if (scrollY > 768) {
       returnTop.classList.add('active');
-      // スクロール位置がfooterの上に達したらボタンの色を変更
-      if (scrollY + window.innerHeight > footer.offsetTop) {
-        returnTop.classList.add('change-color'); // change-colorクラスを追加してボタンの色を変更
+      // スクロール位置がfooterの上部20pxの位置に達したら非表示にする
+      if (scrollY + window.innerHeight > footer.offsetTop - 20) {
+        returnTop.style.display = 'none'; // ボタンを非表示にする
       } else {
-        returnTop.classList.remove('change-color'); // change-colorクラスを削除して通常の色に戻す
+        returnTop.style.display = 'block'; // ボタンを表示する
       }
     } else {
       returnTop.classList.remove('active');
-      returnTop.classList.remove('change-color'); // スクロール位置が768未満の場合も色を通常に戻す
+      returnTop.style.display = 'block'; // ボタンを表示する
     }
   });
+
 }); //jQuery 閉じタグ
 
 
