@@ -4,7 +4,7 @@
   margin-top: rem(80);
   padding-bottom: rem(70); 
   @include mq(md) {
-    margin-top: rem(140);
+    margin-top: rem(135);//ズレ調整のため、140px→135pxへ調整
     padding-bottom: rem(140);//サンゴイラストがあるので、marginでなくpaddingでとる
     overflow: hidden;
   }
@@ -92,9 +92,9 @@
     justify-content: flex-start;
     gap: rem(40);
     position: absolute;
-    top: 50%;
+    top: 30%;
     right: 0;
-    transform: translateY(-50%);
+    // transform: translateY(-50%);
     z-index: 8888;
     margin-top: 0;
   }

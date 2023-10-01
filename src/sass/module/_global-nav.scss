@@ -1,14 +1,49 @@
 @use "global" as *;
 // SPナビとfooterナビ共通
 
+// .global-nav {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr); 
+//   gap: 20px;
+//   padding-left: rem(22);
+//   @include mq(md) {
+//     grid-template-columns: repeat(4, 1fr); 
+//   }
+// }
+/* .global-navクラス内のgrid-template-columnsプロパティを更新します */
 .global-nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
-  gap: 20px;
+  grid-template-areas: 
+  "areaA areaB"
+  "areaC areaD";
+  gap: rem(20) rem(30);
   padding-left: rem(22);
   @include mq(md) {
     grid-template-columns: repeat(4, 1fr); 
+    grid-template-areas: 
+    "areaA areaB areaC areaD";
+    gap: rem(20) rem(40);
   }
+}
+
+.global-nav__item-wrapper--left01 {
+  grid-area: areaA;
+}
+.global-nav__item-wrapper--left02 {
+  grid-area: areaC;
+  @include mq(md) {
+    grid-area: areaB;
+  }
+}
+.global-nav__item-wrapper--right01 {
+  grid-area: areaB;
+  @include mq(md) {
+    grid-area: areaC;
+  }
+}
+.global-nav__item-wrapper--right02 {
+  grid-area: areaD;
 }
 
 .global-nav__heading {
@@ -24,6 +59,12 @@
 }
 .global-nav__heading:first-child {
   padding-top: 0;
+}
+.global-nav__heading--padding {
+padding-top: rem(40);
+@include mq(md) {
+  padding-bottom: 0;
+}
 }
 
 // ヒトデのアイコン
@@ -43,6 +84,10 @@
   }
   .global-nav__heading:first-child::before {
     top: 0;
+    transform: none;
+  }
+  .global-nav__heading--padding::before {
+    top: 50%;
     transform: none;
   }
 

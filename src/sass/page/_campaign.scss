@@ -55,6 +55,10 @@
   top: 30%;
   right: 0;
 }
+.swiper-button-prev {
+  right: rem(20);
+}
+
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -86,6 +90,6 @@
   margin-right: auto;
   margin-left: auto;
   @include mq(md) {
-    margin-top: rem(80);
+    margin-top: rem(70);//ズレ修正のため80px→70pxへ調整
   }
 }

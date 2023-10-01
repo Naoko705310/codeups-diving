@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .voice {
-  margin-top: rem(80);
+  margin-top: rem(75);//80→75でズレを調整
   @include mq(md) {
     margin-top: rem(140);
   }
@@ -18,7 +18,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-  gap: rem(40);
+  gap: rem(35);//40→35でズレを調整
   position: relative;
   z-index: 1;
   @include mq(md) {

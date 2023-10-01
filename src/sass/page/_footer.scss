@@ -3,8 +3,9 @@
 .footer {
   background-color: $green;
   padding-bottom: rem(56);
-  margin-top: rem(100);
+  margin-top: rem(105);
   @include mq(md) {
+    padding-bottom: rem(80);
     margin-top: rem(160);
   }
 }
@@ -50,7 +51,9 @@
   margin-top: rem(20);
   text-align: center;
   @include mq(md) {
-    margin-top: rem(80);
+    font-size: rem(14);
+    line-height: calc(18/14);
+    margin-top: rem(70);//80px→70px
   }
 }
 

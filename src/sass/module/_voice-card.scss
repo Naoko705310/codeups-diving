@@ -3,7 +3,6 @@
 .voice-card {
   width: 100%;
   max-width: rem(345);
-  // max-width: 100%;
   padding-top: rem(15);
   padding-right: rem(16);
   padding-bottom: rem(24);
@@ -53,6 +52,7 @@
   font-size: rem(16);
   color: $green-deep;
   font-weight: 500;
+  line-height: 1.5;
   border-bottom: 1px solid $green;
   padding-bottom: rem(4);
   margin-top: rem(4);

@@ -10,10 +10,6 @@
   }
 }
 
-.price-list {
-
-}
-
 .price-list__items {
   margin-top: rem(40);
   @include mq(md) {
@@ -45,4 +41,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include mq(md) {
+    font-size: rem(16);
+    line-height: calc(24/16);
+  }
 }
