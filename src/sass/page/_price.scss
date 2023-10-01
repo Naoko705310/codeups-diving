@@ -71,6 +71,7 @@
     margin-top: 0;
   }
 }
+
 .price__image::before {
   content: "";
   display: block;
@@ -79,6 +80,7 @@
     padding-top: 151.626%;// 746/492（高さ/幅）
   }
 }
+
 .price__image img {
   width: 100%;
   max-width: 100%;

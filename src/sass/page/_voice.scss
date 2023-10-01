@@ -6,6 +6,7 @@
     margin-top: rem(140);
   }
 }
+
 .voice__inner {
   padding: 0 rem(15);
 }
@@ -27,6 +28,7 @@
     justify-content: center;
   }
 }
+
 // 魚のイラスト
 .voice__card-wrapper::before {
   @include mq(md) {
@@ -55,36 +57,11 @@
     background-image: url(../images/common/voice-doragon.png);
     background-size: contain;
     position: absolute;
-    // bottom: rem(-205);
     bottom: rem(-205);
     right: 0;
     z-index: 999999;
   }
 }
-
-
-
-
-
-
-
-
-// .voice__card-wrapper {
-//   width: 100%;
-//   max-width: 100%;
-//   margin-top: rem(40);
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   align-items: center;
-//   gap: rem(20); 
-//   @include mq(md) {
-//     width: calc(50% - 20px); /* カードの幅(50%)から余白を引く */
-//     flex-direction: row;
-//     margin-top: rem(30);
-//     gap: rem(40);
-//   }
-// }
 
 .voice__button {
   margin-top: rem(40);
