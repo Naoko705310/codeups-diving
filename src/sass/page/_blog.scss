@@ -9,6 +9,7 @@
     z-index: 1;
   }
 }
+
 // 魚のイラスト
 .blog::after {
   @include mq(md) {
@@ -25,6 +26,7 @@
     z-index: 999999;
   }
 }
+
 .blog__background-image {
   @include mq(md) {
     background-image: url('../images/common/blog-bg.jpg'); 

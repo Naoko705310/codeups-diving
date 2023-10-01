@@ -12,6 +12,7 @@ width: rem(280);
 .campaign-card__image {
   position: relative;
 }
+
 .campaign-card__image::before {
   content: "";
   display: block;
@@ -93,6 +94,7 @@ margin-top: rem(8);
       line-height: calc(24/24);
   }
 }
+
 .campaign-card__old-price::after {
   content: "";
   display: inline-block;
@@ -109,7 +111,6 @@ margin-top: rem(8);
 }
 
 .campaign-card__new-price {
-  // font-family: $base-font-family;
   font-family: 'Lato', sans-serif;
   font-size: rem(32);
   color: $green;

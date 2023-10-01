@@ -22,13 +22,11 @@
 
 .button-to-top.change-color {
   border: 1px solid $white;
-    /* span要素の色を変更 */
     span {
       border-top: 1px solid $white;
       border-right: 1px solid $white;
     }
 }
-
 
 .button-to-top span {
   display: block;

@@ -29,7 +29,8 @@ margin: 9px 0;
 .hamburger span:nth-child(3) {
 top: 0;
 }
-/*is-OPEN時の動き*/
+
+//is-OPEN時の動き
 .hamburger.is-open span:nth-child(1) {
 top: 5px;
 transform: rotate(45deg);

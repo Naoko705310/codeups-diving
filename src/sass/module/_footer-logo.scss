@@ -1,14 +1,5 @@
 @use "global" as *;
 
-
-.footer-logo {
-
-}
-
-.footer-logo__link {
-
-}
-
 .footer-logo__image {
   width: 100%;
   max-width: rem(120);
@@ -19,9 +10,9 @@
     aspect-ratio: 200/75;
   }
 }
+
 .footer-logo__image img {
   width: 100%;
   max-width: 100%;
   object-fit: contain;
-
 }

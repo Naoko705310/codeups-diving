@@ -22,13 +22,15 @@
   z-index: 1;
   transition: .3s;
 }
+
 .button__link::first-letter {
   text-transform: capitalize;
 }
+
 .button__link:hover span,
 .button__link:hover span::after {
-    color: $green;
-    border-color: $green;
+  color: $green;
+  border-color: $green;
 }
 
 // ボタンの影（外枠）
@@ -60,6 +62,7 @@
   transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
   z-index: -1;
 }
+
 .button__link:hover::after {
   transform: scale(1, 1);
 }
@@ -72,6 +75,7 @@
   line-height: calc(22/14);
   padding-right: rem(40);
 }
+
 // 右矢印
 .button__link span::after {
   content: "";
