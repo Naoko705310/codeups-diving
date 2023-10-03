@@ -9,17 +9,15 @@
     overflow: hidden;
   }
 }
-.about-us__inner.inner {
-  max-width: 80%;
-  @include mq(md) {
-    max-width: 100%;
-  }
-}
 
 .about-us__contents-wrapper {
+  max-width: rem(600);
   margin-top: rem(24);
+  margin-right: auto;
+  margin-left: auto;
   position: relative;
   @include mq(md) {
+    max-width: 100%;
     margin-top: rem(40);
   }
 }

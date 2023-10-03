@@ -11,21 +11,20 @@
 }
 
 .information__inner {
-  max-width: 80%;
   padding: 0 rem(15);
-  @include mq(md) {
-    max-width: 100%;
-  }
 }
 
 .information__contents-wrapper {
   width: 100%;
-  max-width: 100%;
+  max-width: rem(600);
   display: flex;
   flex-direction: column;
   gap: rem(24);
   margin-top: rem(24);
+  margin-right: auto;
+  margin-left: auto;
   @include mq(md) {
+    max-width: 100%;
     flex-direction: row;
     gap: rem(48);
     margin-top: rem(40);
