@@ -9,6 +9,12 @@
     overflow: hidden;
   }
 }
+.about-us__inner.inner {
+  max-width: 80%;
+  @include mq(md) {
+    max-width: 100%;
+  }
+}
 
 .about-us__contents-wrapper {
   margin-top: rem(24);

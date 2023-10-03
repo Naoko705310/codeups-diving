@@ -11,8 +11,11 @@
 }
 
 .information__inner {
-  max-width: rem(1080);
+  max-width: 80%;
   padding: 0 rem(15);
+  @include mq(md) {
+    max-width: 100%;
+  }
 }
 
 .information__contents-wrapper {

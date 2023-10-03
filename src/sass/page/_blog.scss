@@ -10,6 +10,13 @@
   }
 }
 
+.blog__inner.inner {
+  max-width: 80%;
+  @include mq(md) {
+    max-width: 100%;
+  }
+}
+
 // 魚のイラスト
 .blog::after {
   @include mq(md) {
@@ -56,13 +63,15 @@
 }
 
 .blog__card-wrapper {
-  margin-top: rem(24);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  // 最小幅はウィンドウ幅の100％または320pxのいずれか小さい方で、最大幅は1フラクション（1等分の幅）です。これにより、ウィンドウの幅に合わせて列の幅が調整され、最大1列になる。
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: rem(40);
-  justify-items: center; 
+  margin-top: rem(24);
   @include mq(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: rem(80);
   }
 }
