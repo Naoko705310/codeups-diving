@@ -50,8 +50,8 @@
     background-image: url(../images/common/price-fish.png);
     background-size: contain;
     position: absolute;
-    bottom: -23.86%;//178/746
-    left: -7.52%;//81/1077
+    left: calc(50% - min(50vw, 58%));
+    bottom: rem(-178);
   }
 }
 

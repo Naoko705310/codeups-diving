@@ -12,19 +12,19 @@
 
 // 魚のイラスト
 .blog::after {
-  @include mq(md) {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    max-width: rem(437);
-    aspect-ratio: 437/201;
-    background-image: url(../images/common/blog-fish.png);
-    background-size: contain;
-    position: absolute;
-    top: 2.902%;//24/827
-    left: 6.944%;//100/1440
-    z-index: 999999;
-  }
+  // @include mq(md) {
+  //   content: "";
+  //   display: inline-block;
+  //   width: 100%;
+  //   max-width: rem(437);
+  //   aspect-ratio: 437/201;
+  //   background-image: url(../images/common/blog-fish.png);
+  //   background-size: contain;
+  //   position: absolute;
+  //   top: rem(24);
+  //   left: calc(50% - min(50vw, 60%));
+  //   z-index: 999999;
+  // }
 }
 
 .blog__background-image {
@@ -64,12 +64,29 @@
   margin-top: rem(24);
   margin-right: auto;
   margin-left: auto;
+  position: relative;
   @include mq(md) {
     min-width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: rem(80);
+  }
+}
+
+.blog__card-wrapper::after {
+  @include mq(md) {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    max-width: rem(437);
+    aspect-ratio: 437/201;
+    background-image: url(../images/common/blog-fish.png);
+    background-size: contain;
+    position: absolute;
+    top: rem(-222);
+    left: calc(50% - min(50vw, 60%));
+    z-index: 999999;
   }
 }
 
