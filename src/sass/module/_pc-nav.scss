@@ -2,20 +2,20 @@
 
 .pc-nav {
   display: none; //最初(SP)は非表示
-  height: 100%;
+  height: inherit;
 }
 
 .pc-nav__items {
   display: flex;
   align-items: center;
-  height: 100%;
+  height: inherit;
 }
 .pc-nav__items .pc-nav__item:last-child {
   padding-right: 0;
 }
 
 .pc-nav__item {
-  padding: 0 rem(20);
+  height: inherit;
   position: relative;//hover時の下線用
 }
 
@@ -27,11 +27,13 @@
   font-weight: $normal;
   line-height: calc(18/18);
   text-transform: capitalize;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  padding-top: rem(28);
-  padding-bottom: rem(27);
+  height: inherit;
   white-space: nowrap;
+  padding: 0 rem(20);
 }
 
 .pc-nav__link span {
