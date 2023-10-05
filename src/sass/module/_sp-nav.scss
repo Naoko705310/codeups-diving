@@ -14,9 +14,10 @@
   padding-right: rem(20);
   padding-left: rem(20);
   display: none;
-  @include mq(md) {
-    display: none;
-  }
 }
 
-
+.sp-nav .global-nav {
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+}
