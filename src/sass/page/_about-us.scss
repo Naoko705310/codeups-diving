@@ -106,12 +106,11 @@
 
 .about-us__main-copy {
   font-family: $second-font-family;
-  font-size: rem(40);
+  font-size: clamp(40px, calc(40px + (80 - 40) * ((100vw - 375px) / (1440 - 375))), 80px);
   color: $green;
   font-weight: $normal;
   line-height: calc(40/40);
   @include mq(md) {
-    font-size: rem(80);
     color: $white;
     line-height: calc(100/80);
     display: inline-block;

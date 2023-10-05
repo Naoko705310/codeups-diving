@@ -17,6 +17,7 @@
   margin-top: rem(24);
   padding-bottom: rem(10);
   margin-right: calc(50% - 50vw);
+  overflow: hidden;
   @include mq(md) {
     margin-top: rem(40);
   }
