@@ -41,12 +41,12 @@
   line-height: calc(18/12);
   display: block;
   padding: 0 rem(14);
-  margin-top: rem(20);
+  margin-top: rem(28);
   text-align: center;
   @include mq(md) {
     font-size: rem(14);
     line-height: calc(18/14);
-    margin-top: rem(70);//80px→70px
+    margin-top: rem(58);//80px→70px（ピクパ余白調整）→58px（global-nav__headingとpadding相殺）
   }
 }
 
