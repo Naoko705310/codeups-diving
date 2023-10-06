@@ -6,7 +6,7 @@
   max-width: 100%;
 }
 
-.footer-sns a {
+.footer-sns__link {
   display: inline-block;
   width: rem(24);
   height: rem(24);
@@ -17,12 +17,12 @@
   }
 }
 
-.footer-sns a img {
+.footer-sns__link img {
   width: 100%;
   max-width: 100%;
   object-fit: contain;
 }
 
-.footer__instagram-icon {
+.footer-sns__link--instagram {
 margin-left: rem(16);
 }
