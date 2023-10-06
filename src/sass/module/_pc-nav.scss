@@ -19,7 +19,7 @@
   position: relative;//hover時の下線用
 }
 
-.pc-nav__link {
+.pc-nav__item a {
   font-family: $second-font-family;
   font-size: rem(18);
   color: $white;
@@ -35,7 +35,7 @@
   padding: 0 rem(20);
 }
 
-.pc-nav__link span {
+.pc-nav__item a span {
   font-family: $base-font-family;
   font-size: rem(10);
   color: $white;
@@ -48,12 +48,12 @@
   text-transform: uppercase;
 }
 
-.pc-nav__link.current,
+.pc-nav__item a.current,
 .pc-nav__item:hover {
   color: $white;
 }
 
-.pc-nav__link::after {
+.pc-nav__item a::after {
   content: "";
   position: absolute;
   bottom: rem(20);
@@ -66,7 +66,7 @@
   transform-origin: center top;//上部中央基点
 }
 
-.pc-nav__link.current a::after,
-.pc-nav__link:hover::after {
+.pc-nav__item a.current a::after,
+.pc-nav__item a:hover::after {
   transform: scale(1, 1);//X方向にスケール拡大
 }
