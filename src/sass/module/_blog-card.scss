@@ -9,14 +9,14 @@
   }
 }
 
-.blog-card__link {
+.blog-card a {
   display: inline-block;
   padding-top: rem(16);
   padding-right: rem(16);
   padding-bottom: rem(24);
   padding-left: rem(16);
 }
-.blog-card__link:hover {
+.blog-card a:hover {
   opacity: 0.7;
 
 }

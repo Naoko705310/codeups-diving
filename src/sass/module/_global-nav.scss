@@ -89,7 +89,7 @@
   align-items: flex-start;
 }
 
-.global-nav__link {
+.global-nav__item a {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $white;
@@ -101,7 +101,7 @@
   padding-left: rem(22);
 }
 
-.global-nav__link:hover {
+.global-nav__item a:hover {
   opacity: 0.7;
 }
 
