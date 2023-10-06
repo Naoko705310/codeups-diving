@@ -55,7 +55,7 @@ jQuery(function ($) {
     speed: 3000,
     allowTouchMove: false,// ユーザーのスワイプ操作を無効にする
     autoplay: {
-        delay: 3000// 自動再生の遅延時間（ミリ秒）
+        delay: 3000,
     },
     slidesPerView: 1, // 1度に1枚のスライドを表示
   });
@@ -63,13 +63,11 @@ jQuery(function ($) {
   // Campaign スワイパー
   var campaignSwiper = new Swiper('.js-campaign-swiper', {
     loop: true,
-    speed: 4000, // ループの時間
+    speed: 4000,
     autoplay: {
-      delay: 0,
+      delay: 3000,
     },
     allowTouchMove: true,
-    allowSlideNext: true,
-    allowSlidePrev: true,
     slidesPerView: "auto",
     spaceBetween: 24,
     breakpoints: {
@@ -77,14 +75,12 @@ jQuery(function ($) {
         spaceBetween: 40
       }
     },
-  
-    // Navigation arrows
+    direction: 'horizontal', 
     navigation: {
-      nextEl: '.swiper-button-prev',
-      prevEl: '.swiper-button-next',
+      prevEl: '.swiper-button-next', // prevボタンに右矢印を指定
+      nextEl: '.swiper-button-prev', // nextボタンに左矢印を指定
     },
-  });
-
+  });//スワイパーここまで
 
   // 画像出現アニメーション(カラーボックスの後に画像表示)
   //要素の取得とスピードの設定

@@ -18,6 +18,7 @@
   padding-bottom: rem(10);
   margin-right: calc(50% - 50vw);
   overflow: hidden;
+  position: relative;
   @include mq(md) {
     margin-top: rem(40);
   }
@@ -51,26 +52,24 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  height: rem(80);
   width: rem(80);
+  height: rem(80);
   position: absolute;
-  top: 30%;
+  top: 25%;
   right: 0;
-}
-
-.swiper-button-prev {
-  right: rem(20);
+  z-index: 1;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  content: "";//空にしてデフォルトのスタイルを打ち消す
+  content: "";
+  background-color: transparent; 
+  border: none; 
   width: 100%;
   max-width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-size: contain;
-  margin: auto;
 }
 
 .swiper-button-prev::after {
