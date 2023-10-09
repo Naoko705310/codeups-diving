@@ -42,9 +42,6 @@
   max-width: rem(600);
   display: grid;
   grid-template-columns: repeat(1fr);
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   gap: rem(40);
   margin-top: rem(24);
   margin-right: auto;
@@ -53,9 +50,6 @@
   @include mq(md) {
     min-width: 100%;
     grid-template-columns: repeat(3, 1fr);
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // justify-content: center;
     margin-top: rem(80);
   }
 }
@@ -79,8 +73,7 @@
 
 .blog__button {
   margin-top: rem(40);
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
   @include mq(md) {
     margin-top: rem(80);
   }

@@ -55,15 +55,6 @@
   }
 }
 
-.price-button {
-  margin-top: rem(40);
-  margin-right: auto;
-  margin-left: auto;
-  @include mq(md) {
-    margin-top: rem(80);
-  }
-}
-
 .price__image {
   width: 100%;
   max-width: 100%;
@@ -94,3 +85,10 @@
   object-fit: cover;
 }
 
+.price__button {
+  margin-top: rem(40);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

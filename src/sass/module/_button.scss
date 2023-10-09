@@ -1,13 +1,6 @@
 @use "global" as *;
 
 .button {
-  display: block;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.button a {
   width: rem(202);
   font-family: $second-font-family;
   font-size: rem(14);
@@ -15,6 +8,7 @@
   font-weight: $normal;
   line-height: calc(22/14);
   display: inline-block;
+  text-align: center;
   padding: rem(16) 0;
   background-color: $green;
   border: 1px solid $green;
@@ -23,18 +17,18 @@
   transition: .3s;
 }
 
-.button a::first-letter {
+.button::first-letter {
   text-transform: capitalize;
 }
 
-.button a:hover span,
-.button a:hover span::after {
+.button:hover span,
+.button:hover span::after {
   color: $green;
   border-color: $green;
 }
 
 // ボタンの影（外枠）
-.button a::before {
+.button::before {
   content: "";
   display: block;
   border: 1px solid $green;
@@ -48,7 +42,7 @@
 }
 
 // ボタンに被せるカラーボックス
-.button a::after {
+.button::after {
   content: "";
   width: 100%;
   max-width: 100%;
@@ -63,11 +57,11 @@
   z-index: -1;
 }
 
-.button a:hover::after {
+.button:hover::after {
   transform: scale(1, 1);
 }
 
-.button a span {
+.button span {
   font-family: $second-font-family;
   font-size: rem(14);
   color: $white;
@@ -77,7 +71,7 @@
 }
 
 // 右矢印
-.button a span::after {
+.button span::after {
   content: "";
   display: inline-block;
   width: rem(40);

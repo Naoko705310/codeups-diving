@@ -88,8 +88,7 @@
 // view more ボタン
 .campaign__button {
   margin-top: rem(30);//40px→30px. swiperにpadding-bottom:10px;を設定した分をマイナス
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
   @include mq(md) {
     margin-top: rem(70);//ズレ修正のため80px→70pxへ調整
   }
