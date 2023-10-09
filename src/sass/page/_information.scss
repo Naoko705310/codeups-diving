@@ -4,9 +4,11 @@
   background-color: $green-light;
   padding-top: rem(75);
   padding-bottom: rem(80);
+  margin-top: rem(70);
   @include mq(md) {
     padding-top: rem(100);
     padding-bottom: rem(100);
+    margin-top: rem(140);
   }
 }
 
@@ -34,11 +36,9 @@
 .information__image {
   width: 100%;
   max-width: 100%;
-  // aspect-ratio: 345/227;
   position: relative;
   @include mq(md) {
-    width: rem(540);
-    aspect-ratio: 540/356;
+    width: 50%;
   }
 }
 
@@ -67,7 +67,8 @@
   width: 100%;
   max-width: 100%;
   @include mq(md) {
-    width: rem(492);
+    width: 45.555%;//492/1080
+    padding-top: rem(61);
   }
 }
 
@@ -82,7 +83,6 @@
   @include mq(md) {
     font-size: rem(24);
     line-height: calc(24/24);
-    margin-top: rem(61);//要確認
     padding-bottom: rem(8);
   }
 }

@@ -11,15 +11,17 @@
 }
 
 // Campaign スワイパー
-.campaign__swiper {
+.campaign__swiper-container {
   margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+.campaign__swiper {
   padding-bottom: rem(10);
   margin-right: calc(50% - 50vw);
   overflow: hidden;
   position: relative;
-  @include mq(md) {
-    margin-top: rem(40);
-  }
 }
 
 .campaign__swiper .swiper-wrapper {

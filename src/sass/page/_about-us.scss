@@ -2,10 +2,8 @@
 
 .about-us {
   margin-top: rem(80);
-  padding-bottom: rem(70); 
   @include mq(md) {
     margin-top: rem(135);//ズレ調整のため、140px→135pxへ調整
-    padding-bottom: rem(140);//サンゴイラストがあるので、marginでなくpaddingでとる
   }
 }
 
@@ -31,7 +29,7 @@
     background-image: url(../images/common/aboutus-sango.png);
     background-size: contain;
     position: absolute;
-    right: calc(50% - min(50vw, 59%));
+    right: calc(50% - min(48vw, 59%));
     bottom: rem(-90);
     z-index: 999999;
   }

@@ -31,7 +31,8 @@
   line-height: 1.2;
   letter-spacing: 0.54em;//21.6/40
   text-transform: uppercase;
-  padding-left: 0.54em;
+  // padding-left: 0.54em;
+  text-indent: 0.54em;
   @include mq(md) {
     font-size: rem(80);
     line-height: calc(100/80);
