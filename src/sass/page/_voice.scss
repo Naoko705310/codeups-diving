@@ -9,6 +9,9 @@
 
 .voice__inner.inner {
   padding: 0 rem(15);
+  @include mq(md) {
+    padding: 0 rem(25);
+  }
 }
 
 .voice__card-wrapper {
@@ -17,18 +20,15 @@
   margin-top: rem(40);
   margin-right: auto;
   margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  gap: rem(35);//40→35でズレを調整
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(40);
   position: relative;
   z-index: 1;
   @include mq(md) {
     max-width: 100%;
     margin-top: rem(30);
-    flex-direction: row;
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
