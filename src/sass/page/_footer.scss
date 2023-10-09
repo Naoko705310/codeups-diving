@@ -4,7 +4,9 @@
   background-color: $green;
   padding-bottom: rem(56);
   margin-top: rem(105);
+  padding-top: rem(48);
   @include mq(md) {
+    padding-top: rem(80);
     padding-bottom: rem(80);
     margin-top: rem(160);
   }
@@ -23,12 +25,10 @@
   display: flex;
   flex-direction: column;
   gap: rem(16);
-  padding-top: rem(48);
   @include mq(md) {
     flex-direction: row;
     align-items: flex-end;
     gap: rem(40);
-    padding-top: rem(80);
   }
 }
 
