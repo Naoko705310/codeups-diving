@@ -4,6 +4,8 @@
   width: rem(102);
   max-width: 100%;
   aspect-ratio: 102/38;
+  position: relative;
+  z-index: 9999;
   @include mq(md) {
     width: rem(133);
     aspect-ratio: 133/50;
