@@ -32,7 +32,7 @@
   text-align: center;
   height: inherit;
   white-space: nowrap;
-  padding: 0 rem(20);
+  padding: 0 max(1rem, min(1.389vw, 20px));
 }
 
 .pc-nav__item a span {
@@ -42,10 +42,6 @@
   font-weight: $normal;
   line-height: calc(15/10);
   display: block;
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
 
 .pc-nav__item a.current,

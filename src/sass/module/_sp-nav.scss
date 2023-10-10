@@ -10,6 +10,7 @@
   left: 0;
   right: 0;
   z-index: 88888;
+  overflow: scroll; /* 縦スクロールを可能にする */
   padding-top: rem(24);
   padding-right: rem(20);
   padding-left: rem(20);
