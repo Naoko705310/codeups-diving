@@ -31,3 +31,7 @@
     padding: 0 rem(20) 0 rem(40);
   }
 }
+
+.header__hamburger {
+  margin: 0 -6px; //デフォルトでbuttonタグについている、左右のpadding:6pxを消す
+}
