@@ -23,7 +23,7 @@ top: 0;
 }
 
 .hamburger span:nth-child(2) {
-margin: rem(11) 0;
+margin: rem(10) 0;
 }
 
 .hamburger span:nth-child(3) {
@@ -32,7 +32,7 @@ top: 0;
 
 //is-OPEN時の動き
 .hamburger.is-open span:nth-child(1) {
-top: 10px;
+top: rem(11);
 transform: rotate(40deg);
 }
 
@@ -42,6 +42,6 @@ opacity: 0;
 }
 
 .hamburger.is-open span:nth-child(3) {
-top: -13px;
+top: rem(-11);
 transform: rotate(-40deg);
 }

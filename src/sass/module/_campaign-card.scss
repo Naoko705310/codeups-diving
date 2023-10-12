@@ -18,9 +18,9 @@
 .campaign-card__image::before {
   content: "";
   display: block;
-  padding-top: 67.1428%; //188/280 高さ/幅
+  padding-top: 67.1428%; //188/280
   @include mq(md) {
-    padding-top: 66.9669%; //223/333 高さ/幅
+    padding-top: 66.9669%; //223/333
   }
 }
 
@@ -64,7 +64,6 @@
   border-bottom: 1px solid $green;
   margin-top: rem(4);
 }
-
 
 .campaign-card__plan {
   margin-top: auto;

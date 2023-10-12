@@ -36,14 +36,6 @@
   }
 }
 
-.about-us__image-wrapper {
-  // width: 100%;
-  // max-width: 100%;
-  // padding-top: rem(26);
-  // padding-top: 61.807%; //212/343
-  // position: relative;
-}
-
 // シーサーの画像
 .about-us__image-left {
   width: 37.101%;
@@ -72,7 +64,7 @@
   max-width: 100%;
   margin-left: auto;
   aspect-ratio: 281/186;
-  // z-index: 8;
+  z-index: 8;
   @include mq(md) {
     width: 81.481%;
     max-width: rem(880);
@@ -101,7 +93,6 @@
     justify-content: flex-start;
     gap: rem(40);
     position: absolute;
-    // top: 30%;
     top: rem(120);
     right: 0;
     z-index: 8888;
