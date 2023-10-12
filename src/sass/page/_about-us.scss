@@ -10,13 +10,13 @@
 .about-us__contents-wrapper {
   width: 100%;
   max-width: rem(600);
-  margin-top: rem(24);
+  margin-top: rem(50);
   margin-right: auto;
   margin-left: auto;
   position: relative;
   @include mq(md) {
     max-width: 100%;
-    margin-top: rem(40);
+    margin-top: rem(120);
   }
 }
 // サンゴのイラスト
@@ -37,11 +37,11 @@
 }
 
 .about-us__image-wrapper {
-  width: 100%;
-  max-width: 100%;
-  padding-top: rem(26);
+  // width: 100%;
+  // max-width: 100%;
+  // padding-top: rem(26);
   // padding-top: 61.807%; //212/343
-  position: relative;
+  // position: relative;
 }
 
 // シーサーの画像
@@ -50,15 +50,20 @@
   max-width: 100%;
   aspect-ratio: 128/194;
   position: absolute;
-  top: 0;
+  top: rem(-26);
   left: 0;
   z-index: 9;
+  @include mq(md) {
+    width: 37.037%;
+    aspect-ratio: 400/606;
+    top: rem(-80);
+  }
 }
 
 .about-us__image-left img {
-  // width: 100%;
-  // max-width: 100%;
-  // object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 // 黄色い魚の画像
@@ -66,70 +71,69 @@
   width: 81.449%;
   max-width: 100%;
   margin-left: auto;
-  // aspect-ratio: 281/186;
-  // position: absolute;
-  // right: 0;
-  // top: 12.264%; //26/212
+  aspect-ratio: 281/186;
   // z-index: 8;
-  // @include mq(md) {
-  //   aspect-ratio:  880/581;
-  //   top: 12.102%; //80/661
-  // }
+  @include mq(md) {
+    width: 81.481%;
+    max-width: rem(880);
+    aspect-ratio:  880/581;
+  }
 }
 
 .about-us__image-right img {
-  // width: 100%;
-  // max-width: 100%;
-  // object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .about-us__body {
-  // width: 100%;
-  // max-width: 100%;
-  // margin-top: rem(40);
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: flex-start;
-  // gap: rem(16);
-  // @include mq(md) {
-  //   width: 81.924%;
-  //   flex-direction: row;
-  //   justify-content: flex-start;
-  //   gap: rem(40);
-  //   position: absolute;
-  //   top: 30%;
-  //   right: 0;
-  //   z-index: 8888;
-  //   margin-top: 0;
-  // }
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(40);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(16);
+  @include mq(md) {
+    width: 81.924%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: rem(40);
+    position: absolute;
+    // top: 30%;
+    top: rem(120);
+    right: 0;
+    z-index: 8888;
+    margin-top: 0;
+  }
 }
 
 .about-us__main-copy {
-  // font-family: $second-font-family;
-  // font-size: clamp(40px, calc(40px + (80 - 40) * ((100vw - 375px) / (1440 - 375))), 80px);
-  // color: $green;
-  // font-weight: $normal;
-  // line-height: calc(40/40);
-  // @include mq(md) {
-  //   color: $white;
-  //   line-height: calc(100/80);
-  //   display: inline-block;
-  //   max-width: rem(400);
-  // }
+  font-family: $second-font-family;
+  font-size: clamp(40px, calc(40px + (80 - 40) * ((100vw - 375px) / (1440 - 375))), 80px);
+  color: $green;
+  font-weight: $normal;
+  line-height: calc(40/40);
+  @include mq(md) {
+    color: $white;
+    line-height: calc(100/80);
+    display: inline-block;
+    max-width: rem(400);
+  }
 }
 
 .about-us__text {
-  // font-family: $base-font-family;
-  // font-size: rem(16);
-  // color: $green-deep;
-  // font-weight: $normal;
-  // line-height: calc(24/16);
-  // @include mq(md) {
-  //   color: $white;
-  //   display: inline-block;
-  //   max-width: rem(400);
-  // }
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(24/16);
+  @include mq(md) {
+    color: $white;
+    display: inline-block;
+    max-width: rem(400);
+  }
 }
 
 .about-us__button {
