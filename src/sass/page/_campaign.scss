@@ -1,11 +1,16 @@
 @use "global" as *;
 
 .campaign {
+
+}
+
+.top-campaign {
   margin-top: rem(40);
   @include mq(md) {
     margin-top: rem(120);
   }
 }
+
 .campaign__inner {
   position: relative;
 }
@@ -42,22 +47,28 @@
 
 // スワイパー左右矢印
 .campaign__swiper-button-wrapper {
-  width: rem(240);
-  max-width: 100%;
-  height: rem(80);
-  position: absolute;
-  top: 0;
-  right: rem(25);
+  display: none;
+  @include mq(md) {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: rem(80);
+    position: absolute;
+    top: 0;
+    right: rem(25);
+  }
 }
 
 .swiper-button-prev,
 .swiper-button-next {
   width: rem(80);
   height: rem(80);
-  position: absolute;
-  top: 25%;
-  right: 0;
-  z-index: 1;
+  position: unset;
+  margin: 0;
+  // position: absolute;
+  // top: 25%;
+  // right: 0;
+  // z-index: 1;
 }
 
 .swiper-button-prev::after,

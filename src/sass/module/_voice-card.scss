@@ -43,12 +43,17 @@
     align-items: flex-end;
   }
 }
+
 .voice-card__age {
   font-family: $base-font-family;
   font-size: rem(12);
   color: $green-deep;
   font-weight: $normal;
   line-height: calc(18/12);
+}
+
+.voice-card__tag {
+  margin-left: auto;
 }
 
 .voice-card__title {
