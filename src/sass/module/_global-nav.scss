@@ -88,13 +88,17 @@
   align-items: flex-start;
 }
 
+.global-nav__item {
+  width: 100%;
+}
+
 .global-nav__item a {
+  display: block;
   font-family: $base-font-family;
   font-size: rem(16);
   color: $white;
   font-weight: $normal;
   line-height: calc(18/16);
-  display: block;
   padding-top: rem(12);
   padding-bottom: rem(12);
   padding-left: rem(22);
