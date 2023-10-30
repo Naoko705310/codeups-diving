@@ -1,5 +1,5 @@
 @use "global" as *;
-// SPナビとfooterナビ共通
+// // SPナビとfooterナビ共通
 
 .global-nav {
   display: grid;
@@ -19,31 +19,35 @@
   }
 }
 
-.global-nav__item-wrapper {
-  list-style: none;
+// .global-nav__item-wrapper {
+//   list-style: none;
+//   grid-area: areaA;
+// }
+
+.global-nav__items--left01 {
   grid-area: areaA;
 }
 
-.global-nav__item-wrapper--left01 {
-  grid-area: areaA;
-}
-
-.global-nav__item-wrapper--left02 {
+.global-nav__items--left02 {
   grid-area: areaC;
   @include mq(md) {
     grid-area: areaB;
   }
 }
 
-.global-nav__item-wrapper--right01 {
+.global-nav__items--right01 {
   grid-area: areaB;
   @include mq(md) {
     grid-area: areaC;
   }
 }
 
-.global-nav__item-wrapper--right02 {
+.global-nav__items--right02 {
   grid-area: areaD;
+}
+
+.global-nav__item {
+  margin-top: rem(16);
 }
 
 .global-nav__heading {
@@ -56,17 +60,12 @@
   padding-top: rem(12);
   padding-bottom: rem(12);
   padding-left: rem(22);
-  margin-top: rem(16);
+  // margin-top: rem(16);
   position: relative;
 }
 
 .global-nav__heading:hover {
   opacity: 0.7;
-}
-
-.global-nav__heading:first-child {
-  padding-top: 0;
-  margin-top: 0;
 }
 
 // ヒトデのアイコン
@@ -84,23 +83,18 @@
   transform: translate(0, -50%);
 }
 
-.global-nav__heading:first-child::before {
-  top: 0;
-  transform: none;
-}
-
-.global-nav__items {
+.global-nav__sub-items {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 
-.global-nav__item {
+.global-nav__sub-item {
   width: 100%;
 }
 
-.global-nav__item a {
+.global-nav__sub-item a {
   display: block;
   font-family: $base-font-family;
   font-size: rem(16);
@@ -112,6 +106,19 @@
   padding-left: rem(22);
 }
 
-.global-nav__item a:hover {
+.global-nav__sub-item a:hover {
   opacity: 0.7;
+}
+
+.global-nav__items .global-nav__item:first-child {
+  margin-top: 0;
+}
+
+.global-nav__items .global-nav__item:first-child .global-nav__heading {
+  padding-top: 0;
+}
+
+.global-nav__items .global-nav__item:first-child .global-nav__heading:first-child::before {
+  top: 0;
+  transform: none;
 }
