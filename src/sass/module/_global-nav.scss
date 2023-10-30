@@ -3,20 +3,25 @@
 
 .global-nav {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  grid-template-areas: 
-  "areaA areaB"
-  "areaC areaD";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "areaA areaB"
+    "areaC areaD";
   gap: rem(28) 0;
   max-width: rem(600);
   margin-right: auto;
   margin-left: auto;
   @include mq(md) {
-    grid-template-columns: repeat(4, 1fr); 
-    grid-template-areas: 
-    "areaA areaB areaC areaD";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "areaA areaB areaC areaD";
     gap: rem(20) rem(40);
   }
+}
+
+.global-nav__item-wrapper {
+  list-style: none;
+  grid-area: areaA;
 }
 
 .global-nav__item-wrapper--left01 {
@@ -66,23 +71,23 @@
 
 // ヒトデのアイコン
 .global-nav__heading::before {
-    content: "";
-    display: inline-block;
-    width: rem(18);
-    max-width: 100%;
-    aspect-ratio: 1/1;
-    background-image: url(../images/common/footer-hitode-icon.png);
-    background-size: contain;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
-  }
+  content: "";
+  display: inline-block;
+  width: rem(18);
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  background-image: url(../images/common/footer-hitode-icon.png);
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
 
-  .global-nav__heading:first-child::before {
-    top: 0;
-    transform: none;
-  }
+.global-nav__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
 
 .global-nav__items {
   display: flex;
@@ -110,15 +115,3 @@
 .global-nav__item a:hover {
   opacity: 0.7;
 }
-
-
-
-
-
-
-
-
-
-
-
-
