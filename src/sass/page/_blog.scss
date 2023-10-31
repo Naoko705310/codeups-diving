@@ -26,18 +26,6 @@
   }
 }
 
-.section-title__en--blog,
-.section-title__jp--blog {
-  @include mq(md) {
-    color: $white;
-  }
-}
-.section-title__en--blog::first-letter {
-  @include mq(md) {
-    color: $white;
-  }
-}
-
 .blog__items {
   max-width: rem(600);
   margin-top: rem(24);

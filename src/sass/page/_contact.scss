@@ -9,6 +9,13 @@
   }
 }
 
+.contact__section-title {
+  @include mq(md) {
+    margin-top: rem(20);
+  }
+}
+
+
 .contact__contents {
   @include mq(md) {
     display: flex;
@@ -22,7 +29,6 @@
   @include mq(md) {
     width: 100%;
     max-width: rem(1080);
-    
     box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
     padding: rem(80) 0;
@@ -152,20 +158,8 @@ display: block;
   }
 }
 
-.contact__section-title {
-  @include mq(md) {
-    margin-top: rem(20);
-  }
-}
-.section-title__en--contact {
-  font-size: rem(80);
-  font-weight: $normal;
-  line-height: calc(80/80);
-}
 
-.section-title__jp--contact {
-  margin-top: rem(-6);
-}
+
 
 .contact__link {
   font-family: $base-font-family;

@@ -32,3 +32,45 @@
   margin-top: rem(8);
 }
 
+// Blogのセクションタイトル
+.section-title__en--blog,
+.section-title__jp--blog {
+  @include mq(md) {
+    color: $white;
+  }
+}
+.section-title__en--blog::first-letter {
+  @include mq(md) {
+    color: $white;
+  }
+}
+
+
+
+
+// .section-title__en--contact::first-letter {
+//   @include mq(md) {
+//     color: $white;
+//   }
+// }
+
+
+
+// Contactのセクションタイトル
+.section-title__en--contact {
+  font-size: rem(80);
+  font-weight: $normal;
+  line-height: calc(80/80);
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: calc(80/80);
+  }
+}
+
+.section-title__jp--contact {
+  margin-top: rem(-6);
+  @include mq(md) {
+    margin-top: rem(-6);
+  }
+}
+
