@@ -157,12 +157,13 @@ display: block;
     margin-top: rem(20);
   }
 }
-.contact__section-title .section-title__en {
+.section-title__en--contact {
   font-size: rem(80);
   font-weight: $normal;
   line-height: calc(80/80);
 }
-.contact__section-title .section-title__jp {
+
+.section-title__jp--contact {
   margin-top: rem(-6);
 }
 

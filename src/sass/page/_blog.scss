@@ -38,29 +38,24 @@
   }
 }
 
-.blog__cards {
-  display: grid;
-  grid-template-columns: repeat(1fr);
-  gap: rem(40);
-  @include mq(md) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.blog__card-wrapper {
+.blog__items {
   max-width: rem(600);
   margin-top: rem(24);
   margin-right: auto;
   margin-left: auto;
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  gap: rem(40);
   @include mq(md) {
     max-width: 100%;
     margin-top: rem(80);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 // 魚のイラスト
-.blog__card-wrapper::after {
+.blog__items::after {
   @include mq(md) {
     content: "";
     display: inline-block;
