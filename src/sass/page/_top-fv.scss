@@ -1,19 +1,19 @@
 @use "global" as *;
 
-.fv {
+.top-fv {
   width: 100%;
   max-width: 100%;
   height: 100vh;
 }
 
-.fv__inner {
+.top-fv__inner {
   width: 100%;
   max-width: 100%;
   height: 100%;
   position: relative;
 }
 
-.fv__heading {
+.top-fv__heading {
   width: 100%;
   max-width: 100%;
   text-align: center;
@@ -23,7 +23,7 @@
   z-index: 7777;
 }
 
-.fv__main-copy {
+.top-fv__main-copy {
   font-family: 'Lato', sans-serif;
   font-size: rem(40);
   color: $white;
@@ -39,7 +39,7 @@
   }
 }
 
-.fv__sub-copy {
+.top-fv__sub-copy {
   font-family: $second-font-family;
   font-size: rem(20);
   color: $white;
@@ -49,25 +49,25 @@
 
 
 // /* スライダーの追加スタイル */
-.fv__swiper {
+.top-fv__swiper {
   width: 100%;
   max-width: 100%;
   height: 100vh;
 }
 
-.fv__swiper .swiper-wrapper {
+.top-fv__swiper .swiper-wrapper {
   width: 100%;
   max-width: 100%;
   height: inherit;
 }
 
-.fv__swiper .swiper-slide {
+.top-fv__swiper .swiper-slide {
   width: rem(1440);
   max-width: 100%;
   height: inherit;
   aspect-ratio: 1440/768;
 }
-.fv__swiper .swiper-slide img {
+.top-fv__swiper .swiper-slide img {
   width: 100%;
   max-width: 100%;
   height: inherit;

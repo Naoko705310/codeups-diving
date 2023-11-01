@@ -1,0 +1,10 @@
+@use "global" as *;
+
+.top-contact {
+  text-shadow: 2px 2px 5px rgba(13, 41, 54, 0.3); 
+  margin-top: rem(80);
+  @include mq(md) {
+    text-shadow: none;
+    margin-top: rem(140);
+  }
+}

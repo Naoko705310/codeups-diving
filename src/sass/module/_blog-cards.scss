@@ -1,0 +1,17 @@
+@use "global" as *;
+// ブログカード群
+
+.blog-cards {
+  width: 100%;
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(40);
+  @include mq(md) {
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

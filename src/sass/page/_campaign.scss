@@ -1,16 +1,5 @@
 @use "global" as *;
 
-.campaign {
-
-}
-
-.top-campaign {
-  margin-top: rem(40);
-  @include mq(md) {
-    margin-top: rem(120);
-  }
-}
-
 .campaign__inner {
   position: relative;
 }
@@ -22,6 +11,7 @@
     margin-top: rem(40);
   }
 }
+
 .campaign__swiper {
   padding-bottom: rem(10);
   margin-right: calc(50% - 50vw);
@@ -65,10 +55,6 @@
   height: rem(80);
   position: unset;
   margin: 0;
-  // position: absolute;
-  // top: 25%;
-  // right: 0;
-  // z-index: 1;
 }
 
 .swiper-button-prev::after,

@@ -1,20 +1,10 @@
 @use "global" as *;
 
-.top-contact {
-  text-shadow: 2px 2px 5px rgba(13, 41, 54, 0.3); 
-  margin-top: rem(80);
-  @include mq(md) {
-    text-shadow: none;
-    margin-top: rem(140);
-  }
-}
-
 .contact__section-title {
   @include mq(md) {
     margin-top: rem(20);
   }
 }
-
 
 .contact__contents {
   @include mq(md) {
@@ -157,9 +147,6 @@ display: block;
     padding-left: rem(81);
   }
 }
-
-
-
 
 .contact__link {
   font-family: $base-font-family;

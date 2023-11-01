@@ -48,8 +48,8 @@ jQuery(function ($) {
     }
   });
 
-  // FV スワイパー
-  var fvSwiper = new Swiper('.js-fv-swiper', {
+  // fv スワイパー
+  var topFvSwiper = new Swiper('.js-top-fv-swiper', {
     loop: true,
     effect: "fade",
     speed: 3000,
