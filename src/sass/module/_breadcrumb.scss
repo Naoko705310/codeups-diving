@@ -1,0 +1,23 @@
+@use "global" as *;
+
+
+.breadcrumb {
+
+}
+
+.breadcrumb__inner {
+
+}
+
+.breadcrumb__text {
+    font-family: $base-font-family;
+    font-size: rem(14);
+    color: $green-deep;
+    font-weight: $normal;
+}
+
+.breadcrumb__text span {
+  display: inline-block;
+  margin-left: rem(8);
+}
+

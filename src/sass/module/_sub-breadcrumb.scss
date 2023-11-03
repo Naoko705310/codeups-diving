@@ -1,26 +1,5 @@
 @use "global" as *;
 
-.page-campaign__breadcrumb {
-
-}
-
 .sub-breadcrumb {
-
+  margin-top: rem(8);
 }
-
-.sub-breadcrumb__inner {
-
-}
-
-.sub-breadcrumb__text {
-    font-family: $base-font-family;
-    font-size: rem(14);
-    color: $green-deep;
-    font-weight: $normal;
-}
-
-.sub-breadcrumb__text span {
-  display: inline-block;
-  margin-left: rem(8);
-}
-
