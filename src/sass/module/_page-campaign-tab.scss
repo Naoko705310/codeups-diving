@@ -1,0 +1,49 @@
+@use "global" as *;
+
+.page-campaign-tab {
+  width: 100%;
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    max-width: 100%;
+  }
+
+}
+
+.page-campaign-tab__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(16) rem(21);
+  @include mq(md) {
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
+.page-campaign-tab__item {
+  // width: 100%;
+  border: 1px solid $green;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  padding: rem(6) 0;
+  @include mq(md) {
+    // width: rem(162);
+  }
+}
+.page-campaign-tab__item a {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  line-height: calc(22/14);
+}
+
+.page-campaign-tab__item--colored {
+  background-color: $green;
+}
+
+.page-campaign-tab__item--colored a {
+  color: $white;
+}
+

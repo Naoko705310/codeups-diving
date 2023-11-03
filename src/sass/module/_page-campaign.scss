@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.page-campaign__breadcrumb {
+  margin-top: rem(8);
+}
+
+.page-campaign__pagination {
+  width: 100%;
+  max-width: rem(444);
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: rem(80);
+}
+
+.page-campaign__contact {
+  margin-top: rem(80);
+}

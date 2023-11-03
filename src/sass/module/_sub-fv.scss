@@ -3,11 +3,18 @@
 .sub-fv {
   width: 100%;
   max-width: 100%;
+  height: rem(460);
   aspect-ratio: 375/460;
   position: relative;
   @include mq(md) {
     aspect-ratio: 1440/548;
   }
+}
+
+.sub-fv__inner {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
 }
 
 .sub-fv__heading {
@@ -26,6 +33,19 @@
 }
 
 .sub-fv__image {
-
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
 }
+
+.sub-fv__image img {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+
+
+
 
