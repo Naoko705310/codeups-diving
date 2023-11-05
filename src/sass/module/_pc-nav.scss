@@ -67,3 +67,7 @@
 .pc-nav__item a:hover::after {
   transform: scale(1, 1);//X方向にスケール拡大
 }
+
+.pc-nav__link.uppercase {
+  text-transform: uppercase;
+}

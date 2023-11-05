@@ -73,10 +73,3 @@
     z-index: 999999;
   }
 }
-
-.page-about-us__contact {
-  margin-top: rem(80);
-  @include mq(md) {
-    margin-top: rem(150);
-  }
-}
