@@ -131,6 +131,33 @@ jQuery(function ($) {
     }
   });
 
+  // page-about-us モーダル
+  $(document).ready(function() {
+    // クリックした写真の情報をモーダルに設定する
+    $(".gallery__item").on("click", function() {
+      var imageSrc = $(this).find("img").attr("src");
+      var altText = $(this).find("img").attr("alt");
+  
+      // モーダルの画像とテキストを設定
+      $(".modal__image-wrapper img").attr("src", imageSrc);
+      $(".modal__image-wrapper img").attr("alt", altText);
+  
+      // モーダルを表示
+      $(".js-modal").addClass("active");
+    });
+  
+    // モーダルを閉じる
+    $(".js-modal").on("click", function() {
+      $(this).removeClass("active");
+    });
+  
+    // モーダル内の画像クリック時にモーダルを閉じない
+    $(".modal__image-wrapper img").on("click", function(event) {
+      event.stopPropagation();
+    });
+  });
+  
+
 }); //jQuery 閉じタグ
 
 
