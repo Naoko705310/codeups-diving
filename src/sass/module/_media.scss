@@ -12,9 +12,22 @@
 .media__item {
   border: 1px solid $green;
   padding: rem(24);
+  @include mq(md) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(48);
+  }
 }
 
 .media__heading {
+  @include mq(md) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+}
+
+.media__title {
   font-family: $base-font-family;
   font-size: rem(24);
   color: $green-deep;
