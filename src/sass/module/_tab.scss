@@ -1,0 +1,41 @@
+@use "global" as *;
+
+.tab {
+
+}
+
+.tab__inner {
+
+}
+
+
+.tab__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(19);
+
+}
+
+.tab__item {
+  width: 100%;
+  height: inherit;
+
+}
+
+.tab__item a {
+  display: inline-block;
+  width: 100%;
+  height: inherit;
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight:$normal ;
+  background-color: $green-light;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: rem(10) rem(16);
+  @include mq(md) {
+    font-size: rem(24);
+    padding: rem(29) 0;
+  }
+}

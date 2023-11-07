@@ -1,0 +1,10 @@
+@use "global" as *;
+
+
+.diving-information__tab {
+  position: relative;
+  z-index: 2;
+}
+.diving-information__media {
+margin-top: rem(24);
+}
