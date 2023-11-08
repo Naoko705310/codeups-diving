@@ -1,10 +1,14 @@
 @use "global" as *;
 
 .page-information__contents {
+  max-width: rem(600);
   margin-top: rem(121);
+  margin-right: auto;
+  margin-left: auto;
   position: relative;
   z-index: 10;
   @include mq(md) {
+    max-width: 100%;
   margin-top: rem(150);
   }
 }

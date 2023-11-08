@@ -1,0 +1,16 @@
+@use "global" as *;
+
+
+
+
+
+.popular-articles__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(24);
+
+}
+
+.popular-articles__item {
+
+}

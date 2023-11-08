@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.archive__item {
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $green;
+  font-weight: $normal;
+  margin-top: rem(4);
+}
+
+.archive__year {
+  padding-left: 32px;
+  position: relative;
+}
+
+.archive__year::before {
+  content: "";
+  border-style: solid;
+  border-width: 12px 0 12px 24px; /* 上、右、下、左の順で境界の幅を設定 */
+  border-color: transparent transparent transparent $green; /* 上下左の境界色を設定 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+
+.archive__month {
+  margin-top: rem(4);
+  margin-left: rem(24);
+}
