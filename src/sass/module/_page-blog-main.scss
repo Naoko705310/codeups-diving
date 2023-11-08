@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.page-blog-main__inner.inner {
+  @include mq(md) {
+  padding: 0;
+  }
+}
+
+.page-blog-main__items {
+  @include mq(md) {
+  grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 7枚目以降のblog-cardを非表示にする */
+.page-blog-main__items .blog-cards__item.blog-card:nth-child(n+7) {
+  display: none;
+  @include mq(md) {
+  display: block;
+  }
+}
+
+.page-blog-main__pagination {
+  margin-top: rem(80);
+}

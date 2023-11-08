@@ -1,5 +1,12 @@
 @use "global" as *;
 
+.sub-aside__inner.inner {
+  padding: 0 rem(25);
+  @include mq(md) {
+  padding: 0;
+  }
+}
+
 .sub-aside__contents-wrapper {
   margin-top: rem(80);
 
@@ -47,5 +54,5 @@
 
 .sub-aside__archive {
   margin-top: rem(30);
-  padding-left: rem(25);
+  // padding-left: rem(25);
 }

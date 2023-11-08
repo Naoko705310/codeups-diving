@@ -1,12 +1,21 @@
 @use "global" as *;
 
-.page-blog__contents {
+.page-blog__inner {
+  @include mq(md) {
+    max-width: rem(1080);
+    display: grid;
+    grid-template-columns: 65.37% 27.222%;
+    gap: rem(80); 
+  }
+}
+
+.page-blog__main-contents {
   position: relative;
   margin-top: rem(52);
 }
 
 // 魚のイラスト
-.page-blog__contents::before {
+.page-blog__main-contents::before {
   content: "";
   display: inline-block;
   width: 100%;
@@ -27,6 +36,3 @@
   }
 }
 
-.page-blog__pagination {
-  margin-top: rem(80);
-}

@@ -14,13 +14,13 @@
 .archive-month__item a::before {
   content: "";
   border-style: solid;
-  border-width: 12px 0 12px 24px;
+  border-width: 12px 0 12px 20px;
   border-color: transparent transparent transparent $green;
   margin-right: 8px; /* 三角形と月のテキストの間に余白を追加 */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 0;
+  left: 4px;
 }
 
 .archive-month__item a:hover {
