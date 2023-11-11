@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.page-campaign-tab {
+.category-tab {
   width: 100%;
   max-width: rem(600);
   margin-right: auto;
@@ -8,42 +8,48 @@
   @include mq(md) {
     max-width: 100%;
   }
-
 }
 
-.page-campaign-tab__items {
+.category-tab__items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: rem(16) rem(21);
   @include mq(md) {
     grid-template-columns: repeat(4, auto);
+    justify-content: flex-start;
+    gap: rem(32);
   }
 }
 
-.page-campaign-tab__item {
+.category-tab__item {
   // width: 100%;
+  background-color: $white;
   border: 1px solid $green;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  padding: rem(6) 0;
+  text-align: center;
   @include mq(md) {
-    // width: rem(162);
+    width: rem(162);
   }
 }
-.page-campaign-tab__item a {
+.category-tab__item a {
   font-family: $base-font-family;
   font-size: rem(14);
   color: $green;
   font-weight: $normal;
   line-height: calc(22/14);
+  display: inline-block;
+  width: 100%;
+  padding: rem(6) 0;
 }
 
-.page-campaign-tab__item--colored {
+.category-tab__item:hover a {
+  opacity: 0.7;
+}
+
+.category-tab__item--colored {
   background-color: $green;
 }
 
-.page-campaign-tab__item--colored a {
+.category-tab__item--colored a {
   color: $white;
 }
 

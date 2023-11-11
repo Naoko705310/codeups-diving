@@ -26,6 +26,11 @@ $regular: 300;
 $normal: 400;
 $bold: 700;
 
+//アルファベット
+.uppercase {
+  text-transform: uppercase;
+}
+
 ////////////////////
 // 色の指定
 ////////////////////
@@ -46,3 +51,4 @@ $gray-light: #F2F2F2; //要確認 varを使用
 $drawer-width: 2rem; //線の幅
 $drawer-height: 0.1rem; //線の高さ
 $drawer-color: #fff; //線の色
+
