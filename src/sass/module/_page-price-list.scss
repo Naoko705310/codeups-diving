@@ -1,0 +1,85 @@
+@use "global" as *;
+
+.page-price-list {
+  max-width: rem(700);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.page-price-list__item {
+  @include mq(md) {
+  display: grid;
+  grid-template-columns: 28.571% 1fr;
+  }
+}
+
+.page-price-list__item:nth-child(n+2){
+  margin-top: rem(40);
+}
+
+.page-price-list__heading {
+  background-color: $green;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: rem(8);
+  padding: rem(8) 0;
+  @include mq(md) {
+  flex-direction: column;
+  }
+}
+
+.page-price-list__heading img {
+  width: rem(24);
+  aspect-ratio: 24/24;
+  object-fit: contain;
+  @include mq(md) {
+  width: rem(64);
+  }
+}
+
+.page-price-list__title {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $bold;
+}
+
+.page-price-list__body {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 70% 30%;
+  border-top: 1px solid $green;
+  border-right: 1px solid $green;
+  border-left: 1px solid $green;
+}
+
+.page-price-list__body dt {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: rem(6) rem(16);
+  border-right: 1px solid $green;
+  border-bottom: 1px solid $green;
+  @include mq(md) {
+  padding: rem(18) rem(16);
+  }
+}
+
+.page-price-list__body dd {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: rem(6) rem(16);
+  border-bottom: 1px solid $green;
+}

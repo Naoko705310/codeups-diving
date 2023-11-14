@@ -2,6 +2,7 @@
 
 .page-blog__inner {
   position: relative;
+  margin-top: rem(52);
   @include mq(md) {
     max-width: rem(1080);
     display: grid;
@@ -34,9 +35,6 @@
 }
 
 .page-blog__main-contents {
-  margin-top: rem(52);
-  @include mq(md) {
-  margin-top: 0;
-  }
+
 }
 
