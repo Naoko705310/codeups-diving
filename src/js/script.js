@@ -158,22 +158,47 @@ jQuery(function ($) {
   });
 
   //FAQ下層ページ（アコーディオン）
-  $(".js-accordion-Q").click(function() {
-    // クリックしたアコーディオン要素の次の要素を取得
-    var $accordionContent = $(this).next(".accordion-content");
+  $(document).ready(function () {
+    // クリックした時の処理
+    $('.js-accordion-Q').click(function () {
+      // クリックされた要素の次の要素を取得
+      var content = $(this).next('.accordion-content');
 
-    if ($accordionContent.length > 0) {
-      // 他のアコーディオンを閉じる
-      $(".js-accordion-Q").not(this).removeClass("is-active");
-      $(".accordion-content").not($accordionContent).removeClass("is-open");
+      // クリックされた要素の次の要素が開いているかどうかを判定
+      if (content.hasClass('is-open')) {
+        // 開いている場合は閉じる
+        content.removeClass('is-open');
+      } else {
+        // 閉じている場合は開く
+        content.addClass('is-open');
+      }
+    });
+  });
 
-      // クリックしたアコーディオン要素にクラスを追加
-      $(this).toggleClass("is-active");
 
-      // クリックしたアコーディオンの次の要素にクラスを追加
-      $accordionContent.toggleClass("is-open");
-    }
-  });//アコーディオン閉じる
+
+
+
+
+
+
+
+  // $(".js-accordion-Q").click(function() {
+  //   // クリックしたアコーディオン要素の次の要素を取得
+  //   var $accordionContent = $(this).next(".accordion-content");
+
+  //   if ($accordionContent.length > 0) {
+  //     // 他のアコーディオンを閉じる
+  //     $(".js-accordion-Q").not(this).removeClass("is-active");
+  //     $(".accordion-content").not($accordionContent).removeClass("is-open");
+
+  //     // クリックしたアコーディオン要素にクラスを追加
+  //     $(this).toggleClass("is-active");
+
+  //     // クリックしたアコーディオンの次の要素にクラスを追加
+  //     $accordionContent.toggleClass("is-open");
+  //   }
+  // });//アコーディオン閉じる
   
 
 }); //jQuery 閉じタグ
