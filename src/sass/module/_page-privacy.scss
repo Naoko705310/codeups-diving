@@ -2,10 +2,8 @@
 
 .page-privacy__inner {
   max-width: rem(800);
-  text-align: center;
   margin-top: rem(52);
   position: relative;
-  text-align: left;
   padding-bottom: rem(26);//page-privacyのmargin-top: rem(106);が適用されないので、こちらで代用。要検証
   @include mq(md) {
   margin-top: rem(150);
