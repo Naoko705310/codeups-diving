@@ -1,1 +1,47 @@
 @use "global" as *;
+
+.page-site-map {
+
+}
+
+.page-site-map__inner {
+  margin-top: rem(52);
+  position: relative;
+  @include mq(md) {
+  margin-top: rem(150);
+  }
+}
+
+// 魚のイラスト
+.page-site-map__inner::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  max-width: rem(120);
+  aspect-ratio: 120/55;
+  background-image: url(../images/common/sub-page__fish.png);
+  background-size: contain;
+  position: absolute;
+  left: calc(50% - min(48vw, 59%));
+  top: rem(-24);
+  z-index: 9999;
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.page-site-map__contents-wrapper {
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+  max-width: 100%;
+  }
+}
+
+.sub-contact.page-site-map__contact {
+margin-top: rem(106);
+@include mq(md) {
+margin-top: rem(140);
+}
+}

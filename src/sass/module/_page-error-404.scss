@@ -1,0 +1,80 @@
+@use "global" as *;
+
+.error-404 {
+  padding-top: rem(80);
+  padding-bottom: rem(148);
+  // background-color: $green;
+}
+.error-404::before {
+
+}
+
+.breadcrumb__text.breadcrumb__text--404 {
+  color: $white;
+}
+
+.error-404__inner {
+margin-top: rem(80);
+position: relative;
+@include mq(md) {
+  margin-top: rem(148);
+}
+}
+.error-404__inner::before {
+  content: "";
+  width: rem(328);
+  aspect-ratio: 328/293;
+  background: url(src/images/common/sub-information_icon-whale.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  @include mq(md) {
+    width: rem(698);
+    aspect-ratio: 698/698;
+  }
+}
+
+.error-404__contents-wrapper {
+  text-align: center;
+}
+
+.error-404__heading {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(80);
+  color: $white;
+  font-weight: $normal;
+  letter-spacing: rem(40);
+  text-indent: 0.54em;
+  @include mq(md) {
+    font-size: rem(160);
+    text-indent: 0.32em;
+  }
+}
+
+.error-404__text {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  display: block;
+  @include mq(md) {
+    margin-top: rem(24);
+  }
+}
+
+.error-404__button {
+  margin-top: rem(40); 
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}
+
+.footer.error-404__footer {
+  margin-top: 0;
+}
+

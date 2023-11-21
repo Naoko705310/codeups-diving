@@ -47,7 +47,7 @@
       <div class="header__inner">
         <!-- ヘッダーロゴ -->
         <h1 class="header__logo header-logo">
-          <a href="#" class="header-logo__link">
+          <a href="index.html" class="header-logo__link">
             <img src="./assets/images/common/header-logo.png" alt="ヘッダーロゴ">
           </a>
         </h1>
@@ -190,31 +190,48 @@
     </header><!-- /.header -->
     <!-- ヘッダーここまで -->
     <main>
-      <!-- パンくずリスト -->
-      <div class="sub-breadcrumb breadcrumb">
-        <div class="breadcrumb__inner inner">
-          <div class="breadcrumb__text-wrapper">
-            <p class="breadcrumb__text">
-              <a href="#top">
-                top
-              </a>
-              <span>></span>
-              <span>404</span>
-            </p>
-          </div>
+      <!-- 下層 コンテンツ -->
+      <section class="error-404">
+            <!-- パンくずリスト -->
+    <div class="sub-breadcrumb breadcrumb">
+      <div class="breadcrumb__inner inner">
+        <div class="breadcrumb__text-wrapper">
+          <p class="breadcrumb__text breadcrumb__text--404">
+            <a href="#top">
+              top
+            </a>
+            <span>></span>
+            <span>404</span>
+          </p>
         </div>
       </div>
-      <!-- 下層 コンテンツ -->
-
+    </div>
+        <div class="error-404__inner inner">
+          <div class="error-404__contents-wrapper">
+            <h2 class="error-404__heading">
+              404
+            </h2>
+            <p class="error-404__text">
+              申し訳ありません。<br>
+              お探しのページが見つかりません。
+            </p>
+            <!-- ボタン -->
+            <div class="error-404__button">
+              <a href="#" class="button button--white">
+                <span>contact us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- 下層 コンテンツ ここまで -->
-
       <!-- TOPへ戻るボタン -->
       <a href="#top" class="js-button-to-top button-to-top">
         <span></span>
       </a>
     </main>
     <!-- フッター -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer error-404__footer">
       <div class="footer__inner inner">
         <div class="footer__logo-wrapper">
           <!-- フッターロゴ -->

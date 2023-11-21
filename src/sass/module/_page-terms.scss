@@ -8,7 +8,6 @@
   max-width: rem(800);
   margin-top: rem(52);
   position: relative;
-  padding-bottom: rem(26);//page-privacyのmargin-top: rem(106);が適用されないので、こちらで代用。要検証
   @include mq(md) {
   margin-top: rem(150);
   }
@@ -96,6 +95,6 @@ margin-top: rem(32);
 
 }
 
-.page-terms__contact {//適用されない
-  // margin-top: rem(106);
+.sub-contact.page-terms__contact {
+  margin-top: rem(106);
 }
