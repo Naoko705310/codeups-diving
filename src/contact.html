@@ -221,7 +221,12 @@
         <div class="page-contact__inner inner">
           <div class="page-contact__contents-wrapper">
             <!-- お問い合わせフォーム -->
-            <form action="#" method="post" id="contact-form" class="contact-form" >
+            <div class="contact-form__error">
+              <span id="js-error-message" class="error-message">
+                ※必須項目が入力されていません。入力してください。
+              </span>
+            </div>
+            <form action="#" method="post" id="contact-form" class="contact-form">
               <!-- 名前 -->
               <dl class="contact-form__item">
                 <dt>
@@ -229,10 +234,13 @@
                     お名前
                     <span>必須</span>
                   </label>
-                  <!-- /.contact-form__heading -->
                 </dt>
                 <dd>
-                  <input type="text" id="name" class="input-area" name="name" placeholder="沖縄　太郎" autocomplete="name" required>
+                  <input type="text" id="name" class="input-area required" name="name" placeholder="沖縄　太郎" autocomplete="name" required>
+                  <!-- エラーメッセージ（内容はJSで制御） -->
+                  <span class="error_required"></span>
+                  <p class="name-error">
+                  </p>
                 </dd>
               </dl>
               <!-- メールアドレス -->
@@ -244,31 +252,11 @@
                   </label>
                 </dt>
                 <dd>
-                  <input type="email" id="Email" class="input-area" name="Email" placeholder="aaa000@ggmail.com" autocomplete="email" required>
-                </dd>
-              </dl>
-              <!-- 郵便番号 -->
-              <dl class="contact-form__item">
-                <dt>
-                  <label for="postal-code" class="contact-form__heading">
-                    郵便番号
-                  </label>
-                  <!-- /.contact-form__heading -->
-                </dt>
-                <dd>
-                  <input type="text" id="postal-code" class="input-area input-area__postal-code" name="postal-code" placeholder="">
-                </dd>
-              </dl>
-              <!-- 住所 -->
-              <dl class="contact-form__item">
-                <dt>
-                  <label for="address" class="contact-form__heading">
-                    ご住所
-                    <span>必須</span>
-                  </label>
-                </dt>
-                <dd>
-                  <input type="text" id="address" class="input-area" name="address" placeholder="" required>
+                  <input type="email" id="Email" class="input-area required" name="Email" placeholder="aaa000@ggmail.com" autocomplete="email" required>
+                  <!-- エラーメッセージ（内容はJSで制御） -->
+                  <span class="error_required"></span>
+                  <p class="email-error">
+                  </p>
                 </dd>
               </dl>
               <!-- 電話番号 -->
@@ -280,19 +268,10 @@
                   </label>
                 </dt>
                 <dd>
-                  <input type="text" id="tel" class="input-area" name="tel" placeholder="000-0000-0000" autocomplete="tel" required>
-                </dd>
-              </dl>
-              <!-- プルダウン選択項目 -->
-              <dl class="contact-form__item">
-                <dt>
-                  <label for="pull-down" class="contact-form__heading">
-                    キャンペーン
-                    <span>必須</span>
-                  </label>
-                </dt>
-                <dd>
-                  <input type="text" id="pull-down" class="input-area" name="pull-down" placeholder="" autocomplete="" required>
+                  <input type="text" id="tel" class="input-area required" name="tel" placeholder="000-0000-0000" autocomplete="tel" required>
+                  <!-- エラーメッセージ（内容はJSで制御） -->
+                  <span class="error_required"></span>
+                  <p class="tel-error"></p>
                 </dd>
               </dl>
               <!-- お問い合わせ項目（ラジオ） -->
@@ -304,7 +283,6 @@
                   </label>
                 </dt>
                 <dd>
-                  <!-- ラジオボタンのリスト -->
                   <ul class="contact-form__radio radio__items">
                     <li class="radio__item">
                       <label for="radio-01" class="radio-label">
@@ -312,23 +290,44 @@
                         <span class="radio-label-span">ダイビング講習について</span>
                       </label>
                     </li>
-                    <!-- /.radio__item -->
                     <li class="radio__item">
                       <label for="radio-02" class="radio-label">
                         <input id="radio-02" class="radio-input" type="radio" name="radio-name" required value="ファンデイビングについて">
                         <span class="radio-label-span">ファンデイビングについて</span>
                       </label>
                     </li>
-                    <!-- /.radio__item -->
                     <li class="radio__item">
                       <label for="radio-03" class="radio-label">
                         <input id="radio-03" class="radio-input" type="radio" name="radio-name" required value="体験ダイビングについて">
                         <span class="radio-label-span">体験ダイビングについて</span>
                       </label>
                     </li>
-                    <!-- /.radio__item -->
+                    <!-- テキスト内容はJSで制御 --> 
+                    <!-- 要修正 -->
+                    <p class="radio-error"></p>
                   </ul>
-                  <!-- /.contact-form__radio radio__items -->
+                </dd>
+              </dl>
+              <!-- キャンペーン（プルダウン選択） -->
+              <dl class="contact-form__item">
+                <dt>
+                  <label for="pull-down" class="contact-form__heading">
+                    キャンペーン
+                    <span>必須</span>
+                  </label>
+                </dt>
+                <dd>
+                  <div class="custom-select">
+                    <select id="pull-down" class="input-area" name="pull-down" required>
+                      <option value="" disabled selected style="display:none;">キャンペーン内容を選択</option>
+                      <option value="1">ライセンス講習</option>
+                      <option value="2">体験ダイビング</option>
+                      <option value="3">ファンダイビング</option>
+                      <option value="4">スペシャルダイビング</option>
+                    </select>
+                    <!-- テキスト内容はJSで制御 --> 
+                    <p class="pull-down-error"></p>
+                  </div>
                 </dd>
               </dl>
               <!-- お問い合わせ内容（テキスト） -->
@@ -338,43 +337,44 @@
                     お問合せ内容
                     <span>必須</span>
                   </label>
-                  <!-- /.contact-form__heading -->
                 </dt>
                 <dd>
-                  <textarea id="message" class="text-area" name="message" cols="32" rows="7" placeholder="ここにお問い合わせ内容を書いてください。" required></textarea>
-                  <span class="error_required"></span> 
+                  <textarea id="message" class="text-area required" name="message" cols="32" rows="7" placeholder="" required></textarea>
+                  <!-- エラーメッセージ（内容はJSで制御） -->
+                  <span class="error_required"></span>
                 </dd>
               </dl>
-
               <!-- プライバシーポリシー -->
               <div class="contact-form__privacy">
-                <!-- チェックボックス -->
                 <input id="checkbox" name="privacy" class="checkbox" type="checkbox">
                 <label for="checkbox" class="contact-form__privacy-text">
-                  個人情報の取り扱いについて同意のうえ
-                  送信します。
+                  個人情報の取り扱いについて同意のうえ送信します。
                 </label>
+              </div>
+              <!-- テキスト内容はJSで制御 -->
+              <p class="privacy-error"></p>
 
-                <!-- チェックボックスに入力がない時のエラーメッセージ -->
-                <!-- テキスト内容はJSで制御 -->
-                <p class="p-contact-form__privacy-error"></p>
-              </div><!-- /.privacy-policy -->
+            <!-- 送信ボタン -->
+            <!-- <div class="p-contact-form__btn-wrapper">
+              <button id="js-submit" class="p-contact-form__btn-submit c-btn" type="submit" value="送信する">送信する</button>
+            </div> -->
 
               <!-- 送信ボタン -->
-                <!-- ボタン -->
-                <div class="contact-form__btn-wrapper">
-                  <div class="contact-form__button">
-                    <input type="submit" id="js-submit" class=" input-submit js-submit-btn" value="send" disabled>
-                    <span></span>
-                  </div>
-                </div>
+              <div class="contact-form__btn-wrapper">
+                <input id="js-submit" class="contact-form__button button" type="submit" value="send">
+              </div>
 
-              <p id="error-message" class="error-message">※必須項目が入力されていません。入力してください。</p>
-              <!-- /.contact-form__btn-wrapper -->
-            </form><!-- /.contact-form -->
-            <p class="end-message">お問い合わせありがとうございました</p>
-            <p class="false-message">送信失敗です</p>
-            <!-- フォームここまで -->
+
+
+
+              <!-- <div class="contact-form__btn-wrapper">
+                <button class="contact-form__button">
+                  <input id="js-submit" class="input-submit js-submit-btn"type="submit" value="send" disabled>
+                  <span></span>
+                </button>
+              </div> -->
+            </form>
+            <!-- お問合せフォームここまで -->
           </div>
         </div>
       </div>

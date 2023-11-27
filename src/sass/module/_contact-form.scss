@@ -5,14 +5,9 @@
   width: 100%;
   max-width: 100%;
   background-color: #fff;
-  // border-radius: rem(20);
-  // padding-top: rem(20);
-  // padding-bottom: rem(43);
-  // padding-right: 5%;
-  // padding-left: 5%;
+  margin-top: rem(40);
   @include mq(md) {
     max-width: rem(700);
-    // padding: rem(37) rem(76) rem(43);
     margin-right: auto;
     margin-left: auto;
   }
@@ -23,7 +18,6 @@
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  // margin-top: rem(24);
   border-bottom: 1px dotted $green;
   padding: rem(24) 0;
   @include mq(md) {
@@ -31,6 +25,10 @@
     flex-direction: row;
     gap: rem(39);
   }
+}
+
+.contact-form__item:first-child {
+  padding-top: 0;
 }
 
 //見出しと「必須」タグ
@@ -72,10 +70,9 @@
 // 入力エリア
 .input-area {
   width: 100%;
-  max-width: min(100%, rem(480));
+  // max-width: min(100%, rem(480));
   height: rem(40);
   background: #fff;
-  // border-radius: rem(5);
   margin-top: rem(18);
   font-family: $base-font-family;
   font-size: rem(16);
@@ -88,10 +85,17 @@
   }
 }
 
+.input-area.errored,
+.text-area.errored {
+  border: 1px solid #C94800;
+  background: rgba(201, 72, 0, 0.20);
+  color: #fff;
+}
+
 // お問い合わせ内容の入力エリア
 .text-area {
   width: 100%;
-  max-width: min(100%, rem(500));
+  // max-width: min(100%, rem(500));
   background: #fff;
   margin-top: rem(18);
   font-family: $base-font-family;
@@ -108,7 +112,8 @@
 
 input[type="text"],
 input[type="email"],
-textarea {
+textarea,
+select {
   // //マウスを使わないユーザー用に、outline:none;の場合はborderをつける
   border: 1px solid rgba(0, 0, 0, 0.16);
 }
@@ -120,7 +125,42 @@ textarea {
   }
 }
 
-//***** ラジオボタンのデザイン *****
+.input-area::placeholder,
+.text-area::placeholder {
+  color: $green-light; //テキストの色
+}
+
+//※全角文字で入力してください。
+.name-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  text-align: left;
+}
+
+//※正しいメールアドレスの形式で入力してください。
+.email-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  text-align: left;
+}
+//※電話番号は半角数字とハイフンの組み合わせで入力してください。
+.tel-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  text-align: left;
+}
+
+
+
+
+
+//** ラジオボタンのデザイン **
 //inputタグのデフォルトデザインを消す
 .radio-input {
   position: absolute;
@@ -177,14 +217,89 @@ textarea {
   color: $green-deep;
   font-weight: $normal;
 }
-//***** ラジオボタンのデザイン ***** ここまで
+
+//※ラジオボタンを選択してください
+.radio-error {
+    font-family: $base-font-family;
+    font-size: rem(14);
+    color: #C94800;
+    font-weight: $normal;
+}
+
+//※キャンペーン内容を選択してください
+.pull-down-error {
+    font-family: $base-font-family;
+    font-size: rem(14);
+    color: #C94800;
+    font-weight: $normal;
+}
+
+
+//** ラジオボタンのデザイン ** ここまで
+
+//プルダウンメニュー
+.custom-select {
+  position: relative;
+}
+
+.custom-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  // padding: rem(12) rem(8);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: #fff;
+  font-family: $base-font-family;
+  font-size: rem(12);
+  color: #000;
+  font-weight: $normal;
+  font-weight: $normal;
+  cursor: pointer;
+}
+
+.custom-select .placeholder {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  // // padding: rem(8) rem(16);
+  // line-height: normal;
+  // pointer-events: none;
+}
+
+.custom-select::after {
+  content: '\25BC'; //下矢印
+  display: inline-block;
+  position: absolute;
+  top: 65%;
+  right: rem(8);
+  transform: translateY(-50%);
+  font-size: rem(12);
+  color: $green;
+  pointer-events: none;
+  @include mq(md) {
+  top: 50%;
+  }
+}
+
+//プルダウンメニューここまで
 
 // チェックボックスとプライバシー
 .contact-form__privacy {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: rem(8);
   text-align: center;
   margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 rem(32);
   @include mq(md) {
-  margin-top: rem(80);
+    gap: 0 rem(16);
+    margin-top: rem(80);
   }
 }
 
@@ -195,47 +310,64 @@ textarea {
   color: $green-deep;
   font-weight: $normal;
   line-height: calc(22/14);
+  display: inline-block;
+  text-align: left;
 }
 
-// チェックボックスのデザイン ********************************
+// ** チェックボックスのデザイン **
 input[type="checkbox"] {
+  display: inline-block;//これがないと表示されないので注意
   cursor: pointer;
-  padding-left: rem(20);/*label手前にチェックボックス用の余白を開ける*/
+  padding-left: rem(20);//label手前にチェックボックス用の余白を開ける
   vertical-align: middle;
-  position: relative; //本来のcheckboxの位置;
+  position: relative; //本来のcheckboxの位置
 }
+
+//擬似要素で四角をデザイン
 input[type="checkbox"]::before,
 input[type="checkbox"]::after {
   content: "";
   display: block; 
   position: absolute;
+  z-index: 1;
 }
+
+//チェックボックス
 input[type="checkbox"]::before {
   background-color: #fff;
-  border-radius: 0%;
-  border: 1px solid #666464;
-  width: 20px;/*チェックボックスの横幅*/
-  height: 20px;/*チェックボックスの縦幅*/
-  transform: translateY(-50%);
+  border: 1px solid $green;
+  width: rem(22);/*チェックボックスの横幅*/
+  height: rem(22);/*チェックボックスの縦幅*/
+  // transform: translateY(-50%);
   top: 50%;
-  // top: 0;
   left: 0;
 }
+
+//チェックマーク
 input[type="checkbox"]::after {
-  border-bottom: 3px solid #666464;/*チェックの太さ*/
-  border-left: 3px solid #666464;/*チェックの太さ*/
-  opacity: 0;/*チェック前は非表示*/
-  height: 6px;/*チェックの高さ*/
-  width: 11px;/*チェックの横幅*/
+  border-bottom: 3px solid #666464;//チェックの太さ
+  border-left: 3px solid #666464;//チェックの太さ
+  opacity: 0;//チェック前は非表示
+  height: 6px;//チェックの高さ
+  width: 11px;//チェックの横幅
   transform: rotate(-45deg);
-  top: -5px; /*チェック時の位置調整*/
-  left: 5px; /*チェック時の位置調整*/
+  top: rem(5); //チェック時の位置調整
+  left: rem(5); //チェック時の位置調整
 }
 
 input[type="checkbox"]:checked::after {
-  opacity: 1;/*チェック後に表示*/
+  opacity: 1;//チェック後に表示
 }
-// チェックボックスのデザイン ここまで  ********************************
+// ** チェックボックスのデザイン ** ここまで  
+
+//※個人情報保護方針に同意してください。
+.privacy-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  text-align: center;
+}
 
 .contact-form__btn-wrapper {
   margin-top: rem(50);
@@ -245,145 +377,165 @@ input[type="checkbox"]:checked::after {
 //ボタン
 .contact-form__button {
   // width: rem(202);
-  font-family: $second-font-family;
-  font-size: rem(14);
+  // font-family: $second-font-family;
+  // font-size: rem(14);
   // color: $white;
-  font-weight: $normal;
-  line-height: calc(22/14);
-  display: inline-block;
-  text-align: center;
-  // padding: rem(16) 0;
-  background-color: $green;
-  border: 1px solid $green;
-  position: relative;
-  z-index: 1;
-  transition: .3s;
+  // font-weight: $normal;
+  // line-height: calc(22/14);
+  // display: inline-block;
+  // text-align: center;
+  // text-transform: capitalize;
+  // background-color: $green;
+  // border: 1px solid $green;
+  // padding-top: rem(16);
+  // padding-right: rem(112);
+  // padding-bottom: rem(16);
+  // padding-left: rem(56);
+  // position: relative;
+  // z-index: 1;
+  // transition: .3s;
 }
 
-.contact-form__button::first-letter {
-  text-transform: capitalize;
-}
+// .contact-form__button::first-letter {
+//   text-transform: capitalize;
+// }
 
 .contact-form__button:hover span,
 .contact-form__button:hover span::after {
-  color: $green;
-  border-color: $green;
+  // color: $green;
+  // border-color: $green;
 }
 
 // ボタンの影（外枠）
 .contact-form__button::before {
   content: "";
-  display: block;
-  border: 1px solid $green;
-  width: 100%;
-  height: 100%;
-  transition: .3s;
-  position: absolute;
-  top: rem(4);
-  left: rem(4);
-  z-index: -2;
+  // display: block;
+  // border: 1px solid $green;
+  // width: 100%;
+  // height: 100%;
+  // transition: .3s;
+  // position: absolute;
+  // top: rem(4);
+  // left: rem(4);
+  // z-index: -2;
 }
 
 // ボタンに被せるカラーボックス
 .contact-form__button::after {
   content: "";
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  background: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: scale(0, 1);
-  transform-origin: left top;
-  transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
-  z-index: -1;
+  // width: 100%;
+  // max-width: 100%;
+  // height: 100%;
+  // background: #fff;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // transform: scale(0, 1);
+  // transform-origin: left top;
+  // transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+  // z-index: -1;
 }
 
 .contact-form__button:hover::after {
-  transform: scale(1, 1);
+  // transform: scale(1, 1);
 }
 
 .contact-form__button span {
-  font-family: $second-font-family;
-  font-size: rem(14);
-  color: $white;
-  font-weight: $normal;
-  line-height: calc(22/14);
+  // font-family: $second-font-family;
+  // font-size: rem(14);
+  // color: $white;
+  // font-weight: $normal;
+  // line-height: calc(22/14);
   // padding-right: rem(40);
 }
 // 右矢印
 .contact-form__button span::after {
-  content: "";
-  display: inline-block;
-  width: rem(40);
-  max-width: 100%;
-  height: rem(6);
-  border-right: 1px solid $white;
-  border-bottom: 1px solid $white;
-  transform: skew(45deg);
-  margin-left: rem(8);
-  position: absolute;
-  top: 42.857%;//ボタンの高さ56pxで計算
-  right: rem(56);
-  z-index: 1;
+  // content: "";
+  // display: inline-block;
+  // width: rem(40);
+  // max-width: 100%;
+  // height: rem(6);
+  // border-right: 1px solid $white;
+  // border-bottom: 1px solid $white;
+  // transform: skew(45deg);
+  // margin-left: rem(8);
+  // position: absolute;
+  // top: 42.857%;//ボタンの高さ56pxで計算
+  // right: rem(56);
+  // z-index: 1;
 }
 
 //Send
 .input-submit {
-  width: rem(202);
-  padding-top: rem(16);
-  padding-right: rem(112);
-  padding-bottom: rem(16);
-  padding-left: rem(56);
+  // width: rem(202);
+  // padding-top: rem(16);
+  // padding-right: rem(112);
+  // padding-bottom: rem(16);
+  // padding-left: rem(56);
   // font-family: $base-font-family;
   // font-size: rem(14);
-  color: $white;
+  // color: $white;
   // font-weight: $normal;
-  cursor: pointer;
-  transition: background-color 0.3s; 
-  text-align: center;
-  text-transform: capitalize;
+  // cursor: pointer;
+  // transition: background-color 0.3s; 
+  // text-align: center;
+  // text-transform: capitalize;
   @include mq(md) {
     // font-size: rem(16);
   }
 }
 
 .input-submit:hover {
-  color: $green;
+  // color: $green;
 }
 
 //アクティブの時（実際にクリックなどの操作をしている時）
 .input-submit:active {
-  background-color: #1c598a; /* Darken background color when active */
+  // background-color: #1c598a; /* Darken background color when active */
 }
 
 //フォーカスした時（カーソルが当たっている状態）
 .input-submit:focus {
-  outline: none; /* Remove outline */
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5); /* Add a soft outline */
+  // outline: none; /* Remove outline */
+  // box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5); /* Add a soft outline */
 }
 
-// 送信ボタンをグレーアウトして、押せないようにする
-// .input-submit[disabled] {
-//   background-color: #ccc;
-//   color: #888;
-//   cursor: not-allowed;
+// .error-message::before {
+//   content: '※ '; /* ※の文字列を挿入 */
+//   position: absolute;
+//   top: 0;
+//   left: rem(45);
 // }
-// *必須項目に入力がありません。
+
+// .input-error {
+//   // display: block;
+//   border: 1px solid red;
+// }
+
+// ※入力必須項目です
+span.error_required {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  text-align: left;
+}
+
+.contact-form__error {
+  padding: 0 rem(60);
+}
+// ※必須項目が入力されていません。入力してください。
 .error-message {
-  display: none;
-  text-align: center;
-  margin-top: rem(8);
-  color: red;
+  // display: none;
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  text-align: left;
+  margin-top: rem(52);
+  margin-bottom: rem(40);
+  position: relative;
+  @include mq(md) {
+    margin-top: rem(150);
+  }
 }
-
-//googleフォームと連携より
-.end-message {
-  display: none;
-}
-
-.false-message {
-  display: none;
-}
-

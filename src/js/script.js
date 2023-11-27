@@ -173,33 +173,105 @@ jQuery(function ($) {
         content.addClass('is-open');
       }
     });
-  });
+  }); //アコーディオンここまで
 
 
 
-
-
-
-
-
-
-  // $(".js-accordion-Q").click(function() {
-  //   // クリックしたアコーディオン要素の次の要素を取得
-  //   var $accordionContent = $(this).next(".accordion-content");
-
-  //   if ($accordionContent.length > 0) {
-  //     // 他のアコーディオンを閉じる
-  //     $(".js-accordion-Q").not(this).removeClass("is-active");
-  //     $(".accordion-content").not($accordionContent).removeClass("is-open");
-
-  //     // クリックしたアコーディオン要素にクラスを追加
-  //     $(this).toggleClass("is-active");
-
-  //     // クリックしたアコーディオンの次の要素にクラスを追加
-  //     $accordionContent.toggleClass("is-open");
-  //   }
-  // });//アコーディオン閉じる
+  // お問合せフォーム（バリデーション）
+// お問合せフォーム（バリデーション）
+  // 必須項目が入力されていない場合、エラーメッセージを表示。必須項目が全て入力されるまで、フォームを送信できないようにする
+  $(document).ready(function () {
+    // ページ読み込み時にエラーメッセージを非表示にする
+    $(".radio-error").text(""); // ラジオボタンエラーメッセージをクリア
+    $(".privacy-error").text(""); // チェックボックスエラーメッセージをクリア
   
+    // 送信ボタンクリック時の必須項目入力チェック
+    //#js-submitをクリックした時に、
+    $("#js-submit").on('click', function () {
+      //.requiredクラスをチェックする。
+      $(".required").each(function () {
+        //もし
+        if ($(this).val() == "") {
+          $(this).siblings('span.error_required').text("※入力必須項目です");
+          //.erroredを付与
+          $(this).addClass("errored");
+        } else {
+          $(this).siblings('span.error_required').text(""); 
+          // 入力が正しい場合、.erroredを消す
+          $(this).removeClass("errored");
+        }
+      });
+  
+      // radioCheckedにinput typeとnameを代入する。
+      var radioChecked = $("input[type='radio'][name='radio-name']:checked").length;
+      // もしラジオボタンのチェックが入っていなかったら、.radio-errorを表示
+      if (radioChecked === 0) {
+        $(".radio-error").text("※ラジオボタンを選択してください.");
+      } else {
+      // ラジオボタンが正しく選択された場合、エラーメッセージをクリア
+        $(".radio-error").text(""); 
+      }
+
+      // 要修正（メッセージが表示されない）
+      // キャンペーンプルダウンが選択されていない場合、エラーメッセージを表示
+      if ($("#pull-down").val() === "") {
+        $(".pull-down-error").text("※キャンペーンを選択してください.");
+        } else {
+            // プルダウンが正しく選択された場合、エラーメッセージをクリア
+            $(".pull-down-error").text("");
+        }
+
+  
+      // checkboxCheckedに#checkbox:checkedを代入する。
+      var checkboxChecked = $("#checkbox:checked").length;
+      // もしチェックが入っていなかったら、.privacy-errorを表示
+      if (checkboxChecked === 0) {
+        $(".privacy-error").text("※個人情報保護方針に同意してください。");
+      } else {
+        // チェックボックスが正しく選択された場合、エラーメッセージをクリア
+        $(".privacy-error").text(""); 
+      }
+  
+      // メールアドレスの正規表現チェック
+      var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      var emailInput = $("#Email").val();
+      if (!emailRegex.test(emailInput)) {
+        $(".email-error").text("※正しいメールアドレスの形式で入力してください。");
+      } else {
+        $(".email-error").text(""); // メールアドレスが正しい場合、エラーメッセージをクリア
+      }
+  
+      // 名前の正規表現チェック
+      var nameRegex = /^[ぁ-んァ-ヶ一-龠々ー　 ]+$/;
+      var nameInput = $("#name").val();
+      if (!nameRegex.test(nameInput)) {
+        $(".name-error").text("※全角文字で入力してください。");
+      } else {
+        $(".name-error").text(""); // 名前が正しい場合、エラーメッセージをクリア
+      }
+  
+      // 電話番号の正規表現チェック
+      var phoneNumberRegex = /^\d{2,5}-\d{1,4}-\d{4}$/;
+      var phoneNumberInput = $("#tel").val();
+      if (!phoneNumberRegex.test(phoneNumberInput)) {
+        $(".tel-error").text("※電話番号は半角数字とハイフンの組み合わせで入力してください。");
+      } else {
+        $(".tel-error").text(""); // 電話番号が正しい場合、エラーメッセージをクリア
+      }
+  
+      if (
+        $(".errored").length ||
+        radioChecked === 0 ||
+        checkboxChecked === 0 ||
+        !emailRegex.test(emailInput) ||
+        !nameRegex.test(nameInput) ||
+        !phoneNumberRegex.test(phoneNumberInput)
+      ) {
+        return false;
+      }
+    });
+  });
+  // お問合せフォームここまで
 
 }); //jQuery 閉じタグ
 
