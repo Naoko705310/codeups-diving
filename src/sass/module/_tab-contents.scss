@@ -1,17 +1,10 @@
 @use "global" as *;
 
-.media {
 
-
-}
-
-.media__items {
-
-}
-
-.media__item {
+.tab-contents__item {
   border: 1px solid $green;
   padding: rem(24);
+  display: none;
   @include mq(md) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -19,7 +12,22 @@
   }
 }
 
-.media__heading {
+
+.tab-contents__item.is-active {
+  display: block;
+  animation: fade 0.5s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.tab-contents__heading {
   @include mq(md) {
   display: flex;
   flex-direction: column;
@@ -27,7 +35,7 @@
   }
 }
 
-.media__title {
+.tab-contents__title {
   font-family: $base-font-family;
   font-size: rem(24);
   color: $green-deep;
@@ -38,7 +46,7 @@
   padding-bottom: rem(8);
 }
 
-.media__text {
+.tab-contents__text {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $black;
@@ -47,7 +55,7 @@
   margin-top: rem(8);
 }
 
-.media__image {
+.tab-contents__image {
   margin-top: rem(8);
   position: relative;
   @include mq(md) {
@@ -55,13 +63,13 @@
   }
 }
 
-.media__image::before {
+.tab-contents__image::before {
   content: "";
   display: block;
   padding-top: 63.636%;// 189/297
 }
 
-.media__image img {
+.tab-contents__image img {
   width: 100%;
   max-width: 100%;
   height: 100%;

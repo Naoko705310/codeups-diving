@@ -1,25 +1,12 @@
 @use "global" as *;
 
-.tab {
-
-}
-
-.tab__inner {
-
-}
-
-
 .tab__items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: rem(19);
-
-}
-
-.tab__item {
-  width: 100%;
-  height: inherit;
-
+  @include mq(md) {
+  gap: rem(90);
+  }
 }
 
 .tab__item a {
@@ -33,13 +20,15 @@
   background-color: $green-light;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
   text-align: center;
+  overflow: hidden;
+  position: relative; //何にたいして？
   padding: rem(10) rem(16);
   @include mq(md) {
+    font-size: rem(24);
+    padding: rem(13) rem(18);
     display: grid;
     grid-template-columns: rem(64) 1fr;
     align-items: center;
-    font-size: rem(24);
-    padding: rem(13) rem(18);
   }
 }
 
@@ -47,4 +36,12 @@
   width: rem(64);
   height: rem(64);
 }
+
+// しょーごさん
+
+.tab__item.is-active a {
+  background-color: $green;
+  color: $white;
+}
+
 
