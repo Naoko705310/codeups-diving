@@ -76,11 +76,26 @@
   margin-top: rem(18);
   font-family: $base-font-family;
   font-size: rem(16);
-  color: $green-deep;
+  color: $green-deep;//正常入力時の文字色
   font-weight: $normal;
   padding: rem(8) rem(16);
   @include mq(md) {
     font-size: rem(16);
+    margin-top: 0;
+  }
+}
+
+// お問い合わせ内容の入力エリア
+.text-area {
+  width: 100%;
+  // max-width: min(100%, rem(500));
+  background: #fff;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  margin-top: rem(18);
+  @include mq(md) {
     margin-top: 0;
   }
 }
@@ -92,20 +107,6 @@
   color: #fff;
 }
 
-// お問い合わせ内容の入力エリア
-.text-area {
-  width: 100%;
-  // max-width: min(100%, rem(500));
-  background: #fff;
-  margin-top: rem(18);
-  font-family: $base-font-family;
-  font-size: rem(16);
-  font-weight: $normal;
-  @include mq(md) {
-    margin-top: 0;
-  }
-}
-
 .input-area__postal-code {
   width: 47.005%;
 }
@@ -114,8 +115,7 @@ input[type="text"],
 input[type="email"],
 textarea,
 select {
-  // //マウスを使わないユーザー用に、outline:none;の場合はborderをつける
-  border: 1px solid rgba(0, 0, 0, 0.16);
+  border: 1px solid $green;
 }
 
 .contact-form__radio {
@@ -125,29 +125,23 @@ select {
   }
 }
 
+//placeholder文字色
 .input-area::placeholder,
 .text-area::placeholder {
-  color: $green-light; //テキストの色
+  color: $green-light; 
 }
 
-//※全角文字で入力してください。
-.name-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: $green;
-  font-weight: $normal;
-  text-align: left;
+//placeholderエラー時文字色
+.input-area.errored::placeholder,
+.text-area.errored::placeholder {
+  color: $white; 
 }
 
-//※正しいメールアドレスの形式で入力してください。
-.email-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: $green;
-  font-weight: $normal;
-  text-align: left;
-}
-//※電話番号は半角数字とハイフンの組み合わせで入力してください。
+
+
+//正規表現チェックのテキスト
+.name-error,
+.email-error,
 .tel-error {
   font-family: $base-font-family;
   font-size: rem(14);
@@ -155,10 +149,6 @@ select {
   font-weight: $normal;
   text-align: left;
 }
-
-
-
-
 
 //** ラジオボタンのデザイン **
 //inputタグのデフォルトデザインを消す
@@ -206,10 +196,6 @@ select {
   transform: rotate(-45deg);
 }
 
-//キーボードのみで操作時用のライン
-.radio-input:focus + .radio-label-span::before {
-  outline: 2px solid #3498db; //フォーカスが当たった時の線の色
-}
 
 .radio__label {
   font-family: $base-font-family;
@@ -225,16 +211,6 @@ select {
     color: #C94800;
     font-weight: $normal;
 }
-
-//※キャンペーン内容を選択してください
-.pull-down-error {
-    font-family: $base-font-family;
-    font-size: rem(14);
-    color: #C94800;
-    font-weight: $normal;
-}
-
-
 //** ラジオボタンのデザイン ** ここまで
 
 //プルダウンメニュー
@@ -258,19 +234,18 @@ select {
   cursor: pointer;
 }
 
-.custom-select .placeholder {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // bottom: 0;
-  // // padding: rem(8) rem(16);
-  // line-height: normal;
-  // pointer-events: none;
+// 要修正（エラーが表示されない）
+//※キャンペーン内容を選択してください
+.pull-down-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
 }
 
+// 下矢印
 .custom-select::after {
-  content: '\25BC'; //下矢印
+  content: '\25BC'; 
   display: inline-block;
   position: absolute;
   top: 65%;
@@ -283,7 +258,6 @@ select {
   top: 50%;
   }
 }
-
 //プルダウンメニューここまで
 
 // チェックボックスとプライバシー
@@ -336,8 +310,8 @@ input[type="checkbox"]::after {
 input[type="checkbox"]::before {
   background-color: #fff;
   border: 1px solid $green;
-  width: rem(22);/*チェックボックスの横幅*/
-  height: rem(22);/*チェックボックスの縦幅*/
+  width: rem(22);
+  height: rem(22);
   // transform: translateY(-50%);
   top: 50%;
   left: 0;
@@ -374,16 +348,12 @@ input[type="checkbox"]:checked::after {
   text-align: center;
 }
 
+// ※からindentして改行したい
 // .error-message::before {
 //   content: '※ '; /* ※の文字列を挿入 */
 //   position: absolute;
 //   top: 0;
 //   left: rem(45);
-// }
-
-// .input-error {
-//   // display: block;
-//   border: 1px solid red;
 // }
 
 // ※入力必須項目です
@@ -398,6 +368,7 @@ span.error_required {
 .contact-form__error {
   padding: 0 rem(60);
 }
+
 // ※必須項目が入力されていません。入力してください。
 .error-message {
   // display: none;
