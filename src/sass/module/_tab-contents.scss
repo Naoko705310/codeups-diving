@@ -1,21 +1,20 @@
 @use "global" as *;
 
-
 .tab-contents__item {
   border: 1px solid $green;
   padding: rem(24);
   display: none;
-  @include mq(md) {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: rem(48);
-  }
 }
-
 
 .tab-contents__item.is-active {
   display: block;
   animation: fade 0.5s ease;
+  @include mq(md) {
+    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(48);
+  }
 }
 
 @keyframes fade {

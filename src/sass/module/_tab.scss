@@ -9,26 +9,85 @@
   }
 }
 
-.tab__item a {
-  display: inline-block;
+.tab__item {
   width: 100%;
-  height: inherit;
+  height: 100%;
+  padding: rem(29) 0;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: $green-light;
+  text-align: center;
+  overflow: hidden;
+  padding: rem(10) rem(16);
+  @include mq(md) {
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(29) 0;
+  }
+}
+
+.tab__item span {
+  display: inline-block;
   font-family: $base-font-family;
   font-size: rem(14);
   color: $green;
   font-weight:$normal ;
-  background-color: $green-light;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  overflow: hidden;
-  position: relative; //何にたいして？
-  padding: rem(10) rem(16);
+  position: relative;
   @include mq(md) {
     font-size: rem(24);
-    padding: rem(13) rem(18);
-    display: grid;
-    grid-template-columns: rem(64) 1fr;
-    align-items: center;
+    padding-left: rem(72);
+  }
+}
+
+//アイコン（クジラ）
+.tab__item span::before {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/tab-icon-whale-green.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: rem(64);
+    aspect-ratio: 64/64;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+// アイコン（サメ）
+.tab__item:nth-child(2) span::before {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/sub-information_icon-shark.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: rem(64);
+    aspect-ratio: 64/64;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+// アイコン（魚）
+.tab__item:nth-child(3) span::before {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/sub-information_icon-fish.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: rem(64);
+    aspect-ratio: 64/64;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
   }
 }
 
@@ -37,11 +96,32 @@
   height: rem(64);
 }
 
-// しょーごさん
-
-.tab__item.is-active a {
+.tab__item.is-active {
   background-color: $green;
+}
+
+.tab__item.is-active span {
   color: $white;
 }
+
+// アイコン（クリックしてis-activeになった時)
+.tab__item.is-active span::before {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/sub-information_icon-whale.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: rem(64);
+    aspect-ratio: 64/64;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+
+
 
 

@@ -33,3 +33,15 @@
     top: rem(-70);
   }
 }
+
+.page-information__tab {
+  position: relative;
+  z-index: 2;
+}
+
+.page-information__tab-contents {
+margin-top: rem(16);
+@include mq(md) {
+  margin-top: rem(24);
+}
+}

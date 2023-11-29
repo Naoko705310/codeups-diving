@@ -1,0 +1,14 @@
+.item::before {
+  content: "";
+  background: url(../images/common/tab-icon-whale-green.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: rem(64);
+  aspect-ratio: 64/64;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+/*# sourceMappingURL=Ymc=.scss.snippet.css.map */
