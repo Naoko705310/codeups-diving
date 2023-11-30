@@ -65,11 +65,14 @@
   font-size: rem(16);
   color: $green-deep;
   font-weight: $normal;
-  border-left: 1px solid $green;
-  border-right: 1px solid $green;
-  border-bottom: 1px solid $green;
+  line-height: 1.5;
+  border: 1px solid $green;
   padding: rem(24) rem(16);
   margin-top: 0;
+  @include mq(md) {
+    margin-top: rem(16);
+    padding: rem(40);
+  }
 }
 
 .accordion__item:nth-child(n+2) {
