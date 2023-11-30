@@ -1,0 +1,82 @@
+@use "global" as *;
+//  アコーディオン
+.accordion {
+  width: 100%;
+  max-width: rem(700);
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.accordion__title {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  background-color: $green;
+  position: relative;
+  padding: rem(16);
+  cursor: pointer;
+  @include mq(md) {
+    font-size: rem(18);
+    padding: rem(26) rem(40);
+  }
+}
+
+.accordion__title::before {
+  content: '';
+  display: inline-block;
+  width: rem(28);
+  height: rem(1);
+  background-color: $white;
+  position: absolute;
+  right: rem(16);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity .3s;
+}
+
+.accordion__title::after {
+  content: '';
+  display: inline-block;
+  width: rem(28);
+  height: rem(1);
+  background-color: $white;
+  position: absolute;
+  right: rem(16);
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+
+  transition: transform .3s;
+}
+
+.accordion__title.show::before {
+  opacity: 1;
+}
+
+.accordion__title.show::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+.accordion__content {
+  // display: none;//最初は隠す場合
+  display: block;//最初から開く場合
+  height: auto;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  border-left: 1px solid $green;
+  border-right: 1px solid $green;
+  border-bottom: 1px solid $green;
+  padding: rem(24) rem(16);
+  margin-top: 0;
+}
+
+.accordion__item:nth-child(n+2) {
+  margin-top: rem(40);
+}
+
+
+
+
+
