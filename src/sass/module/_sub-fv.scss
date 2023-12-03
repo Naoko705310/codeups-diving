@@ -7,6 +7,7 @@
   aspect-ratio: 375/460;
   position: relative;
   @include mq(md) {
+    height: rem(548);
     aspect-ratio: 1440/548;
   }
 }
@@ -26,7 +27,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   text-transform: capitalize;
   white-space: nowrap;
   @include mq(md) {

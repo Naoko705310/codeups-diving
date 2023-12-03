@@ -175,7 +175,7 @@ jQuery(function ($) {
   });
   // タブここまで
 
-  //FAQ下層ページ（アコーディオン）
+  //下層ページFAQ（アコーディオン）
   $(function () {
     $('.js-accordion__title').on('click', function () {
         $(this).next().slideToggle();
