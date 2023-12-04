@@ -11,13 +11,10 @@
   padding-left: rem(16);
 }
 
-.blog-card a:hover {
-  opacity: 0.7;
-}
-
 .blog-card__image {
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .blog-card__image::before {
@@ -35,6 +32,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: cover;
+  transition: transform 0.5s ease; 
+}
+
+.blog-card:hover .blog-card__image img {
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 .blog-card__body {
