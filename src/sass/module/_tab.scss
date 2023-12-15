@@ -8,6 +8,9 @@
   gap: rem(90);
   }
 }
+.tab__items:hover {
+  cursor: pointer; 
+}
 
 .tab__item {
   width: 100%;

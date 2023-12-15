@@ -226,18 +226,19 @@
             <figure class="about-us__image-right page-about-us__image-right">
               <img src="./assets/images/common/aboutus-02.jpg" alt="黄色い魚の画像">
             </figure>
-          <div class="about-us__body">
-            <h2 class="about-us__main-copy page-about-us__main-copy">
-              Dive into<br>
-              the Ocean
-            </h2>
-            <div class="about-us__text-wrapper">
-              <p class="about-us__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
+            <div class="about-us__body">
+              <h2 class="about-us__main-copy page-about-us__main-copy">
+                Dive into<br>
+                the Ocean
+              </h2>
+              <div class="about-us__text-wrapper">
+                <p class="about-us__text">
+                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
+                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
+                </p>
+              </div>
             </div>
-          </div>
+          </div><!-- 要修正　閉じタグ多い？ -->
           <!-- ギャラリー -->
           <div class="page-about-us__gallery gallery">
             <div class="gallery__section-title section-title">
@@ -250,7 +251,7 @@
             </div>
             <div class="gallery__image-wrapper">
               <ul class="gallery__items">
-                <li class="gallery__item gallery__item--double">
+                <li class="gallery__item gallery__item--vertical">
                   <img src="./assets/images/common/sub-about-us__gallery01.jpg" alt="海中の、色とりどりの魚の画像">
                 </li>
                 <li class="gallery__item">
@@ -265,7 +266,7 @@
                 <li class="gallery__item">
                   <img src="./assets/images/common/sub-about-us__gallery05.jpg" alt="海中の、小魚の群れの画像">
                 </li>
-                <li class="gallery__item gallery__item--double">
+                <li class="gallery__item gallery__item--vertical">
                   <img src="./assets/images/common/sub-about-us__gallery06.jpg" alt="サンゴと黄色い魚の画像">
                 </li>
               </ul>
@@ -273,9 +274,11 @@
           </div>
           <!-- モーダル -->
           <div class="gallery__modal modal js-modal">
-            <figure class="modal__image-wrapper">
-              <img src="" alt="">
-            </figure>
+            <div class="modal__background">
+              <figure class="modal__image-wrapper">
+                <img src="" alt="">
+              </figure>
+            </div>
           </div>
         </div>
       </section><!-- page-about-us -->

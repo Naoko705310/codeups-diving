@@ -131,10 +131,11 @@ jQuery(function ($) {
     }
   });
 
+
   // page-about-us モーダル
-  $(document).ready(function() {
+  $(document).ready(function () {
     // クリックした写真の情報をモーダルに設定する
-    $(".gallery__item").on("click", function() {
+    $(".gallery__item").on("click", function () {
       var imageSrc = $(this).find("img").attr("src");
       var altText = $(this).find("img").attr("alt");
   
@@ -147,16 +148,63 @@ jQuery(function ($) {
     });
   
     // モーダルを閉じる
-    $(".js-modal").on("click", function() {
-      $(this).removeClass("active");
+    $(".js-modal").on("click", function (event) {
+      // モーダル背景かモーダル内部がクリックされた場合は閉じる
+      if (
+        $(event.target).hasClass("js-modal") ||
+        $(event.target).hasClass("modal__background") ||
+        $(event.target).hasClass("modal__image-wrapper") ||
+        $(event.target).is(".modal__image-wrapper img")
+      ) {
+        $(this).removeClass("active");
+      }
     });
   
     // モーダル内の画像クリック時にモーダルを閉じない
-    $(".modal__image-wrapper img").on("click", function(event) {
-      event.stopPropagation();
-    });
+    // $(".modal__image-wrapper img").on("click", function (event) {
+    //   event.stopPropagation();
+    // });
   });
-  // モーダルここまで
+  
+  
+
+  // 修正前
+  // $(document).ready(function () {
+  //   // クリックした写真の情報をモーダルに設定する
+  //   $(".gallery__item").on("click", function () {
+  //     var imageSrc = $(this).find("img").attr("src");
+  //     var altText = $(this).find("img").attr("alt");
+
+  //     // モーダルの画像とテキストを設定
+  //     $(".modal__image-wrapper img").attr("src", imageSrc);
+  //     $(".modal__image-wrapper img").attr("alt", altText);
+
+  //     // モーダルを表示
+  //     $(".js-modal").addClass("active");
+  //   });
+
+  //   // モーダルを閉じる
+  //   $(".js-modal").on("click", function (event) {
+  //     // モーダル自体がクリックされた場合は閉じない
+  //     if ($(event.target).hasClass("js-modal")) {
+  //       $(this).removeClass("active");
+  //     }
+  //   });
+
+  //   // モーダルを閉じる
+  //   $(".js-modal").on("click", function (event) {
+  //     // モーダル背景かモーダル内部がクリックされた場合は閉じる
+  //     if ($(event.target).hasClass("modal__background") || $(event.target).hasClass("modal__image-wrapper")) {
+  //       $(this).removeClass("active");
+  //     }
+  //   });
+
+  //   // モーダル内の画像クリック時にモーダルを閉じない
+  //   $(".modal__image-wrapper img").on("click", function (event) {
+  //     event.stopPropagation();
+  //   });
+  // });
+  // // モーダルここまで
 
   // page-information タブ
   $(function () {
