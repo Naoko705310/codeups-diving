@@ -136,17 +136,22 @@ jQuery(function ($) {
   $(document).ready(function () {
     // クリックした写真の情報をモーダルに設定する
     $(".gallery__item").on("click", function () {
-      var imageSrc = $(this).find("img").attr("src");
-      var altText = $(this).find("img").attr("alt");
-  
-      // モーダルの画像とテキストを設定
-      $(".modal__image-wrapper img").attr("src", imageSrc);
-      $(".modal__image-wrapper img").attr("alt", altText);
-  
-      // モーダルを表示
-      $(".js-modal").addClass("active");
+      var windowWidth = $(window).width();
+
+      // スマートフォンの場合はモーダルを表示しない
+      if (windowWidth > 767) {
+        var imageSrc = $(this).find("img").attr("src");
+        var altText = $(this).find("img").attr("alt");
+
+        // モーダルの画像とテキストを設定
+        $(".modal__image-wrapper img").attr("src", imageSrc);
+        $(".modal__image-wrapper img").attr("alt", altText);
+
+        // モーダルを表示
+        $(".js-modal").addClass("active");
+      }
     });
-  
+
     // モーダルを閉じる
     $(".js-modal").on("click", function (event) {
       // モーダル背景かモーダル内部がクリックされた場合は閉じる
@@ -159,7 +164,53 @@ jQuery(function ($) {
         $(this).removeClass("active");
       }
     });
+
+    // ウィンドウの幅によってモーダルを制御
+    function checkWindowWidth() {
+      var windowWidth = $(window).width();
+      if (windowWidth <= 767) { // スマートフォンの場合
+        $(".js-modal").removeClass("active");
+      }
+    }
+
+    // ウィンドウがリサイズされたときにチェック
+    $(window).resize(function () {
+      checkWindowWidth();
+    });
+
+    // ページ読み込み時にもチェック
+    checkWindowWidth();
   });
+
+
+
+  // $(document).ready(function () {
+  //   // クリックした写真の情報をモーダルに設定する
+  //   $(".gallery__item").on("click", function () {
+  //     var imageSrc = $(this).find("img").attr("src");
+  //     var altText = $(this).find("img").attr("alt");
+  
+  //     // モーダルの画像とテキストを設定
+  //     $(".modal__image-wrapper img").attr("src", imageSrc);
+  //     $(".modal__image-wrapper img").attr("alt", altText);
+  
+  //     // モーダルを表示
+  //     $(".js-modal").addClass("active");
+  //   });
+  
+  //   // モーダルを閉じる
+  //   $(".js-modal").on("click", function (event) {
+  //     // モーダル背景かモーダル内部がクリックされた場合は閉じる
+  //     if (
+  //       $(event.target).hasClass("js-modal") ||
+  //       $(event.target).hasClass("modal__background") ||
+  //       $(event.target).hasClass("modal__image-wrapper") ||
+  //       $(event.target).is(".modal__image-wrapper img")
+  //     ) {
+  //       $(this).removeClass("active");
+  //     }
+  //   });
+  // });
   // モーダルここまで
 
   // page-information タブ
@@ -259,13 +310,8 @@ jQuery(function ($) {
       } else {
         $(".error-message").hide(); // エラーメッセージを非表示
       }
-  
-      // フォームの送信処理
-      // ...
     });
   });
-  
-  
   // お問合せフォームここまで
 
 }); //jQuery 閉じタグ

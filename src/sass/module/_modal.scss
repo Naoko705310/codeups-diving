@@ -3,22 +3,26 @@
 
 // モーダルのスタイル
 .modal {
-  display: none;//最初は非表示
-  position: fixed;
-  z-index: 1000; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  transition: .4s;
-  // justify-content: center;
-  // align-items: center;
+  @include mq(md) {
+    display: none;//最初は非表示
+    position: fixed;
+    z-index: 1000; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: .4s;
+    // justify-content: center;
+    // align-items: center;
+  }
 }
 
 .modal__background {
-  width: 100%;
-  height: 100%;
-  background: rgba(32, 32, 32, 0.80);
+  @include mq(md) {
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.80);
+  }
 }
 
 .modal__image-wrapper {
@@ -35,15 +39,19 @@
 }
 
 .modal__image-wrapper img {
-  width: 100%;
-  // max-width: 100%;
-  height: 100%;
-  // width: clamp(746px, 80%, 920px); 
-  object-fit: contain;
+  @include mq(md) {
+    width: 100%;
+    // max-width: 100%;
+    height: 100%;
+    // width: clamp(746px, 80%, 920px); 
+    object-fit: contain;
+  }
 }
 
 
 // モーダルを開いたときのスタイル
 .modal.active {
-  display: flex;
+  @include mq(md) {
+    display: flex;
+  }
 }
