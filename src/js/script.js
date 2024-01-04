@@ -144,8 +144,7 @@ jQuery(function ($) {
         var altText = $(this).find("img").attr("alt");
 
         // モーダルの画像とテキストを設定
-        $(".modal__image-wrapper img").attr("src", imageSrc);
-        $(".modal__image-wrapper img").attr("alt", altText);
+        $(".modal__image-wrapper img").attr("src", imageSrc).attr("alt", altText);
 
         // モーダルを表示
         $(".js-modal").addClass("active");
@@ -156,10 +155,7 @@ jQuery(function ($) {
     $(".js-modal").on("click", function (event) {
       // モーダル背景かモーダル内部がクリックされた場合は閉じる
       if (
-        $(event.target).hasClass("js-modal") ||
-        $(event.target).hasClass("modal__background") ||
-        $(event.target).hasClass("modal__image-wrapper") ||
-        $(event.target).is(".modal__image-wrapper img")
+        $(event.target).closest(".modal__background, .modal__image-wrapper").length > 0
       ) {
         $(this).removeClass("active");
       }
@@ -181,37 +177,8 @@ jQuery(function ($) {
     // ページ読み込み時にもチェック
     checkWindowWidth();
   });
-
-
-
-  // $(document).ready(function () {
-  //   // クリックした写真の情報をモーダルに設定する
-  //   $(".gallery__item").on("click", function () {
-  //     var imageSrc = $(this).find("img").attr("src");
-  //     var altText = $(this).find("img").attr("alt");
-  
-  //     // モーダルの画像とテキストを設定
-  //     $(".modal__image-wrapper img").attr("src", imageSrc);
-  //     $(".modal__image-wrapper img").attr("alt", altText);
-  
-  //     // モーダルを表示
-  //     $(".js-modal").addClass("active");
-  //   });
-  
-  //   // モーダルを閉じる
-  //   $(".js-modal").on("click", function (event) {
-  //     // モーダル背景かモーダル内部がクリックされた場合は閉じる
-  //     if (
-  //       $(event.target).hasClass("js-modal") ||
-  //       $(event.target).hasClass("modal__background") ||
-  //       $(event.target).hasClass("modal__image-wrapper") ||
-  //       $(event.target).is(".modal__image-wrapper img")
-  //     ) {
-  //       $(this).removeClass("active");
-  //     }
-  //   });
-  // });
   // モーダルここまで
+
 
   // page-information タブ
   $(function () {
