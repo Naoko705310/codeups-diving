@@ -9,19 +9,33 @@
 }
 
 .archive__year {
-  padding-left: 32px;
+  padding-left: rem(32);
   position: relative;
 }
 
 .archive__year::before {
   content: "";
   border-style: solid;
-  border-width: 12px 0 12px 20px; /* 上、右、下、左の順で境界の幅を設定 */
-  border-color:transparent transparent transparent $green ; /* 上下左の境界色を設定 */
+  border-width: 10px 0 10px 15px; 
+  // border-width: 12px 0 12px 20px; 
+  border-color: transparent transparent transparent $green;
   position: absolute;
   top: 50%;
+  left: rem(10);
   transform: translateY(-50%);
+  position: absolute;
+}
+
+
+.archive__year--current::before {
+  content: "";
+  border-style: solid;
+  border-width: 0 10px 15px 10px; 
+  border-color: transparent transparent $green transparent; 
+  position: absolute;
+  top: -10%;
   left: 0;
+  transform: translateY(100%) rotate(180deg); 
 }
 
 .archive__month {

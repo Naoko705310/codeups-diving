@@ -15,7 +15,7 @@
 .campaign-card__image::before {
   content: "";
   display: block;
-  padding-top: 67.1428%; //188/280
+  padding-top: 63.945%; //188/294
   @include mq(md) {
     padding-top: 66.9669%; //223/333
   }
