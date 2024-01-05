@@ -23,7 +23,9 @@
   @include mq(md) {
     max-width: rem(700);
     flex-direction: row;
+    justify-content: space-between;
     gap: rem(39);
+    padding: rem(40) 0;
   }
 }
 
@@ -32,9 +34,9 @@
 }
 
 //見出しと「必須」タグ
-.contact-form__item dt {
+.contact-form__item dd {
   @include mq(md) {
-    width: 40%;
+    width: rem(480);
   }
 }
 
@@ -44,33 +46,28 @@
   font-size: rem(16);
   color: $green-deep;
   font-weight: $bold;
-  display: block;
+  display: flex;
+  gap: rem(6);
 }
 
 //「必須」タグ
 .contact-form__heading span {
+  width: rem(61);
+  aspect-ratio: 61/21;
   font-family: $base-font-family;
   font-size: rem(12);
   color: $white;
   font-weight: $normal;
   letter-spacing: 4.8px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #C94800;
-  padding: rem(2) rem(16);
-  margin-left: rem(8);
-}
-
-//入力エリアと入力例
-.contact-form__item dd {
-  @include mq(md) {
-    width: 65%;
-  }
 }
 
 // 入力エリア
 .input-area {
   width: 100%;
-  // max-width: min(100%, rem(480));
   height: rem(40);
   background: #fff;
   margin-top: rem(18);
@@ -80,15 +77,22 @@
   font-weight: $normal;
   padding: rem(8) rem(16);
   @include mq(md) {
+    width: rem(480);
     font-size: rem(16);
     margin-top: 0;
+  }
+}
+
+.input-area--pull-down {
+  padding-left: rem(6);
+  @include mq(md) {
+    padding: rem(7) rem(9) rem(6) rem(8);
   }
 }
 
 // お問い合わせ内容の入力エリア
 .text-area {
   width: 100%;
-  // max-width: min(100%, rem(500));
   background: #fff;
   font-family: $base-font-family;
   font-size: rem(16);
@@ -136,8 +140,6 @@ select {
 .text-area.errored::placeholder {
   color: $white; 
 }
-
-
 
 //正規表現チェックのテキスト
 .name-error,
@@ -196,7 +198,6 @@ select {
   transform: rotate(-45deg);
 }
 
-
 .radio__label {
   font-family: $base-font-family;
   font-size: rem(16);
@@ -223,7 +224,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 100%;
-  // padding: rem(12) rem(8);
   border: 1px solid rgba(0, 0, 0, 0.16);
   background: #fff;
   font-family: $base-font-family;
@@ -266,7 +266,7 @@ select {
   align-items: flex-start;
   justify-content: center;
   gap: rem(8);
-  text-align: center;
+  text-align: left;
   margin-top: rem(40);
   margin-right: auto;
   margin-left: auto;
@@ -295,6 +295,7 @@ input[type="checkbox"] {
   padding-left: rem(20);//label手前にチェックボックス用の余白を開ける
   vertical-align: middle;
   position: relative; //本来のcheckboxの位置
+  margin-top: 0;
 }
 
 //擬似要素で四角をデザイン
@@ -312,9 +313,8 @@ input[type="checkbox"]::before {
   border: 1px solid $green;
   width: rem(22);
   height: rem(22);
-  // transform: translateY(-50%);
-  top: 50%;
-  left: 0;
+  top: 0;
+  left: -20%;
 }
 
 //チェックマーク
@@ -326,7 +326,8 @@ input[type="checkbox"]::after {
   width: 11px;//チェックの横幅
   transform: rotate(-45deg);
   top: rem(5); //チェック時の位置調整
-  left: rem(5); //チェック時の位置調整
+  left: 0; //チェック時の位置調整
+  // left: rem(5); //チェック時の位置調整
 }
 
 input[type="checkbox"]:checked::after {
@@ -344,8 +345,11 @@ input[type="checkbox"]:checked::after {
 }
 
 .contact-form__button {
-  margin-top: rem(50);
+  margin-top: rem(24);
   text-align: center;
+  @include mq(md) {
+    margin-top: rem(40);
+  }
 }
 
 // ※からindentして改行したい

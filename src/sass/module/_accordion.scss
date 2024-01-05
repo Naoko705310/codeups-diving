@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.accordion__item:nth-child(n+2) {
+  margin-top: rem(40);
+}
+
 .accordion__title {
   font-family: $base-font-family;
   font-size: rem(16);
@@ -18,7 +22,7 @@
   padding: rem(16);
   cursor: pointer;
   @include mq(md) {
-    font-size: rem(18);
+    font-size: rem(20);
     padding: rem(26) rem(40);
   }
 }
@@ -26,11 +30,11 @@
 .accordion__title::before {
   content: '';
   display: inline-block;
-  width: rem(28);
+  width: rem(32);
   height: rem(1);
   background-color: $white;
   position: absolute;
-  right: rem(16);
+  right: rem(40);
   top: 50%;
   transform: translateY(-50%);
   transition: opacity .3s;
@@ -39,14 +43,13 @@
 .accordion__title::after {
   content: '';
   display: inline-block;
-  width: rem(28);
+  width: rem(32);
   height: rem(1);
   background-color: $white;
   position: absolute;
-  right: rem(16);
+  right: rem(40);
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
-
   transition: transform .3s;
 }
 
@@ -61,11 +64,6 @@
   // display: none;//最初は隠す場合
   display: block;//最初から開く場合
   height: auto;
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $green-deep;
-  font-weight: $normal;
-  line-height: 1.5;
   border: 1px solid $green;
   padding: rem(24) rem(16);
   margin-top: 0;
@@ -74,10 +72,15 @@
     padding: rem(40);
   }
 }
-
-.accordion__item:nth-child(n+2) {
-  margin-top: rem(40);
+.accordion__text {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: 1.5;
 }
+
+
 
 
 

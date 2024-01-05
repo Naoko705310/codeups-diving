@@ -15,6 +15,9 @@
 
 .page-price-list__item:nth-child(n+2){
   margin-top: rem(40);
+  @include mq(md) {
+    margin-top: rem;
+  }
 }
 
 .page-price-list__heading {
@@ -49,7 +52,7 @@
 .page-price-list__body {
   display: grid;
   grid-auto-rows: 1fr;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 68% 32%;
   border-top: 1px solid $green;
   border-right: 1px solid $green;
   border-left: 1px solid $green;
@@ -69,6 +72,7 @@
   border-bottom: 1px solid $green;
   @include mq(md) {
   padding: rem(18) rem(16);
+    justify-content: start;
   }
 }
 

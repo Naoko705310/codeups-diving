@@ -301,6 +301,12 @@
                         <span class="radio-label-span">体験ダイビングについて</span>
                       </label>
                     </li>
+                    <li class="radio__item">
+                      <label for="radio-03" class="radio-label">
+                        <input id="radio-03" class="radio-input" type="radio" name="radio-name" required value="スペシャルダイビングについて">
+                        <span class="radio-label-span">スペシャルダイビングについて</span>
+                      </label>
+                    </li>
                     <!-- テキスト内容はJSで制御 --> 
                     <!-- 要修正 -->
                     <p class="radio-error"></p>
@@ -312,12 +318,11 @@
                 <dt>
                   <label for="pull-down" class="contact-form__heading">
                     キャンペーン
-                    <span>必須</span>
                   </label>
                 </dt>
                 <dd>
                   <div class="custom-select">
-                    <select id="pull-down" class="input-area" name="pull-down" required>
+                    <select id="pull-down" class="input-area input-area--pull-down" name="pull-down">
                       <option value="" disabled selected style="display:none;">キャンペーン内容を選択</option>
                       <option value="1">ライセンス講習</option>
                       <option value="2">体験ダイビング</option>
@@ -338,7 +343,7 @@
                   </label>
                 </dt>
                 <dd>
-                  <textarea id="message" class="text-area required" name="message" cols="32" rows="7" placeholder="ここにメッセージを書いてください。" required></textarea>
+                  <textarea id="message" class="text-area required" name="message" cols="32" rows="8" placeholder="ここにメッセージを書いてください。" required></textarea>
                   <!-- エラーメッセージ（内容はJSで制御） -->
                   <span class="error_required"></span>
                 </dd>
@@ -374,7 +379,7 @@
       </a>
     </main>
     <!-- フッター -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer page-contact__footer">
       <div class="footer__inner inner">
         <div class="footer__logo-wrapper">
           <!-- フッターロゴ -->
