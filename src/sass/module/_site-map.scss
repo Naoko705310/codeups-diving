@@ -6,12 +6,12 @@
   grid-template-areas:
     "areaA areaB"
     "areaC areaD";
-  gap: rem(28) 0;
+  gap: rem(28) rem(10);
   @include mq(md) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
       "areaA areaB areaC areaD";
-    gap: rem(20) rem(40);
+      gap: 0;
   }
 }
 
@@ -23,18 +23,25 @@
   grid-area: areaC;
   @include mq(md) {
     grid-area: areaB;
+    margin-left: rem(40);
   }
 }
 
 .site-map__items--right01 {
   grid-area: areaB;
+  margin-left: rem(12);
   @include mq(md) {
     grid-area: areaC;
+    margin-left: rem(40);
   }
 }
 
 .site-map__items--right02 {
   grid-area: areaD;
+  margin-left: rem(12);
+  @include mq(md) {
+    margin-left: rem(40);
+  }
 }
 
 .site-map__item {

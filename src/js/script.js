@@ -165,7 +165,8 @@ jQuery(function ($) {
     function checkWindowWidth() {
       var windowWidth = $(window).width();
       if (windowWidth <= 767) { // スマートフォンの場合
-        $(".js-modal").removeClass("active");
+        $("
+        .js-modal").removeClass("active");
       }
     }
 
