@@ -3,41 +3,20 @@
 .error-404 {
   padding-top: rem(80);
   padding-bottom: rem(148);
-  // background-color: $green;
-}
-.error-404::before {
-
-}
-
-.breadcrumb__text.breadcrumb__text--404 {
-  color: $white;
+  background-color: $green;
 }
 
 .error-404__inner {
-margin-top: rem(80);
-position: relative;
-@include mq(md) {
-  margin-top: rem(148);
-}
-}
-.error-404__inner::before {
-  content: "";
-  width: rem(328);
-  aspect-ratio: 328/293;
-  background: url(src/images/common/sub-information_icon-whale.png);
+  background-image: url(../images/common/whale-image-404.png);
   background-position: center;
   background-repeat: no-repeat;
-  object-fit: contain;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
+  background-size: contain;
+  position: relative;
   @include mq(md) {
-    width: rem(698);
-    aspect-ratio: 698/698;
+    background-position: left;
+    padding-top: rem(148);
   }
-}
+  }
 
 .error-404__contents-wrapper {
   text-align: center;
@@ -49,10 +28,14 @@ position: relative;
   color: $white;
   font-weight: $normal;
   letter-spacing: rem(40);
+  line-height: calc(96/80);
   text-indent: 0.54em;
+  padding-top: rem(51);
   @include mq(md) {
     font-size: rem(160);
+    line-height: calc(192/160);
     text-indent: 0.32em;
+    padding-top: rem(118);
   }
 }
 

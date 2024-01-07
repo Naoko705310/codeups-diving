@@ -1,11 +1,24 @@
 @use "global" as *;
 
+.breadcrumb {
+  margin-top: rem(8);
+}
+
+.breadcrumb--404 {
+  background-color: $green;
+  // padding-top: rem(8);
+}
+
 .breadcrumb__text {
   font-family: $base-font-family;
   font-size: rem(14);
   color: $green-deep;
   font-weight: $normal;
   text-transform: uppercase;
+}
+
+.breadcrumb__text--404 {
+  color: $white;
 }
 
 .breadcrumb__text span {
@@ -28,4 +41,8 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+}
+
+.breadcrumb__text--404 span::before {
+  background-image: url(../images/common/breadcrumb-arrow-white.png);
 }

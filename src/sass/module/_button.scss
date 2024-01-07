@@ -88,8 +88,46 @@
   z-index: 1;
 }
 
+// 404ページのボタン(緑白反転）
+.button--white {
+  color: $green;
+  background-color: $white;
+  border: 1px solid $white;
+}
+
+.button--white:hover span,
+.button--white:hover span::after {
+  color: $white;
+  border-color: $white;
+}
+
+// ボタンの影（外枠）
+.button--white::before {
+  border: 1px solid $white;
+}
+
+// ボタンに被せるカラーボックス
+.button--white::after {
+  background: $green;
+}
+
+.button--white:hover::after {
+  transform: scale(1, 1);
+}
+
+.button--white span {
+  color: $green;
+}
+
+// 右矢印
+.button--white span::after {
+  border-right: 1px solid $green;
+  border-bottom: 1px solid $green;
+}
+
+// 送信ボタン
 .button__submit {
-    padding-top: rem(16);
+  padding-top: rem(16);
   padding-right: rem(112);
   padding-bottom: rem(16);
   padding-left: rem(56);
