@@ -1,13 +1,5 @@
 @use "global" as *;
 
-.blog-article {
-
-}
-
-.blog-article__body {
-
-}
-
 .blog-article__time {
   font-family: $second-font-family;
   font-size: rem(14);
@@ -67,6 +59,6 @@
 }
 
 // ページ送り
-.blog-article__page-nav {
+.blog-article__blog-pagination {
   margin-top: rem(40);
 }

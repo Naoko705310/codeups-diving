@@ -1,11 +1,5 @@
 @use "global" as *;
 
-.page-blog-main__inner.inner {
-  // @include mq(md) {
-  // padding: 0;
-  // }
-}
-
 .page-blog-main__items {
   @include mq(md) {
   grid-template-columns: repeat(2, 1fr);

@@ -2,13 +2,11 @@
 
 .wom-card {
   background-color: #fff;
-
 }
 
 .wom-card__image {
   position: relative;
 }
-
 
 .wom-card__image::before {
   content: "";
@@ -25,10 +23,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-}
-
-.wom-card__body {
-
 }
 
 .wom-card__age {

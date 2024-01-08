@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.page-price {
-
-}
-
 .page-price__inner {
   margin-top: rem(52);
   position: relative;
@@ -32,11 +28,6 @@
     top: rem(-70);
     z-index: 9999;
   }
-}
-
-
-.page-price__price-list {
-
 }
 
 

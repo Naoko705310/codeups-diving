@@ -1,13 +1,10 @@
 @use "global" as *;
 
-.page-voice {
-
-}
-
 .page-voice__inner {
   max-width: rem(600);
   margin-top: rem(52);
   position: relative;
+  z-index: 99;
   @include mq(md) {
     margin-top: rem(150);
   }
@@ -25,7 +22,7 @@
   position: absolute;
   left: calc(50% - min(48vw, 59%));
   top: rem(-24);
-  z-index: 9999;
+  z-index: 9;
   @include mq(md) {
     max-width: rem(301);
     aspect-ratio: 301/138;
@@ -35,92 +32,8 @@
   }
 }
 
-.inner {
-
-}
-
-.page-voice__contents {
-
-}
-
-.page-voice__category-tab {
-
-}
-
-.category-tab {
-
-}
-
-.category-tab__items {
-
-}
-
-.category-tab__item {
-
-}
-
-.category-tab__item--colored {
-
-}
-
-.uppercase {
-
-}
-
 .page-voice__items {
   margin-top: rem(40);
-}
-
-.voice-cards {
-
-}
-
-.voice-cards__item {
-
-}
-
-.voice-card {
-
-}
-
-.voice-card__header-wrapper {
-
-}
-
-.voice-card__header {
-
-}
-
-.voice-card__information {
-
-}
-
-.voice-card__age {
-
-}
-
-.voice-card__tag {
-
-}
-
-.category-tag {
-
-}
-
-.voice-card__title {
-
-}
-
-.voice-card__image {
-
-}
-
-.colorbox {
-
-}
-
-.voice-card__text {
-
 }
 
 .page-voice__pagination {
@@ -129,28 +42,3 @@
   margin-top: rem(72);
   }
 }
-
-.sub-pagination {
-
-}
-
-.sub-pagination__wrapper {
-
-}
-
-.sub-pagination__arrow {
-
-}
-
-.sub-pagination__items {
-
-}
-
-.sub-pagination__item {
-
-}
-
-.u-desktop {
-
-}
-

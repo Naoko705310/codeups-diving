@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.page-terms {
-
-}
-
 .page-terms__inner {
   max-width: rem(800);
   margin-top: rem(52);
@@ -88,11 +84,6 @@ margin-top: rem(32);
   font-weight: $normal;
   line-height: calc(32/16);
   display: block;
-  // margin-top: rem(32);
-}
-
-.page-terms__text--closing {
-
 }
 
 .sub-contact.page-terms__contact {

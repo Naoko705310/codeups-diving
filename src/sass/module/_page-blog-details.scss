@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.page-blog-details {
-
-}
-
 .page-blog-details__inner {
   max-width: rem(600);
   margin-top: rem(52);
@@ -18,9 +14,6 @@
     margin-top: rem(150);
   }
 }
-
-
-
 
 // 魚のイラスト
 .page-blog-details__inner::before {
@@ -43,12 +36,3 @@
     z-index: 999999;
   }
 }
-
-.page-blog-details__inner {
-
-}
-
-.page-blog-details__contents-wrapper {
-
-}
-

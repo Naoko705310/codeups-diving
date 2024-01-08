@@ -1,7 +1,6 @@
 @use "global" as *;
+// モーダル
 
-
-// モーダルのスタイル
 .modal {
   display: none;//最初は非表示
   @include mq(md) {
