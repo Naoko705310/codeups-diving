@@ -35,10 +35,13 @@
   height: rem(1);
   background-color: $white;
   position: absolute;
-  right: rem(40);
+  right: rem(16);
   top: 50%;
   transform: translateY(-50%);
   transition: opacity .3s;
+  @include mq(md) {
+    right: rem(40);
+  }
 }
 
 .accordion__title::after {
@@ -48,10 +51,13 @@
   height: rem(1);
   background-color: $white;
   position: absolute;
-  right: rem(40);
+  right: rem(16);
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
   transition: transform .3s;
+  @include mq(md) {
+    right: rem(40);
+  }
 }
 
 .accordion__title.show::before {

@@ -96,7 +96,7 @@
 
 .about-us__main-copy {
   font-family: $second-font-family;
-  font-size: clamp(40px, calc(40px + (80 - 40) * ((100vw - 375px) / (1440 - 375))), 80px);
+  font-size: clamp(16px, calc(40px + (80 - 40) * ((100vw - 375px) / (1440 - 375))), 80px);
   color: $green;
   font-weight: $normal;
   line-height: calc(40/40);
