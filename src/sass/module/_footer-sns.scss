@@ -4,6 +4,9 @@
   width: 100%;
   max-width: 100%;
   height: rem(24);
+  @include mq(md) {
+    height: rem(32);
+  }
 }
 
 .footer-sns__link {

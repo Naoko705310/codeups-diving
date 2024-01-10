@@ -127,6 +127,7 @@ display: block;
   position: relative;
   @include mq(md) {
     width: 62.045%;//273/440
+    height: inherit;
     margin-top: 0;
   }
 }
