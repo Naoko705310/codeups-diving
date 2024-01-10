@@ -10,6 +10,6 @@
   padding: rem(4) rem(12);
   border: 1px solid $green;
   @include mq(md) {
-    padding: rem(6) rem(16);
+    padding: rem(5) rem(16);//ピクパ調整6→5
   }
 }

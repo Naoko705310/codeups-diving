@@ -15,9 +15,9 @@
 .campaign-card__image::before {
   content: "";
   display: block;
-  padding-top: 63.945%; //188/294
+  padding-top: 67.142%; //188/280
   @include mq(md) {
-    padding-top: 66.9669%; //223/333
+    padding-top: 66.730%; //347/520
   }
 }
 
@@ -59,7 +59,7 @@
   font-weight: 500;
   line-height: calc(24/16);
   display: block;
-  padding-bottom: rem(8);
+  padding-bottom: rem(6);
   border-bottom: 1px solid $green;
   margin-top: rem(4);
   @include mq(md) {
