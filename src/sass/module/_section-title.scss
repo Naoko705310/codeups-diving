@@ -17,6 +17,10 @@
   }
 }
 
+.section-title__en.indent {
+  text-indent: 0.4em;
+}
+
 .section-title__en::first-letter {
   text-transform: uppercase;
   color: $green;

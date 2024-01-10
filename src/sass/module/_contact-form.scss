@@ -42,17 +42,20 @@
 
 //見出し
 .contact-form__heading {
+  height: rem(23);
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
   font-weight: $bold;
   display: flex;
+  align-items: center;
   gap: rem(6);
 }
 
 //「必須」タグ
 .contact-form__heading span {
   width: rem(61);
+  height: rem(21);
   aspect-ratio: 61/21;
   font-family: $base-font-family;
   font-size: rem(12);
@@ -70,12 +73,12 @@
   width: 100%;
   height: rem(40);
   background: #fff;
-  margin-top: rem(18);
+  margin-top: rem(17);
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;//正常入力時の文字色
   font-weight: $normal;
-  padding: rem(8) rem(16);
+  padding: rem(7) rem(16);
   @include mq(md) {
     width: rem(480);
     font-size: rem(16);

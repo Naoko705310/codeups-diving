@@ -1,37 +1,39 @@
-
 jQuery(function ($) {
   // ハンバーガーメニュー（FadeInすなわちdisplay:blockにする）
-  $('.js-hamburger').on('click', function () {
-    if ($('.js-hamburger').hasClass('is-open')) {
+  $(".js-hamburger").on("click", function () {
+    if ($(".js-hamburger").hasClass("is-open")) {
       closeDrawerMenu(); // メニューを閉じる関数を呼び出す
     } else {
-      $('.js-drawer-menu').fadeIn();
-      $(this).addClass('is-open');
+      $(".js-drawer-menu").fadeIn();
+      $(this).addClass("is-open");
       // メニューが開いたときにスクロールを無効にする
-      $('body').css('overflow', 'hidden');
+      $("body").css("overflow", "hidden");
       // メニューが開いたときにヘッダーの色を設定
-      $('.js-header').css('background-color', '#408F95'); // 背景色を設定
+      $(".js-header").css("background-color", "#408F95"); // 背景色を設定
     }
   });
 
   // ナビのリンクがクリックされたときの処理
-  $('.global-nav__link, .global-nav__heading').on('click', function () {
+  $(".global-nav__link, .global-nav__heading").on("click", function () {
     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
     // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
-    var targetSection = $(this).attr('href');
-    $('html, body').animate({
-      scrollTop: $(targetSection).offset().top
-    }, 1000); // スクロールのアニメーション時間を調整
+    var targetSection = $(this).attr("href");
+    $("html, body").animate(
+      {
+        scrollTop: $(targetSection).offset().top,
+      },
+      1000
+    ); // スクロールのアニメーション時間を調整
   });
 
   // メニューを閉じる関数
   function closeDrawerMenu() {
-    $('.js-drawer-menu').fadeOut();
-    $('.js-hamburger').removeClass('is-open');
+    $(".js-drawer-menu").fadeOut();
+    $(".js-hamburger").removeClass("is-open");
     // メニューが閉じたときにスクロールを有効にする
-    $('body').css('overflow', 'auto');
+    $("body").css("overflow", "auto");
     // メニューが閉じたときにヘッダーの色を元に戻す
-    $('.js-header').css('background-color', '');
+    $(".js-header").css("background-color", "");
   }
 
   // メディアクエリを使用してPC幅を検出し、768pxを超えたときにメニューを閉じる
@@ -49,19 +51,19 @@ jQuery(function ($) {
   });
 
   // fv スワイパー
-  var topFvSwiper = new Swiper('.js-top-fv-swiper', {
+  var topFvSwiper = new Swiper(".js-top-fv-swiper", {
     loop: true,
     effect: "fade",
     speed: 3000,
-    allowTouchMove: false,// ユーザーのスワイプ操作を無効にする
+    allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
     autoplay: {
-        delay: 3000,
+      delay: 3000,
     },
     slidesPerView: 1, // 1度に1枚のスライドを表示
   });
 
   // Campaign スワイパー
-  var campaignSwiper = new Swiper('.js-campaign-swiper', {
+  var campaignSwiper = new Swiper(".js-campaign-swiper", {
     loop: true,
     speed: 4000,
     autoplay: {
@@ -72,65 +74,66 @@ jQuery(function ($) {
     spaceBetween: 24,
     breakpoints: {
       768: {
-        spaceBetween: 40
-      }
+        spaceBetween: 40,
+      },
     },
-    direction: 'horizontal', 
+    direction: "horizontal",
     navigation: {
-      prevEl: '.swiper-button-next', // prevボタンに右矢印を指定
-      nextEl: '.swiper-button-prev', // nextボタンに左矢印を指定
+      prevEl: ".swiper-button-next", // prevボタンに右矢印を指定
+      nextEl: ".swiper-button-prev", // nextボタンに左矢印を指定
     },
-  });//スワイパーここまで
+  }); //スワイパーここまで
 
   // 画像出現アニメーション(カラーボックスの後に画像表示)
   //要素の取得とスピードの設定
-  var box = $('.colorbox'),
-      speed = 700;  
+  var box = $(".colorbox"),
+    speed = 700;
 
   //.colorboxの付いた全ての要素に対して下記の処理を行う
-  box.each(function(){
-    $(this).append('<div class="color"></div>')
-    var color = $(this).find($('.color')),
-    image = $(this).find('img');
+  box.each(function () {
+    $(this).append('<div class="color"></div>');
+    var color = $(this).find($(".color")),
+      image = $(this).find("img");
     var counter = 0;
 
-    image.css('opacity','0');
-    color.css('width','0%');
+    image.css("opacity", "0");
+    color.css("width", "0%");
     //inviewを使って背景色が画面に現れたら処理をする
-    color.on('inview', function(){
-      if(counter == 0){
-      $(this).delay(200).animate({'width':'100%'},speed,function(){
-          image.css('opacity','1');
-          $(this).css({'left':'0' , 'right':'auto'});
-          $(this).animate({'width':'0%'},speed);
-      })
-          counter = 1;
-        }
-      });
-  });//画像エフェクト閉じタグ
+    color.on("inview", function () {
+      if (counter == 0) {
+        $(this)
+          .delay(200)
+          .animate({ width: "100%" }, speed, function () {
+            image.css("opacity", "1");
+            $(this).css({ left: "0", right: "auto" });
+            $(this).animate({ width: "0%" }, speed);
+          });
+        counter = 1;
+      }
+    });
+  }); //画像エフェクト閉じタグ
 
   // TOPへ戻るボタン
-  const returnTop = document.querySelector('.js-button-to-top');
-  const footer = document.querySelector('footer');
+  const returnTop = document.querySelector(".js-button-to-top");
+  const footer = document.querySelector("footer");
   const footerHeight = footer.clientHeight; // footerの高さを取得
-  
-  window.addEventListener('scroll', () => {
+
+  window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
-  
+
     if (scrollY > 768) {
-      returnTop.classList.add('active');
+      returnTop.classList.add("active");
       // スクロール位置がfooterの上部20pxの位置に達したら非表示にする
       if (scrollY + window.innerHeight > footer.offsetTop - 20) {
-        returnTop.style.display = 'none'; // ボタンを非表示にする
+        returnTop.style.display = "none"; // ボタンを非表示にする
       } else {
-        returnTop.style.display = 'block'; // ボタンを表示する
+        returnTop.style.display = "block"; // ボタンを表示する
       }
     } else {
-      returnTop.classList.remove('active');
-      returnTop.style.display = 'block'; // ボタンを表示する
+      returnTop.classList.remove("active");
+      returnTop.style.display = "block"; // ボタンを表示する
     }
   });
-
 
   // page-about-us モーダル
   $(document).ready(function () {
@@ -144,7 +147,9 @@ jQuery(function ($) {
         var altText = $(this).find("img").attr("alt");
 
         // モーダルの画像とテキストを設定
-        $(".modal__image-wrapper img").attr("src", imageSrc).attr("alt", altText);
+        $(".modal__image-wrapper img")
+          .attr("src", imageSrc)
+          .attr("alt", altText);
 
         // モーダルを表示
         $(".js-modal").addClass("active");
@@ -155,7 +160,8 @@ jQuery(function ($) {
     $(".js-modal").on("click", function (event) {
       // モーダル背景かモーダル内部がクリックされた場合は閉じる
       if (
-        $(event.target).closest(".modal__background, .modal__image-wrapper").length > 0
+        $(event.target).closest(".modal__background, .modal__image-wrapper")
+          .length > 0
       ) {
         $(this).removeClass("active");
       }
@@ -164,7 +170,8 @@ jQuery(function ($) {
     // ウィンドウの幅によってモーダルを制御
     function checkWindowWidth() {
       var windowWidth = $(window).width();
-      if (windowWidth <= 767) { // スマートフォンの場合
+      if (windowWidth <= 767) {
+        // スマートフォンの場合
         $(".js-modal").removeClass("active");
       }
     }
@@ -179,99 +186,108 @@ jQuery(function ($) {
   });
   // モーダルここまで
 
-
   // page-information タブ
   $(function () {
-    $('.js-tab-trigger').on('click', function () {
-        //まずは全triggerからclass削除
-        $('.js-tab-trigger').removeClass('is-active');
-        //次に全targetからclass削除
-        $('.js-tab-target').removeClass('is-active');
-        //次にクリックした要素にis-active
-        $(this).addClass('is-active');
-        //data属性を取得する
-        let id = $(this).data("id");
-        //data属性値=idが等しいものにclass付与
-        $('#' + id).addClass('is-active')
+    $(".js-tab-trigger").on("click", function () {
+      //まずは全triggerからclass削除
+      $(".js-tab-trigger").removeClass("is-active");
+      //次に全targetからclass削除
+      $(".js-tab-target").removeClass("is-active");
+      //次にクリックした要素にis-active
+      $(this).addClass("is-active");
+      //data属性を取得する
+      let id = $(this).data("id");
+      //data属性値=idが等しいものにclass付与
+      $("#" + id).addClass("is-active");
     });
   });
   // タブここまで
 
   //下層ページFAQ（アコーディオン）
   $(function () {
-    $('.js-accordion__title').on('click', function () {
-        $(this).next().slideToggle();
-            if($(this).hasClass('show')) {
-                $(this).removeClass('show');
-            } else {
-                $(this).addClass('show');
-            }
-        });
+    $(".js-accordion__title").on("click", function () {
+      $(this).next().slideToggle();
+      if ($(this).hasClass("show")) {
+        $(this).removeClass("show");
+      } else {
+        $(this).addClass("show");
+      }
     });
+  });
   //アコーディオンここまで
 
-  // お問合せフォーム（バリデーション）
+  // お問い合わせフォーム（バリデーション）
   $(document).ready(function () {
     // 初期状態でエラーメッセージを非表示にする
     $(".error-message").hide();
-  
+
     // 送信ボタンクリック時の必須項目入力チェック
-    $("#js-submit").on('click', function () {
+    $("#js-submit").on("click", function () {
       // 全てのエラーメッセージをクリア
-      $(".error_required, .radio-error, .privacy-error, .pull-down-error, .email-error, .name-error, .tel-error, .privacy-error").text("");
-  
+      $(
+        ".error_required, .radio-error, .privacy-error, .pull-down-error, .email-error, .name-error, .tel-error, .privacy-error"
+      ).text("");
+
       // ユーザーの入力をチェック
       $(".required").each(function () {
         if ($(this).val() == "") {
-          $(this).siblings('span.error_required').text("※入力必須項目です");
+          $(this).siblings("span.error_required").text("※入力必須項目です");
           $(this).addClass("errored");
         } else {
           $(this).removeClass("errored");
         }
       });
-  
-      var radioChecked = $("input[type='radio'][name='radio-name']:checked").length;
+
+      var radioChecked = $(
+        "input[type='radio'][name='radio-name']:checked"
+      ).length;
       if (radioChecked === 0) {
         $(".radio-error").text("※ラジオボタンを選択してください.");
       }
-  
+
       if ($("#pull-down").val() === "") {
         $(".pull-down-error").text("※キャンペーンを選択してください.");
       } else {
         $(".pull-down-error").text(""); // 条件が成り立たない場合、エラーメッセージをクリア
       }
-  
+
       var checkboxChecked = $("#checkbox:checked").length;
       if (checkboxChecked === 0) {
         $(".privacy-error").text("※個人情報保護方針に同意してください。");
       }
-  
+
       var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
       var emailInput = $("#Email").val();
       if (!emailRegex.test(emailInput)) {
-        $(".email-error").text("※正しいメールアドレスの形式で入力してください。");
+        $(".email-error").text(
+          "※正しいメールアドレスの形式で入力してください。"
+        );
       }
-  
+
       var nameRegex = /^[ぁ-んァ-ヶ一-龠々ー　 ]+$/;
       var nameInput = $("#name").val();
       if (!nameRegex.test(nameInput)) {
         $(".name-error").text("※全角文字で入力してください。");
       }
-  
+
       var phoneNumberRegex = /^\d{2,5}-\d{1,4}-\d{4}$/;
       var phoneNumberInput = $("#tel").val();
       if (!phoneNumberRegex.test(phoneNumberInput)) {
-        $(".tel-error").text("※電話番号は半角数字とハイフンの組み合わせで入力してください。");
+        $(".tel-error").text(
+          "※電話番号は半角数字とハイフンの組み合わせで入力してください。"
+        );
       }
-  
+
       // エラーがある場合にエラーメッセージを表示
-      if ($(".errored").length > 0 ||
-          radioChecked === 0 ||
-          $("#pull-down").val() === "" ||
-          checkboxChecked === 0 ||
-          !emailRegex.test(emailInput) ||
-          !nameRegex.test(nameInput) ||
-          !phoneNumberRegex.test(phoneNumberInput)) {
+      if (
+        $(".errored").length > 0 ||
+        radioChecked === 0 ||
+        $("#pull-down").val() === "" ||
+        checkboxChecked === 0 ||
+        !emailRegex.test(emailInput) ||
+        !nameRegex.test(nameInput) ||
+        !phoneNumberRegex.test(phoneNumberInput)
+      ) {
         $(".error-message").show(); // エラーメッセージを表示
         return false; // フォーム送信をキャンセル
       } else {
@@ -279,10 +295,5 @@ jQuery(function ($) {
       }
     });
   });
-  // お問合せフォームここまで
-
+  // お問い合わせフォームここまで
 }); //jQuery 閉じタグ
-
-
-
-
