@@ -20,7 +20,7 @@
   background-color: $green-light;
   text-align: center;
   overflow: hidden;
-  padding: rem(10) rem(16);
+  padding: rem(9) rem(16);
   @include mq(md) {
     text-align: right;
     display: flex;

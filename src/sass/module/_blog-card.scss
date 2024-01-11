@@ -40,7 +40,7 @@
 }
 
 .blog-card__body {
-  margin-top: rem(20);
+  margin-top: rem(24);
 }
 
 .blog-card__time {
@@ -49,6 +49,8 @@
   color: $green-deep;
   font-weight: $normal;
   line-height: calc(18/12);
+  display: block;
+
 }
 
 .blog-card__heading {
