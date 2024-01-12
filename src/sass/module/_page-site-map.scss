@@ -36,8 +36,8 @@
 }
 
 .sub-contact.page-site-map__contact {
-margin-top: rem(106);
+margin-top: rem(92); //ピクパ調整 106→92
 @include mq(md) {
-margin-top: rem(140);
+margin-top: rem(130);
 }
 }

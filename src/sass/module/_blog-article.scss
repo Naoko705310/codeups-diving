@@ -6,19 +6,27 @@
   color: $green-deep;
   font-weight: $normal;
   line-height: calc(18/14);
+  display: block;
 }
 
 .blog-article__heading {
   font-family: $base-font-family;
-  font-size: rem(32);
+  font-size: rem(24);
   color: $green-deep;
   font-weight: 500;
   display: block;
   border-bottom: 1px solid $green;
+  margin-top: rem(8);
+  @include mq(md) {
+    font-size: rem(32);
+  }
 }
 
 .blog-article__image {
-  margin-top: rem(40);
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
 }
 
 .blog-article__text {
@@ -27,7 +35,10 @@
   color: $black;
   font-weight: $normal;
   display: block;
-  margin-top: rem(40);
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
 }
 
 .blog-article__items {
@@ -37,6 +48,9 @@
   gap: rem(4);
   padding-left: rem(27);
   margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
 }
 
 .blog-article__item {
@@ -61,4 +75,7 @@
 // ページ送り
 .blog-article__blog-pagination {
   margin-top: rem(40);
+  @include mq(md) {
+    margin-top: rem(80);
+  }
 }

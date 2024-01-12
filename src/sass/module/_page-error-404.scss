@@ -2,7 +2,10 @@
 
 .page-error-404 {
   background-color: $green;
-  padding-top: rem(90);
+  padding-top: rem(80);
+  @include mq(md) {
+    padding-top: rem(90);
+  }
 }
 
 .page-error-404__inner {
@@ -36,7 +39,7 @@
     font-size: rem(160);
     letter-spacing: rem(80);
     line-height: calc(192/160);
-    text-indent: 0.32em;
+    text-indent: none;
     padding-top: 0;
   }
 }
