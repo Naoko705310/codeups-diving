@@ -19,7 +19,6 @@
     display: grid;
     grid-auto-flow: dense;
     grid-template-columns: repeat(11, 1fr); // 11分割の列
-    gap: rem(6) rem(8);
   }
 }
 
