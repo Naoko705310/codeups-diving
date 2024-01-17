@@ -1,19 +1,26 @@
 @use "global" as *;
 
 .about-us__contents-wrapper {
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.about-us__image-wrapper {
   width: 100%;
   max-width: rem(600);
-  margin-top: rem(50);
+  padding-top: rem(50);
   margin-right: auto;
   margin-left: auto;
   position: relative;
   @include mq(md) {
     max-width: 100%;
-    margin-top: rem(120);
+    padding-top: rem(80);
   }
 }
 // サンゴのイラスト
-.about-us__contents-wrapper::after {
+.about-us__image-wrapper::after {
   @include mq(md) {
     content: "";
     display: inline-block;
@@ -35,13 +42,12 @@
   max-width: 100%;
   aspect-ratio: 128/194;
   position: absolute;
-  top: rem(-26);
+  top: 0;
   left: 0;
   z-index: 9;
   @include mq(md) {
     width: 37.037%;
     aspect-ratio: 400/606;
-    top: rem(-80);
   }
 }
 
@@ -86,11 +92,11 @@
     justify-content: flex-start;
     gap: rem(40);
     position: absolute;
-    top: rem(120);
+    top: rem(80);
+    // top: rem(120);
     right: 0;
-    // z-index: 8888;
     z-index: 88;
-    margin-top: 0;
+    margin-top: rem(120);
   }
 }
 
