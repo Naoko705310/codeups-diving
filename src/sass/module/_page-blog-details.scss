@@ -2,16 +2,13 @@
 
 .page-blog-details__inner {
   max-width: rem(600);
-  margin-top: rem(52);
   margin-right: auto;
   margin-left: auto;
   position: relative;
   @include mq(md) {
-    max-width: rem(1080);
     display: grid;
-    grid-template-columns: 64.814% 27.222%;
+    grid-template-columns: 64.814% 1fr;
     gap: rem(82); 
-    margin-top: rem(150);
   }
 }
 
@@ -27,12 +24,11 @@
   position: absolute;
   left: calc(50% - min(48vw, 59%));
   top: rem(-24);
-  z-index: 999999;
+  z-index: -1;
   @include mq(md) {
     max-width: rem(301);
     aspect-ratio: 301/138;
     left: calc(50% - min(48vw, 59%));
     top: rem(-70);
-    z-index: 999999;
   }
 }

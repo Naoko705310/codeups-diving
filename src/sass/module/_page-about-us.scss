@@ -1,23 +1,23 @@
 @use "global" as *;
 
-.page-about-us__contents-wrapper {
+.page-about-us__inner {
+  max-width: rem(600);
   position: relative;
 }
 
+.page-about-us__contents-wrapper {
+  // position: relative;
+}
+
 .page-about-us__image-wrapper {
-  width: 100%;
-  max-width: rem(600);
-  margin-right: auto;
-  margin-left: auto;
   position: relative;
   @include mq(md) {
-    max-width: 100%;
     padding-top: rem(80);
   }
 }
 
 // 魚のイラスト（左上）
-.page-about-us__contents-wrapper::before {
+.page-about-us__inner::before {
   content: "";
   display: inline-block;
   width: 100%;
@@ -75,7 +75,7 @@
     position: absolute;
     right: calc(50% - min(48vw, 59%));
     top: rem(-80);
-    z-index: 999999;
+    z-index: -1;
   }
 }
 

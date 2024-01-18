@@ -2,11 +2,7 @@
 
 .page-contact-thanks__inner {
   text-align: center;
-  margin-top: rem(52);
   position: relative;
-  @include mq(md) {
-  margin-top: rem(150);
-  }
 }
 
 // 魚のイラスト
@@ -27,7 +23,7 @@
     aspect-ratio: 301/138;
     left: calc(50% - min(48vw, 59%));
     top: rem(-70);
-    z-index: 9999;
+    z-index: -1;
   }
 }
 

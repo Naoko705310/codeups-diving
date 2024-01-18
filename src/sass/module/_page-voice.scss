@@ -2,12 +2,7 @@
 
 .page-voice__inner {
   max-width: rem(600);
-  margin-top: rem(52);
   position: relative;
-  z-index: 99;
-  @include mq(md) {
-    margin-top: rem(150);
-  }
 }
 
 // 魚のイラスト
@@ -22,13 +17,12 @@
   position: absolute;
   left: calc(50% - min(48vw, 59%));
   top: rem(-24);
-  z-index: 9;
+  z-index: -1;
   @include mq(md) {
     max-width: rem(301);
     aspect-ratio: 301/138;
     left: calc(50% - min(48vw, 59%));
     top: rem(-70);
-    z-index: 9999;
   }
 }
 

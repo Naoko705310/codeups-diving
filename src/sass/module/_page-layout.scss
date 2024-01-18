@@ -7,3 +7,21 @@
     margin-top: rem(150);
   }
 }
+
+.page-layout--information {
+  margin-top: rem(121);
+  @include mq(md) {
+    margin-top: rem(150);
+  }
+}
+
+.page-layout--404 {
+  margin-top: 0;
+  padding-top: rem(51);
+  padding-bottom: rem(40);
+  // padding: rem(54.3) 0;
+  @include mq(md) {
+    padding-top: rem(119);
+    padding-bottom: rem(148);
+  }
+}

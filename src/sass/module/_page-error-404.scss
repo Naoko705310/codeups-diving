@@ -2,9 +2,9 @@
 
 .page-error-404 {
   background-color: $green;
-  padding-top: rem(80);
+  // padding-top: rem(80);
   @include mq(md) {
-    padding-top: rem(90);
+    // padding-top: rem(90);
   }
 }
 
@@ -13,13 +13,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  padding-top: rem(51);
-  padding-bottom: rem(40);
+  // padding-top: rem(51);
+  // padding-bottom: rem(40);
   position: relative;
   @include mq(md) {
     background-position: left;
-    padding-top: rem(119);
-    padding-bottom: rem(148);
+    // padding-top: rem(119);
+    // padding-bottom: rem(148);
   }
   }
 
