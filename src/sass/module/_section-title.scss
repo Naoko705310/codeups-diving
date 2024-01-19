@@ -9,7 +9,7 @@
   font-size: rem(32);
   color: $green-deep;
   font-weight: $normal;
-  line-height: calc(32/32);
+  line-height: calc(40/32);
   display: block;
   @include mq(md) {
     font-size: rem(40);

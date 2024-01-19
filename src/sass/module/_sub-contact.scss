@@ -7,12 +7,14 @@
   }
 }
 
+// 要確認
 .sub-contact--about-us {
   @include mq(md) {
     margin-top: rem(130);//ピクパ調整
   }
 }
 
+// 要確認
 .sub-contact--privacy {
   margin-top: rem(100);
   @include mq(md) {
@@ -20,6 +22,7 @@
   }
 }
 
+// 要確認
 .sub-contact--terms {
   margin-top: rem(100);
   @include mq(md) {
