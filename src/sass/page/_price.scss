@@ -27,6 +27,16 @@
   }
 }
 
+.price__price-list {
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(40);
+  @include mq(md) {
+    max-width: rem(492);
+    margin-top: 0;
+  }
+}
+
 // 魚のイラスト
 .price__contents-wrapper::after {
   @include mq(md) {

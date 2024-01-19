@@ -1,14 +1,36 @@
 @use "global" as *;
 
-.sub-contact__layout {
+.sub-contact {
   margin-top: rem(106);
   @include mq(md) {
     margin-top: rem(140);
   }
 }
 
-.sub-contact.page-about-us__contact {
+.sub-contact--about-us {
   @include mq(md) {
     margin-top: rem(130);//ピクパ調整
   }
 }
+
+.sub-contact--privacy {
+  margin-top: rem(100);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
+
+.sub-contact--terms {
+  margin-top: rem(100);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
+
+// 要確認
+.sub-contact--site-map {
+  margin-top: rem(92); //ピクパ調整 106→92
+  @include mq(md) {
+  margin-top: rem(130);
+  }
+  }

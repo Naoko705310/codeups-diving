@@ -1,23 +1,13 @@
 @use "global" as *;
 
-.price__list {
-  width: 100%;
-  max-width: 100%;
-  margin-top: rem(40);
-  @include mq(md) {
-    max-width: rem(492);
-    margin-top: 0;
-  }
-}
-
-.price-list__items {
+.top-price-list__items {
   margin-top: rem(40);
   @include mq(md) {
     margin-top: 0;
   }
 }
 
-.price-list__heading {
+.top-price-list__heading {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
@@ -28,11 +18,11 @@
   margin-top: rem(40);
 }
 
-.price-list__heading:first-child {
+.top-price-list__heading:first-child {
   margin-top: 0;
 }
 
-.price-list__text {
+.top-price-list__text {
   font-family: $base-font-family;
   font-size: rem(14);
   color: $green-deep;
@@ -48,7 +38,7 @@
   }
 }
 
-.price-list__price {
+.top-price-list__price {
   display: block;
   margin-left: rem(20);
 }

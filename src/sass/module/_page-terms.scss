@@ -81,9 +81,3 @@ margin-top: rem(32);
   display: block;
 }
 
-.sub-contact.page-terms__contact {
-  margin-top: rem(100);
-  @include mq(md) {
-    margin-top: rem(140);
-  }
-}

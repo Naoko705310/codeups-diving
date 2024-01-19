@@ -1,5 +1,7 @@
 @use "global" as *;
 
+// 背景色がついているので、page-layoutは使わない。
+
 .page-error-404 {
   background-color: $green;
   padding-top: rem(80);
@@ -8,6 +10,7 @@
   }
 }
 
+// ぐじらのイラスト
 .page-error-404__inner {
   background-image: url(../images/common/whale-image-404.png);
   background-position: center;
@@ -62,6 +65,7 @@
   }
 }
 
+// 要確認
 .footer.page-error-404__footer {
   margin-top: 0;
 }

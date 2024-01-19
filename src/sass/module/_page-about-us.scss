@@ -1,39 +1,15 @@
 @use "global" as *;
 
-.page-about-us__inner {
-  max-width: rem(600);
-  position: relative;
-}
-
 .page-about-us__contents-wrapper {
-  // position: relative;
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .page-about-us__image-wrapper {
   position: relative;
   @include mq(md) {
     padding-top: rem(80);
-  }
-}
-
-// 魚のイラスト（左上）
-.page-about-us__inner::before {
-  content: "";
-  display: inline-block;
-  width: 100%;
-  max-width: rem(120);
-  aspect-ratio: 120/55;
-  background-image: url(../images/common/sub-page__fish.png);
-  background-size: contain;
-  position: absolute;
-  left: calc(50% - min(48vw, 59%));
-  top: rem(-24);
-  z-index: -1;
-  @include mq(md) {
-    max-width: rem(301);
-    aspect-ratio: 301/138;
-    left: calc(50% - min(48vw, 59%));
-    top: rem(-70);
   }
 }
 
@@ -51,8 +27,6 @@
     position: initial;
   }
 }
-
-// ここから修正 1/18
 
 .page-about-us__gallery {
   margin-top: rem(40);
