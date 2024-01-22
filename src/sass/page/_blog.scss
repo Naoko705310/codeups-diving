@@ -2,6 +2,7 @@
 
 .blog__items {
   margin-top: rem(24);
+  padding: 0 rem(6);
   position: relative;
   @include mq(md) {
     margin-top: rem(80);

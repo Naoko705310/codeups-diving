@@ -1,11 +1,8 @@
 @use "global" as *;
 
-.page-campaign__contents {
+.page-campaign__inner {
   max-width: rem(600);
   margin: 0 auto;
-  @include mq(md) {
-    max-width: 100%;
-  }
 }
 
 .page-campaign__tab {
@@ -20,6 +17,10 @@
 
 .page-campaign__items {
   margin-top: rem(40);
+  padding: 0 rem(33);
+  @include mq(md) {
+    padding: 0;
+  }
 }
 
 .page-campaign__pagination {

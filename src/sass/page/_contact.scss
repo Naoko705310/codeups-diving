@@ -1,5 +1,10 @@
 @use "global" as *;
 
+.contact__inner {
+  max-width: rem(600);
+  margin: 0 auto;
+}
+
 .contact__section-title {
   @include mq(md) {
     margin-top: rem(20);
@@ -14,9 +19,7 @@
 }
 
 .contact__contents-wrapper {
-  max-width: rem(600);
-  margin-right: auto;
-  margin-left: auto;
+
   position: relative;
   z-index: 1;
   @include mq(md) {
