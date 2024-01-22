@@ -8,9 +8,6 @@
   gap: rem(90);
   }
 }
-.tab__items:hover {
-  cursor: pointer; 
-}
 
 .tab__item {
   width: 100%;
@@ -30,6 +27,7 @@
   }
 }
 
+// タブのテキスト
 .tab__item span {
   display: inline-block;
   font-family: $base-font-family;
@@ -99,6 +97,34 @@
   height: rem(64);
 }
 
+// hover時に背景を緑
+.tab__item:hover {
+  cursor: pointer; 
+  background-color: $green;
+}
+
+// hover時に文字を白
+.tab__item:hover span {
+  color: $white;
+}
+
+// hover時にアイコンをクジラの白
+.tab__item:hover span::before {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/sub-information_icon-whale.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: rem(64);
+    aspect-ratio: 64/64;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
 .tab__item.is-active {
   background-color: $green;
 }
@@ -106,6 +132,7 @@
 .tab__item.is-active span {
   color: $white;
 }
+
 
 // アイコン（クリックしてis-activeになった時)
 .tab__item.is-active span::before {
