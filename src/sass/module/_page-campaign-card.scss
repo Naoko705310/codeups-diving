@@ -151,7 +151,7 @@ margin-top: rem(8);
 
 .page-campaign-card__period {
   @include mq(md) {
-    font-family: $base-font-family;
+    font-family: 'Lato', sans-serif;
     font-size: rem(16);
     color: $green;
     font-weight: $bold;
@@ -181,51 +181,3 @@ margin-top: rem(8);
     margin-top: rem(16);
   }
 }
-
-
-// campaign-cardから
-
-// .campaign-card__description {
-//   @include mq(md) {
-//   font-family: $base-font-family;
-//   font-size: rem(16);
-//   color: $green-deep;
-//   font-weight: $normal;
-//   line-height: calc(24/16);
-//   display: block;
-//   margin-top: rem(24);
-//   }
-// }
-
-// .campaign-card__period {
-//   @include mq(md) {
-//     font-family: $base-font-family;
-//     font-size: rem(16);
-//     color: $green;
-//     font-weight: $bold;
-//     line-height: calc(18/16);
-//     display: block;
-//     text-align: center;
-//     margin-top: rem(32);
-//     }
-// }
-
-// .campaign-card__contact {
-//   @include mq(md) {
-//     font-family: $base-font-family;
-//     font-size: rem(14);
-//     color: $green;
-//     font-weight: $normal;
-//     line-height: calc(18/14);
-//     display: block;
-//     text-align: center;
-//     margin-top: rem(7);
-//   }
-// }
-
-// .campaign-card__button {
-//   @include mq(md) {
-//     text-align: center;
-//     margin-top: rem(16);
-//   }
-// }
