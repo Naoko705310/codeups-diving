@@ -1,5 +1,8 @@
 jQuery(function ($) {
-  // ハンバーガーメニュー（FadeInすなわちdisplay:blockにする）
+
+  /* --------------------------------------------
+  /* ハンバーガーメニュー（FadeInすなわちdisplay:blockにする）
+  /* -------------------------------------------- */
   $(".js-hamburger").on("click", function () {
     if ($(".js-hamburger").hasClass("is-open")) {
       closeDrawerMenu(); // メニューを閉じる関数を呼び出す
@@ -50,7 +53,10 @@ jQuery(function ($) {
     }
   });
 
-  // fv スワイパー
+  /* --------------------------------------------
+  /* トップページのFVスワイパー
+  /* -------------------------------------------- */
+
   var topFvSwiper = new Swiper(".js-top-fv-swiper", {
     loop: true,
     effect: "fade",
@@ -62,7 +68,9 @@ jQuery(function ($) {
     slidesPerView: 1, // 1度に1枚のスライドを表示
   });
 
-  // Campaign スワイパー
+  /* --------------------------------------------
+  /* トップページのCampaignスワイパー
+  /* -------------------------------------------- */
   var campaignSwiper = new Swiper(".js-campaign-swiper", {
     loop: true,
     speed: 4000,
@@ -84,7 +92,9 @@ jQuery(function ($) {
     },
   }); //スワイパーここまで
 
-  // 画像出現アニメーション(カラーボックスの後に画像表示)
+  /* --------------------------------------------
+  /* 画像出現アニメーション(カラーボックスの後に画像表示)
+  /* -------------------------------------------- */
   //要素の取得とスピードの設定
   var box = $(".colorbox"),
     speed = 700;
@@ -113,7 +123,10 @@ jQuery(function ($) {
     });
   }); //画像エフェクト閉じタグ
 
-  // TOPへ戻るボタン
+
+  /* --------------------------------------------
+  /* TOPへ戻るボタン
+  /* -------------------------------------------- */
   const returnTop = document.querySelector(".js-button-to-top");
   const footer = document.querySelector("footer");
   const footerHeight = footer.clientHeight; // footerの高さを取得
@@ -135,7 +148,9 @@ jQuery(function ($) {
     }
   });
 
-  // page-about-us モーダル
+  /* --------------------------------------------
+  /* 下層ページabout-us モーダル
+  /* -------------------------------------------- */
   $(document).ready(function () {
     // クリックした写真の情報をモーダルに設定する
     $(".gallery__item").on("click", function () {
@@ -186,25 +201,118 @@ jQuery(function ($) {
   });
   // モーダルここまで
 
-  // page-information タブ
+  /* --------------------------------------------
+  /* 下層ページ information ダイビング情報のタブ
+  /* -------------------------------------------- */
+  // 要確認
+  // タブとリンクは機能するが、スクロール後の位置がおかしい。
   $(function () {
-    $(".js-tab-trigger").on("click", function () {
-      //まずは全triggerからclass削除
-      $(".js-tab-trigger").removeClass("is-active");
-      //次に全targetからclass削除
-      $(".js-tab-target").removeClass("is-active");
-      //次にクリックした要素にis-active
-      $(this).addClass("is-active");
-      //data属性を取得する
-      let id = $(this).data("id");
-      //data属性値=idが等しいものにclass付与
-      $("#" + id).addClass("is-active");
+    // ページが読み込まれたときの処理
+    handleTabFromURL();
+
+    // global-navのaタグがクリックされたときの処理
+    $(".global-nav__sub-item a").on("click", function (e) {
+      e.preventDefault();
+
+      // クリックしたリンクのhref属性からパラメーターを取得
+      let href = $(this).attr("href");
+      let params = getURLParams(href);
+
+      // パラメーターが存在すれば対応するタブをアクティブにする
+      if (params && params.tab) {
+        // スクロール処理を追加
+        scrollToTab(params.tab, () => {
+          activateTab(params.tab);
+          // URLのパラメーターを更新
+          updateURLParams(params.tab);
+        });
+      }
     });
+
+    // タブをクリックしたときの処理
+    $(".js-tab-trigger").on("click", function () {
+      // クリックしたタブのIDを取得
+      let tabId = $(this).attr("id");
+
+      // タブをアクティブにする関数を呼び出す
+      activateTab(tabId);
+
+      // スクロール処理を追加
+      scrollToTab(tabId, () => {
+        // URLのパラメーターを更新
+        updateURLParams(tabId);
+      });
+    });
+
+    // パラメーターがある場合、対応するタブをアクティブにする
+    function handleTabFromURL() {
+      let params = getURLParams(window.location.href);
+      if (params && params.tab) {
+        // スクロール処理を追加
+        scrollToTab(params.tab, () => {
+          activateTab(params.tab);
+        });
+      }
+    }
+
+    // パラメーターからオブジェクトを取得する関数
+    function getURLParams(url) {
+      let params = {};
+      let urlParts = url.split("?");
+      if (urlParts.length > 1) {
+        let paramString = urlParts[1];
+        let pairs = paramString.split("&");
+        for (let i = 0; i < pairs.length; i++) {
+          let pair = pairs[i].split("=");
+          params[pair[0]] = pair[1];
+        }
+      }
+      return params;
+    }
+
+    // タブをアクティブにする関数
+    function activateTab(tabId) {
+      // まずは全triggerからclass削除
+      $(".js-tab-trigger").removeClass("is-active");
+      // 次に全targetからclass削除
+      $(".js-tab-target").removeClass("is-active");
+      // クリックしたタブにis-activeを追加
+      $("#" + tabId).addClass("is-active");
+      // 対応するタブコンテンツにis-activeを追加
+      $("#" + tabId + "-content").addClass("is-active");
+    }
+
+    // URLのパラメーターを更新する関数
+    function updateURLParams(tabId) {
+      let url = window.location.href.split("?")[0];
+      let newURL = url + "?tab=" + tabId;
+      window.history.pushState({}, "", newURL);
+    }
+
+    // タブまでスクロールする関数
+    function scrollToTab(tabId, callback) {
+      let targetTab = $("#" + tabId + "-content");
+      if (targetTab.length) {
+        // ここで微調整を行います。例えば、-232を足すとスクロール後に上に232px余白ができます。
+        // let adjustment = -232; //記述したが、適用されないのでコメントアウト。
+        $('html, body').animate(
+          {
+            scrollTop: targetTab.offset().top,
+          },
+          500,
+          callback
+        );
+      }
+    }
   });
+  // タブここまで
   // タブここまで
 
 
-  //下層ページFAQ（アコーディオン）
+  /* --------------------------------------------
+  /* 下層ページ FAQ アコーディオン
+  /* -------------------------------------------- */
+  
   $(function () {
     $(".js-accordion__title").on("click", function () {
       $(this).next().slideToggle();
@@ -217,7 +325,10 @@ jQuery(function ($) {
   });
   //アコーディオンここまで
 
-  // お問い合わせフォーム（バリデーション）
+  /* --------------------------------------------
+  /* お問い合わせフォーム（バリデーション）
+  /* -------------------------------------------- */
+  
   $(document).ready(function () {
     // 初期状態でエラーメッセージを非表示にする
     $(".error-message").hide();
