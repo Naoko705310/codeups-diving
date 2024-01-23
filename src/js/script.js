@@ -203,6 +203,7 @@ jQuery(function ($) {
   });
   // タブここまで
 
+
   //下層ページFAQ（アコーディオン）
   $(function () {
     $(".js-accordion__title").on("click", function () {
@@ -296,4 +297,5 @@ jQuery(function ($) {
     });
   });
   // お問い合わせフォームここまで
+
 }); //jQuery 閉じタグ
