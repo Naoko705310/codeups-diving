@@ -1,11 +1,11 @@
 @use "global" as *;
 
-.page-blog-details__contents-wrapper {
+.page-blog-details__inner {
   max-width: rem(600);
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
+}
+.page-blog-details__contents-wrapper {
   @include mq(md) {
-    max-width: 100%;
     display: grid;
     grid-template-columns: 64.814% 1fr;
     gap: rem(82); 
