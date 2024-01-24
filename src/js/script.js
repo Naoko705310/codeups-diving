@@ -149,6 +149,84 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
+  /* 下層ページ campaign ダイビング種類の、タグによるソート
+  /* -------------------------------------------- */
+  // 要確認
+  // informationのタグの実装と競合したので、一旦コメントアウト（1月24日）
+  // data-tag="fun", data-tag="experience"をクリックした時に、data-tag="license"が非表示にならない。。
+
+  // $(document).ready(function() {
+  //   // カテゴリータブがクリックされたとき
+  //   $('.category-tab__item').click(function() {
+  //     // クリックされたタブの data-tag 属性を取得
+  //     var selectedTag = $(this).find('a').data('tag');
+
+  //     // カテゴリーカードを非表示にする
+  //     $('.page-campaign-cards__item').hide();
+
+  //     // 選択されたカテゴリに対応するカードを表示する
+  //     if (selectedTag === 'all') {
+  //       $('.page-campaign-cards__item').show();
+  //     } else {
+  //       $('.page-campaign-cards__item[data-tag="' + selectedTag + '"]').show();
+  //     }
+  //   });
+  // });
+
+  // // クエリパラメーターの設定
+  // $(document).ready(function() {
+  //   // URLからクエリパラメータを取得
+  //   var urlParams = new URLSearchParams(window.location.search);
+  //   var selectedCategory = urlParams.get('category');
+
+  //   // カテゴリータブがクリックされたとき
+  //   $('.category-tab__item').click(function() {
+  //     // クリックされたタブの data-tag 属性を取得
+  //     var selectedTag = $(this).find('a').data('tag');
+
+  //     // カテゴリーカードを非表示にする
+  //     $('.page-campaign-cards__item').hide();
+
+  //     // 選択されたカテゴリに対応するカードを表示する
+  //     if (selectedTag === 'all') {
+  //       $('.page-campaign-cards__item').show();
+  //     } else {
+  //       $('.page-campaign-cards__item[data-tag="' + selectedTag + '"]').show();
+  //     }
+  //   });
+
+  //   // URLにクエリパラメータを追加してページを再読み込み
+  //   function navigateToCategory(category) {
+  //     var currentURL = window.location.href.split('?')[0];
+  //     var newURL = currentURL + '?category=' + category;
+  //     window.location.href = newURL;
+  //   }
+
+  //   // global-navがクリックされたとき
+  //   $('.global-nav').click(function() {
+  //     // 選択されたカテゴリを取得
+  //     var selectedCategory = $(this).data('category');
+  //     // カテゴリに対応するタブを選択状態にする
+  //     $('.category-tab__item').removeClass('category-tab__item--current');
+  //     $('.category-tab__item[data-tag="' + selectedCategory + '"]').addClass('category-tab__item--current');
+  //     // カテゴリに対応するカードを表示
+  //     $('.page-campaign-cards__item').hide();
+  //     if (selectedCategory === 'all') {
+  //       $('.page-campaign-cards__item').show();
+  //     } else {
+  //       $('.page-campaign-cards__item[data-tag="' + selectedCategory + '"]').show();
+  //     }
+  //     // URLにクエリパラメータを追加してページを再読み込み
+  //     navigateToCategory(selectedCategory);
+  //   });
+
+  //   // 初回ロード時にクエリパラメータに基づいてカテゴリを表示
+  //   if (selectedCategory) {
+  //     $('.global-nav[data-category="' + selectedCategory + '"]').click();
+  //   }
+  // });
+
+  /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
   $(document).ready(function () {
@@ -209,41 +287,37 @@ jQuery(function ($) {
   $(function () {
     // ページが読み込まれたときの処理
     handleTabFromURL();
-
+  
     // global-navのaタグがクリックされたときの処理
     $(".global-nav__sub-item a").on("click", function (e) {
       e.preventDefault();
-
+  
       // クリックしたリンクのhref属性からパラメーターを取得
       let href = $(this).attr("href");
       let params = getURLParams(href);
-
+  
       // パラメーターが存在すれば対応するタブをアクティブにする
       if (params && params.tab) {
-        // スクロール処理を追加
-        scrollToTab(params.tab, () => {
-          activateTab(params.tab);
-          // URLのパラメーターを更新
-          updateURLParams(params.tab);
-        });
+        // 対応するinformation.htmlのページに遷移する
+        window.location.href = "information.html?tab=" + params.tab;
       }
     });
-
+  
     // タブをクリックしたときの処理
     $(".js-tab-trigger").on("click", function () {
       // クリックしたタブのIDを取得
       let tabId = $(this).attr("id");
-
+  
       // タブをアクティブにする関数を呼び出す
       activateTab(tabId);
-
+  
       // スクロール処理を追加
       scrollToTab(tabId, () => {
         // URLのパラメーターを更新
         updateURLParams(tabId);
       });
     });
-
+  
     // パラメーターがある場合、対応するタブをアクティブにする
     function handleTabFromURL() {
       let params = getURLParams(window.location.href);
@@ -254,7 +328,7 @@ jQuery(function ($) {
         });
       }
     }
-
+  
     // パラメーターからオブジェクトを取得する関数
     function getURLParams(url) {
       let params = {};
@@ -269,7 +343,7 @@ jQuery(function ($) {
       }
       return params;
     }
-
+  
     // タブをアクティブにする関数
     function activateTab(tabId) {
       // まずは全triggerからclass削除
@@ -281,20 +355,18 @@ jQuery(function ($) {
       // 対応するタブコンテンツにis-activeを追加
       $("#" + tabId + "-content").addClass("is-active");
     }
-
+  
     // URLのパラメーターを更新する関数
     function updateURLParams(tabId) {
       let url = window.location.href.split("?")[0];
       let newURL = url + "?tab=" + tabId;
       window.history.pushState({}, "", newURL);
     }
-
+  
     // タブまでスクロールする関数
     function scrollToTab(tabId, callback) {
       let targetTab = $("#" + tabId + "-content");
       if (targetTab.length) {
-        // ここで微調整を行います。例えば、-232を足すとスクロール後に上に232px余白ができます。
-        // let adjustment = -232; //記述したが、適用されないのでコメントアウト。
         $('html, body').animate(
           {
             scrollTop: targetTab.offset().top,
@@ -306,8 +378,6 @@ jQuery(function ($) {
     }
   });
   // タブここまで
-  // タブここまで
-
 
   /* --------------------------------------------
   /* 下層ページ FAQ アコーディオン
