@@ -3,27 +3,21 @@
 
 .contact-form {
   width: 100%;
-  background-color: #fff;
+}
+
+// フォーム上部エラーメッセージとの余白
+.contact-form__layout {
   margin-top: rem(40);
-  @include mq(md) {
-    max-width: rem(700);
-    margin-right: auto;
-    margin-left: auto;
-  }
 }
 
 .contact-form__item {
   width: 100%;
-  // max-width: 100%;
-  display: flex;
-  flex-direction: column;
   border-bottom: 1px dotted $green;
   padding: rem(24) 0;
   @include mq(md) {
     max-width: rem(700);
-    flex-direction: row;
-    justify-content: space-between;
-    gap: rem(39);
+    display: grid;
+    grid-template-columns: 1fr rem(480);
     padding: rem(40) 0;
   }
 }
@@ -33,9 +27,22 @@
 }
 
 //見出しと「必須」タグ
+.contact-form__item dt {
+
+}
+
+// 入力エリア
 .contact-form__item dd {
+  margin-top: rem(17);
   @include mq(md) {
     width: rem(480);
+    margin-top: 0;
+  }
+}
+
+.contact-form__item--pull-down {
+  @include mq(md) {
+    padding-top: rem(36);
   }
 }
 
@@ -48,23 +55,24 @@
   font-weight: $bold;
   display: flex;
   align-items: center;
-  gap: rem(6);
 }
 
 //「必須」タグ
 .contact-form__heading span {
-  width: rem(61);
-  height: rem(21);
-  aspect-ratio: 61/21;
+  // width: rem(61);
+  // height: rem(21);
+  // aspect-ratio: 61/21;
   font-family: $base-font-family;
   font-size: rem(12);
   color: $white;
   font-weight: $normal;
-  letter-spacing: 4.8px;
+  letter-spacing: 0.2em;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #C94800;
+  margin-left: rem(8);
+  padding: rem(2) rem(16);
 }
 
 // 入力エリア
@@ -72,7 +80,7 @@
   width: 100%;
   height: rem(40);
   background: #fff;
-  margin-top: rem(17);
+  // margin-top: rem(17);
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;//正常入力時の文字色
@@ -85,7 +93,10 @@
   }
 }
 
-.input-area--pull-down {
+.input-area.input-area--pull-down {
+  width: rem(480);
+  height: rem(30); //aspect-ratioで高さ制御できないので追記
+  aspect-ratio: 480/30;
   padding-left: rem(6);
   @include mq(md) {
     padding: rem(7) rem(9) rem(6) rem(8);
@@ -154,29 +165,30 @@ select {
   text-align: left;
 }
 
-//** ラジオボタンのデザイン **
+//** お問い合わせ項目（チェックボックス）のデザイン **
 //inputタグのデフォルトデザインを消す
-.radio-input {
+/* チェックボックスのデザイン */
+
+
+.checkbox-input {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
 
-//ラジオボタンのラベル
-.radio-label {
+.checkbox-label {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
   font-weight: $normal;
   position: relative;
   display: inline-block;
-  padding-left: 20px;//ラジオボタン用にスペースを作る
+  // padding-left: rem(8); 
   margin-bottom: 4px;
   cursor: pointer;
 }
 
-//ラジオボタン外側の丸
-.radio-label-span::before {
+.checkbox-label-span::before {
   content: "";
   display: inline-block;
   width: 14px;
@@ -188,8 +200,7 @@ select {
   transform: translateY(-50%);
 }
 
-//ラジオボタンをチェックした後のチェックマーク
-.radio-input:checked + .radio-label-span::after {
+.checkbox-input:checked + .checkbox-label-span::after {
   content: "";
   position: absolute;
   width: 9px;
@@ -200,17 +211,79 @@ select {
   border-bottom: 2px solid #C94800;
   position: absolute;
   top: 30%;
-  left: 4px;  
+  left: 4px;
   transform: rotate(-45deg);
 }
 
-//※ラジオボタンを選択してください
-.radio-error {
-    font-family: $base-font-family;
-    font-size: rem(14);
-    color: #C94800;
-    font-weight: $normal;
+.checkbox-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
 }
+
+
+
+
+
+
+
+
+// .radio-input {
+//   position: absolute;
+//   opacity: 0;
+//   z-index: -1;
+// }
+
+//ラジオボタンのラベル
+// .radio-label {
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $green-deep;
+//   font-weight: $normal;
+//   position: relative;
+//   display: inline-block;
+//   padding-left: 20px;//ラジオボタン用にスペースを作る
+//   margin-bottom: 4px;
+//   cursor: pointer;
+// }
+
+//ラジオボタン外側の丸
+// .radio-label-span::before {
+//   content: "";
+//   display: inline-block;
+//   width: 14px;
+//   height: 14px;
+//   border: 1px solid $green;
+//   position: absolute;
+//   left: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+
+//ラジオボタンをチェックした後のチェックマーク
+// .radio-input:checked + .radio-label-span::after {
+//   content: "";
+//   position: absolute;
+//   width: 9px;
+//   height: 5px;
+//   border-top: transparent;
+//   border-right: transparent;
+//   border-left: 2px solid #C94800;
+//   border-bottom: 2px solid #C94800;
+//   position: absolute;
+//   top: 30%;
+//   left: 4px;  
+//   transform: rotate(-45deg);
+// }
+
+//※ラジオボタンを選択してください
+// .radio-error {
+//     font-family: $base-font-family;
+//     font-size: rem(14);
+//     color: #C94800;
+//     font-weight: $normal;
+// }
 //** ラジオボタンのデザイン ** ここまで
 
 //プルダウンメニュー
@@ -292,7 +365,7 @@ select {
 input[type="checkbox"] {
   display: inline-block;//これがないと表示されないので注意
   cursor: pointer;
-  padding-left: rem(20);//label手前にチェックボックス用の余白を開ける
+  padding-left: rem(14);//label手前にチェックボックス用の余白を開ける
   vertical-align: middle;
   position: relative; //本来のcheckboxの位置
   margin-top: 0;
@@ -319,8 +392,8 @@ input[type="checkbox"]::before {
 
 //チェックマーク
 input[type="checkbox"]::after {
-  border-bottom: 3px solid #666464;//チェックの太さ
-  border-left: 3px solid #666464;//チェックの太さ
+  border-bottom: 3px solid #C94800;//チェックの太さ
+  border-left: 3px solid #C94800;//チェックの太さ
   opacity: 0;//チェック前は非表示
   height: 6px;//チェックの高さ
   width: 11px;//チェックの横幅

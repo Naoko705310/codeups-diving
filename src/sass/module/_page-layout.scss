@@ -25,7 +25,7 @@
   @include mq(md) {
     max-width: rem(301);
     aspect-ratio: 301/138;
-    left: calc(50% - min(48vw, 59%));
+    left: calc(50% - min(43vw, 59%));
     top: rem(-70);
   }
 }
