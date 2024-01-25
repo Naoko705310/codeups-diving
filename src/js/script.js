@@ -6,147 +6,95 @@ jQuery(function ($) {
   /* -------------------------------------------- */
   // 2024年1月25日GPT
 
-// ハンバーガーメニューのクリックイベント
-$(".js-hamburger").on("click", function () {
-  if ($(this).hasClass("is-open")) {
+  // ハンバーガーメニューのクリックイベント
+  $(".js-hamburger").on("click", function () {
+    if ($(this).hasClass("is-open")) {
+      closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+    } else {
+      $(".js-drawer-menu").fadeIn();
+      $(this).addClass("is-open");
+      // メニューが開いたときにスクロールを無効にする
+      $("body").css("overflow", "hidden");
+      // 背景色を設定
+      $(".js-header").css("background-color", "#408F95");
+    }
+  });
+
+  // ナビのリンクがクリックされたときの処理
+  $(".global-nav__link, .global-nav__heading").on("click", function () {
     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-  } else {
-    $(".js-drawer-menu").fadeIn();
-    $(this).addClass("is-open");
-    // メニューが開いたときにスクロールを無効にする
-    $("body").css("overflow", "hidden");
-    // 背景色を設定
-    $(".js-header").css("background-color", "#408F95");
+
+    // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
+    var targetSection = $(this).attr("href");
+    $("html, body").animate(
+      {
+        scrollTop: $(targetSection).offset().top,
+      },
+      1000
+    ); // スクロールのアニメーション時間を調整
+  });
+
+  // メニューを閉じる関数
+  function closeDrawerMenu() {
+    $(".js-drawer-menu").fadeOut();
+    $(".js-hamburger").removeClass("is-open");
+    // メニューが閉じたときにスクロールを有効にする
+    $("body").css("overflow", "auto");
+    // ヘッダーの背景色を元に戻す
+    $(".js-header").css("background-color", "");
   }
-});
 
-// ナビのリンクがクリックされたときの処理
-$(".global-nav__link, .global-nav__heading").on("click", function () {
-  closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+  // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+  $(window).resize(function () {
+    if ($(window).width() > 768) {
+      closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+    }
+  });
 
-  // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
-  var targetSection = $(this).attr("href");
-  $("html, body").animate(
-    {
-      scrollTop: $(targetSection).offset().top,
-    },
-    1000
-  ); // スクロールのアニメーション時間を調整
-});
-
-// メニューを閉じる関数
-function closeDrawerMenu() {
-  $(".js-drawer-menu").fadeOut();
-  $(".js-hamburger").removeClass("is-open");
-  // メニューが閉じたときにスクロールを有効にする
-  $("body").css("overflow", "auto");
-  // ヘッダーの背景色を元に戻す
-  $(".js-header").css("background-color", "");
-}
-
-// ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-$(window).resize(function () {
+  // ページ読み込み時にもPC幅を超えたらメニューを閉じる
   if ($(window).width() > 768) {
-    closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+    closeDrawerMenu();
   }
-});
-
-// ページ読み込み時にもPC幅を超えたらメニューを閉じる
-if ($(window).width() > 768) {
-  closeDrawerMenu();
-}
-
-
-  
-  
-  // $(".js-hamburger").on("click", function () {
-  //   if ($(".js-hamburger").hasClass("is-open")) {
-  //     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-  //   } else {
-  //     $(".js-drawer-menu").fadeIn();
-  //     $(this).addClass("is-open");
-  //     // メニューが開いたときにスクロールを無効にする
-  //     $("body").css("overflow", "hidden");
-  //     // メニューが開いたときにヘッダーの色を設定
-  //     $(".js-header").css("background-color", "#408F95"); // 背景色を設定
-  //   }
-  // });
-
-  // // ナビのリンクがクリックされたときの処理
-  // $(".global-nav__link, .global-nav__heading").on("click", function () {
-  //   closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-  //   // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
-  //   var targetSection = $(this).attr("href");
-  //   $("html, body").animate(
-  //     {
-  //       scrollTop: $(targetSection).offset().top,
-  //     },
-  //     1000
-  //   ); // スクロールのアニメーション時間を調整
-  // });
-
-  // // メニューを閉じる関数
-  // function closeDrawerMenu() {
-  //   $(".js-drawer-menu").fadeOut();
-  //   $(".js-hamburger").removeClass("is-open");
-  //   // メニューが閉じたときにスクロールを有効にする
-  //   $("body").css("overflow", "auto");
-  //   // メニューが閉じたときにヘッダーの色を元に戻す
-  //   $(".js-header").css("background-color", "");
-  // }
-
-  // // メディアクエリを使用してPC幅を検出し、768pxを超えたときにメニューを閉じる
-  // $(window).resize(function () {
-  //   if ($(window).width() > 768) {
-  //     closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-  //   }
-  // });
-
-  // // ページ読み込み時にもメディアクエリをチェックしてメニューを閉じる
-  // $(document).ready(function () {
-  //   if ($(window).width() > 768) {
-  //     closeDrawerMenu(); // ページ読み込み時にもPC幅を超えたらメニューを閉じる
-  //   }
-  // });
 
   /* --------------------------------------------
   /* トップページのFVスワイパー
   /* -------------------------------------------- */
 
-  // var topFvSwiper = new Swiper(".js-top-fv-swiper", {
-  //   loop: true,
-  //   effect: "fade",
-  //   speed: 3000,
-  //   allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
-  //   autoplay: {
-  //     delay: 3000,
-  //   },
-  //   slidesPerView: 1, // 1度に1枚のスライドを表示
-  // });
+  var topFvSwiper = new Swiper(".js-top-fv-swiper", {
+    loop: true,
+    effect: "fade",
+    speed: 3000,
+    allowTouchMove: false, // ユーザーのスワイプ操作を無効にする
+    autoplay: {
+      delay: 3000,
+    },
+    slidesPerView: 1, // 1度に1枚のスライドを表示
+  });
 
   /* --------------------------------------------
   /* トップページのCampaignスワイパー
   /* -------------------------------------------- */
-  // var campaignSwiper = new Swiper(".js-campaign-swiper", {
-  //   loop: true,
-  //   speed: 4000,
-  //   autoplay: {
-  //     delay: 3000,
-  //   },
-  //   allowTouchMove: true,
-  //   slidesPerView: "auto",
-  //   spaceBetween: 24,
-  //   breakpoints: {
-  //     768: {
-  //       spaceBetween: 40,
-  //     },
-  //   },
-  //   direction: "horizontal",
-  //   navigation: {
-  //     prevEl: ".swiper-button-next", // prevボタンに右矢印を指定
-  //     nextEl: ".swiper-button-prev", // nextボタンに左矢印を指定
-  //   },
-  // }); //スワイパーここまで
+
+  var campaignSwiper = new Swiper(".js-campaign-swiper", {
+    loop: true,
+    speed: 4000, // スライド完了までの時間
+    autoplay: {
+      delay: 4000, // 次のスライドまでの遅延時間
+    },
+    allowTouchMove: false, // ユーザーのタッチ操作を無効にするかどうか
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    breakpoints: {
+      768: {
+        spaceBetween: 40,
+      },
+    },
+    direction: "horizontal",
+    navigation: {
+      prevEl: ".swiper-button-next",
+      nextEl: ".swiper-button-prev",
+    },
+  });
 
   /* --------------------------------------------
   /* 画像出現アニメーション(カラーボックスの後に画像表示)
@@ -285,59 +233,138 @@ if ($(window).width() > 768) {
   /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
-  // $(document).ready(function () {
-  //   // クリックした写真の情報をモーダルに設定する
-  //   $(".gallery__item").on("click", function () {
-  //     var windowWidth = $(window).width();
 
-  //     // スマートフォンの場合はモーダルを表示しない
-  //     if (windowWidth > 767) {
-  //       var imageSrc = $(this).find("img").attr("src");
-  //       var altText = $(this).find("img").attr("alt");
+  // クリックした写真の情報をモーダルに設定する
+  $(".gallery__item").on("click", function () {
+    var windowWidth = $(window).width();
 
-  //       // モーダルの画像とテキストを設定
-  //       $(".modal__image-wrapper img")
-  //         .attr("src", imageSrc)
-  //         .attr("alt", altText);
+    // スマートフォン以外の場合のみモーダルを表示
+    if (windowWidth > 767) {
+      var imageSrc = $(this).find("img").attr("src");
+      var altText = $(this).find("img").attr("alt");
 
-  //       // モーダルを表示
-  //       $(".js-modal").addClass("active");
-  //     }
-  //   });
+      // モーダルの画像とテキストを設定
+      $(".modal__image-wrapper img")
+        .attr("src", imageSrc)
+        .attr("alt", altText);
 
-  //   // モーダルを閉じる
-  //   $(".js-modal").on("click", function (event) {
-  //     // モーダル背景かモーダル内部がクリックされた場合は閉じる
-  //     if (
-  //       $(event.target).closest(".modal__background, .modal__image-wrapper")
-  //         .length > 0
-  //     ) {
-  //       $(this).removeClass("active");
-  //     }
-  //   });
+      // モーダルを表示
+      $(".js-modal").addClass("active");
+    }
+  });
 
-  //   // ウィンドウの幅によってモーダルを制御
-  //   function checkWindowWidth() {
-  //     var windowWidth = $(window).width();
-  //     if (windowWidth <= 767) {
-  //       // スマートフォンの場合
-  //       $(".js-modal").removeClass("active");
-  //     }
-  //   }
+  // モーダルを閉じる
+  $(".js-modal").on("click", function (event) {
+    // モーダル背景かモーダル内部がクリックされた場合は閉じる
+    if (
+      $(event.target).closest(".modal__background, .modal__image-wrapper")
+        .length > 0
+    ) {
+      $(this).removeClass("active");
+    }
+  });
 
-  //   // ウィンドウがリサイズされたときにチェック
-  //   $(window).resize(function () {
-  //     checkWindowWidth();
-  //   });
+  // ウィンドウの幅によってモーダルを制御
+  function checkWindowWidth() {
+    var windowWidth = $(window).width();
+    if (windowWidth <= 767) {
+      // スマートフォンの場合
+      $(".js-modal").removeClass("active");
+    }
+  }
 
-  //   // ページ読み込み時にもチェック
-  //   checkWindowWidth();
-  // });
-  // モーダルここまで
+  // ウィンドウがリサイズされたときにチェック
+  $(window).resize(function () {
+    checkWindowWidth();
+  });
+
+  // ページ読み込み時にもチェック
+  checkWindowWidth();
+
 
   /* --------------------------------------------
   /* 下層ページ information ダイビング情報のタブ
   /* -------------------------------------------- */
+
+    // ページが読み込まれたときの処理
+    handleTabFromURL();
+  
+    // global-navのaタグがクリックされたときの処理
+    $(".global-nav__sub-item a").on("click", function (e) {
+      e.preventDefault();
+  
+      // クリックしたリンクのhref属性からパラメーターを取得
+      let href = $(this).attr("href");
+      let params = getURLParams(href);
+  
+      // パラメーターが存在すれば対応するタブをアクティブにする
+      if (params && params.tab) {
+        // 対応するinformation.htmlのページに遷移する
+        window.location.href = "information.html?tab=" + params.tab;
+      }
+    });
+  
+    // タブをクリックしたときの処理
+    $(".js-tab-trigger").on("click", function (e) {
+      e.preventDefault(); // デフォルトの動作をキャンセル
+  
+      // クリックしたタブのIDを取得
+      let tabId = $(this).attr("id");
+  
+      // タブをアクティブにする関数を呼び出す
+      activateTab(tabId);
+  
+      // URLのパラメーターを更新
+      updateURLParams(tabId);
+    });
+  
+    // パラメーターがある場合、対応するタブをアクティブにする
+    function handleTabFromURL() {
+      let params = getURLParams(window.location.href);
+      if (params && params.tab) {
+        activateTab(params.tab);
+      }
+    }
+  
+    // パラメーターからオブジェクトを取得する関数
+    function getURLParams(url) {
+      let params = {};
+      let urlParts = url.split("?");
+      if (urlParts.length > 1) {
+        let paramString = urlParts[1];
+        let pairs = paramString.split("&");
+        for (let i = 0; i < pairs.length; i++) {
+          let pair = pairs[i].split("=");
+          params[pair[0]] = pair[1];
+        }
+      }
+      return params;
+    }
+  
+    // タブをアクティブにする関数
+    function activateTab(tabId) {
+      // まずは全triggerからclass削除
+      $(".js-tab-trigger").removeClass("is-active");
+      // 次に全targetからclass削除
+      $(".js-tab-target").removeClass("is-active");
+      // クリックしたタブにis-activeを追加
+      $("#" + tabId).addClass("is-active");
+      // 対応するタブコンテンツにis-activeを追加
+      $("#" + tabId + "-content").addClass("is-active");
+    }
+  
+    // URLのパラメーターを更新する関数
+    function updateURLParams(tabId) {
+      let url = window.location.href.split("?")[0];
+      let newURL = url + "?tab=" + tabId;
+      window.history.pushState({}, "", newURL);
+    }
+  
+  
+  
+  
+
+
   // 要確認
   // タブとリンクは機能するが、スクロール後の位置がおかしい。
   // $(function () {
@@ -433,13 +460,27 @@ if ($(window).width() > 768) {
   //     }
   //   }
   // });
-  // タブここまで
+
 
   /* --------------------------------------------
   /* 下層ページ FAQ アコーディオン
   /* -------------------------------------------- */
+  // ※閉じたアコーディオンは、他のアコーディオンを開いた時に閉じたままになるパターン。
+  $(".js-accordion__title").on("click", function () {
+    // クリックされたタイトルの次の要素をトグル
+    $(this).next().slideToggle();
+    
+    // クリックされたタイトル以外のアコーディオンを閉じる
+    $(".js-accordion__content").not($(this).next()).slideUp();
+
+    // クリックされたタイトルの表示/非表示のクラスを切り替える
+    $(this).toggleClass("show");
+    
+    // 閉じられた他のタイトルの表示/非表示のクラスを削除する
+    $(".js-accordion__title").not($(this)).removeClass("show");
+  });
   
-  // $(function () {
+  // ※一つのアコーディオンの開閉のみで、他のアコーディオンは開きっぱなしのパターン。
   //   $(".js-accordion__title").on("click", function () {
   //     $(this).next().slideToggle();
   //     if ($(this).hasClass("show")) {
@@ -448,8 +489,6 @@ if ($(window).width() > 768) {
   //       $(this).addClass("show");
   //     }
   //   });
-  // });
-  //アコーディオンここまで
 
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
@@ -533,6 +572,6 @@ if ($(window).width() > 768) {
   //     }
   //   });
   // });
-  // お問い合わせフォームここまで
+
 
 }); //jQuery 閉じタグ
