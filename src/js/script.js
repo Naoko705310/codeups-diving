@@ -1,117 +1,113 @@
 jQuery(function ($) {
   // $(document).ready()の略式であり、DOMが読み込まれたときに指定された関数を実行します。
-  var supportsPassive = false;
-  try {
-    var opts = Object.defineProperty({}, 'passive', {
-      get: function () {
-        supportsPassive = true;
-      }
-    });
-    window.addEventListener("testPassive", null, opts);
-    window.removeEventListener("testPassive", null, opts);
-  } catch (e) {}
+
   /* --------------------------------------------
   /* ハンバーガーメニュー（FadeInすなわちdisplay:blockにする）
   /* -------------------------------------------- */
   // 2024年1月25日GPT
 
-  // ハンバーガーメニューのクリックイベント
-  $(".js-hamburger").on("click", function () {
-    if ($(this).hasClass("is-open")) {
-      closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-    } else {
-      $(".js-drawer-menu").fadeIn();
-      $(this).addClass("is-open");
-      // メニューが開いたときにスクロールを無効にする
-      $("body").css("overflow", "hidden");
-    }
-  });
-
-  // ナビのリンクがクリックされたときの処理
-  $(".global-nav__link, .global-nav__heading").on("click", function () {
+// ハンバーガーメニューのクリックイベント
+$(".js-hamburger").on("click", function () {
+  if ($(this).hasClass("is-open")) {
     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-
-    // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
-    var targetSection = $(this).attr("href");
-    $("html, body").animate(
-      {
-        scrollTop: $(targetSection).offset().top,
-      },
-      1000
-    ); // スクロールのアニメーション時間を調整
-  });
-
-  // メニューを閉じる関数
-  function closeDrawerMenu() {
-    $(".js-drawer-menu").fadeOut();
-    $(".js-hamburger").removeClass("is-open");
-    // メニューが閉じたときにスクロールを有効にする
-    $("body").css("overflow", "auto");
+  } else {
+    $(".js-drawer-menu").fadeIn();
+    $(this).addClass("is-open");
+    // メニューが開いたときにスクロールを無効にする
+    $("body").css("overflow", "hidden");
+    // 背景色を設定
+    $(".js-header").css("background-color", "#408F95");
   }
+});
 
-  // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-  $(window).resize(function () {
-    if ($(window).width() > 768) {
-      closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    }
-  });
+// ナビのリンクがクリックされたときの処理
+$(".global-nav__link, .global-nav__heading").on("click", function () {
+  closeDrawerMenu(); // メニューを閉じる関数を呼び出す
 
-  // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+  // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
+  var targetSection = $(this).attr("href");
+  $("html, body").animate(
+    {
+      scrollTop: $(targetSection).offset().top,
+    },
+    1000
+  ); // スクロールのアニメーション時間を調整
+});
+
+// メニューを閉じる関数
+function closeDrawerMenu() {
+  $(".js-drawer-menu").fadeOut();
+  $(".js-hamburger").removeClass("is-open");
+  // メニューが閉じたときにスクロールを有効にする
+  $("body").css("overflow", "auto");
+  // ヘッダーの背景色を元に戻す
+  $(".js-header").css("background-color", "");
+}
+
+// ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+$(window).resize(function () {
   if ($(window).width() > 768) {
-    closeDrawerMenu();
+    closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
   }
+});
+
+// ページ読み込み時にもPC幅を超えたらメニューを閉じる
+if ($(window).width() > 768) {
+  closeDrawerMenu();
+}
+
 
   
   
-  $(".js-hamburger").on("click", function () {
-    if ($(".js-hamburger").hasClass("is-open")) {
-      closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-    } else {
-      $(".js-drawer-menu").fadeIn();
-      $(this).addClass("is-open");
-      // メニューが開いたときにスクロールを無効にする
-      $("body").css("overflow", "hidden");
-      // メニューが開いたときにヘッダーの色を設定
-      $(".js-header").css("background-color", "#408F95"); // 背景色を設定
-    }
-  });
+  // $(".js-hamburger").on("click", function () {
+  //   if ($(".js-hamburger").hasClass("is-open")) {
+  //     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+  //   } else {
+  //     $(".js-drawer-menu").fadeIn();
+  //     $(this).addClass("is-open");
+  //     // メニューが開いたときにスクロールを無効にする
+  //     $("body").css("overflow", "hidden");
+  //     // メニューが開いたときにヘッダーの色を設定
+  //     $(".js-header").css("background-color", "#408F95"); // 背景色を設定
+  //   }
+  // });
 
-  // ナビのリンクがクリックされたときの処理
-  $(".global-nav__link, .global-nav__heading").on("click", function () {
-    closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-    // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
-    var targetSection = $(this).attr("href");
-    $("html, body").animate(
-      {
-        scrollTop: $(targetSection).offset().top,
-      },
-      1000
-    ); // スクロールのアニメーション時間を調整
-  });
+  // // ナビのリンクがクリックされたときの処理
+  // $(".global-nav__link, .global-nav__heading").on("click", function () {
+  //   closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+  //   // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
+  //   var targetSection = $(this).attr("href");
+  //   $("html, body").animate(
+  //     {
+  //       scrollTop: $(targetSection).offset().top,
+  //     },
+  //     1000
+  //   ); // スクロールのアニメーション時間を調整
+  // });
 
-  // メニューを閉じる関数
-  function closeDrawerMenu() {
-    $(".js-drawer-menu").fadeOut();
-    $(".js-hamburger").removeClass("is-open");
-    // メニューが閉じたときにスクロールを有効にする
-    $("body").css("overflow", "auto");
-    // メニューが閉じたときにヘッダーの色を元に戻す
-    $(".js-header").css("background-color", "");
-  }
+  // // メニューを閉じる関数
+  // function closeDrawerMenu() {
+  //   $(".js-drawer-menu").fadeOut();
+  //   $(".js-hamburger").removeClass("is-open");
+  //   // メニューが閉じたときにスクロールを有効にする
+  //   $("body").css("overflow", "auto");
+  //   // メニューが閉じたときにヘッダーの色を元に戻す
+  //   $(".js-header").css("background-color", "");
+  // }
 
-  // メディアクエリを使用してPC幅を検出し、768pxを超えたときにメニューを閉じる
-  $(window).resize(function () {
-    if ($(window).width() > 768) {
-      closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    }
-  });
+  // // メディアクエリを使用してPC幅を検出し、768pxを超えたときにメニューを閉じる
+  // $(window).resize(function () {
+  //   if ($(window).width() > 768) {
+  //     closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+  //   }
+  // });
 
-  // ページ読み込み時にもメディアクエリをチェックしてメニューを閉じる
-  $(document).ready(function () {
-    if ($(window).width() > 768) {
-      closeDrawerMenu(); // ページ読み込み時にもPC幅を超えたらメニューを閉じる
-    }
-  });
+  // // ページ読み込み時にもメディアクエリをチェックしてメニューを閉じる
+  // $(document).ready(function () {
+  //   if ($(window).width() > 768) {
+  //     closeDrawerMenu(); // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+  //   }
+  // });
 
   /* --------------------------------------------
   /* トップページのFVスワイパー
