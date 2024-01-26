@@ -100,32 +100,32 @@ jQuery(function ($) {
   /* 画像出現アニメーション(カラーボックスの後に画像表示)
   /* -------------------------------------------- */
   //要素の取得とスピードの設定
-  // var box = $(".colorbox"),
-  //   speed = 700;
+  var box = $(".colorbox"),
+    speed = 700;
 
-  // //.colorboxの付いた全ての要素に対して下記の処理を行う
-  // box.each(function () {
-  //   $(this).append('<div class="color"></div>');
-  //   var color = $(this).find($(".color")),
-  //     image = $(this).find("img");
-  //   var counter = 0;
+  //.colorboxの付いた全ての要素に対して下記の処理を行う
+  box.each(function () {
+    $(this).append('<div class="color"></div>');
+    var color = $(this).find($(".color")),
+      image = $(this).find("img");
+    var counter = 0;
 
-  //   image.css("opacity", "0");
-  //   color.css("width", "0%");
-  //   //inviewを使って背景色が画面に現れたら処理をする
-  //   color.on("inview", function () {
-  //     if (counter == 0) {
-  //       $(this)
-  //         .delay(200)
-  //         .animate({ width: "100%" }, speed, function () {
-  //           image.css("opacity", "1");
-  //           $(this).css({ left: "0", right: "auto" });
-  //           $(this).animate({ width: "0%" }, speed);
-  //         });
-  //       counter = 1;
-  //     }
-  //   });
-  // }); //画像エフェクト閉じタグ
+    image.css("opacity", "0");
+    color.css("width", "0%");
+    //inviewを使って背景色が画面に現れたら処理をする
+    color.on("inview", function () {
+      if (counter == 0) {
+        $(this)
+          .delay(200)
+          .animate({ width: "100%" }, speed, function () {
+            image.css("opacity", "1");
+            $(this).css({ left: "0", right: "auto" });
+            $(this).animate({ width: "0%" }, speed);
+          });
+        counter = 1;
+      }
+    });
+  }); //画像エフェクト閉じタグ
 
 
   /* --------------------------------------------
@@ -359,108 +359,6 @@ jQuery(function ($) {
       let newURL = url + "?tab=" + tabId;
       window.history.pushState({}, "", newURL);
     }
-  
-  
-  
-  
-
-
-  // 要確認
-  // タブとリンクは機能するが、スクロール後の位置がおかしい。
-  // $(function () {
-  //   // ページが読み込まれたときの処理
-  //   handleTabFromURL();
-  
-  //   // global-navのaタグがクリックされたときの処理
-  //   $(".global-nav__sub-item a").on("click", function (e) {
-  //     e.preventDefault();
-  
-  //     // クリックしたリンクのhref属性からパラメーターを取得
-  //     let href = $(this).attr("href");
-  //     let params = getURLParams(href);
-  
-  //     // パラメーターが存在すれば対応するタブをアクティブにする
-  //     if (params && params.tab) {
-  //       // 対応するinformation.htmlのページに遷移する
-  //       window.location.href = "information.html?tab=" + params.tab;
-  //     }
-  //   });
-  
-  //   // タブをクリックしたときの処理
-  //   $(".js-tab-trigger").on("click", function () {
-  //     // クリックしたタブのIDを取得
-  //     let tabId = $(this).attr("id");
-  
-  //     // タブをアクティブにする関数を呼び出す
-  //     activateTab(tabId);
-  
-  //     // スクロール処理を追加
-  //     scrollToTab(tabId, () => {
-  //       // URLのパラメーターを更新
-  //       updateURLParams(tabId);
-  //     });
-  //   });
-  
-  //   // パラメーターがある場合、対応するタブをアクティブにする
-  //   function handleTabFromURL() {
-  //     let params = getURLParams(window.location.href);
-  //     if (params && params.tab) {
-  //       // スクロール処理を追加
-  //       scrollToTab(params.tab, () => {
-  //         activateTab(params.tab);
-  //       });
-  //     }
-  //   }
-  
-  //   // パラメーターからオブジェクトを取得する関数
-  //   function getURLParams(url) {
-  //     let params = {};
-  //     let urlParts = url.split("?");
-  //     if (urlParts.length > 1) {
-  //       let paramString = urlParts[1];
-  //       let pairs = paramString.split("&");
-  //       for (let i = 0; i < pairs.length; i++) {
-  //         let pair = pairs[i].split("=");
-  //         params[pair[0]] = pair[1];
-  //       }
-  //     }
-  //     return params;
-  //   }
-  
-  //   // タブをアクティブにする関数
-  //   function activateTab(tabId) {
-  //     // まずは全triggerからclass削除
-  //     $(".js-tab-trigger").removeClass("is-active");
-  //     // 次に全targetからclass削除
-  //     $(".js-tab-target").removeClass("is-active");
-  //     // クリックしたタブにis-activeを追加
-  //     $("#" + tabId).addClass("is-active");
-  //     // 対応するタブコンテンツにis-activeを追加
-  //     $("#" + tabId + "-content").addClass("is-active");
-  //   }
-  
-  //   // URLのパラメーターを更新する関数
-  //   function updateURLParams(tabId) {
-  //     let url = window.location.href.split("?")[0];
-  //     let newURL = url + "?tab=" + tabId;
-  //     window.history.pushState({}, "", newURL);
-  //   }
-  
-  //   // タブまでスクロールする関数
-  //   function scrollToTab(tabId, callback) {
-  //     let targetTab = $("#" + tabId + "-content");
-  //     if (targetTab.length) {
-  //       $('html, body').animate(
-  //         {
-  //           scrollTop: targetTab.offset().top,
-  //         },
-  //         500,
-  //         callback
-  //       );
-  //     }
-  //   }
-  // });
-
 
   /* --------------------------------------------
   /* 下層ページ FAQ アコーディオン
