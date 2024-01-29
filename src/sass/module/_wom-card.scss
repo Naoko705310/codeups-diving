@@ -4,6 +4,9 @@
   background-color: #fff;
 }
 
+.wom-card__body {
+  margin-top: rem(16);
+}
 .wom-card__image {
   position: relative;
 }
@@ -31,7 +34,6 @@
   color: $green-deep;
   font-weight: $normal;
   display: block;
-  margin-top: rem(16);
 }
 
 .wom-card__title {

@@ -35,16 +35,18 @@
   font-family: $second-font-family;
   font-size: rem(12);
   color: $white;
-  font-weight: $bold;
+  font-weight: $normal;
   line-height: calc(18/12);
   display: block;
-  padding: 0 rem(14);
-  margin-top: rem(28);
+  margin-top: rem(40);
+  margin-inline: calc(50% - 50vw);
+  // margin-top: rem(28);
   text-align: center;
   @include mq(md) {
     font-size: rem(14);
     line-height: calc(18/14);
-    margin-top: rem(58);//80px→70px（ピクパ余白調整）→58px（global-nav__headingとpadding相殺）
+    margin-top: rem(80);
+    // margin-top: rem(58);//80px→70px（ピクパ余白調整）→58px（global-nav__headingとpadding相殺）
   }
 }
 

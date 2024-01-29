@@ -7,8 +7,12 @@
 .archive-month__item a {
   display: block;
   width: 100%;
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $green;
+  font-weight: $normal;
   position: relative;
-  padding-left: 32px;
+  padding-left: rem(32);
 }
 
 .archive-month__item a::before {
