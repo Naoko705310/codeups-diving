@@ -5,7 +5,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: rem(19);
   @include mq(md) {
-  gap: rem(90);
+    gap: rem(90);
   }
 }
 
@@ -33,7 +33,7 @@
   font-family: $base-font-family;
   font-size: rem(14);
   color: $green;
-  font-weight:$normal ;
+  font-weight: $normal;
   position: relative;
   @include mq(md) {
     font-size: rem(24);
@@ -41,11 +41,10 @@
   }
 }
 
-//アイコン（クジラ）
+// タブのアイコン
 .tab__item span::before {
   @include mq(md) {
     content: "";
-    background: url(../images/common/tab-whale.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -58,101 +57,63 @@
   }
 }
 
-// .tab__item.is-active span::before path {
-//   @include mq(md) {
-//     content: "";
-//     background: url(../images/common/tab-whale.svg);
-//     background-position: center;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     width: rem(64);
-//     aspect-ratio: 64/64;
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translateY(-50%);
-//     fill: white; /* クリック時のアイコンの色を白に変更 */
-//   }
-// }
+// タブのアイコン（クジラ）
+.tab__item:nth-child(1) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-whale-green.png);
+  }
+}
 
-// // アイコン（サメ）
-// .tab__item:nth-child(2) span::before {
-//   @include mq(md) {
-//     content: "";
-//     background: url(../images/common/tab-shark.svg);
-//     background-position: center;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     width: rem(64);
-//     aspect-ratio: 64/64;
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translateY(-50%);
-//   }
-// }
-// .tab__item:nth-child(2).is-active span::before path {
-//   @include mq(md) {
-//     content: "";
-//     background: url(../images/common/tab-shark.svg);
-//     background-position: center;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     width: rem(64);
-//     aspect-ratio: 64/64;
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translateY(-50%);
-//     fill: white; /* クリック時のアイコンの色を白に変更 */
-//   }
-// }
+// タブのアイコン（サメ）
+.tab__item:nth-child(2) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-shark-green.png);
+  }
+}
 
-// // アイコン（魚）
-// .tab__item:nth-child(3) span::before {
-//   @include mq(md) {
-//     content: "";
-//     background: url(../images/common/tab-fish.svg);
-//     background-position: center;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     width: rem(64);
-//     aspect-ratio: 64/64;
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translateY(-50%);
-//   }
-// }
-// .tab__item:nth-child(3).is-active span::before path {
-//   @include mq(md) {
-//     content: "";
-//     background: url(../images/common/tab-fish.svg);
-//     background-position: center;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     width: rem(64);
-//     aspect-ratio: 64/64;
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translateY(-50%);
-//     fill: white; /* クリック時のアイコンの色を白に変更 */
-//   }
-// }
+// タブのアイコン（魚）
+.tab__item:nth-child(3) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-fish-green.png);
+  }
+}
+
+
+// タブのアイコン（クジラ白）
+.tab__item.is-active:nth-child(1) span::before,
+.tab__item:hover:nth-child(1) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-whale-white.png);
+  }
+}
+
+// タブのアイコン（サメ白）
+.tab__item.is-active:nth-child(2) span::before,
+.tab__item:hover:nth-child(2) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-shark-white.png);
+  }
+}
+
+// タブのアイコン（魚白）
+.tab__item.is-active:nth-child(3) span::before,
+.tab__item:hover:nth-child(3) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-fish-white.png);
+  }
+}
+
 
 .tab__item img {
   width: rem(64);
   height: rem(64);
 }
 
-// hover時に背景を緑
 .tab__item:hover {
-  cursor: pointer; 
+  cursor: pointer;
   background-color: $green;
 }
 
-// hover時に文字を白
 .tab__item:hover span {
   color: $white;
 }
@@ -164,11 +125,3 @@
 .tab__item.is-active span {
   color: $white;
 }
-
-
-
-
-
-
-
-

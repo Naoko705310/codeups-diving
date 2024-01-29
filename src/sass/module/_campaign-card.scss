@@ -74,11 +74,12 @@
   color: $green-deep;
   font-weight: $normal;
   line-height: calc(24/14);
-  margin-top: rem(16);
+  margin-top: rem(8);
   text-align: center;
   @include mq(md) {
     font-size: rem(16);
     line-height: calc(24/16);
+    margin-top: rem(16);
   }
 }
 

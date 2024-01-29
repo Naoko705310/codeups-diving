@@ -2,9 +2,8 @@ jQuery(function ($) {
   // $(document).ready()の略式であり、DOMが読み込まれたときに指定された関数を実行します。
 
   /* --------------------------------------------
-  /* ハンバーガーメニュー（FadeInすなわちdisplay:blockにする）
+  /* ハンバーガーメニュー
   /* -------------------------------------------- */
-  // 2024年1月25日GPT
 
   // ハンバーガーメニューのクリックイベント
   $(".js-hamburger").on("click", function () {
@@ -15,7 +14,7 @@ jQuery(function ($) {
       $(this).addClass("is-open");
       // メニューが開いたときにスクロールを無効にする
       $("body").css("overflow", "hidden");
-      // 背景色を設定
+      // メニューが開いたときに背景色を設定
       $(".js-header").css("background-color", "#408F95");
     }
   });
@@ -152,84 +151,6 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
-  /* 下層ページ campaign ダイビング種類の、タグによるソート
-  /* -------------------------------------------- */
-  // 要確認
-  // informationのタグの実装と競合したので、一旦コメントアウト（1月24日）
-  // data-tag="fun", data-tag="experience"をクリックした時に、data-tag="license"が非表示にならない。。
-
-  // $(document).ready(function() {
-  //   // カテゴリータブがクリックされたとき
-  //   $('.category-tab__item').click(function() {
-  //     // クリックされたタブの data-tag 属性を取得
-  //     var selectedTag = $(this).find('a').data('tag');
-
-  //     // カテゴリーカードを非表示にする
-  //     $('.page-campaign-cards__item').hide();
-
-  //     // 選択されたカテゴリに対応するカードを表示する
-  //     if (selectedTag === 'all') {
-  //       $('.page-campaign-cards__item').show();
-  //     } else {
-  //       $('.page-campaign-cards__item[data-tag="' + selectedTag + '"]').show();
-  //     }
-  //   });
-  // });
-
-  // // クエリパラメーターの設定
-  // $(document).ready(function() {
-  //   // URLからクエリパラメータを取得
-  //   var urlParams = new URLSearchParams(window.location.search);
-  //   var selectedCategory = urlParams.get('category');
-
-  //   // カテゴリータブがクリックされたとき
-  //   $('.category-tab__item').click(function() {
-  //     // クリックされたタブの data-tag 属性を取得
-  //     var selectedTag = $(this).find('a').data('tag');
-
-  //     // カテゴリーカードを非表示にする
-  //     $('.page-campaign-cards__item').hide();
-
-  //     // 選択されたカテゴリに対応するカードを表示する
-  //     if (selectedTag === 'all') {
-  //       $('.page-campaign-cards__item').show();
-  //     } else {
-  //       $('.page-campaign-cards__item[data-tag="' + selectedTag + '"]').show();
-  //     }
-  //   });
-
-  //   // URLにクエリパラメータを追加してページを再読み込み
-  //   function navigateToCategory(category) {
-  //     var currentURL = window.location.href.split('?')[0];
-  //     var newURL = currentURL + '?category=' + category;
-  //     window.location.href = newURL;
-  //   }
-
-  //   // global-navがクリックされたとき
-  //   $('.global-nav').click(function() {
-  //     // 選択されたカテゴリを取得
-  //     var selectedCategory = $(this).data('category');
-  //     // カテゴリに対応するタブを選択状態にする
-  //     $('.category-tab__item').removeClass('category-tab__item--current');
-  //     $('.category-tab__item[data-tag="' + selectedCategory + '"]').addClass('category-tab__item--current');
-  //     // カテゴリに対応するカードを表示
-  //     $('.page-campaign-cards__item').hide();
-  //     if (selectedCategory === 'all') {
-  //       $('.page-campaign-cards__item').show();
-  //     } else {
-  //       $('.page-campaign-cards__item[data-tag="' + selectedCategory + '"]').show();
-  //     }
-  //     // URLにクエリパラメータを追加してページを再読み込み
-  //     navigateToCategory(selectedCategory);
-  //   });
-
-  //   // 初回ロード時にクエリパラメータに基づいてカテゴリを表示
-  //   if (selectedCategory) {
-  //     $('.global-nav[data-category="' + selectedCategory + '"]').click();
-  //   }
-  // });
-
-  /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
 
@@ -359,7 +280,6 @@ jQuery(function ($) {
       window.history.pushState({}, "", newURL);
     }
 
-
   /* --------------------------------------------
   /* 下層ページ ブログ詳細 アーカイブ（トグル）
   /* -------------------------------------------- */
@@ -372,30 +292,31 @@ jQuery(function ($) {
   /* --------------------------------------------
   /* 下層ページ FAQ アコーディオン
   /* -------------------------------------------- */
-  // ※閉じたアコーディオンは、他のアコーディオンを開いた時に閉じたままになるパターン。
-  $(".js-accordion__title").on("click", function () {
-    // クリックされたタイトルの次の要素をトグル
-    $(this).next().slideToggle();
-    
-    // クリックされたタイトル以外のアコーディオンを閉じる
-    $(".js-accordion__content").not($(this).next()).slideUp();
 
-    // クリックされたタイトルの表示/非表示のクラスを切り替える
-    $(this).toggleClass("show");
+    // ※それぞれのアコーディオンの操作が独立しているパターン。
+    $(".js-accordion__title").on("click", function () {
+      $(this).next().slideToggle();
+      if ($(this).hasClass("show")) {
+        $(this).removeClass("show");
+      } else {
+        $(this).addClass("show");
+      }
+    });
+
+  // ※開閉操作をしているもの以外のアコーディオンは閉じるパターン。
+  // $(".js-accordion__title").on("click", function () {
+  //   // クリックされたタイトルの次の要素をトグル
+  //   $(this).next().slideToggle();
     
-    // 閉じられた他のタイトルの表示/非表示のクラスを削除する
-    $(".js-accordion__title").not($(this)).removeClass("show");
-  });
-  
-  // ※一つのアコーディオンの開閉のみで、他のアコーディオンは開きっぱなしのパターン。
-  //   $(".js-accordion__title").on("click", function () {
-  //     $(this).next().slideToggle();
-  //     if ($(this).hasClass("show")) {
-  //       $(this).removeClass("show");
-  //     } else {
-  //       $(this).addClass("show");
-  //     }
-  //   });
+  //   // クリックされたタイトル以外のアコーディオンを閉じる
+  //   $(".js-accordion__content").not($(this).next()).slideUp();
+
+  //   // クリックされたタイトルの表示/非表示のクラスを切り替える
+  //   $(this).toggleClass("show");
+    
+  //   // 閉じられた他のタイトルの表示/非表示のクラスを削除する
+  //   $(".js-accordion__title").not($(this)).removeClass("show");
+  // });
 
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
