@@ -7,33 +7,30 @@
   }
 }
 
-// 要確認
 .sub-contact--about-us {
+  margin-top: rem(106);
   @include mq(md) {
-    margin-top: rem(130);//ピクパ調整
+    margin-top: rem(140);
   }
 }
 
-// 要確認
 .sub-contact--privacy {
-  margin-top: rem(100);
+  margin-top: rem(106);
   @include mq(md) {
     margin-top: rem(140);
   }
 }
 
-// 要確認
 .sub-contact--terms {
-  margin-top: rem(100);
+  margin-top: rem(106);
   @include mq(md) {
     margin-top: rem(140);
   }
 }
 
-// 要確認
 .sub-contact--site-map {
-  margin-top: rem(92); //ピクパ調整 106→92
+  margin-top: rem(106); 
   @include mq(md) {
-  margin-top: rem(130);
+  margin-top: rem(140);
   }
   }
