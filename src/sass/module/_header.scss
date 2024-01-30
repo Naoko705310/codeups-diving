@@ -9,7 +9,6 @@
   top: 0;
   left: 0;
   right: 0;
-  // z-index: 99999;
   z-index: 99;//モーダルより下に来るように
   @include mq(md) {
     height: rem(90);

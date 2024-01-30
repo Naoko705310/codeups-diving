@@ -2,15 +2,18 @@
 
 .header-logo {
   width: rem(102);
-  max-width: 100%;
-  aspect-ratio: 102/38;
+  height: rem(38);
+  // aspect-ratio: 102/38;
   position: relative;
   z-index: 9999;
   @include mq(md) {
     width: rem(133);
-    aspect-ratio: 133/50;
+    height: rem(50);
+    // aspect-ratio: 133/50;
   }
 }
+
+
 .header-logo__link {
   width: 100%;
   max-width: 100%;
