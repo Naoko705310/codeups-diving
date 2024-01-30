@@ -211,7 +211,7 @@ jQuery(function ($) {
   
     // global-navのaタグがクリックされたときの処理
     $(".global-nav__sub-item a").on("click", function (e) {
-      e.preventDefault();
+      // e.preventDefault();
   
       // クリックしたリンクのhref属性からパラメーターを取得
       let href = $(this).attr("href");
