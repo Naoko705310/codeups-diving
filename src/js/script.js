@@ -148,33 +148,8 @@ jQuery(function ($) {
       returnTop.classList.remove("active");
       returnTop.style.display = "block"; // ボタンを表示する
     }
+    { passive: true } // passive オプションを追加
   });
-
-    // TOPへ戻るボタン
-// const returnTop = document.querySelector(".js-button-to-top");
-// const footer = document.querySelector("footer");
-// const footerHeight = footer.clientHeight; // footerの高さを取得
-
-// window.addEventListener(
-//   "scroll",
-//   () => {
-//     let scrollY = window.scrollY;
-
-//     if (scrollY > 200) {
-//       returnTop.classList.add("active");
-//       // スクロール位置がfooterの上部20pxの位置に達したら非表示にする
-//       if (scrollY + window.innerHeight > footer.offsetTop - 20) {
-//         returnTop.style.display = "none"; // ボタンを非表示にする
-//       } else {
-//         returnTop.style.display = "block"; // ボタンを表示する
-//       }
-//     } else {
-//       returnTop.classList.remove("active");
-//       returnTop.style.display = "block"; // ボタンを表示する
-//     }
-//   },
-//   { passive: true } // passive オプションを追加
-// );
 
   /* --------------------------------------------
   /* 下層ページabout-us モーダル
