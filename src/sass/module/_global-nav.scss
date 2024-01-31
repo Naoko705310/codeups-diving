@@ -2,46 +2,65 @@
 // // SPナビとfooterナビ共通
 
 .global-nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "areaA areaB"
-    "areaC areaD";
-  gap: rem(28) 0;
+  display: flex;
+  justify-content: center;
+  gap: rem(16);
+  z-index: 999;
   max-width: rem(600);
   margin-right: auto;
   margin-left: auto;
-  z-index: 999;
   @include mq(md) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      "areaA areaB areaC areaD";
-    gap: rem(20) rem(40);
+    justify-content: space-between;
+    // gap: rem(120);
+  }
+}
+
+.global-nav__items-wrapper--left {
+  white-space: nowrap;
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+
+    // gap: rem(120);
+  }
+}
+
+.global-nav__items-wrapper--right {
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+
+    // gap: rem(120);
   }
 }
 
 .global-nav__items--left01 {
-  grid-area: areaA;
+  @include mq(md) {
+    width: 50%;
+  }
 }
 
 .global-nav__items--left02 {
-  grid-area: areaC;
+  margin-top: rem(16);
   @include mq(md) {
-    grid-area: areaB;
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(24);
   }
 }
 
 .global-nav__items--right01 {
-  grid-area: areaB;
-  margin-left: rem(12);
   @include mq(md) {
-    grid-area: areaC;
+    width: 50%;
   }
 }
 
 .global-nav__items--right02 {
-  grid-area: areaD;
-  margin-left: rem(12);
+  margin-top: rem(16);
+  @include mq(md) {
+    width: 50%;
+    margin-top: 0;
+  }
 }
 
 .global-nav__item {
@@ -75,10 +94,8 @@
   background-image: url(../images/common/footer-hitode-icon.png);
   background-size: contain;
   position: absolute;
-  // top: 50%;
   top: rem(12);
   left: 0;
-  // transform: translate(0, -50%);
 }
 
 .global-nav__sub-items {
@@ -115,8 +132,11 @@
 .global-nav__items .global-nav__item:first-child .global-nav__heading {
   padding-top: 0;
 }
+.global-nav__items .global-nav__item:first-child .global-nav__heading::before {
+  top: 0;
+}
 
 .global-nav__items .global-nav__item:first-child .global-nav__heading:first-child::before {
-  top: 0;
-  transform: none;
+  // top: 0;
+  // transform: none;
 }
