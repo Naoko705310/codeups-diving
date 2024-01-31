@@ -126,12 +126,35 @@
   margin-top: 0;
 }
 
-.global-nav__items .global-nav__item:first-child .global-nav__heading {
+// left01とright01はpadding-topをつけない
+.global-nav__items--left01 .global-nav__item:first-child .global-nav__heading,
+.global-nav__items--right01 .global-nav__item:first-child .global-nav__heading {
   padding-top: 0;
 }
 
-// 一番上のitemのヒトデ位置調整
-.global-nav__items .global-nav__item:first-child .global-nav__heading:first-child::before {
+
+// .global-nav__items .global-nav__item:first-child .global-nav__heading {
+//   padding-top: 0;
+// }
+
+// 左上のヒトデ位置調整
+.global-nav__items--left01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
   top: 0;
   transform: none;
 }
+
+// 右上のヒトデ位置調整
+.global-nav__items--right01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
+
+
+
+
+// // 一番上のitemのヒトデ位置調整
+// .global-nav__items .global-nav__item:first-child .global-nav__heading:first-child::before {
+//   top: 0;
+//   transform: none;
+// }
+
