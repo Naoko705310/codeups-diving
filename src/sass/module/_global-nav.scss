@@ -1,5 +1,6 @@
 @use "global" as *;
-// // SPナビとfooterナビ共通
+// SPナビとfooterナビ共通
+// 左右50%で横並び
 
 .global-nav {
   display: flex;
@@ -11,7 +12,6 @@
   margin-left: auto;
   @include mq(md) {
     justify-content: space-between;
-    // gap: rem(120);
   }
 }
 
@@ -20,8 +20,6 @@
   width: 50%;
   @include mq(md) {
     display: flex;
-
-    // gap: rem(120);
   }
 }
 
@@ -29,8 +27,6 @@
   width: 50%;
   @include mq(md) {
     display: flex;
-
-    // gap: rem(120);
   }
 }
 
@@ -125,6 +121,7 @@
   opacity: 0.7;
 }
 
+// 一番上のアイテムはmarginもpaddingもつけない
 .global-nav__items .global-nav__item:first-child {
   margin-top: 0;
 }
@@ -132,11 +129,9 @@
 .global-nav__items .global-nav__item:first-child .global-nav__heading {
   padding-top: 0;
 }
-.global-nav__items .global-nav__item:first-child .global-nav__heading::before {
-  top: 0;
-}
 
+// 一番上のitemのヒトデ位置調整
 .global-nav__items .global-nav__item:first-child .global-nav__heading:first-child::before {
-  // top: 0;
-  // transform: none;
+  top: 0;
+  transform: none;
 }
