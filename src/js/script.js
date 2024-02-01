@@ -398,35 +398,5 @@ jQuery(function ($) {
         $(".error-message").hide(); // エラーメッセージを非表示
       }
     });
-
-  /* --------------------------------------------
-  /* 地図の初期化（Googlemap表示にAPIキーを入れる場合）
-  /* -------------------------------------------- */
-// Google Maps API の読み込み後に実行されるコールバック関数 (initMap)
-function initMap() {
-  // 地図を表示する要素を取得
-  var mapElement = document.getElementById('map');
-  
-  // 地図の表示位置（緯度経度）を指定
-  var mapCenter = { lat: 35.681236, lng: 139.767125 }; // 例: 東京の緯度経度
-  
-  // 地図の表示オプションを設定
-  var mapOptions = {
-      center: mapCenter, // 地図の中心位置
-      zoom: 10 // ズームレベル
-  };
-  
-  // 地図オブジェクトを作成
-  var map = new google.maps.Map(mapElement, mapOptions);
-  
-  // マーカーを設置
-  var marker = new google.maps.Marker({
-      position: mapCenter, // マーカーの位置
-      map: map, // マーカーを表示する地図
-      title: 'Hello, Tokyo!' // マーカーのタイトル（ホバー時に表示）
-  });
-}
-
-
 // 中身の記述はここまで
 }); //jQuery 閉じタグ
