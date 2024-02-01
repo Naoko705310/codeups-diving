@@ -132,6 +132,13 @@
   padding-top: 0;
 }
 
+.global-nav__items--left02 .global-nav__item:first-child .global-nav__heading,
+.global-nav__items--right02 .global-nav__item:first-child .global-nav__heading {
+  @include mq(md) {
+    padding-top: 0;
+  }
+}
+
 
 // .global-nav__items .global-nav__item:first-child .global-nav__heading {
 //   padding-top: 0;

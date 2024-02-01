@@ -106,7 +106,8 @@ margin-top: rem(8);
   line-height: calc(20/20);
   position: relative;
   @include mq(md) {
-      line-height: calc(24/24);
+    font-size: rem(24);
+    line-height: calc(24/24);
   }
 }
 
