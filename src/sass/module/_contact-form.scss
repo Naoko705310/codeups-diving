@@ -33,7 +33,7 @@
 
 // 入力エリア
 .contact-form__item dd {
-  margin-top: rem(17);
+  margin-top: rem(16);
   @include mq(md) {
     width: rem(480);
     margin-top: 0;

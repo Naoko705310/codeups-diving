@@ -35,6 +35,10 @@
   }
 }
 
+.campaign__swiper .swiper-flip {
+  overflow: hidden !important;
+}
+
 // スワイパー左右矢印
 .campaign__swiper-button-wrapper {
   display: none;
