@@ -50,12 +50,14 @@
   border-top: 1px solid $green;
   border-right: 1px solid $green;
   border-left: 1px solid $green;
+
   @include mq(md) {
     grid-template-columns: 67.729% 32.271%;
   }
 }
 
 .page-price-list__body dt {
+  height: rem(60); //カンプのpaddingがバラバラのため、セルの高さ指定
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
@@ -64,16 +66,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 rem(16);
   border-right: 1px solid $green;
   border-bottom: 1px solid $green;
   @include mq(md) {
-  padding: rem(18) rem(16);
+    height: rem(59);
     justify-content: start;
+    padding-left: rem(16);
   }
 }
 
 .page-price-list__body dd {
+  height: rem(60);
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
@@ -81,8 +84,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: rem(18) rem(16);
   border-bottom: 1px solid $green;
+  padding-right: rem(16);
+  @include mq(md) {
+    height: rem(59);
+  }
 }
 
 

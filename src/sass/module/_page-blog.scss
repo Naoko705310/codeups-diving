@@ -8,7 +8,14 @@
   }
 }
 
+.page-blog__main {
+  padding: 0 rem(6);
+  @include mq(md) {
+    padding: 0;
+  }
+}
 .page-blog__pagination {
   margin-top: rem(77);
+  margin-inline: calc(50% - 50vw);
 }
 

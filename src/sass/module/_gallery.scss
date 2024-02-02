@@ -11,7 +11,7 @@
   }
 }
 
-// 画像6枚で一セットのgridデザイン
+// 画像6枚で一セットのgridデザイン(grid全体は横11✖️縦12)
 .gallery__items {
   display: grid;
   grid-template-columns: 1fr;
@@ -27,6 +27,7 @@
   @include mq(md) {
     grid-column: span 6;
     grid-row: span 3;
+    overflow: hidden;
   }
 }
 
@@ -42,25 +43,18 @@
 // 基本形grid一枚の縦横比を決める
 .gallery__item img {
   width: 100%;
-  max-width: 100%;
   height: 100%;
   aspect-ratio: 345/219;
   object-fit: cover;
-  @include mq(md) {
-    aspect-ratio: 580/369;
-  }
 }
 
 // 1枚目と6枚目grid一枚の縦横比を決める
-.gallery__item:nth-child(6n+1),
+.gallery__item:nth-child(6n+1) img,
 .gallery__item:nth-child(6n) img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   aspect-ratio: 345/524;
-  @include mq(md) {
-    aspect-ratio: 492/746;
-  }
 }
 
 .gallery__item:hover {

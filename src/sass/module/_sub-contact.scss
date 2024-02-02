@@ -29,8 +29,8 @@
 }
 
 .sub-contact--site-map {
-  margin-top: rem(106); 
-  @include mq(md) {
-  margin-top: rem(140);
-  }
+  // margin-top: rem(106-12);//最後のアイテムのpadding-bottom: 12pxを引く
+  // @include mq(md) {
+  // margin-top: rem(140-12);
+  // }
   }

@@ -4,7 +4,8 @@
   text-align: center;
   padding-bottom: rem(4);
 }
-.section-title--contact {
+.section-title--contact,
+.section-title--gallery {
   padding-bottom: 0;
 }
 
@@ -13,7 +14,7 @@
   font-size: rem(32);
   color: $green-deep;
   font-weight: $normal;
-  line-height: calc(40/32);
+  line-height: calc(32/32);
   display: block;
   @include mq(md) {
     font-size: rem(40);

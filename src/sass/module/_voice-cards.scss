@@ -8,7 +8,7 @@
   margin-left: auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: rem(38);//40からピクパ調整
+  gap: rem(40);
   @include mq(md) {
     max-width: 100%;
     grid-template-columns: repeat(2, 1fr);

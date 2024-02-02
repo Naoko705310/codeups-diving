@@ -1,46 +1,62 @@
 @use "global" as *;
 
 .site-map {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "areaA areaB"
-    "areaC areaD";
-  gap: rem(28) rem(10);
+  display: flex;
+  justify-content: center;
+  gap: rem(16);
+  z-index: 999;
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
   @include mq(md) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      "areaA areaB areaC areaD";
-      gap: 0;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.site-map__items-wrapper--left {
+  white-space: nowrap;
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+  }
+}
+
+.site-map__items-wrapper--right {
+  width: 50%;
+  @include mq(md) {
+    display: flex;
   }
 }
 
 .site-map__items--left01 {
-  grid-area: areaA;
+  @include mq(md) {
+    width: 50%;
+  }
 }
 
 .site-map__items--left02 {
-  grid-area: areaC;
+  margin-top: rem(16);
   @include mq(md) {
-    grid-area: areaB;
-    margin-left: rem(40);
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(80);
   }
 }
 
 .site-map__items--right01 {
-  grid-area: areaB;
-  margin-left: rem(12);
   @include mq(md) {
-    grid-area: areaC;
-    margin-left: rem(40);
+    width: 50%;
+    margin-left: rem(60);
   }
 }
 
 .site-map__items--right02 {
-  grid-area: areaD;
-  margin-left: rem(12);
+  margin-top: rem(16);
   @include mq(md) {
-    margin-left: rem(40);
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(96);
   }
 }
 
@@ -75,9 +91,8 @@
   background-image: url(../images/common/hitode-icon__site-map.png);
   background-size: contain;
   position: absolute;
-  top: 50%;
+  top: rem(12);
   left: 0;
-  transform: translate(0, -50%);
 }
 
 .site-map__sub-items {
@@ -107,15 +122,147 @@
   opacity: 0.7;
 }
 
+// 一番上のアイテムはmarginもpaddingもつけない
 .site-map__items .site-map__item:first-child {
   margin-top: 0;
 }
 
-.site-map__items .site-map__item:first-child .site-map__heading {
+// left01とright01はpadding-topをつけない
+.site-map__items--left01 .site-map__item:first-child .site-map__heading,
+.site-map__items--right01 .site-map__item:first-child .site-map__heading {
   padding-top: 0;
 }
 
-.site-map__items .site-map__item:first-child .site-map__heading:first-child::before {
+.site-map__items--left02 .site-map__item:first-child .site-map__heading,
+.site-map__items--right02 .site-map__item:first-child .site-map__heading {
+  @include mq(md) {
+    padding-top: 0;
+  }
+}
+
+
+// .site-map__items .site-map__item:first-child .site-map__heading {
+//   padding-top: 0;
+// }
+
+// 左上のヒトデ位置調整
+.site-map__items--left01 > .site-map__item:first-child .site-map__heading:first-child::before {
   top: 0;
   transform: none;
 }
+
+// 右上のヒトデ位置調整
+.site-map__items--right01 > .site-map__item:first-child .site-map__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
+
+
+
+// .site-map {
+//   display: flex;
+//   justify-content: center;
+//   z-index: 999;
+//   max-width: rem(600);
+//   margin-right: auto;
+//   margin-left: auto;
+//   white-space: nowrap;
+
+//   @include mq(md) {
+
+//   }
+// }
+
+// .site-map__items-wrapper--right {
+//   // margin-left: rem(16);
+
+// }
+// .site-map__items--left01 .site-map__item:first-child {
+//   margin-top: 0;
+// }
+// .site-map__items--right01 .site-map__item:first-child {
+//   margin-top: 0;
+// }
+
+
+// .site-map__items--left01 {
+
+// }
+
+// .site-map__items--left02 {
+
+
+// }
+
+// .site-map__items--right01 {
+
+// }
+
+// .site-map__items--right02 {
+
+// }
+
+// .site-map__item {
+//   margin-top: rem(16);
+// }
+
+
+
+// .site-map__heading {
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $black;
+//   font-weight: $bold;
+//   line-height: calc(18/16);
+//   display: block;
+//   padding-top: rem(12);
+//   padding-bottom: rem(12);
+//   padding-left: rem(22);
+//   position: relative;
+// }
+
+// .site-map__heading:hover {
+//   opacity: 0.7;
+// }
+
+// // ヒトデのアイコン
+// .site-map__heading::before {
+//   content: "";
+//   display: inline-block;
+//   width: rem(18);
+//   max-width: 100%;
+//   aspect-ratio: 1/1;
+//   background-image: url(../images/common/hitode-icon__site-map.png);
+//   background-size: contain;
+//   position: absolute;
+//   top: rem(12);
+//   left: 0;
+// }
+
+// .site-map__sub-items {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: flex-start;
+// }
+
+// .site-map__sub-item {
+//   width: 100%;
+// }
+
+// .site-map__sub-item a {
+//   display: block;
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $black;
+//   font-weight: $normal;
+//   line-height: calc(18/16);
+//   padding-top: rem(12);
+//   padding-bottom: rem(12);
+//   padding-left: rem(22);
+// }
+
+// .site-map__sub-item a:hover {
+//   opacity: 0.7;
+// }
+

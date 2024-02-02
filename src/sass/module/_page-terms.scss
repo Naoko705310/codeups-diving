@@ -3,14 +3,14 @@
 .page-terms__inner {
   max-width: rem(600);
   @include mq(md) {
-    max-width: rem(800);
+    max-width: rem(850);
   }
 }
 
 .page-terms__contents-wrapper {
-  max-width: rem(800);
-  margin-right: auto;
-  margin-left: auto;
+  // max-width: rem(800);
+  // margin-right: auto;
+  // margin-left: auto;
 }
 
 .page-terms__heading {
