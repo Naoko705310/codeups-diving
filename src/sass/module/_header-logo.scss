@@ -3,13 +3,11 @@
 .header-logo {
   width: rem(102);
   height: rem(38);
-  // aspect-ratio: 102/38;
   position: relative;
   z-index: 9999;
   @include mq(md) {
     width: rem(133);
     height: rem(50);
-    // aspect-ratio: 133/50;
   }
 }
 

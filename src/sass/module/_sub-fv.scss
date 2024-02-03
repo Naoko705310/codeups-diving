@@ -5,7 +5,6 @@
   max-width: 100%;
   height: rem(460);
   aspect-ratio: 375/460;
-
   @include mq(md) {
     height: rem(548);
     aspect-ratio: 1440/548;
@@ -37,8 +36,6 @@
     transform: translate(-50%);
   }
 }
-
-
 
 .sub-fv__heading span {
   text-transform: none;

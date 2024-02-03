@@ -12,8 +12,8 @@
 
 .contact-form__item {
   width: 100%;
-  border-bottom: 1px dotted $green;
-  padding: rem(24) 0;
+  border-bottom: 1px dashed $green;
+  padding: rem(23) 0;//24→23ピクパ調整
   @include mq(md) {
     max-width: rem(700);
     display: grid;
@@ -26,18 +26,23 @@
   padding-top: 0;
 }
 
-//見出しと「必須」タグ
-.contact-form__item dt {
-
-}
-
 // 入力エリア
 .contact-form__item dd {
+  //input-areaなど中の子要素を100%にするためflexを使う
+  display: flex; 
+  flex-direction: column;
   margin-top: rem(16);
   @include mq(md) {
     width: rem(480);
     margin-top: 0;
   }
+}
+
+.contact-form__item dd .input-area,
+.contact-form__item dd .text-area,
+.contact-form__item dd .input-area--pull-down {
+    flex: 1; // 子要素を均等に伸縮させる
+    min-height: 30px; // 最小の高さを設定
 }
 
 .contact-form__item--pull-down {
@@ -59,9 +64,6 @@
 
 //「必須」タグ
 .contact-form__heading span {
-  // width: rem(61);
-  // height: rem(21);
-  // aspect-ratio: 61/21;
   font-family: $base-font-family;
   font-size: rem(12);
   color: $white;
@@ -80,7 +82,6 @@
   width: 100%;
   height: rem(40);
   background: #fff;
-  // margin-top: rem(17);
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;//正常入力時の文字色
@@ -94,11 +95,13 @@
 }
 
 .input-area.input-area--pull-down {
-  height: rem(30); //aspect-ratioで高さ制御できないので追記
-  aspect-ratio: 480/30;
+  height: rem(40); //aspect-ratioで高さ制御できないので追記
+  aspect-ratio: 345/40;
   padding-left: rem(6);
   @include mq(md) {
     width: rem(480);
+    height: rem(30);
+    aspect-ratio: 480/30;
     padding: rem(7) rem(9) rem(6) rem(8);
   }
 }
@@ -111,7 +114,6 @@
   font-size: rem(16);
   color: $green-deep;
   font-weight: $normal;
-  margin-top: rem(18);
   @include mq(md) {
     margin-top: 0;
   }
@@ -167,8 +169,6 @@ select {
 
 //** お問い合わせ項目（チェックボックス）のデザイン **
 //inputタグのデフォルトデザインを消す
-/* チェックボックスのデザイン */
-
 
 .checkbox-input {
   position: absolute;
@@ -183,8 +183,7 @@ select {
   font-weight: $normal;
   position: relative;
   display: inline-block;
-  // padding-left: rem(8); 
-  margin-bottom: 4px;
+  margin-bottom: rem(2);//4→2 ピクパ調整
   cursor: pointer;
 }
 
@@ -222,70 +221,6 @@ select {
   font-weight: $normal;
 }
 
-
-
-
-
-
-
-
-// .radio-input {
-//   position: absolute;
-//   opacity: 0;
-//   z-index: -1;
-// }
-
-//ラジオボタンのラベル
-// .radio-label {
-//   font-family: $base-font-family;
-//   font-size: rem(16);
-//   color: $green-deep;
-//   font-weight: $normal;
-//   position: relative;
-//   display: inline-block;
-//   padding-left: 20px;//ラジオボタン用にスペースを作る
-//   margin-bottom: 4px;
-//   cursor: pointer;
-// }
-
-//ラジオボタン外側の丸
-// .radio-label-span::before {
-//   content: "";
-//   display: inline-block;
-//   width: 14px;
-//   height: 14px;
-//   border: 1px solid $green;
-//   position: absolute;
-//   left: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-
-//ラジオボタンをチェックした後のチェックマーク
-// .radio-input:checked + .radio-label-span::after {
-//   content: "";
-//   position: absolute;
-//   width: 9px;
-//   height: 5px;
-//   border-top: transparent;
-//   border-right: transparent;
-//   border-left: 2px solid #C94800;
-//   border-bottom: 2px solid #C94800;
-//   position: absolute;
-//   top: 30%;
-//   left: 4px;  
-//   transform: rotate(-45deg);
-// }
-
-//※ラジオボタンを選択してください
-// .radio-error {
-//     font-family: $base-font-family;
-//     font-size: rem(14);
-//     color: #C94800;
-//     font-weight: $normal;
-// }
-//** ラジオボタンのデザイン ** ここまで
-
 //プルダウンメニュー
 .custom-select {
   position: relative;
@@ -306,21 +241,12 @@ select {
   cursor: pointer;
 }
 
-// 要修正（エラーが表示されない）
-//※キャンペーン内容を選択してください
-.pull-down-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: #C94800;
-  font-weight: $normal;
-}
-
 // 下矢印
 .custom-select::after {
   content: '\25BC'; 
   display: inline-block;
   position: absolute;
-  top: 65%;
+  top: 50%;
   right: rem(8);
   transform: translateY(-50%);
   font-size: rem(12);
@@ -330,7 +256,6 @@ select {
   top: 50%;
   }
 }
-//プルダウンメニューここまで
 
 // チェックボックスとプライバシー
 .contact-form__privacy {
@@ -339,8 +264,7 @@ select {
   justify-content: center;
   gap: rem(8);
   text-align: left;
-  margin-top: rem(34);
-  // margin-top: rem(40);
+  margin-top: rem(40);
   margin-right: auto;
   margin-left: auto;
   padding: 0 rem(32);
@@ -405,8 +329,7 @@ input[type="checkbox"]::after {
 
 input[type="checkbox"]:checked::after {
   opacity: 1;//チェック後に表示
-}
-// ** チェックボックスのデザイン ** ここまで  
+} 
 
 //※個人情報保護方針に同意してください。
 .privacy-error {
@@ -424,14 +347,6 @@ input[type="checkbox"]:checked::after {
     margin-top: rem(40);
   }
 }
-
-// ※からindentして改行したい
-// .error-message::before {
-//   content: '※ '; /* ※の文字列を挿入 */
-//   position: absolute;
-//   top: 0;
-//   left: rem(45);
-// }
 
 // ※入力必須項目です
 span.error_required {

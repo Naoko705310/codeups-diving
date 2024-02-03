@@ -75,7 +75,7 @@
   height: auto;
   border: 1px solid $green;
   padding: rem(20) rem(16);// ピクパ調整
-  // padding: rem(24) rem(16);
+  // padding: rem(24) rem(16);//元の数値
   margin-top: 0;
   @include mq(md) {
     margin-top: rem(16);

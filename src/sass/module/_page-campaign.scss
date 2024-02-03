@@ -24,10 +24,7 @@
 }
 
 .page-campaign__pagination {
-  // padding: 0 rem(15);
-  // margin-inline: calc(50% - 50vw);
   margin-top: rem(76);
-  // margin-top: rem(80);
   @include mq(md) {
   margin-right: auto;
   margin-left: auto;

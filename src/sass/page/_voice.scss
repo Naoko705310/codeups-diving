@@ -1,9 +1,9 @@
 @use "global" as *;
 
-.voice__inner.inner {
-  padding: 0 rem(15);
+.voice__inner {
+  max-width: rem(600);
   @include mq(md) {
-    padding: 0 rem(25);
+    max-width: 100%;
   }
 }
 

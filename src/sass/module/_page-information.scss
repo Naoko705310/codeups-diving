@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.page-information__contents {
+.page-information__inner {
   max-width: rem(600);
   margin-right: auto;
   margin-left: auto;
@@ -15,8 +15,8 @@
 }
 
 .page-information__tab-contents {
-margin-top: rem(16);
-@include mq(md) {
-  margin-top: rem(24);
-}
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: rem(24);
+  }
 }

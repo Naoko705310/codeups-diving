@@ -1,5 +1,14 @@
 @use "global" as *;
 
+.blog__inner {
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    max-width: 100%;
+  }
+}
+
 .blog__items {
   margin-top: rem(24);
   padding: 0 rem(6);
