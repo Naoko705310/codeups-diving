@@ -1,9 +1,9 @@
 @use "global" as *;
 
 .page-privacy__inner {
-  max-width: rem(600);
+  max-width: rem(630);
   @include mq(md) {
-    max-width: rem(800);
+    max-width: rem(850);
   }
 }
 

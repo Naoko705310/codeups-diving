@@ -13,6 +13,12 @@
     margin-top: rem(140);
   }
 }
+.sub-contact--site-map {
+  margin-top: rem(106-12);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
 
 .sub-contact--privacy {
   margin-top: rem(106);

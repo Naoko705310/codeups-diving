@@ -13,7 +13,7 @@
 .contact-form__item {
   width: 100%;
   border-bottom: 1px dashed $green;
-  padding: rem(23) 0;//24→23ピクパ調整
+  padding: rem(24) 0;
   @include mq(md) {
     max-width: rem(700);
     display: grid;
