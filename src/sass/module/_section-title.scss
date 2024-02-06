@@ -2,7 +2,10 @@
 
 .section-title {
   text-align: center;
-  padding-bottom: rem(4);
+  // padding-bottom: rem(4);
+  // @include mq(md) {
+  //   padding-bottom: rem(8);
+  // }
 }
 .section-title--contact,
 .section-title--gallery {

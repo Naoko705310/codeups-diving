@@ -3,6 +3,6 @@
 .top-about-us {
   margin-top: rem(80);
   @include mq(md) {
-    margin-top: rem(135);//ズレ調整のため、140px→135pxへ調整
+    margin-top: rem(140);
   }
 }

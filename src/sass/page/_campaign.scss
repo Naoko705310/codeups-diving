@@ -91,6 +91,6 @@
   margin-top: rem(30);//40px→30px. swiperにpadding-bottom:10px;を設定した分をマイナス
   text-align: center;
   @include mq(md) {
-    margin-top: rem(70);//ズレ修正のため80px→70pxへ調整
+    margin-top: rem(70);//80px→70pxに。campaignのswiperに、影を表示するためpadding-bottom: 10px;を追加したため、ピクパ調整。
   }
 }
