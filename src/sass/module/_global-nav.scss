@@ -140,20 +140,28 @@
   }
 }
 
-
-// .global-nav__items .global-nav__item:first-child .global-nav__heading {
-//   padding-top: 0;
-// }
-
-// 左上のヒトデ位置調整
+//ヒトデ位置調整（itemにpadding-topが無い時は上寄せ）
 .global-nav__items--left01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
   top: 0;
   transform: none;
 }
 
-// 右上のヒトデ位置調整
+.global-nav__items--left02 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
+}
+
 .global-nav__items--right01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
   top: 0;
   transform: none;
+}
+
+.global-nav__items--right02 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
 }
 
