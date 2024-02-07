@@ -77,6 +77,12 @@
   position: relative;
 }
 
+.site-map__heading .lg {
+  @include mq(xl) {
+    display: none;
+  }
+}
+
 .site-map__heading:hover {
   opacity: 0.7;
 }
@@ -140,14 +146,26 @@
   }
 }
 
-// 左上のヒトデ位置調整
+// ヒトデ位置調整(itemにpadding-topが無いとき）
 .site-map__items--left01 > .site-map__item:first-child .site-map__heading:first-child::before {
   top: 0;
   transform: none;
 }
+.site-map__items--left02 > .site-map__item:first-child .site-map__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
+}
 
-// 右上のヒトデ位置調整
 .site-map__items--right01 > .site-map__item:first-child .site-map__heading:first-child::before {
   top: 0;
   transform: none;
+}
+
+.site-map__items--right02 > .site-map__item:first-child .site-map__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
 }
