@@ -2,13 +2,7 @@
 //  アコーディオン
 
 .accordion {
-  max-width: rem(600);
-  margin-right: auto;
-  margin-left: auto;
-  position: relative;
-  @include mq(md) {
-    max-width: rem(700);
-  }
+position: relative;
 }
 
 .accordion__item:nth-child(n+2) {

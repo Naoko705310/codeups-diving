@@ -1,11 +1,15 @@
 @use "global" as *;
 
-.page-price__price-list {
-  max-width: rem(600);
+.page-price__inner {
+  max-width: rem(630);
   margin-right: auto;
   margin-left: auto;
   @include mq(md) {
-    max-width: rem(700);
+    max-width: rem(750);
   }
+}
+
+.page-price__price-list {
+
 }
 

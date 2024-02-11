@@ -1,5 +1,10 @@
 @use "global" as *;
 
+.page-blog__inner {
+  max-width: rem(630);
+  margin: 0 auto;
+}
+
 .page-blog__contents-wrapper {
   @include mq(md) {
     display: grid;
