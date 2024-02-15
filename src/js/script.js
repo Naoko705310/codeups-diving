@@ -287,7 +287,7 @@ jQuery(function ($) {
   // 年をクリックしたとき
   $('.archive__year').click(function() {
     $(this).toggleClass('is-active'); // クリックされた要素にis-activeクラスをトグル
-    $(this).next('.archive__month').slideToggle();
+    $(this).next('.archive__month-list').slideToggle();
   });
 
   /* --------------------------------------------
