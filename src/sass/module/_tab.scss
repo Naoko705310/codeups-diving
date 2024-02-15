@@ -18,6 +18,7 @@
   text-align: center;
   overflow: hidden;
   padding: rem(9) rem(16);
+  transition: .3s;
   @include mq(md) {
     text-align: right;
     display: flex;
@@ -35,6 +36,7 @@
   color: $green;
   font-weight: $normal;
   position: relative;
+  transition: .3s;
   @include mq(md) {
     font-size: rem(24);
     padding-left: rem(72);
@@ -54,6 +56,7 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    transition: .3s;
   }
 }
 

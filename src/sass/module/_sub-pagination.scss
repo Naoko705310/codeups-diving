@@ -10,6 +10,7 @@
 // 幅違い
 .sub-pagination--blog-article {
   gap: rem(26);
+  transition: .3s;
 }
 
 .sub-pagination a {
@@ -24,6 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: .3s;
 }
 
 .sub-pagination--current {
@@ -43,6 +45,7 @@
 .sub-pagination__arrow-left {
   position: relative;
   margin-right: rem(28);
+  transition: .3s;
 }
 
 .sub-pagination__arrow-left::before {
@@ -61,6 +64,7 @@
 .sub-pagination__arrow-right {
   position: relative;
   margin-left: rem(28);
+  transition: .3s;
 }
 
 .sub-pagination__arrow-right::before {

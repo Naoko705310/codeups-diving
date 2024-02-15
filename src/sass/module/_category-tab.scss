@@ -24,6 +24,7 @@
   background-color: $white;
   border: 1px solid $green;
   text-align: center;
+  transition: .3s;
   @include mq(md) {
     width: rem(162);
   }
@@ -47,6 +48,7 @@
   display: inline-block;
   width: 100%;
   padding: rem(5) 0;//ピクパ調整6→5
+  transition: .3s;
 }
 
 .category-tab__item:hover {
