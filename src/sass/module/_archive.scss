@@ -14,37 +14,28 @@
 }
 
 // 矢印：下向き（トグルが開いている）
-.archive__year.is-active::before {
-  content: "";
-  border-style: solid;
-  border-width: 0 10px 15px 10px; 
-  border-color: transparent transparent $green transparent; 
+.archive__year.is-active span {
+  background-color: $green;
   position: absolute;
-  top: -10%;
+  top: rem(10);
   left: 0;
-  transform: translateY(100%) rotate(180deg); 
+  transform: rotate(90deg);
 }
 
 // 矢印：右向き（トグルが閉じている）
-.archive__year::before {
-  content: "";
-  border-style: solid;
-  border-width: 10px 0 10px 15px; 
-  border-color: transparent transparent transparent $green;
+.archive__year span {
+  background-color: $green;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  width: rem(20);
+  height: rem(21);
   position: absolute;
   top: 50%;
-  left: rem(10);
+  left: rem(4);
   transform: translateY(-50%);
+  transition: 0.3s;
 }
 
 .archive__month {
   margin-top: rem(4);
   margin-left: rem(24);
-}
-
-// GPT
-.archive__year.closed::before {
-  border-width: 10px 0 10px 15px; /* 三角形を左向きにする */
-  border-color: transparent transparent transparent $green;
-  transform: translateY(-50%) rotate(180deg);
 }

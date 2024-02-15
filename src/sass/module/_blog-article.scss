@@ -22,7 +22,7 @@
   }
 }
 
-.blog-article__image {
+.blog-article img {
   margin-top: rem(24);
   @include mq(md) {
     margin-top: rem(40);

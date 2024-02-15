@@ -45,6 +45,8 @@
     min-height: 30px; // 最小の高さを設定
 }
 
+
+
 .contact-form__item--pull-down {
   @include mq(md) {
     padding-top: rem(36);
@@ -97,6 +99,7 @@
 .input-area.input-area--pull-down {
   height: rem(40); //aspect-ratioで高さ制御できないので追記
   aspect-ratio: 345/40;
+  border: 1px solid $green;
   padding-left: rem(6);
   @include mq(md) {
     width: rem(480);
@@ -322,8 +325,8 @@ input[type="checkbox"]::after {
   height: 6px;//チェックの高さ
   width: 11px;//チェックの横幅
   transform: rotate(-45deg);
-  top: rem(5); //チェック時の位置調整
-  left: 0; //チェック時の位置調整
+  top: rem(6); //チェック時の位置調整
+  left: rem(2); //チェック時の位置調整
   // left: rem(5); //チェック時の位置調整
 }
 
