@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.page-terms__inner {
+  max-width: rem(600);
+  @include mq(md) {
+    max-width: rem(850);
+  }
+}
+
+.page-terms__heading {
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $green-deep;
+  font-weight: 500;
+  @include mq(md) {
+    font-size: rem(32);
+  }
+}
+
+.page-terms__text {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(32/16);
+  display: block;
+  margin-top: rem(32);
+}
+
+.page-terms__text--opening {
+margin-top: rem(40);
+}
+
+.page-terms__body {
+margin-top: rem(32);
+}
+
+.page-terms__body ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(32/16);
+  display: block;
+  margin-top: rem(32);
+}
+
+.page-terms__body ul {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(32/16);
+  display: block;
+}
+

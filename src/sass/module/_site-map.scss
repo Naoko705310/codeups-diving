@@ -1,0 +1,171 @@
+@use "global" as *;
+
+.site-map {
+  display: flex;
+  justify-content: center;
+  gap: rem(24);
+  z-index: 999;
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    max-width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.site-map__items-wrapper--left {
+  white-space: nowrap;
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+  }
+}
+
+.site-map__items-wrapper--right {
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+  }
+}
+
+.site-map__items--left01 {
+  @include mq(md) {
+    width: 50%;
+  }
+}
+
+.site-map__items--left02 {
+  margin-top: rem(16);
+  @include mq(md) {
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(80);
+  }
+}
+
+.site-map__items--right01 {
+  @include mq(md) {
+    width: 50%;
+    margin-left: rem(60);
+  }
+}
+
+.site-map__items--right02 {
+  margin-top: rem(16);
+  @include mq(md) {
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(96);
+  }
+}
+
+.site-map__item {
+  margin-top: rem(16);
+}
+
+.site-map__heading {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $bold;
+  line-height: calc(18/16);
+  display: block;
+  padding-top: rem(12);
+  padding-bottom: rem(12);
+  padding-left: rem(22);
+  position: relative;
+}
+
+.site-map__heading .xl {
+  @include mq(xl) {
+    display: none;
+  }
+}
+
+.site-map__heading:hover {
+  opacity: 0.7;
+}
+
+// ヒトデのアイコン
+.site-map__heading::before {
+  content: "";
+  display: inline-block;
+  width: rem(18);
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  background-image: url(../images/common/hitode-icon__site-map.png);
+  background-size: contain;
+  position: absolute;
+  top: rem(12);
+  left: 0;
+}
+
+.site-map__sub-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.site-map__sub-item {
+  width: 100%;
+}
+
+.site-map__sub-item a {
+  display: block;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  line-height: calc(18/16);
+  padding-top: rem(12);
+  padding-bottom: rem(12);
+  padding-left: rem(22);
+}
+
+.site-map__sub-item a:hover {
+  opacity: 0.7;
+}
+
+// 一番上のアイテムはmarginもpaddingもつけない
+.site-map__items .site-map__item:first-child {
+  margin-top: 0;
+}
+
+// left01とright01はpadding-topをつけない
+.site-map__items--left01 .site-map__item:first-child .site-map__heading,
+.site-map__items--right01 .site-map__item:first-child .site-map__heading {
+  padding-top: 0;
+}
+
+.site-map__items--left02 .site-map__item:first-child .site-map__heading,
+.site-map__items--right02 .site-map__item:first-child .site-map__heading {
+  @include mq(md) {
+    padding-top: 0;
+  }
+}
+
+// ヒトデ位置調整(itemにpadding-topが無いとき）
+.site-map__items--left01 > .site-map__item:first-child .site-map__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
+.site-map__items--left02 > .site-map__item:first-child .site-map__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
+}
+
+.site-map__items--right01 > .site-map__item:first-child .site-map__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
+
+.site-map__items--right02 > .site-map__item:first-child .site-map__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
+}

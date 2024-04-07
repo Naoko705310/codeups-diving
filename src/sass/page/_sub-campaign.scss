@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.sub-campaign__item:nth-child(n + 2) {
+  margin-top: rem(40);
+  @include mq(md) {
+    margin-top: rem(45);// ピクパ調整
+  }
+}
+
+.aside-campaign-card__body {
+  padding-right: rem(23);
+  padding-left: rem(23);
+}

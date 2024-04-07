@@ -1,0 +1,161 @@
+@use "global" as *;
+
+.aside-campaign-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: $white;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.aside-campaign-card__image {
+  position: relative;
+}
+
+.aside-campaign-card__image::before {
+  content: "";
+  display: block;
+  padding-top: 63.945%; //188/294
+}
+
+.aside-campaign-card__image img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.aside-campaign-card__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-top: rem(16);
+  padding-right: rem(23);
+  padding-bottom: rem(24);
+  padding-left: rem(23);
+}
+
+.aside-campaign-card__tag {
+  margin-right: auto;
+}
+
+.aside-campaign-card__title {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: 500;
+  line-height: calc(24/16);
+  display: block;
+  padding-bottom: rem(8);
+  border-bottom: 1px solid $green;
+  text-align: center;
+}
+
+.aside-campaign-card__plan {
+  margin-top: auto;
+}
+
+.aside-campaign-card__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(24/16);
+  margin-top: rem(8);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(8);
+  }
+}
+
+.aside-campaign-card__price-wrapper {
+display: flex;
+justify-content: center;
+align-items: baseline;
+gap: rem(16);
+margin-top: rem(8);
+@include mq(md) {
+  gap: rem(16);
+}
+}
+
+.aside-campaign-card__old-price {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(20);
+  color: $green-deep;
+  font-weight: $bold;
+  line-height: calc(20/20);
+  position: relative;
+}
+
+.aside-campaign-card__old-price::after {
+  content: "";
+  display: inline-block;
+  width: rem(76);
+  max-width: 100%;
+  height: rem(3);
+  background-color: #C94800;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  @include mq(md) {
+    width: rem(91);
+  }
+}
+
+.aside-campaign-card__new-price {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(32);
+  color: $green;
+  font-weight: $bold;
+  line-height: calc(32/32);
+}
+
+.aside-campaign-card__description {
+  @include mq(md) {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(24/16);
+  display: block;
+  margin-top: rem(24);
+  }
+}
+
+.aside-campaign-card__period {
+  @include mq(md) {
+    font-family: $base-font-family;
+    font-size: rem(16);
+    color: $green;
+    font-weight: $bold;
+    line-height: calc(18/16);
+    display: block;
+    text-align: center;
+    margin-top: rem(32);
+    }
+}
+
+.aside-campaign-card__contact {
+  @include mq(md) {
+    font-family: $base-font-family;
+    font-size: rem(14);
+    color: $green;
+    font-weight: $normal;
+    line-height: calc(18/14);
+    display: block;
+    text-align: center;
+    margin-top: rem(7);
+  }
+}
+
+.aside-campaign-card__button {
+  @include mq(md) {
+    text-align: center;
+    margin-top: rem(16);
+  }
+}

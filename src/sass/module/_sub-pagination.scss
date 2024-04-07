@@ -1,0 +1,94 @@
+@use "global" as *;
+
+.sub-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(12);
+}
+
+// 幅違い
+.sub-pagination--blog-article {
+  gap: rem(26);
+  transition: .3s;
+}
+
+.sub-pagination a {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(16);
+  color: $green;
+  font-weight: $bold;
+  line-height: 1;
+  width: rem(38);
+  height: rem(38);
+  border: 1px solid $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+
+.sub-pagination--current {
+  background-color: $green;
+}
+
+.sub-pagination a.sub-pagination--current  {
+  color: $white;
+}
+
+.sub-pagination a:hover {
+  background-color: $green;
+  color: $white;
+}
+
+// 矢印左
+.sub-pagination__arrow-left {
+  position: relative;
+  margin-right: rem(28);
+  transition: .3s;
+}
+
+.sub-pagination__arrow-left::before {
+  content: '';
+  width: rem(12); 
+  height: rem(12); 
+  border-bottom: 1px solid $green; 
+  border-left: 1px solid $green; 
+  transform: rotate(45deg) translate(-50%);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+
+// 矢印右
+.sub-pagination__arrow-right {
+  position: relative;
+  margin-left: rem(28);
+  transition: .3s;
+}
+
+.sub-pagination__arrow-right::before {
+  content: '';
+  width: rem(12); 
+  height: rem(12); 
+  border-top: 1px solid $green; 
+  border-right: 1px solid $green; 
+  transform: rotate(45deg) translate(-50%);
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.sub-pagination__arrow-left:hover::before,
+.sub-pagination__arrow-right:hover::before {
+  border-color: $white; 
+}
+
+
+// アイテム5,6はPCのみ表示
+.sub-pagination a.sub-pagination--pc {
+  display: none;
+  @include mq(md) {
+    display: flex; 
+  }
+}

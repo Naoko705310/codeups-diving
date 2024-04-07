@@ -1,0 +1,130 @@
+@use "global" as *;
+
+.tab__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(19);
+  @include mq(md) {
+    gap: rem(90);
+  }
+}
+
+.tab__item {
+  width: 100%;
+  height: 100%;
+  padding: rem(29) 0;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: $green-light;
+  text-align: center;
+  overflow: hidden;
+  padding: rem(9) rem(16);
+  transition: .3s;
+  @include mq(md) {
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(29) 0;
+  }
+}
+
+// タブのテキスト
+.tab__item span {
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  position: relative;
+  transition: .3s;
+  @include mq(md) {
+    font-size: rem(24);
+    padding-left: rem(72);
+  }
+}
+
+// タブのアイコン
+.tab__item span::before {
+  @include mq(md) {
+    content: "";
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: rem(64);
+    aspect-ratio: 64/64;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: .3s;
+  }
+}
+
+// タブのアイコン（クジラ）
+.tab__item:nth-child(1) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-whale-green.png);
+  }
+}
+
+// タブのアイコン（サメ）
+.tab__item:nth-child(2) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-shark-green.png);
+  }
+}
+
+// タブのアイコン（魚）
+.tab__item:nth-child(3) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-fish-green.png);
+  }
+}
+
+
+// タブのアイコン（クジラ白）
+.tab__item.is-active:nth-child(1) span::before,
+.tab__item:hover:nth-child(1) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-whale-white.png);
+  }
+}
+
+// タブのアイコン（サメ白）
+.tab__item.is-active:nth-child(2) span::before,
+.tab__item:hover:nth-child(2) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-shark-white.png);
+  }
+}
+
+// タブのアイコン（魚白）
+.tab__item.is-active:nth-child(3) span::before,
+.tab__item:hover:nth-child(3) span::before {
+  @include mq(md) {
+    background-image: url(../images/common/info-tab-fish-white.png);
+  }
+}
+
+
+.tab__item img {
+  width: rem(64);
+  height: rem(64);
+}
+
+.tab__item:hover {
+  cursor: pointer;
+  background-color: $green;
+}
+
+.tab__item:hover span {
+  color: $white;
+}
+
+.tab__item.is-active {
+  background-color: $green;
+}
+
+.tab__item.is-active span {
+  color: $white;
+}

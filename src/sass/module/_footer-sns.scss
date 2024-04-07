@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.footer-sns {
+  width: 100%;
+  max-width: 100%;
+  height: rem(24);
+  @include mq(md) {
+    height: rem(32);
+  }
+}
+
+.footer-sns__link {
+  display: inline-block;
+  width: rem(24);
+  height: rem(24);
+  height: 100%;
+  @include mq(md) {
+    width: rem(32);
+    height: rem(32);
+  }
+}
+
+.footer-sns__link img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.footer-sns__link--instagram {
+margin-left: rem(14);
+}

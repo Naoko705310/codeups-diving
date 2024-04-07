@@ -1,0 +1,90 @@
+@use "global" as *;
+
+.section-title {
+  text-align: center;
+}
+
+.section-title--contact,
+.section-title--gallery {
+  padding-bottom: 0;
+}
+
+.section-title__en {
+  font-family: $second-font-family;
+  font-size: rem(32);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(40/32);
+  display: block;
+  @include mq(md) {
+    font-size: rem(40);
+    line-height: calc(40/40);
+  }
+}
+
+.section-title__en--gallery {
+  font-family: $second-font-family;
+  font-size: rem(32);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(32/32);
+  display: block;
+  @include mq(md) {
+    font-size: rem(40);
+    line-height: calc(40/40);
+  }
+}
+
+.section-title__en.indent {
+  text-indent: 0.4em;
+}
+
+.section-title__en::first-letter {
+  text-transform: uppercase;
+  color: $green;
+}
+
+.section-title__jp {
+  font-family: $base-font-family;
+  font-size: rem(12);
+  color: $green;
+  font-weight: $normal;
+  line-height: calc(18/12);
+  display: block;
+  margin-top: rem(4);
+  @include mq(md) {
+    margin-top: rem(8);
+  }
+}
+
+// Blogのセクションタイトル
+.section-title__en--blog,
+.section-title__jp--blog {
+  @include mq(md) {
+    color: $white;
+  }
+}
+.section-title__en--blog::first-letter {
+  @include mq(md) {
+    color: $white;
+  }
+}
+
+// Contactのセクションタイトル
+.section-title__en--contact {
+  font-size: rem(80);
+  font-weight: $normal;
+  line-height: calc(80/80);
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: calc(80/80);
+  }
+}
+
+.section-title__jp--contact {
+  margin-top: rem(-6);
+  @include mq(md) {
+    margin-top: rem(-6);
+  }
+}
+

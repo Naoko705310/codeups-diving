@@ -1,0 +1,35 @@
+@use "global" as *;
+
+.sub-contact {
+  margin-top: rem(106);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
+
+.sub-contact--about-us {
+  margin-top: rem(106);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
+.sub-contact--site-map {
+  margin-top: rem(106-12);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
+
+.sub-contact--privacy {
+  margin-top: rem(106);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}
+
+.sub-contact--terms {
+  margin-top: rem(106);
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}

@@ -1,0 +1,181 @@
+@use "global" as *;
+
+.contact__inner {
+  max-width: rem(600);
+  margin: 0 auto;
+}
+
+.contact__section-title {
+  @include mq(md) {
+    margin-top: rem(20);
+  }
+}
+
+.contact__contents {
+  @include mq(md) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contact__contents-wrapper {
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    width: 100%;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    padding: rem(80) 0;
+  }
+}
+
+// 魚のイラスト
+.contact__contents-wrapper::before {
+  content: "";
+  display: inline-block;
+  width: rem(109);
+  max-width: 100%;
+  aspect-ratio: 109/50;
+  background-image: url(../images/common/contact-fish.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: rem(-25);
+  right: 0;
+  z-index: 999999;
+  @include mq(md) {
+    width: rem(301);
+    aspect-ratio: 301/138;
+    top: rem(-40);
+    right: calc(50% - min(48vw, 62%));
+  }
+}
+
+.contact__body {
+  width: 100%;
+  padding: 0 rem(25);
+  @include mq(md) {
+    min-width: rem(440);
+    padding: 0;
+    margin-right: rem(82);
+    margin-left: rem(50);
+  }
+}
+
+.contact__logo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-bottom: 1px solid $green;
+  padding-bottom: rem(6);
+}
+
+.contact__logo img {
+  max-width: rem(174);
+  aspect-ratio: 174/65;
+  object-fit: cover;
+  margin: 0 auto;
+  @include mq(md) {
+    max-width: rem(200);
+  }
+}
+
+.contact__company-information {
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(16);
+  @include mq(md) {
+    display: flex;
+    gap: rem(21);
+    margin-top: rem(24);
+    aspect-ratio: 440/148;
+  }
+
+}
+.contact__address-wrapper {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(24/16);
+  text-align: center;
+  @include mq(md) {
+    text-align: left;
+  }
+}
+
+.contact__address-wrapper > * {
+  margin-top: rem(4);
+}
+
+.contact__address-wrapper > :first-child {
+margin-top: 0;
+}
+
+.contact__address-wrapper p {
+display: block;
+}
+.contact__address-wrapper a {
+display: block;
+}
+
+.contact__map {
+  width: 100%;
+  max-width: 100%;
+  height: rem(160);
+  aspect-ratio: 295/160;
+  margin-top: rem(16);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  @include mq(md) {
+    width: 62.045%;//273/440
+    height: inherit;
+    margin-top: 0;
+  }
+}
+
+.contact__map iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact__header {
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(40);
+  text-align: center;
+  padding: 0 rem(15);
+  @include mq(md) {
+    border-left: 1px solid $green;
+    margin-top: 0;
+    padding-right: rem(112);
+    padding-left: rem(81);
+  }
+}
+
+.contact__link {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  line-height: calc(18/14);
+  display: block;
+  margin-top: rem(8);
+}
+
+.contact__button {
+  margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+
+
+
+
+
+

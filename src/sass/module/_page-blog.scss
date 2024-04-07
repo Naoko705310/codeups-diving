@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.page-blog__inner {
+  max-width: rem(630);
+  margin: 0 auto;
+}
+
+.page-blog__contents-wrapper {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: 65.37% 1fr;
+    gap: rem(80); 
+  }
+}
+
+.page-blog__main {
+  padding: 0 rem(6);
+  @include mq(md) {
+    padding: 0;
+  }
+}
+.page-blog__pagination {
+  margin-top: rem(77);
+  margin-inline: calc(50% - 50vw);
+}
+

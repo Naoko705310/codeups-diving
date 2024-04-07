@@ -1,0 +1,81 @@
+@use "global" as *;
+
+.blog-article__date {
+  font-family: $second-font-family;
+  font-size: rem(14);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(18/14);
+  display: block;
+}
+
+.blog-article__heading {
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $green-deep;
+  font-weight: 500;
+  display: block;
+  border-bottom: 1px solid $green;
+  margin-top: rem(8);
+  @include mq(md) {
+    font-size: rem(32);
+  }
+}
+
+.blog-article img {
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.blog-article p {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  display: block;
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.blog-article ul {
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.blog-article li {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  padding-left: rem(27);
+  margin-top: rem(4);
+  position: relative;
+}
+
+// ヒトデのアイコン
+.blog-article li::before {
+  content: "";
+  display: inline-block;
+  width: rem(18);
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  background-image: url(../images/common/hitode-icon.png);
+  background-size: contain;
+  position: absolute;
+  top: rem(6);
+  left: 0;
+}
+
+// ページ送り
+.blog-article__pagination {
+  margin-top: rem(40);
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

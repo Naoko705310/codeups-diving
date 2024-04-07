@@ -1,0 +1,73 @@
+@use "global" as *;
+
+.pc-nav {
+  display: none; //最初(SP)は非表示
+  height: inherit;
+}
+
+.pc-nav__items {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.pc-nav__items .pc-nav__item:last-child {
+  padding-right: 0;
+}
+
+.pc-nav__item {
+  height: inherit;
+  position: relative;//hover時の下線用
+}
+
+.pc-nav__item a {
+  font-family: $second-font-family;
+  font-size: rem(18);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(18/18);
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: inherit;
+  white-space: nowrap;
+  padding: 0 max(1rem, min(1.389vw, 20px));
+}
+
+.pc-nav__item a span {
+  font-family: $base-font-family;
+  font-size: rem(10);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(15/10);
+  display: block;
+}
+
+.pc-nav__item a.current,
+.pc-nav__item:hover {
+  color: $white;
+}
+
+.pc-nav__item a::after {
+  content: "";
+  position: absolute;
+  bottom: rem(20);
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background:$white;
+  transition: all .3s;
+  transform: scale(0, 1);//X方向0、Y方向1
+  transform-origin: center top;//上部中央基点
+}
+
+.pc-nav__item a.current a::after,
+.pc-nav__item a:hover::after {
+  transform: scale(1, 1);//X方向にスケール拡大
+}
+
+.pc-nav__link.uppercase {
+  text-transform: uppercase;
+}

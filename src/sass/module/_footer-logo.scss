@@ -1,0 +1,18 @@
+@use "global" as *;
+
+.footer-logo__image {
+  width: 100%;
+  max-width: rem(120);
+  aspect-ratio: 120/45;
+  @include mq(md) {
+    width: rem(200);
+    max-width: 100%;
+    aspect-ratio: 200/75;
+  }
+}
+
+.footer-logo__image img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}

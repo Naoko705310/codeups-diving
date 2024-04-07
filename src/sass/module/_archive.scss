@@ -1,0 +1,71 @@
+@use "global" as *;
+
+.archive__item {
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $green;
+  font-weight: $normal;
+}
+
+.archive__year {
+  padding-left: rem(32);
+  position: relative;
+}
+
+// 矢印：下向き（トグルが開いている）
+.archive__year.is-active span {
+  background-color: $green;
+  position: absolute;
+  top: rem(10);
+  left: 0;
+  transform: rotate(90deg);
+}
+
+// 矢印：右向き（トグルが閉じている）
+.archive__year span {
+  background-color: $green;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  width: rem(20);
+  height: rem(21);
+  position: absolute;
+  top: 50%;
+  left: rem(4);
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+.archive__month-list {
+  margin-top: rem(4);
+  margin-left: rem(24);
+}
+
+.archive__month {
+  margin-top: rem(4);
+}
+
+.archive__month a {
+  display: block;
+  width: 100%;
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $green;
+  font-weight: $normal;
+  position: relative;
+  padding-left: rem(32);
+}
+
+.archive__month span {
+  content: "";
+  border-style: solid;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent $green;
+  margin-right: 8px; /* 三角形と月のテキストの間に余白を追加 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 4px;
+}
+
+.archive__month a:hover {
+  opacity: 0.7;
+}

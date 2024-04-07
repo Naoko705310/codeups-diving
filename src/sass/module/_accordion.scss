@@ -1,0 +1,89 @@
+@use "global" as *;
+//  アコーディオン
+
+.accordion {
+position: relative;
+}
+
+.accordion__item:nth-child(n+2) {
+  margin-top: rem(40);
+}
+
+.accordion__title {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  background-color: $green;
+  position: relative;
+  padding: rem(15);
+  cursor: pointer;
+  @include mq(md) {
+    font-size: rem(20);
+    padding: rem(26) rem(40);
+  }
+}
+
+.accordion__title::before {
+  content: '';
+  display: inline-block;
+  width: rem(32);
+  height: rem(1);
+  background-color: $white;
+  position: absolute;
+  right: rem(16);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity .3s;
+  @include mq(md) {
+    right: rem(40);
+  }
+}
+
+.accordion__title::after {
+  content: '';
+  display: inline-block;
+  width: rem(32);
+  height: rem(1);
+  background-color: $white;
+  position: absolute;
+  right: rem(16);
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  transition: transform .3s;
+  @include mq(md) {
+    right: rem(40);
+  }
+}
+
+.accordion__title.show::before {
+  opacity: 1;
+}
+
+.accordion__title.show::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+.accordion__content {
+  // display: none;//最初は隠す場合
+  display: block;//最初から開く場合
+  height: auto;
+  border: 1px solid $green;
+  padding: rem(20) rem(16);// ピクパ調整
+  // padding: rem(24) rem(16);//元の数値
+  margin-top: 0;
+  @include mq(md) {
+    margin-top: rem(16);
+    padding: rem(36) rem(40);//ピクパ調整
+  }
+}
+.accordion__text {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: 1.5;
+}
+
+
+
+

@@ -1,0 +1,32 @@
+@use "global" as *;
+
+.page-campaign__inner {
+  max-width: rem(630);
+  margin: 0 auto;
+}
+
+.page-campaign__tab {
+  padding: 0 rem(15);
+  margin-inline: calc(50% - 50vw);
+  @include mq(md) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+  }
+}
+
+.page-campaign__items {
+  margin-top: rem(40);
+  padding: 0 rem(33);
+  @include mq(md) {
+    padding: 0;
+  }
+}
+
+.page-campaign__pagination {
+  margin-top: rem(76);
+  @include mq(md) {
+  margin-right: auto;
+  margin-left: auto;
+  }
+}

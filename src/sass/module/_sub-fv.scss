@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.sub-fv {
+  width: 100%;
+  max-width: 100%;
+  height: rem(460);
+  aspect-ratio: 375/460;
+  @include mq(md) {
+    height: rem(548);
+    aspect-ratio: 1440/548;
+  }
+}
+
+.sub-fv__inner {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  position: relative;
+}
+
+.sub-fv__heading {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: rem(40);
+  color: $white;
+  font-weight: $normal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  white-space: nowrap;
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: 1.25;
+    transform: translate(-50%);
+  }
+}
+
+.sub-fv__heading span {
+  text-transform: none;
+}
+.sub-fv__heading--faq {
+  text-transform: uppercase;
+}
+
+.sub-fv__image {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+}
+
+.sub-fv__image img {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+
+
+
+

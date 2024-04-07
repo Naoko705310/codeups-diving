@@ -1,0 +1,13 @@
+@use "global" as *;
+
+/* 7枚目以降のblog-cardを非表示にする */
+.blog-articles__items .blog-cards__item.blog-card:nth-child(n+7) {
+  display: none;
+  @include mq(md) {
+  display: block;
+  }
+}
+
+.blog-articles__pagination {
+  margin-top: rem(80);
+}

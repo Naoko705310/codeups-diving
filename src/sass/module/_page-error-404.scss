@@ -1,0 +1,66 @@
+@use "global" as *;
+
+// 背景色がついているので、page-layoutは使わない。
+
+.page-error-404 {
+  background-color: $green;
+  padding-top: rem(80);
+  @include mq(md) {
+    padding-top: rem(90);
+  }
+}
+
+// ぐじらのイラスト
+.page-error-404__inner {
+  background-image: url(../images/common/whale-image-404.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-top: rem(51);
+  padding-bottom: rem(40);
+  position: relative;
+  @include mq(md) {
+    background-position: left;
+    padding-top: rem(119);
+    padding-bottom: rem(148);
+  }
+  }
+
+.page-error-404__contents-wrapper {
+  text-align: center;
+}
+
+.page-error-404__heading {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(80);
+  color: $white;
+  font-weight: $normal;
+  letter-spacing: rem(40);
+  line-height: calc(96/80);
+  text-indent: 0.54em;
+  @include mq(md) {
+    font-size: rem(160);
+    letter-spacing: rem(80);
+    line-height: calc(192/160);
+    padding-top: 0;
+  }
+}
+
+.page-error-404__text {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  display: block;
+  @include mq(md) {
+    margin-top: rem(24);
+  }
+}
+
+.page-error-404__button {
+  margin-top: rem(40); 
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}
+

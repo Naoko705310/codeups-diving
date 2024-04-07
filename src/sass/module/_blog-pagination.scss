@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.blog-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: rem(82);
+  justify-content: center;
+}
+
+.blog-pagination a {
+  display: block;
+  width: rem(38);
+  aspect-ratio: 38/38;
+}
+
+.blog-pagination img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+

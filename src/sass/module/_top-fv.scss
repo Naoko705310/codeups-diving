@@ -1,0 +1,79 @@
+@use "global" as *;
+
+.top-fv {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.top-fv__inner {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.top-fv__heading {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.top-fv__main-copy {
+  font-family: 'Lato', sans-serif;
+  font-size: rem(40);
+  color: $white;
+  font-weight: $normal;
+  line-height: 1.2; //カンプは1.5だが、ピクパ合わない
+  letter-spacing: 0.54em;//21.6/40
+  text-transform: uppercase;
+  text-indent: 0.54em;
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: calc(100/80);
+    letter-spacing: rem(43.2);
+  }
+}
+
+.top-fv__sub-copy {
+  font-family: $second-font-family;
+  font-size: rem(20);
+  color: $white;
+  font-weight: $normal;
+  line-height: 1.5;
+}
+
+
+// /* スライダーの追加スタイル */
+.top-fv__swiper {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.top-fv__swiper .swiper-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+}
+
+.top-fv__swiper .swiper-slide {
+  width: rem(1440);
+  max-width: 100%;
+  height: inherit;
+  aspect-ratio: 1440/768;
+}
+.top-fv__swiper .swiper-slide img {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+.swiper-flip {
+  overflow: hidden !important;
+}

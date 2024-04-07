@@ -1,0 +1,134 @@
+@use "global" as *;
+
+.button {
+  width: rem(202);
+  font-family: $second-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(22/14);
+  display: inline-block;
+  text-align: center;
+  padding: rem(16) 0;
+  background-color: $green;
+  border: 1px solid $green;
+  position: relative;
+  z-index: 1;
+  transition: .3s;
+}
+
+
+.button::first-letter {
+  text-transform: capitalize;
+}
+
+.button:hover span,
+.button:hover span::after {
+  color: $green;
+  border-color: $green;
+}
+
+// ボタンの影（外枠）
+.button::before {
+  content: "";
+  display: block;
+  border: 1px solid $green;
+  width: 100%;
+  height: 100%;
+  transition: .3s;
+  position: absolute;
+  top: rem(4);
+  left: rem(4);
+  z-index: -2;
+}
+
+// ボタンに被せるカラーボックス
+.button::after {
+  content: "";
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+
+.button:hover::after {
+  transform: scale(1, 1);
+}
+
+.button span {
+  font-family: $second-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(22/14);
+  padding-right: rem(50);
+}
+
+// 右矢印
+.button span::after {
+  content: "";
+  display: inline-block;
+  width: rem(40);
+  max-width: 100%;
+  height: rem(6);
+  border-right: 1px solid $white;
+  border-bottom: 1px solid $white;
+  transform: skew(45deg);
+  margin-left: rem(8);
+  position: absolute;
+  top: 42.857%;//ボタンの高さ56pxで計算
+  right: rem(40);
+  z-index: 1;
+}
+
+// 404ページのボタン(緑白反転）
+.button--white {
+  color: $green;
+  background-color: $white;
+  border: 1px solid $white;
+}
+
+.button--white:hover span,
+.button--white:hover span::after {
+  color: $white;
+  border-color: $white;
+}
+
+// ボタンの影（外枠）
+.button--white::before {
+  border: 1px solid $white;
+}
+
+// ボタンに被せるカラーボックス
+.button--white::after {
+  background: $green;
+}
+
+.button--white:hover::after {
+  transform: scale(1, 1);
+}
+
+.button--white span {
+  color: $green;
+}
+
+// 右矢印
+.button--white span::after {
+  border-right: 1px solid $green;
+  border-bottom: 1px solid $green;
+}
+
+// 送信ボタン
+.button__submit {
+  padding-top: rem(16);
+  padding-right: rem(112);
+  padding-bottom: rem(16);
+  padding-left: rem(56);
+}

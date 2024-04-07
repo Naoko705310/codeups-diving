@@ -1,0 +1,61 @@
+@use "global" as *;
+
+.category-tab {
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    max-width: 100%;
+  }
+}
+
+.category-tab__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(16) rem(21);
+  align-items: center;
+  @include mq(md) {
+    grid-template-columns: repeat(4, auto);
+    justify-content: flex-start;
+    gap: rem(32);
+  }
+}
+
+.category-tab__item {
+  background-color: $white;
+  border: 1px solid $green;
+  text-align: center;
+  transition: .3s;
+  @include mq(md) {
+    width: rem(162);
+  }
+}
+
+// Allの背景色は最初から緑
+.category-tab__item--current {
+  background-color: $green;
+}
+
+.category-tab__item.category-tab__item--current a {
+  color: $white;
+}
+
+.category-tab__item a {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  line-height: calc(22/14);
+  display: inline-block;
+  width: 100%;
+  padding: rem(5) 0;//ピクパ調整6→5
+  transition: .3s;
+}
+
+.category-tab__item:hover {
+  background-color: $green;
+}
+
+.category-tab__item:hover a {
+  color: $white;
+}
+

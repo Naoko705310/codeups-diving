@@ -1,0 +1,167 @@
+@use "global" as *;
+// SPナビとfooterナビ共通
+// 左右50%で横並び
+
+.global-nav {
+  display: flex;
+  justify-content: center;
+  gap: rem(16);
+  z-index: 999;
+  max-width: rem(600);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    justify-content: space-between;
+  }
+}
+
+.global-nav__items-wrapper--left {
+  white-space: nowrap;
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+  }
+}
+
+.global-nav__items-wrapper--right {
+  width: 50%;
+  @include mq(md) {
+    display: flex;
+  }
+}
+
+.global-nav__items--left01 {
+  @include mq(md) {
+    width: 50%;
+  }
+}
+
+.global-nav__items--left02 {
+  margin-top: rem(16);
+  @include mq(md) {
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(32);
+  }
+}
+
+.global-nav__items--right01 {
+  @include mq(md) {
+    width: 50%;
+  }
+}
+
+.global-nav__items--right02 {
+  margin-top: rem(16);
+  @include mq(md) {
+    width: 50%;
+    margin-top: 0;
+    margin-left: rem(32);
+  }
+}
+
+.global-nav__item {
+  margin-top: rem(16);
+}
+
+.global-nav__heading {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $bold;
+  line-height: calc(18/16);
+  display: block;
+  padding-top: rem(12);
+  padding-bottom: rem(12);
+  padding-left: rem(22);
+  position: relative;
+}
+
+.global-nav__heading:hover {
+  opacity: 0.7;
+}
+
+// ヒトデのアイコン
+.global-nav__heading::before {
+  content: "";
+  display: inline-block;
+  width: rem(18);
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  background-image: url(../images/common/footer-hitode-icon.png);
+  background-size: contain;
+  position: absolute;
+  top: rem(12);
+  left: 0;
+}
+
+.global-nav__sub-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.global-nav__sub-item {
+  width: 100%;
+}
+
+.global-nav__sub-item a {
+  display: block;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(18/16);
+  padding-top: rem(12);
+  padding-bottom: rem(12);
+  padding-left: rem(22);
+}
+
+.global-nav__sub-item a:hover {
+  opacity: 0.7;
+}
+
+// 一番上のアイテムはmarginもpaddingもつけない
+.global-nav__items .global-nav__item:first-child {
+  margin-top: 0;
+}
+
+// left01とright01はpadding-topをつけない
+.global-nav__items--left01 .global-nav__item:first-child .global-nav__heading,
+.global-nav__items--right01 .global-nav__item:first-child .global-nav__heading {
+  padding-top: 0;
+}
+
+.global-nav__items--left02 .global-nav__item:first-child .global-nav__heading,
+.global-nav__items--right02 .global-nav__item:first-child .global-nav__heading {
+  @include mq(md) {
+    padding-top: 0;
+  }
+}
+
+//ヒトデ位置調整（itemにpadding-topが無い時は上寄せ）
+.global-nav__items--left01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
+
+.global-nav__items--left02 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
+}
+
+.global-nav__items--right01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  top: 0;
+  transform: none;
+}
+
+.global-nav__items--right02 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+  @include mq(md) {
+    top: 0;
+    transform: none;
+  }
+}
+

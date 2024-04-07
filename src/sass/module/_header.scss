@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.header {
+  width: 100%;
+  max-width: 100%;
+  height: rem(80);
+  background: rgba(13, 41, 54, 0.68);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;//モーダルより下に来るように
+  @include mq(md) {
+    height: rem(90);
+  }
+}
+
+.header.is-open {
+  background-color: $green;
+}
+
+.header__inner {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 rem(15);
+  @include mq(md) {
+    padding: 0 rem(20) 0 rem(40);
+  }
+}
+
+.header__hamburger {
+  margin: 0 -6px; //デフォルトでbuttonタグについている、左右のpadding:6pxを消す
+}
+
+.header__sp-nav {
+  background-color: $green;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: rem(80);
+  left: 0;
+  right: 0;
+  z-index: 88;
+  overflow: scroll; /* 縦スクロールを可能にする */
+  padding-top: rem(24);
+  padding-right: rem(20);
+  padding-bottom: rem(200);
+  padding-left: rem(20);
+  display: none;
+}

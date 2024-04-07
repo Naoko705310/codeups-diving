@@ -1,0 +1,92 @@
+@use "global" as *;
+
+.price__inner {
+  padding-right: rem(15);
+  padding-left: rem(15);
+  @include mq(md) {
+    padding-right: rem(182);
+    padding-left: rem(181);
+  }
+}
+
+.price__contents-wrapper {
+  width: 100%;
+  max-width: rem(600);
+  margin-top: rem(24);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    max-width: rem(1077);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(93);
+    margin-top: rem(40);
+    position: relative;
+  }
+}
+
+.price__price-list {
+  width: 100%;
+  max-width: 100%;
+  margin-top: rem(40);
+  @include mq(md) {
+    max-width: rem(492);
+    margin-top: 0;
+  }
+}
+
+// 魚のイラスト
+.price__contents-wrapper::after {
+  @include mq(md) {
+    content: "";
+    display: inline-block;
+    width: rem(437);
+    max-width: 100%;
+    aspect-ratio: 437/201;
+    background-image: url(../images/common/price-fish.png);
+    background-size: contain;
+    position: absolute;
+    left: calc(50% - min(48vw, 58%));
+    bottom: rem(-178);
+  }
+}
+
+.price__image {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  @include mq(md) {
+    max-width: rem(746);
+    margin-top: 0;
+  }
+}
+
+.price__image::before {
+  content: "";
+  display: block;
+  padding-top: 65.797%;// 227/345（高さ/幅）
+  @include mq(md) {
+    padding-top: 151.626%;// 746/492（高さ/幅）
+  }
+}
+
+.price__image img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.price__button {
+  margin-top: rem(40);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

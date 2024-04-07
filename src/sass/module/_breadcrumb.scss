@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.breadcrumb {
+  margin-top: rem(8);
+}
+
+.breadcrumb__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green-deep;
+  font-weight: $normal;
+  text-transform: uppercase;
+}
+
+.breadcrumb__text--404 {
+  color: $white;
+}
+
+.breadcrumb__text span {
+  display: inline-block;
+  padding-left: rem(12);
+  margin-left: rem(8);
+  position: relative;
+}
+
+// パンくず矢印
+.breadcrumb__text span::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  max-width: rem(4);
+  aspect-ratio: 4/8;
+  background-image: url(../images/common/breadcrumb-arrow.png);
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.breadcrumb__text--404 span::before {
+  background-image: url(../images/common/breadcrumb-arrow-white.png);
+}

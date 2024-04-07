@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.page-campaign-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(40);
+  @include mq(md) {
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(80) rem(40);
+  }
+}

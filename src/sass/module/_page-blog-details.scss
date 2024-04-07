@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.page-blog-details__inner {
+  max-width: rem(600);
+  margin: 0 auto;
+}
+.page-blog-details__contents-wrapper {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: 64.814% 1fr;
+    gap: rem(86); 
+  }
+}

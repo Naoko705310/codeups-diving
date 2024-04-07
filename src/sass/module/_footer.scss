@@ -1,0 +1,48 @@
+@use "global" as *;
+
+.footer {
+  background-color: $green;
+  padding-bottom: rem(56);
+  padding-top: rem(48);
+  @include mq(md) {
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+  }
+}
+
+.footer__nav {
+  margin-top: rem(40);
+  @include mq(md) {
+    max-width: 100%;
+    margin-top: rem(29);
+  }
+}
+
+.footer__logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  @include mq(md) {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: rem(40);
+  }
+}
+
+.footer__copyright {
+  font-family: $second-font-family;
+  font-size: rem(12);
+  color: $white;
+  font-weight: $normal;
+  line-height: calc(18/12);
+  display: block;
+  margin-inline: calc(50% - 50vw);
+  margin-top: rem(40 - 12);
+  text-align: center;
+  @include mq(md) {
+    font-size: rem(14);
+    line-height: calc(18/14);
+    margin-top: rem(80);
+  }
+}
+
