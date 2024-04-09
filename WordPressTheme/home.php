@@ -15,7 +15,7 @@
       </section>
   <!-- パンくずリスト -->
   <?php get_template_part('parts/breadcrumb'); ?>
-  
+
       <!-- 下層 コンテンツ -->
       <div class="page-blog page-layout">
         <div class="page-blog__inner inner">
