@@ -14,18 +14,7 @@
         </div>
       </section>
       <!-- パンくずリスト -->
-      <div class="breadcrumb">
-        <div class="breadcrumb__inner inner">
-          <div class="breadcrumb__text-wrapper">
-            <p class="breadcrumb__text">
-              <a href="index.html">
-                top
-              </a>
-              <span>私たちについて</span>
-            </p>
-          </div>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb'); ?>
       <!-- 下層about-us コンテンツ -->
       <section class="page-about-us page-layout">
         <div class="page-about-us__inner inner">

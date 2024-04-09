@@ -3041,11 +3041,7 @@ span.error_required {
 	transition: 0.3s;
 }
 
-/* ============================================
-/* // ここ↓から元のcss
-/* ============================================ */
-
-.sub-pagination__arrow-left {
+.page-link__prev {
 	align-items: center;
 	border: 1px solid #408F95;
 	color: #408F95;
@@ -3061,7 +3057,7 @@ span.error_required {
 	width: 2.375rem;
 }
 
-.sub-pagination__arrow-left::before {
+.page-link__prev::before {
 	border-bottom: 1px solid #408F95;
 	border-left: 1px solid #408F95;
 	content: "";
@@ -3073,7 +3069,7 @@ span.error_required {
 	width: 0.75rem;
 }
 
-.sub-pagination__arrow-right {
+.page-link__next {
 	align-items: center;
 	border: 1px solid #408F95;
 	color: #408F95;
@@ -3089,7 +3085,7 @@ span.error_required {
 	width: 2.375rem;
 }
 
-.sub-pagination__arrow-right::before {
+.page-link__next::before {
 	border-right: 1px solid #408F95;
 	border-top: 1px solid #408F95;
 	content: "";
@@ -3101,10 +3097,20 @@ span.error_required {
 	width: 0.75rem;
 }
 
-.sub-pagination__arrow-left:hover::before,
-.sub-pagination__arrow-right:hover::before {
+.page-link__prev:hover,
+.page-link__next:hover {
+	background-color: #408F95;
+	color: #fff;
+}
+
+.page-link__prev:hover::before,
+.page-link__next:hover::before {
 	border-color: #fff;
 }
+
+/* ============================================
+/* // ここ↓から元のcss
+/* ============================================ */
 
 .tab-contents__item {
 	border: 1px solid #408F95;

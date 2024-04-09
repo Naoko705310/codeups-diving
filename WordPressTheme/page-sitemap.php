@@ -14,18 +14,7 @@
         </div>
       </section>
       <!-- パンくずリスト -->
-      <div class=" breadcrumb">
-        <div class="breadcrumb__inner inner">
-          <div class="breadcrumb__text-wrapper">
-            <p class="breadcrumb__text">
-              <a href="index.html">
-                top
-              </a>
-              <span>サイトマップ</span>
-            </p>
-          </div>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb'); ?>
       <!-- 下層 コンテンツ -->
       <div class="page-site-map page-layout">
         <div class="page-site-map__inner inner">

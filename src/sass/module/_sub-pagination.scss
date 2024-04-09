@@ -71,6 +71,82 @@
   transition: .3s;
 }
 
+// 矢印左
+.page-link__prev {
+  // position: relative;
+  // margin-right: rem(28);
+  // transition: .3s;
+  font-family: 'Lato', sans-serif;
+  font-size: rem(16);
+  color: $green;
+  font-weight: $bold;
+  line-height: 1;
+  width: rem(38);
+  height: rem(38);
+  border: 1px solid $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  position: relative;
+}
+
+.page-link__prev::before {
+  content: '';
+  width: rem(12); 
+  height: rem(12); 
+  border-bottom: 1px solid $green; 
+  border-left: 1px solid $green; 
+  transform: rotate(45deg) translate(-50%);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+
+
+// 矢印右
+.page-link__next {
+  // position: relative;
+  // margin-left: rem(28);
+  // transition: .3s;
+  font-family: 'Lato', sans-serif;
+  font-size: rem(16);
+  color: $green;
+  font-weight: $bold;
+  line-height: 1;
+  width: rem(38);
+  height: rem(38);
+  border: 1px solid $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  position: relative;
+}
+
+.page-link__next::before {
+  content: '';
+  width: rem(12); 
+  height: rem(12); 
+  border-top: 1px solid $green; 
+  border-right: 1px solid $green; 
+  transform: rotate(45deg) translate(-50%);
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.page-link__prev:hover,
+.page-link__next:hover {
+  background-color: $green;
+  color: $white;
+}
+
+.page-link__prev:hover::before,
+.page-link__next:hover::before {
+  border-color: $white; 
+}
+
 
 
 
@@ -117,74 +193,7 @@
   // color: $white;
 }
 
-// 矢印左
-.sub-pagination__arrow-left {
-  // position: relative;
-  // margin-right: rem(28);
-  // transition: .3s;
-  font-family: 'Lato', sans-serif;
-  font-size: rem(16);
-  color: $green;
-  font-weight: $bold;
-  line-height: 1;
-  width: rem(38);
-  height: rem(38);
-  border: 1px solid $green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: .3s;
-  position: relative;
-}
 
-.sub-pagination__arrow-left::before {
-  content: '';
-  width: rem(12); 
-  height: rem(12); 
-  border-bottom: 1px solid $green; 
-  border-left: 1px solid $green; 
-  transform: rotate(45deg) translate(-50%);
-  position: absolute;
-  top: 40%;
-  left: 50%;
-}
-
-// 矢印右
-.sub-pagination__arrow-right {
-  // position: relative;
-  // margin-left: rem(28);
-  // transition: .3s;
-  font-family: 'Lato', sans-serif;
-  font-size: rem(16);
-  color: $green;
-  font-weight: $bold;
-  line-height: 1;
-  width: rem(38);
-  height: rem(38);
-  border: 1px solid $green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: .3s;
-  position: relative;
-}
-
-.sub-pagination__arrow-right::before {
-  content: '';
-  width: rem(12); 
-  height: rem(12); 
-  border-top: 1px solid $green; 
-  border-right: 1px solid $green; 
-  transform: rotate(45deg) translate(-50%);
-  position: absolute;
-  top: 40%;
-  left: 40%;
-}
-
-.sub-pagination__arrow-left:hover::before,
-.sub-pagination__arrow-right:hover::before {
-  border-color: $white; 
-}
 
 
 // アイテム5,6はPCのみ表示
