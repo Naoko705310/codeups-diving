@@ -36,7 +36,7 @@
                 <!-- ループ処理開始 -->
                 <?php if (have_posts()): while (have_posts()): the_post(); ?>
                 <!-- ブログカード -->
-                <a href="blog-details.html" class="blog-cards__item blog-card">
+                <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
                   <figure class="blog-card__image">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-card-01.jpg" alt="サンゴの画像">
                   </figure>
@@ -45,29 +45,16 @@
                     <h3 class="blog-card__heading">
                       <?php the_title(); ?>
                     </h3>
-                    <p class="blog-card__text">
-                      ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                      ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                    </p>
+                    <?php the_content(); ?>
                   </div>
                 </a>
                 <!-- ループ終了 -->
                 <?php endwhile; endif; ?>
-
               </div>
               <!-- pagination -->
               <div class="page-blog__pagination sub-pagination">
-              <?php wp_pagenavi(); ?>
-                <!-- <a href="#" class="sub-pagination__arrow sub-pagination__arrow-left"></a>
-                <a href="#" class="sub-pagination--current">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#" class="sub-pagination--pc">5</a>
-                <a href="#" class="sub-pagination--pc">6</a>
-                <a href="#" class="sub-pagination__arrow sub-pagination__arrow-right"></a> -->
+                <?php wp_pagenavi(); ?>
               </div>
-
             </div>
             <!-- aside -->
             <aside class="page-blog__aside sub-aside ">
