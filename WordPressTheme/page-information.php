@@ -1,3 +1,4 @@
+<!-- information ダイビング情報 -->
 <?php get_header(); ?>
 
 <main>

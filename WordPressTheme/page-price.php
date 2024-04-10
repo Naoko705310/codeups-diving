@@ -1,3 +1,4 @@
+<!-- price 料金一覧 -->
 <?php get_header(); ?>
 
 <main>

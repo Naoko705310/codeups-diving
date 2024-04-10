@@ -1,3 +1,4 @@
+<!-- campaign キャンペーン -->
 <?php get_header(); ?>
 
 <main>
@@ -48,18 +49,8 @@
             </div>
             <!-- 下層campaign カード群 -->
             <ul class="page-campaign__items page-campaign-cards">
-              <?php
-              // カスタム投稿タイプ 'campaign' のクエリを作成
-              $args = array(
-                  'post_type' => 'campaign',
-                  'posts_per_page' => 10 // 表示したい記事の数
-              );
-              $campaign_query = new WP_Query($args);
 
-              // ループ開始
-              if ($campaign_query->have_posts()) : 
-                while ($campaign_query->have_posts()) : $campaign_query->the_post();
-                    ?>
+              <?php if (have_posts()): while (have_posts()): the_post(); ?>
               <li class="page-campaign-cards__item" data-tag="experience">
                 <div class="page-campaign-card">
                 <!-- アイキャッチ画像 -->

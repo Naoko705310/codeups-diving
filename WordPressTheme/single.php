@@ -1,3 +1,4 @@
+<!-- blog-details ブログ詳細 -->
 <?php get_header(); ?>
 
 <main>

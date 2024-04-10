@@ -1,3 +1,4 @@
+<!-- contact/thanks お問い合わせ完了 -->
 <?php get_header(); ?>
 
 <main>

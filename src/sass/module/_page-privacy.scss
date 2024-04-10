@@ -7,7 +7,11 @@
   }
 }
 
-.page-privacy__heading {
+/* ============================================
+/* // WordPressのスタイル
+/* ============================================ */
+
+.page-privacy__inner .wp-block-heading {
   font-family: $base-font-family;
   font-size: rem(24);
   color: $green-deep;
@@ -17,7 +21,7 @@
   }
 }
 
-.page-privacy__text {
+.page-privacy__inner p {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
@@ -27,34 +31,95 @@
   margin-top: rem(32);
 }
 
-.page-privacy__text--opening {
-  margin-top: rem(40);
-}
-
-.page-privacy__body {
-  margin-top: rem(32);
-}
-
-.page-privacy__body ol {
+// 関係ない箇所にスタイルが当たらないように、リストタグにスタイリングする時は詳細度を上げる。
+// 番号付きリストのスタイル
+.page-privacy__inner ol {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  line-height: calc(32/16);
+  display: block;
+  padding-left: rem(20);
   list-style-type: decimal;
-  padding-left: 1.5em;
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $green-deep;
-  font-weight: $normal;
-  line-height: calc(32/16);
-  display: block;
+  
+  // 最初のol要素のみに適用
+  &:first-of-type {
+    margin-top: rem(32);
+  }
+
+  li {
+    // margin-top: rem(10);
+  }
 }
 
-.page-privacy__body ul {
+// 番号なしリストのスタイル
+.page-privacy__inner ul {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
   font-weight: $normal;
   line-height: calc(32/16);
   display: block;
+  padding-left: rem(20);
+  list-style-type: disc;
   margin-top: rem(32);
+  
+  li {
+    // margin-top: rem(10);
+  }
 }
+
+
+
+// .page-privacy__heading {
+//   font-family: $base-font-family;
+//   font-size: rem(24);
+//   color: $green-deep;
+//   font-weight: 500;
+//   @include mq(md) {
+//     font-size: rem(32);
+//   }
+// }
+
+// .page-privacy__text {
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $green-deep;
+//   font-weight: $normal;
+//   line-height: calc(32/16);
+//   display: block;
+//   margin-top: rem(32);
+// }
+
+// .page-privacy__text--opening {
+//   margin-top: rem(40);
+// }
+
+// .page-privacy__body {
+//   margin-top: rem(32);
+// }
+
+// .page-privacy__body ol {
+//   list-style-type: decimal;
+//   padding-left: 1.5em;
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $green-deep;
+//   font-weight: $normal;
+//   line-height: calc(32/16);
+//   display: block;
+// }
+
+// .page-privacy__body ul {
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $green-deep;
+//   font-weight: $normal;
+//   line-height: calc(32/16);
+//   display: block;
+//   margin-top: rem(32);
+// }
 
 
 

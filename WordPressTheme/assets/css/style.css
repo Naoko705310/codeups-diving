@@ -2475,14 +2475,18 @@ span.error_required {
 	max-width: 39.375rem;
 }
 
-.page-privacy__heading {
+/* ============================================
+/* // WordPressのスタイル
+/* ============================================ */
+
+.page-privacy__inner .wp-block-heading {
 	color: #0D2936;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1.5rem;
 	font-weight: 500;
 }
 
-.page-privacy__text {
+.page-privacy__inner p {
 	color: #0D2936;
 	display: block;
 	font-family: "Noto Sans JP", sans-serif;
@@ -2492,15 +2496,7 @@ span.error_required {
 	margin-top: 2rem;
 }
 
-.page-privacy__text--opening {
-	margin-top: 2.5rem;
-}
-
-.page-privacy__body {
-	margin-top: 2rem;
-}
-
-.page-privacy__body ol {
+.page-privacy__inner ol {
 	color: #0D2936;
 	display: block;
 	font-family: "Noto Sans JP", sans-serif;
@@ -2508,17 +2504,23 @@ span.error_required {
 	font-weight: 400;
 	line-height: 2;
 	list-style-type: decimal;
-	padding-left: 1.5em;
+	padding-left: 1.25rem;
 }
 
-.page-privacy__body ul {
+.page-privacy__inner ol:first-of-type {
+	margin-top: 2rem;
+}
+
+.page-privacy__inner ul {
 	color: #0D2936;
 	display: block;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 2;
+	list-style-type: disc;
 	margin-top: 2rem;
+	padding-left: 1.25rem;
 }
 
 .page-site-map__inner {
@@ -2953,7 +2955,6 @@ span.error_required {
 	left: 50%;
 	position: absolute;
 	text-align: center;
-	text-transform: capitalize;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
@@ -2961,10 +2962,6 @@ span.error_required {
 
 .sub-fv__heading span {
 	text-transform: none;
-}
-
-.sub-fv__heading--faq {
-	text-transform: uppercase;
 }
 
 .sub-fv__image {
@@ -4464,7 +4461,7 @@ html {
 	max-width: 53.125rem;
 }
 
-.page-privacy__heading {
+.page-privacy__inner .wp-block-heading {
 	font-size: 2rem;
 }
 

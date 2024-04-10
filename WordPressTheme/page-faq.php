@@ -1,3 +1,4 @@
+<!-- faq よくある質問 -->
 <?php get_header(); ?>
 
 <main>

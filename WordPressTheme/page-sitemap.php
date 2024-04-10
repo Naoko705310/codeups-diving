@@ -1,3 +1,4 @@
+<!-- site-map サイトマップ -->
 <?php get_header(); ?>
 
 <main>

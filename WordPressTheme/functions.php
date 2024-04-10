@@ -47,3 +47,20 @@ function my_setup() {
 }
 add_action( 'after_setup_theme', 'my_setup' );
 
+
+//アーカイブの表示件数変更
+function change_posts_per_page($query) {
+    if (is_admin() || !$query->is_main_query())
+        return;
+
+    // キャンペーンのカスタム投稿タイプアーカイブページの場合
+    if ($query->is_post_type_archive('campaign')) {
+        $query->set('posts_per_page', '4'); // 表示件数を4に指定
+    }
+
+    // お客様の声のカスタム投稿タイプアーカイブページの場合
+    if ($query->is_post_type_archive('voice')) {
+        $query->set('posts_per_page', '6'); // 表示件数を6に指定
+    }
+}
+add_action('pre_get_posts', 'change_posts_per_page');

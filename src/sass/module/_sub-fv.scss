@@ -28,7 +28,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-transform: capitalize;
+  // text-transform: capitalize;
   white-space: nowrap;
   @include mq(md) {
     font-size: rem(80);
@@ -41,7 +41,7 @@
   text-transform: none;
 }
 .sub-fv__heading--faq {
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 .sub-fv__image {
