@@ -3383,20 +3383,20 @@ span.error_required {
 	margin-top: 0.25rem;
 }
 
-.voice-card__image {
+.voice-card__header-wrapper figure {
 	aspect-ratio: 151/117;
 	max-width: 100%;
 	position: relative;
 	width: 48.242%;
 }
 
-.voice-card__image::before {
+.voice-card__header-wrapper figure::before {
 	content: "";
 	display: block;
 	padding-top: 77.483%;
 }
 
-.voice-card__image img {
+.voice-card__header-wrapper figure img {
 	-o-object-fit: cover;
 	height: 100%;
 	left: 50%;
@@ -4722,7 +4722,7 @@ html {
 	margin-top: 0.5rem;
 }
 
-.voice-card__image {
+.voice-card__header-wrapper figure {
 	aspect-ratio: 180/140;
 	width: 38.135%;
 }
