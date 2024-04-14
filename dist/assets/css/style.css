@@ -3408,7 +3408,7 @@ span.error_required {
 	width: 100%;
 }
 
-.voice-card__text {
+.voice-card__body p {
 	color: #000;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
@@ -4727,7 +4727,7 @@ html {
 	width: 38.135%;
 }
 
-.voice-card__text {
+.voice-card__body p {
 	margin-top: 2.5rem;
 }
 

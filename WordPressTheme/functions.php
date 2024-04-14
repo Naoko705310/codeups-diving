@@ -67,21 +67,29 @@ add_action('pre_get_posts', 'change_posts_per_page');
 
 // キャンペーン一覧ページで記事を分類する
 function filter_campaign_posts_by_category($query) {
-    // 管理画面のクエリやメインクエリでない場合は何もしない
-    if (is_admin() || !$query->is_main_query()) {
-        return;
-    }
-
-    // キャンペーンのアーカイブページでのみ実行
-    if ($query->is_post_type_archive('campaign')) {
-        // URLからカテゴリーのスラッグを取得
+    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
         $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
+    if (!empty($category_slug) && $category_slug != 'all') {
+        $query->set('tax_query', array(
+            array(
+            'taxonomy' => 'campaign_category',
+            'field'    => 'slug',
+            'terms'    => $category_slug,
+            ),
+        ));
+        }
+    }
+}
+add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 
-        // カテゴリーが指定されている場合、クエリを変更
+// お客様の声一覧ページで記事を分類する
+function filter_voice_posts_by_category($query) {
+    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('voice')) {
+        $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
         if (!empty($category_slug) && $category_slug != 'all') {
             $query->set('tax_query', array(
                 array(
-                    'taxonomy' => 'campaign_category',//タクソノミー名
+                    'taxonomy' => 'voice_category',
                     'field'    => 'slug',
                     'terms'    => $category_slug,
                 ),
@@ -89,5 +97,39 @@ function filter_campaign_posts_by_category($query) {
         }
     }
 }
-add_action('pre_get_posts', 'filter_campaign_posts_by_category');
+add_action('pre_get_posts', 'filter_voice_posts_by_category');
+
+
+
+
+
+
+
+
+
+
+// function filter_campaign_posts_by_category($query) {
+//     // 管理画面のクエリやメインクエリでない場合は何もしない
+//     if (is_admin() || !$query->is_main_query()) {
+//         return;
+//     }
+
+//     // キャンペーンのアーカイブページでのみ実行
+//     if ($query->is_post_type_archive('campaign')) {
+//         // URLからカテゴリーのスラッグを取得
+//         $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
+
+//         // カテゴリーが指定されている場合、クエリを変更
+//         if (!empty($category_slug) && $category_slug != 'all') {
+//             $query->set('tax_query', array(
+//                 array(
+//                     'taxonomy' => 'campaign_category',//タクソノミー名
+//                     'field'    => 'slug',
+//                     'terms'    => $category_slug,
+//                 ),
+//             ));
+//         }
+//     }
+// }
+// add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 

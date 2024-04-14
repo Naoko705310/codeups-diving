@@ -118,7 +118,11 @@
 //   object-fit: cover;
 // }
 
-.voice-card__text {
+.voice-card body {
+
+}
+
+.voice-card__body p {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $black;

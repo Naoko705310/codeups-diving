@@ -71,12 +71,12 @@
                         全部コミコミ(お一人様)
                       </p>
                       <div class="page-campaign-card__price-wrapper">
-                      <p class="page-campaign-card__old-price">
-                        ¥20,000
-                      </p>
-                      <p class="page-campaign-card__new-price">
-                        ¥16,000
-                      </p>
+                        <p class="page-campaign-card__old-price">
+                          ¥<?php the_field('割引前の価格'); ?>
+                        </p>
+                        <p class="page-campaign-card__new-price">
+                          ¥<?php the_field('割引後の価格'); ?>
+                        </p>
                       </div>
                       <p class="page-campaign-card__description u-desktop">
                       <?php the_content(); ?>
@@ -98,14 +98,15 @@
                 </div>
               </li>
               <?php endwhile; ?>
-          <?php else : ?>
-            <p>No campaigns found in this category.</p>
-          <?php endif; ?>
+
         </ul>
         <!-- pagination -->
         <div class="page-blog__pagination sub-pagination">
           <?php wp_pagenavi(); ?>
         </div>
+        <?php else : ?>
+            <p>No campaigns found in this category.</p>
+          <?php endif; ?>
       </div>
     </div>
   </div>
