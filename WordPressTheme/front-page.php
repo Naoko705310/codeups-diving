@@ -418,122 +418,34 @@
           <!-- price リスト -->
           <div class="price__price-list top-price-list">
             <dl class="top-price-list__items">
-              <dt class="top-price-list__heading">
-                ライセンス講習
-              </dt>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  オープンウォーターダイバーコース
-                </p>
-                <p class="top-price-list__price">
-                  ¥50,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  アドバンスドオープンウォーターコース
-                </p>
-                <p class="top-price-list__price">
-                  ¥60,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  レスキュー＋EFRコース
-                </p>
-                <p class="top-price-list__price">
-                  ¥70,000
-                </p>
-              </dd>
-              <dt class="top-price-list__heading">
-                体験ダイビング
-              </dt>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ビーチ体験ダイビング(半日)
-                </p>
-                <p class="top-price-list__price">
-                  ¥7,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ビーチ体験ダイビング(1日)
-                </p>
-                <p class="top-price-list__price">
-                  ¥14,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ボート体験ダイビング(半日)
-                </p>
-                <p class="top-price-list__price">
-                  ¥10,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ボート体験ダイビング(1日)
-                </p>
-                <p class="top-price-list__price">
-                  ¥18,000
-                </p>
-              </dd>
-              <dt class="top-price-list__heading">
-                ファンダイビング
-              </dt>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ビーチダイビング(2ダイブ)
-                </p>
-                <p class="top-price-list__price">
-                  ¥14,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ボートダイビング(2ダイブ)
-                </p>
-                <p class="top-price-list__price">
-                  ¥18,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  スペシャルダイビング(2ダイブ)
-                </p>
-                <p class="top-price-list__price">
-                  ¥24,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  ナイトダイビング(1ダイブ)
-                </p>
-                <p class="top-price-list__price">
-                  ¥10,000
-                </p>
-              </dd>
-              <dt class="top-price-list__heading">
-                スペシャルダイビング
-              </dt>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  貸切ダイビング(2ダイブ)
-                </p>
-                <p class="top-price-list__price">
-                  ¥24,000
-                </p>
-              </dd>
-              <dd class="top-price-list__text">
-                <p class="top-price-list__plan">
-                  1日ダイビング(3ダイブ)
-                </p>
-                <p class="top-price-list__price">
-                  ¥32,000
-                </p>
-              </dd>
+              <?php
+              // page-price.phpのページIDを指定
+              $page_id = 14; // ここにpage-price.phpが割り当てられているページのIDを設定
+
+              // 各セクションのカスタムフィールドから情報を取得し表示
+              $sections = [
+                  'license' => 'ダイビング講習',
+                  'trial' => '体験ダイビング',
+                  'fun' => 'ファンダイビング',
+                  'special' => 'スペシャルダイビング',
+              ];
+
+              foreach ($sections as $key => $title) {
+                  // 第二引数にページIDを指定してカスタムフィールドの値を取得
+                  $courses = SCF::get($key, $page_id);
+                  if (!empty($courses)) {
+                      echo "<dt class='top-price-list__heading'>{$title}</dt>";
+                      foreach ($courses as $course) {
+                          $course_name = esc_html($course["{$key}_course_name"]);
+                          $price = esc_html($course["{$key}_price"]);
+                          echo "<dd class='top-price-list__text'>";
+                          echo "<p class='top-price-list__plan'>{$course_name}</p>";
+                          echo "<p class='top-price-list__price'>¥{$price}</p>";
+                          echo "</dd>";
+                      }
+                  }
+              }
+              ?>
             </dl>
           </div><!-- /.price__price-list top-price-list -->
         </div>
