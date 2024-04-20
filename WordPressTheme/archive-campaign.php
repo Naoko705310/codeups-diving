@@ -19,31 +19,31 @@
   <div class="page-campaign page-layout">
     <div class="page-campaign__inner inner">
       <div class="page-campaign__contents">
-        <!-- カテゴリータブ -->
-        <div class="page-campaign__tab category-tab">
-          <ul class="category-tab__items">
-            <li class="category-tab__item category-tab__item--current uppercase">
-              <a href="?category=all" data-tag="all">
-                all
-              </a>
-            </li>
-            <li class="category-tab__item">
-              <a href="?category=license-training" data-tag="license">
-                ライセンス講習
-              </a>
-            </li>
-            <li class="category-tab__item">
-              <a href="?category=fun-diving" data-tag="fun">
-                ファンダイビング
-              </a>
-            </li>
-            <li class="category-tab__item">
-              <a href="?category=trial-diving" data-tag="experience">
-                体験ダイビング
-              </a>
-            </li>
-          </ul>
-        </div>
+      <!-- カテゴリータブ -->
+      <div class="page-campaign__tab category-tab">
+        <ul class="category-tab__items">
+          <li class="category-tab__item category-tab__item--current uppercase">
+            <a href="<?php echo esc_url(add_query_arg('category', 'all', get_post_type_archive_link('campaign'))); ?>" data-tag="all">
+              all
+            </a>
+          </li>
+          <li class="category-tab__item">
+            <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>" data-tag="license">
+              ライセンス講習
+            </a>
+          </li>
+          <li class="category-tab__item">
+            <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>" data-tag="fun">
+              ファンダイビング
+            </a>
+          </li>
+          <li class="category-tab__item">
+            <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>" data-tag="experience">
+              体験ダイビング
+            </a>
+          </li>
+        </ul>
+      </div>
 
         <!-- 下層campaign カード群 -->
         <ul class="page-campaign__items page-campaign-cards">

@@ -2,153 +2,52 @@
 <?php get_header(); ?>
 
 <main>
-      <!-- 下層 FV -->
-      <section class="sub-fv">
+    <!-- 下層 FV -->
+    <section class="sub-fv">
         <div class="sub-fv__inner">
-          <h2 class="sub-fv__heading">
-            price
-          </h2>
-          <picture class="sub-fv__image">
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__fv-pc.jpg" media="(min-width: 768px)">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__fv-sp.jpg" alt="海面から覗くダイバーの頭の画像">
-          </picture>
+            <h2 class="sub-fv__heading">
+                price
+            </h2>
+            <picture class="sub-fv__image">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__fv-pc.jpg" media="(min-width: 768px)">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__fv-sp.jpg" alt="海面から覗くダイバーの頭の画像">
+            </picture>
         </div>
-      </section>
-      <!-- パンくずリスト -->
-      <?php get_template_part('parts/breadcrumb'); ?>
-      <!-- 下層 コンテンツ -->
-      <div class="page-price page-layout">
+    </section>
+    <!-- パンくずリスト -->
+    <?php get_template_part('parts/breadcrumb'); ?>
+    <!-- 下層 コンテンツ -->
+    <div class="page-price page-layout">
         <div class="page-price__inner inner">
-          <!-- priceリスト -->
-          <div class="page-price__price-list page-price-list">
-            <ul class="page-price-list__items">
-              <li id="priceLicense" class="page-price-list__item">
-                <div class="page-price-list__heading">
-                  <h2 class="page-price-list__title">
-                    ライセンス講習
-                    </h2>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__icon-whale.png" alt="クジラのアイコン画像">
-                </div>
-                <dl class="page-price-list__body">
-                  <dt>
-                    オープンウォーター<br class="u-mobile">ダイバーコース
-                  </dt>
-                  <dd>
-                    ¥50,000
-                  </dd>
-                  <dt>
-                    アドバンスド<br class="u-mobile">オープンウォーターコース
-                  </dt>
-                  <dd>
-                    ¥60,000
-                  </dd>
-                  <dt>
-                    レスキュー＋EFRコース
-                  </dt>
-                  <dd>
-                    ¥70,000
-                  </dd>
-                </dl>
-              </li>
-              <li class="page-price-list__item">
-                <div class="page-price-list__heading">
-                  <h2 class="page-price-list__title">
-                    体験ダイビング
-                    </h2>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__icon-whale.png" alt="クジラのアイコン画像">
-                </div>
-                <dl class="page-price-list__body">
-                  <dt>
-                    ビーチ体験ダイビング<br class="u-mobile">(半日)
-                  </dt>
-                  <dd>
-                    ¥7,000
-                  </dd>
-                  <dt>
-                    ビーチ体験ダイビング<br class="u-mobile">(1日)
-                  </dt>
-                  <dd>
-                    ¥14,000
-                  </dd>
-                  <dt>
-                    ボート体験ダイビング<br class="u-mobile">(半日)
-                  </dt>
-                  <dd>
-                    ¥10,000
-                  </dd>
-                  <dt>
-                    ボート体験ダイビング<br class="u-mobile">(1日)
-                  </dt>
-                  <dd>
-                    ¥18,000
-                  </dd>
-                </dl>
-              </li>
-              <li class="page-price-list__item">
-                <div class="page-price-list__heading">
-                  <h2 class="page-price-list__title">
-                    ファンダイビング
-                    </h2>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__icon-whale.png" alt="クジラのアイコン画像">
-                </div>
-                <dl class="page-price-list__body">
-                  <dt>
-                    ビーチダイビング<br class="u-mobile">(2ダイブ)
-                  </dt>
-                  <dd>
-                    ¥14,000
-                  </dd>
-                  <dt>
-                    ボートダイビング<br class="u-mobile">(2ダイブ)
-                  </dt>
-                  <dd>
-                    ¥18,000
-                  </dd>
-                  <dt>
-                    スペシャルダイビング<br class="u-mobile">(2ダイブ)
-                  </dt>
-                  <dd>
-                    ¥24,000
-                  </dd>
-                  <dt>
-                    ナイトダイビング<br class="u-mobile">(1ダイブ)
-                  </dt>
-                  <dd>
-                    ¥10,000
-                  </dd>
-                </dl>
-              </li>
-              <li class="page-price-list__item">
-                <div class="page-price-list__heading">
-                  <h2 class="page-price-list__title">
-                    スペシャルダイビング
-                    </h2>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__icon-whale.png" alt="クジラのアイコン画像">
-                </div>
-                <dl class="page-price-list__body">
-                  <dt>
-                    貸切ダイビング<br class="u-mobile">(2ダイブ)
-                  </dt>
-                  <dd>
-                    ¥24,000
-                  </dd>
-                  <dt>
-                    1日ダイビング<br class="u-mobile">(3ダイブ)
-                  </dt>
-                  <dd>
-                    ¥32,000
-                  </dd>
-                  <dt>
-                    ナイトダイビング<br class="u-mobile">(2ダイブ)
-                  </dt>
-                  <dd>
-                    ¥14,000
-                  </dd>
-                </dl>
-              </li>
-            </ul>
-          </div>
+            <!-- priceリスト -->
+            <div class="page-price__price-list page-price-list">
+                <ul class="page-price-list__items">
+                    <?php
+                    // 各セクションのカスタムフィールドから情報を取得し表示
+                    $sections = [
+                        'license' => 'ダイビング講習',
+                        'trial' => '体験ダイビング',
+                        'fun' => 'ファンダイビング',
+                        'special' => 'スペシャルダイビング',
+                    ];
+
+                    foreach ($sections as $key => $title) {
+                        $courses = SCF::get($key);
+                        if (!empty($courses)) {
+                            echo "<h2>{$title}</h2>";
+                            echo '<ul>';
+                            foreach ($courses as $course) {
+                                $course_name = esc_html($course["{$key}_course_name"]);
+                                $price = esc_html($course["{$key}_price"]);
+                                echo "<li>{$course_name}: ¥{$price}</li>";
+                            }
+                            echo '</ul>';
+                        }
+                    }
+                    ?>
+                </ul>
+            </div>
         </div>
-      </div>
-      
+    </div>
+
 <?php get_footer(); ?>

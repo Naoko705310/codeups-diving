@@ -133,3 +133,13 @@ add_action('pre_get_posts', 'filter_voice_posts_by_category');
 // }
 // add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 
+// 料金一覧
+/**
+ * @param string $page_title ページのtitle属性値
+ * @param string $menu_title 管理画面のメニューに表示するタイトル
+ * @param string $capability メニューを操作できる権限（manage_options とか）
+ * @param string $menu_slug オプションページのスラッグ。ユニークな値にすること。
+ * @param string|null $icon_url メニューに表示するアイコンの URL
+ * @param int $position メニューの位置
+ */
+SCF::add_options_page( 'ダイビングHP', '料金一覧', 'manage_options', 'theme-options' );
