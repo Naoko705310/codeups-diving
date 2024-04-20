@@ -2407,7 +2407,11 @@ span.error_required {
 	z-index: -1;
 }
 
-.page-price-list .section-heading {
+.page-price-list__item:nth-child(n+2) {
+	margin-top: 2.5rem;
+}
+
+.page-price-list__heading {
 	align-items: center;
 	background-color: #408F95;
 	display: flex;
@@ -2417,8 +2421,11 @@ span.error_required {
 	padding: 0.5rem 0;
 }
 
-.page-price-list__item:nth-child(n+2) {
-	margin-top: 2.5rem;
+.page-price-list__heading h2 {
+	color: #fff;
+	font-family: "Noto Sans JP", sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
 }
 
 .page-price-list__heading img {
@@ -2426,13 +2433,6 @@ span.error_required {
 	aspect-ratio: 24/24;
 	object-fit: contain;
 	width: 1.5rem;
-}
-
-.page-price-list__title {
-	color: #fff;
-	font-family: "Noto Sans JP", sans-serif;
-	font-size: 1rem;
-	font-weight: 700;
 }
 
 .page-price-list__body {
@@ -4426,10 +4426,6 @@ html {
 	top: -4.375rem;
 }
 
-.page-price-list .section-heading {
-	flex-direction: column;
-}
-
 .page-price-list__item {
 	display: grid;
 	grid-template-columns: 28.571% 1fr;
@@ -4437,6 +4433,10 @@ html {
 
 .page-price-list__item:nth-child(n+2) {
 	margin-top: 5rem;
+}
+
+.page-price-list__heading {
+	flex-direction: column;
 }
 
 .page-price-list__heading img {
