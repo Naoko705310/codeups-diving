@@ -1,5 +1,18 @@
 @use "global" as *;
 
+.page-price-list .section-heading {
+  background-color: $green;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: rem(8);
+  padding: rem(8) 0;
+  @include mq(md) {
+  flex-direction: column;
+  }
+}
+
 .page-price-list__item {
   @include mq(md) {
   display: grid;
@@ -15,16 +28,16 @@
 }
 
 .page-price-list__heading {
-  background-color: $green;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
-  gap: rem(8);
-  padding: rem(8) 0;
-  @include mq(md) {
-  flex-direction: column;
-  }
+  // background-color: $green;
+  // display: flex;
+  // flex-direction: row-reverse;
+  // justify-content: center;
+  // align-items: center;
+  // gap: rem(8);
+  // padding: rem(8) 0;
+  // @include mq(md) {
+  // flex-direction: column;
+  // }
 }
 
 .page-price-list__heading img {

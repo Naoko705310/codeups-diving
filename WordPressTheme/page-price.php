@@ -31,10 +31,18 @@
                         'special' => 'スペシャルダイビング',
                     ];
 
+                    // クジラの画像URL
+                    $whale_image_url = 'http://codeupsdiving-wp.local/wp-content/uploads/2024/04/sub-price__icon-whale.png';
+
                     foreach ($sections as $key => $title) {
                         $courses = SCF::get($key);
                         if (!empty($courses)) {
+                            // タイトルを先に表示し、その後にクジラの画像を表示
+                            echo "<div class='section-heading'>";
                             echo "<h2>{$title}</h2>";
+                            echo "<img src='{$whale_image_url}' alt='Whale Icon' style='width: 50px; height: auto; margin-top: 10px;'>";
+                            echo "</div>";
+
                             echo '<ul>';
                             foreach ($courses as $course) {
                                 $course_name = esc_html($course["{$key}_course_name"]);
