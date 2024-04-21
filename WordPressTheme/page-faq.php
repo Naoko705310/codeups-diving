@@ -22,7 +22,32 @@
           <!-- FAQアコーディオン -->
           <div class="page-faq__accordion accordion">
             <ul class="accordion__items">
-              <li class="accordion__item">
+            <?php
+              // 固定ページ「よくある質問」のページIDを指定
+              $page_id = 16; // 「よくある質問」ページのID
+
+              // カスタムフィールドの値を取得
+              $faqs = SCF::get('faq', $page_id); // 'faq'はSmart Custom Fieldsで設定したグループキー
+
+              foreach ($faqs as $faq) {
+                  $question = esc_html($faq['question']); // 'question'は質問のフィールドキー
+                  $answer = esc_html($faq['answer']); // 'answer'は回答のフィールドキー
+
+                  echo "<li class='accordion__item'>";
+                  echo "<h2 class='accordion__title js-accordion__title'>{$question}</h2>";
+                  echo "<div class='accordion__content'>";
+                  echo "<p class='accordion__text'>{$answer}</p>";
+                  echo "</div>";
+                  echo "</li>";
+              }
+              ?>
+              <!-- <li class="accordion__item">
+                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
+                <div class="accordion__content">
+                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
+                </div>
+              </li> -->
+              <!-- <li class="accordion__item">
                 <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
                 <div class="accordion__content">
                   <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
@@ -57,13 +82,7 @@
                 <div class="accordion__content">
                   <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
                 </div>
-              </li>
-              <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li>
+              </li> -->
             </ul>  
           </div>
         </div>
