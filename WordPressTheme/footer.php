@@ -75,90 +75,93 @@
           </a>
         </div>
       </div>
+
       <!-- フッターナビ -->
-      <div class="footer__nav global-nav">
-        <div class="global-nav__items-wrapper--left">
-          <ul class="global-nav__items global-nav__items--left01">
-            <li class="global-nav__item">
-              <a href="campaign.html" class="global-nav__heading">キャンペーン</a>
-              <ul class="global-nav__sub-items">
-                <li class="global-nav__sub-item">
-                  <a href="campaign.html">ライセンス取得</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="campaign.html">貸切体験ダイビング</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="campaign.html">ナイトダイビング</a>
-                </li>
-              </ul>
-            </li>
-            <li class="global-nav__item">
-              <a href="about-us.html" class="global-nav__heading">私たちについて</a>
-            </li>
-          </ul>
-          <ul class="global-nav__items global-nav__items--left02">
-            <li class="global-nav__item">
-              <a href="information.html" class="global-nav__heading">ダイビング情報</a>
-              <ul class="global-nav__sub-items">
-                <li class="global-nav__sub-item">
-                  <a href="information.html?tab=tab1">ライセンス講習</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="information.html?tab=tab2">ファンダイビング</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="information.html?tab=tab3">体験ダイビング</a>
-                </li>
-              </ul>
-            </li>
-            <li class="global-nav__item">
-              <a href="blog.html" class="global-nav__heading">ブログ</a>
-            </li>
-          </ul>
+      <footer>
+        <div class="footer__nav footer-nav">
+          <div class="footer-nav__items-wrapper--left">
+            <ul class="footer-nav__items footer-nav__items--left01">
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/campaign/" class="footer-nav__heading">キャンペーン</a>
+                <ul class="footer-nav__sub-items">
+                <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/campaign/?category=license-training">ライセンス講習</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/campaign/?category=fun-diving">ファンダイビング</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/campaign/?category=trial-diving">体験ダイビング</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/about-us/" class="footer-nav__heading">私たちについて</a>
+              </li>
+            </ul>
+            <ul class="footer-nav__items footer-nav__items--left02">
+              <li class="footer-nav__item">
+                <a href="information.html" class="footer-nav__heading">ダイビング情報</a>
+                <ul class="footer-nav__sub-items">
+                  <li class="footer-nav__sub-item">
+                    <a href="information.html?tab=tab1">ライセンス講習</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="information.html?tab=tab2">ファンダイビング</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="information.html?tab=tab3">体験ダイビング</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/blog/" class="footer-nav__heading">ブログ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-nav__items-wrapper--right">
+            <ul class="footer-nav__items footer-nav__items--right01">
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/voice/" class="footer-nav__heading">お客様の声</a>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/price/" class="footer-nav__heading">料金一覧</a>
+                <ul class="footer-nav__sub-items">
+                  <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/price/#license">ライセンス講習</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/price/#trial">体験ダイビング</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/price/#fun">ファンダイビング</a>
+                  </li>
+                  <li class="footer-nav__sub-item">
+                    <a href="http://codeupsdiving-wp.local/price/#special">スペシャルダイビング</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="footer-nav__items footer-nav__items--right02">
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/faq/" class="footer-nav__heading">よくある質問</a>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/privacy-policy/" class="footer-nav__heading">プライバシー<br class="u-mobile">ポリシー</a>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/terms/" class="footer-nav__heading">利用規約</a>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/contact/" class="footer-nav__heading footer-nav__heading--contact">お問い合わせ</a>
+              </li>
+              <li class="footer-nav__item">
+                <a href="http://codeupsdiving-wp.local/site-map/" class="footer-nav__heading footer-nav__heading--contact">サイトマップ</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="global-nav__items-wrapper--right">
-          <ul class="global-nav__items global-nav__items--right01">
-            <li class="global-nav__item">
-              <a href="voice.html" class="global-nav__heading">お客様の声</a>
-            </li>
-            <li class="global-nav__item">
-              <a href="price.html" class="global-nav__heading">料金一覧</a>
-              <ul class="global-nav__sub-items">
-                <li class="global-nav__sub-item">
-                  <a href="price.html">ライセンス講習</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="price.html">体験ダイビング</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="price.html">ファンダイビング</a>
-                </li>
-                <li class="global-nav__sub-item">
-                  <a href="price.html">スペシャル<br class="u-mobile">ダイビング</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="global-nav__items global-nav__items--right02">
-            <li class="global-nav__item">
-              <a href="faq.html" class="global-nav__heading">よくある質問</a>
-            </li>
-            <li class="global-nav__item">
-              <a href="privacy-policy.html" class="global-nav__heading">プライバシー<br class="u-mobile">ポリシー</a>
-            </li>
-            <li class="global-nav__item">
-              <a href="terms.html" class="global-nav__heading">利用規約</a>
-            </li>
-            <li class="global-nav__item">
-              <a href="contact.html" class="global-nav__heading global-nav__heading--contact">お問い合わせ</a>
-            </li>
-            <li class="global-nav__item">
-              <a href="site-map.html" class="global-nav__heading global-nav__heading--contact">サイトマップ</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </footer>
       <p class="footer__copyright">
         Copyright © 2021 - 2023 CodeUps LLC. All Rights Reserved.
       </p>

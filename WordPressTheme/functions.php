@@ -82,7 +82,7 @@ function filter_campaign_posts_by_category($query) {
 }
 add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 
-// お客様の声一覧ページで記事を分類する
+// お客様の声一覧ページで、記事をカテゴリーごとに分類する
 function filter_voice_posts_by_category($query) {
     if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('voice')) {
         $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
@@ -99,6 +99,44 @@ function filter_voice_posts_by_category($query) {
 }
 add_action('pre_get_posts', 'filter_voice_posts_by_category');
 
+// ヘッダーとフッターのカスタムメニュー化（外観＞メニューに表示）
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'sp_nav_left' => __('SP Navigation Left'),  // SPナビゲーション 左
+            'sp_nav_right' => __('SP Navigation Right'), // SPナビゲーション 右
+            'pc_nav' => __('PC Navigation'),             // PCナビゲーション
+            'footer_nav' => __('Footer Navigation')      // フッターナビゲーション
+        )
+    );
+}
+add_action('init', 'register_my_menus');
+
+
+// pc-navを反映する（クラス名を付与して日本語と英語を二行に）
+function my_custom_nav_menu_item($item_output, $item, $depth, $args) {
+    if ($args->theme_location == 'pc_nav') {
+        if (strpos($item->title, '|') !== false) {
+            list($english, $japanese) = explode('|', $item->title);
+            // 'pc-nav__link' クラスをaタグに適用
+            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . trim($english) . '<span>' . trim($japanese) . '</span></a>';
+        } else {
+            // タイトルに '|' がない場合も 'pc-nav__link' クラスを適用
+            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . $item->title . '</a>';
+        }
+    }
+    return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'my_custom_nav_menu_item', 10, 4);
+
+// pc-navの'li' タグに 'pc-nav__item' クラスを追加
+function add_classes_on_li($classes, $item, $args) {
+    if ($args->theme_location == 'pc_nav') {
+        $classes[] = 'pc-nav__item';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
 
 
 
@@ -108,40 +146,5 @@ add_action('pre_get_posts', 'filter_voice_posts_by_category');
 
 
 
-// function filter_campaign_posts_by_category($query) {
-//     // 管理画面のクエリやメインクエリでない場合は何もしない
-//     if (is_admin() || !$query->is_main_query()) {
-//         return;
-//     }
-
-//     // キャンペーンのアーカイブページでのみ実行
-//     if ($query->is_post_type_archive('campaign')) {
-//         // URLからカテゴリーのスラッグを取得
-//         $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
-
-//         // カテゴリーが指定されている場合、クエリを変更
-//         if (!empty($category_slug) && $category_slug != 'all') {
-//             $query->set('tax_query', array(
-//                 array(
-//                     'taxonomy' => 'campaign_category',//タクソノミー名
-//                     'field'    => 'slug',
-//                     'terms'    => $category_slug,
-//                 ),
-//             ));
-//         }
-//     }
-// }
-// add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 
 
-
-// // 料金一覧（オプションからデータを取れなかったので、一旦非表示 4/20)
-// /**
-//  * @param string $page_title ページのtitle属性値
-//  * @param string $menu_title 管理画面のメニューに表示するタイトル
-//  * @param string $capability メニューを操作できる権限（manage_options とか）
-//  * @param string $menu_slug オプションページのスラッグ。ユニークな値にすること。
-//  * @param string|null $icon_url メニューに表示するアイコンの URL
-//  * @param int $position メニューの位置
-//  */
-// SCF::add_options_page( 'ダイビングHP', '料金一覧', 'manage_options', 'theme-options' );

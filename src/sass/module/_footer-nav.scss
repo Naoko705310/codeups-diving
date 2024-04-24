@@ -1,7 +1,8 @@
 @use "global" as *;
-// SPナビとfooterナビ共通（左右50%で横並び）-->WP実装の時にsp-navとfooter-navに分離してからphp実装。htmlにはglobal-navのままなので、このスタイリングはそのまま保持。
+// SPナビとfooterナビ共通だったのを、footer-navだけにした
+// 左右50%で横並び
 
-.global-nav {
+.footer-nav {
   display: flex;
   justify-content: center;
   gap: rem(16);
@@ -14,7 +15,7 @@
   }
 }
 
-.global-nav__items-wrapper--left {
+.footer-nav__items-wrapper--left {
   white-space: nowrap;
   width: 50%;
   @include mq(md) {
@@ -22,20 +23,20 @@
   }
 }
 
-.global-nav__items-wrapper--right {
+.footer-nav__items-wrapper--right {
   width: 50%;
   @include mq(md) {
     display: flex;
   }
 }
 
-.global-nav__items--left01 {
+.footer-nav__items--left01 {
   @include mq(md) {
     width: 50%;
   }
 }
 
-.global-nav__items--left02 {
+.footer-nav__items--left02 {
   margin-top: rem(16);
   @include mq(md) {
     width: 50%;
@@ -44,13 +45,13 @@
   }
 }
 
-.global-nav__items--right01 {
+.footer-nav__items--right01 {
   @include mq(md) {
     width: 50%;
   }
 }
 
-.global-nav__items--right02 {
+.footer-nav__items--right02 {
   margin-top: rem(16);
   @include mq(md) {
     width: 50%;
@@ -59,11 +60,11 @@
   }
 }
 
-.global-nav__item {
+.footer-nav__item {
   margin-top: rem(16);
 }
 
-.global-nav__heading {
+.footer-nav__heading {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $white;
@@ -76,12 +77,12 @@
   position: relative;
 }
 
-.global-nav__heading:hover {
+.footer-nav__heading:hover {
   opacity: 0.7;
 }
 
 // ヒトデのアイコン
-.global-nav__heading::before {
+.footer-nav__heading::before {
   content: "";
   display: inline-block;
   width: rem(18);
@@ -94,18 +95,18 @@
   left: 0;
 }
 
-.global-nav__sub-items {
+.footer-nav__sub-items {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 
-.global-nav__sub-item {
+.footer-nav__sub-item {
   width: 100%;
 }
 
-.global-nav__sub-item a {
+.footer-nav__sub-item a {
   display: block;
   font-family: $base-font-family;
   font-size: rem(16);
@@ -117,47 +118,47 @@
   padding-left: rem(22);
 }
 
-.global-nav__sub-item a:hover {
+.footer-nav__sub-item a:hover {
   opacity: 0.7;
 }
 
 // 一番上のアイテムはmarginもpaddingもつけない
-.global-nav__items .global-nav__item:first-child {
+.footer-nav__items .footer-nav__item:first-child {
   margin-top: 0;
 }
 
 // left01とright01はpadding-topをつけない
-.global-nav__items--left01 .global-nav__item:first-child .global-nav__heading,
-.global-nav__items--right01 .global-nav__item:first-child .global-nav__heading {
+.footer-nav__items--left01 .footer-nav__item:first-child .footer-nav__heading,
+.footer-nav__items--right01 .footer-nav__item:first-child .footer-nav__heading {
   padding-top: 0;
 }
 
-.global-nav__items--left02 .global-nav__item:first-child .global-nav__heading,
-.global-nav__items--right02 .global-nav__item:first-child .global-nav__heading {
+.footer-nav__items--left02 .footer-nav__item:first-child .footer-nav__heading,
+.footer-nav__items--right02 .footer-nav__item:first-child .footer-nav__heading {
   @include mq(md) {
     padding-top: 0;
   }
 }
 
 //ヒトデ位置調整（itemにpadding-topが無い時は上寄せ）
-.global-nav__items--left01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+.footer-nav__items--left01 > .footer-nav__item:first-child .footer-nav__heading:first-child::before {
   top: 0;
   transform: none;
 }
 
-.global-nav__items--left02 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+.footer-nav__items--left02 > .footer-nav__item:first-child .footer-nav__heading:first-child::before {
   @include mq(md) {
     top: 0;
     transform: none;
   }
 }
 
-.global-nav__items--right01 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+.footer-nav__items--right01 > .footer-nav__item:first-child .footer-nav__heading:first-child::before {
   top: 0;
   transform: none;
 }
 
-.global-nav__items--right02 > .global-nav__item:first-child .global-nav__heading:first-child::before {
+.footer-nav__items--right02 > .footer-nav__item:first-child .footer-nav__heading:first-child::before {
   @include mq(md) {
     top: 0;
     transform: none;

@@ -11,16 +11,17 @@
   height: inherit;
 }
 
-.pc-nav__items .pc-nav__item:last-child {
+.pc-nav__items li:last-child {
   padding-right: 0;
 }
 
-.pc-nav__item {
+.pc-nav__items li {
   height: inherit;
   position: relative;//hover時の下線用
 }
 
-.pc-nav__item a {
+// メニューアイテム
+.pc-nav__items li a { 
   font-family: $second-font-family;
   font-size: rem(18);
   color: $white;
