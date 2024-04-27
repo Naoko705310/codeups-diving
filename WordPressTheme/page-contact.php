@@ -29,8 +29,6 @@
 
             <?php echo do_shortcode('[contact-form-7 id="49ed2b5" title="お問い合わせ"]'); ?>
             
-              <!-- テキスト内容はJSで制御 -->
-              <p class="privacy-error"></p>
 
             <!-- お問い合わせフォームここまで -->
           </div>

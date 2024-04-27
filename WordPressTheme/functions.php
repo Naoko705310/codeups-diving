@@ -138,6 +138,11 @@ function add_classes_on_li($classes, $item, $args) {
 }
 add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
 
+// Contact Form 7で自動挿入されるPタグ、brタグを削除
+add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
+function wpcf7_autop_return_false() {
+    return false;
+} 
 
 // 固定ページを管理画面に表示
 // あとでやる

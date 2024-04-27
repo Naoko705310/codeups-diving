@@ -281,6 +281,68 @@ input[type="checkbox"][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::
   }
 }
 
+// 「個人情報保護方針」のチェックボックス
+// ラベル（ボックスとテキスト）のコンテナ
+// .wpcf7-list-item {
+//   display: block;
+//   margin-left: 0; //デフォルトの余白を消す
+//   margin-bottom: rem(2);
+// }
+
+// ラベル（ボックスとテキスト）
+// .wpcf7-list-item label {
+//   display: inline-block;
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $green-deep;
+//   font-weight: $normal;
+//   padding-left: rem(22);//枠14+余白8
+//   position: relative;
+//   margin-bottom: rem(2);//4→2 ピクパ調整
+//   cursor: pointer;
+// }
+
+
+// privacy：デフォルトチェックボックスinput
+input[type="checkbox"][name="checkbox-499[]"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+// privacy:チェックボックスの枠
+.wpcf7-list-item-label::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid $green;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// privacy:チェック後のチェックマーク
+input[type="checkbox"][name="checkbox-499[]"]:checked + .wpcf7-list-item-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: 2px solid #C94800;
+  border-bottom: 2px solid #C94800;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  // transform: rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
+} 
+
+
+// 元のコード
 // プライバシーポリシーのチェックボックススタイル
 .contact-form__privacy {
   display: flex;
@@ -298,61 +360,61 @@ input[type="checkbox"][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::
   }
 }
 
-.contact-form__privacy-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
+// .contact-form__privacy-label {
+//   display: flex;
+//   align-items: center;
+//   cursor: pointer;
+// }
 
-.contact-form__privacy-text { 
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: $green-deep;
-  font-weight: $normal;
-  line-height: calc(22/14);
-  display: inline-block;
-  text-align: left;
-  margin-left: rem(8); // チェックボックスとテキストの間隔
-}
+// .contact-form__privacy-text { 
+//   font-family: $base-font-family;
+//   font-size: rem(14);
+//   color: $green-deep;
+//   font-weight: $normal;
+//   line-height: calc(22/14);
+//   display: inline-block;
+//   text-align: left;
+//   margin-left: rem(8); // チェックボックスとテキストの間隔
+// }
 
-input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
+// input[type="checkbox"] {
+//   position: absolute;
+//   opacity: 0;
+//   z-index: -1;
 
   
-  display: inline-block;
-  cursor: pointer;
-  padding-left: rem(14);
-  vertical-align: middle;
-  position: relative;
-  margin-top: 0;
-  appearance: none; // デフォルトのチェックボックススタイルを削除
-  background-color: #fff;
-  border: 1px solid $green;
-  width: rem(22);
-  height: rem(22);
-}
+//   display: inline-block;
+//   cursor: pointer;
+//   padding-left: rem(14);
+//   vertical-align: middle;
+//   position: relative;
+//   margin-top: 0;
+//   appearance: none; // デフォルトのチェックボックススタイルを削除
+//   background-color: #fff;
+//   border: 1px solid $green;
+//   width: rem(22);
+//   height: rem(22);
+// }
 
 
-input[type="checkbox"]::after {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: 1;
-  border-bottom: 3px solid #C94800;
-  border-left: 3px solid #C94800;
-  opacity: 0;
-  height: 6px;
-  width: 11px;
-  transform: rotate(-45deg);
-  top: rem(6);
-  left: rem(2);
-}
+// input[type="checkbox"]::after {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   z-index: 1;
+//   border-bottom: 3px solid #C94800;
+//   border-left: 3px solid #C94800;
+//   opacity: 0;
+//   height: 6px;
+//   width: 11px;
+//   transform: rotate(-45deg);
+//   top: rem(6);
+//   left: rem(2);
+// }
 
-input[type="checkbox"]:checked::after {
-  opacity: 1; // チェック後に表示
-}
+// input[type="checkbox"]:checked::after {
+//   opacity: 1; // チェック後に表示
+// }
 
 
 
