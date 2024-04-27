@@ -64,6 +64,11 @@
   align-items: center;
 }
 
+// Contact form 7の自動生成brを非表示
+.contact-form__heading br {
+  display: none;
+}
+
 //「必須」タグ
 .contact-form__heading span {
   font-family: $base-font-family;
@@ -173,24 +178,37 @@ select {
 //** お問い合わせ項目（チェックボックス）のデザイン **
 //inputタグのデフォルトデザインを消す
 
-.checkbox-input {
+// Contact form 7のCSS
+// ラベル（ボックスとテキスト）のコンテナ
+.wpcf7-list-item {
+  display: block;
+  margin-left: 0; //デフォルトの余白を消す
+  margin-bottom: rem(2);
+}
+
+// ラベル（ボックスとテキスト）
+.wpcf7-list-item label {
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep;
+  font-weight: $normal;
+  padding-left: rem(22);//枠14+余白8
+  position: relative;
+  margin-bottom: rem(2);//4→2 ピクパ調整
+  cursor: pointer;
+}
+
+
+// チェックボックスinput
+input[type="checkbox"][name="checkbox-555[]"] {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
 
-.checkbox-label {
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $green-deep;
-  font-weight: $normal;
-  position: relative;
-  display: inline-block;
-  margin-bottom: rem(2);//4→2 ピクパ調整
-  cursor: pointer;
-}
-
-.checkbox-label-span::before {
+// チェックボックスの枠
+.wpcf7-list-item-label::before {
   content: "";
   display: inline-block;
   width: 14px;
@@ -202,8 +220,10 @@ select {
   transform: translateY(-50%);
 }
 
-.checkbox-input:checked + .checkbox-label-span::after {
+// チェック後のチェックマーク
+input[type="checkbox"][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::after {
   content: "";
+  display: block;
   position: absolute;
   width: 9px;
   height: 5px;
@@ -212,10 +232,11 @@ select {
   border-left: 2px solid #C94800;
   border-bottom: 2px solid #C94800;
   position: absolute;
-  top: 30%;
-  left: 4px;
-  transform: rotate(-45deg);
-}
+  top: 50%;
+  left: 3px;
+  // transform: rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
+} 
 
 .checkbox-error {
   font-family: $base-font-family;
@@ -260,7 +281,7 @@ select {
   }
 }
 
-// チェックボックスとプライバシー
+// プライバシーポリシーのチェックボックススタイル
 .contact-form__privacy {
   display: flex;
   align-items: flex-start;
@@ -272,12 +293,17 @@ select {
   margin-left: auto;
   padding: 0 rem(32);
   @include mq(md) {
-    gap: 0 rem(16);
+    gap: rem(16);
     margin-top: rem(80);
   }
 }
 
-//「個人情報の取り扱いについて同意のうえ送信します。」のテキスト
+.contact-form__privacy-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .contact-form__privacy-text { 
   font-family: $base-font-family;
   font-size: rem(14);
@@ -286,53 +312,57 @@ select {
   line-height: calc(22/14);
   display: inline-block;
   text-align: left;
+  margin-left: rem(8); // チェックボックスとテキストの間隔
 }
 
-// ** チェックボックスのデザイン **
 input[type="checkbox"] {
-  display: inline-block;//これがないと表示されないので注意
-  cursor: pointer;
-  padding-left: rem(14);//label手前にチェックボックス用の余白を開ける
-  vertical-align: middle;
-  position: relative; //本来のcheckboxの位置
-  margin-top: 0;
-}
-
-//擬似要素で四角をデザイン
-input[type="checkbox"]::before,
-input[type="checkbox"]::after {
-  content: "";
-  display: block; 
   position: absolute;
-  z-index: 1;
-}
+  opacity: 0;
+  z-index: -1;
 
-//チェックボックス
-input[type="checkbox"]::before {
+  
+  display: inline-block;
+  cursor: pointer;
+  padding-left: rem(14);
+  vertical-align: middle;
+  position: relative;
+  margin-top: 0;
+  appearance: none; // デフォルトのチェックボックススタイルを削除
   background-color: #fff;
   border: 1px solid $green;
   width: rem(22);
   height: rem(22);
-  top: 0;
-  left: -20%;
 }
 
-//チェックマーク
+
 input[type="checkbox"]::after {
-  border-bottom: 3px solid #C94800;//チェックの太さ
-  border-left: 3px solid #C94800;//チェックの太さ
-  opacity: 0;//チェック前は非表示
-  height: 6px;//チェックの高さ
-  width: 11px;//チェックの横幅
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  border-bottom: 3px solid #C94800;
+  border-left: 3px solid #C94800;
+  opacity: 0;
+  height: 6px;
+  width: 11px;
   transform: rotate(-45deg);
-  top: rem(6); //チェック時の位置調整
-  left: rem(2); //チェック時の位置調整
-  // left: rem(5); //チェック時の位置調整
+  top: rem(6);
+  left: rem(2);
 }
 
 input[type="checkbox"]:checked::after {
-  opacity: 1;//チェック後に表示
-} 
+  opacity: 1; // チェック後に表示
+}
+
+
+
+
+// Contact form7で生成された不要なbrを非表示
+
+// input#checkbox.checkbox + br {
+//   display: none;
+// }
+
 
 //※個人情報保護方針に同意してください。
 .privacy-error {

@@ -139,7 +139,8 @@ function add_classes_on_li($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
 
 
-
+// 固定ページを管理画面に表示
+// あとでやる
 
 
 

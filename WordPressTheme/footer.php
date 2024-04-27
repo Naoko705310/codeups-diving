@@ -101,7 +101,7 @@
             </ul>
             <ul class="footer-nav__items footer-nav__items--left02">
               <li class="footer-nav__item">
-                <a href="information.html" class="footer-nav__heading">ダイビング情報</a>
+                <a href="http://codeupsdiving-wp.local/information/" class="footer-nav__heading">ダイビング情報</a>
                 <ul class="footer-nav__sub-items">
                   <li class="footer-nav__sub-item">
                     <a href="information.html?tab=tab1">ライセンス講習</a>
@@ -156,7 +156,7 @@
                 <a href="http://codeupsdiving-wp.local/contact/" class="footer-nav__heading footer-nav__heading--contact">お問い合わせ</a>
               </li>
               <li class="footer-nav__item">
-                <a href="http://codeupsdiving-wp.local/site-map/" class="footer-nav__heading footer-nav__heading--contact">サイトマップ</a>
+                <a href="http://codeupsdiving-wp.local/sitemap/" class="footer-nav__heading footer-nav__heading--contact">サイトマップ</a>
               </li>
             </ul>
           </div>
