@@ -64,11 +64,6 @@
   align-items: center;
 }
 
-// Contact form 7の自動生成brを非表示
-.contact-form__heading br {
-  display: none;
-}
-
 //「必須」タグ
 .contact-form__heading span {
   font-family: $base-font-family;
@@ -85,7 +80,7 @@
 }
 
 // 入力エリア
-.input-area {
+.input-area { 
   width: 100%;
   height: rem(40);
   background: #fff;
@@ -127,12 +122,19 @@
   }
 }
 
-.input-area.errored,
-.text-area.errored {
+.input-area[aria-invalid="true"],
+.text-area[aria-invalid="true"] {
   border: 1px solid #C94800;
   background: rgba(201, 72, 0, 0.20);
   color: #fff;
 }
+
+// .input-area.errored,
+// .text-area.errored {
+//   border: 1px solid #C94800;
+//   background: rgba(201, 72, 0, 0.20);
+//   color: #fff;
+// }
 
 .input-area__postal-code {
   width: 47.005%;
@@ -140,6 +142,7 @@
 
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 textarea,
 select {
   border: 1px solid $green;
@@ -153,21 +156,32 @@ select {
 }
 
 //placeholder文字色
-.input-area::placeholder,
-.text-area::placeholder {
+.input-area::placeholder { //input-areaを修正
   color: $green-light; 
 }
 
+
+
+// .input-area::placeholder,
+// .text-area::placeholder {
+//   color: $green-light; 
+// }
+
 //placeholderエラー時文字色
-.input-area.errored::placeholder,
-.text-area.errored::placeholder {
-  color: $white; 
+.wpcf7-form-control-wrap input.errored::placeholder { //input-areaを変更
+  color: $white;
 }
+
+// .input-area.errored::placeholder,
+// .text-area.errored::placeholder {
+//   color: $white; 
+// }
 
 //正規表現チェックのテキスト
 .name-error,
 .email-error,
-.tel-error {
+.tel-error,
+.pull-down-error {
   font-family: $base-font-family;
   font-size: rem(14);
   color: $green;
@@ -201,7 +215,7 @@ select {
 
 
 // チェックボックスinput
-input[type="checkbox"][name="checkbox-555[]"] {
+input[type="checkbox"][name="checkbox-659[]"] {
   position: absolute;
   opacity: 0;
   z-index: -1;
@@ -221,7 +235,7 @@ input[type="checkbox"][name="checkbox-555[]"] {
 }
 
 // チェック後のチェックマーク
-input[type="checkbox"][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::after {
+input[type="checkbox"][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::after {
   content: "";
   display: block;
   position: absolute;
@@ -304,7 +318,7 @@ input[type="checkbox"][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::
 
 
 // privacy：デフォルトチェックボックスinput
-input[type="checkbox"][name="checkbox-499[]"] {
+input[type="checkbox"][name="checkbox-954[]"] {
   position: absolute;
   opacity: 0;
   z-index: -1;
@@ -324,7 +338,7 @@ input[type="checkbox"][name="checkbox-499[]"] {
 }
 
 // privacy:チェック後のチェックマーク
-input[type="checkbox"][name="checkbox-499[]"]:checked + .wpcf7-list-item-label::after {
+input[type="checkbox"][name="checkbox-954[]"]:checked + .wpcf7-list-item-label::after {
   content: "";
   display: block;
   position: absolute;
@@ -360,72 +374,6 @@ input[type="checkbox"][name="checkbox-499[]"]:checked + .wpcf7-list-item-label::
   }
 }
 
-// .contact-form__privacy-label {
-//   display: flex;
-//   align-items: center;
-//   cursor: pointer;
-// }
-
-// .contact-form__privacy-text { 
-//   font-family: $base-font-family;
-//   font-size: rem(14);
-//   color: $green-deep;
-//   font-weight: $normal;
-//   line-height: calc(22/14);
-//   display: inline-block;
-//   text-align: left;
-//   margin-left: rem(8); // チェックボックスとテキストの間隔
-// }
-
-// input[type="checkbox"] {
-//   position: absolute;
-//   opacity: 0;
-//   z-index: -1;
-
-  
-//   display: inline-block;
-//   cursor: pointer;
-//   padding-left: rem(14);
-//   vertical-align: middle;
-//   position: relative;
-//   margin-top: 0;
-//   appearance: none; // デフォルトのチェックボックススタイルを削除
-//   background-color: #fff;
-//   border: 1px solid $green;
-//   width: rem(22);
-//   height: rem(22);
-// }
-
-
-// input[type="checkbox"]::after {
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   z-index: 1;
-//   border-bottom: 3px solid #C94800;
-//   border-left: 3px solid #C94800;
-//   opacity: 0;
-//   height: 6px;
-//   width: 11px;
-//   transform: rotate(-45deg);
-//   top: rem(6);
-//   left: rem(2);
-// }
-
-// input[type="checkbox"]:checked::after {
-//   opacity: 1; // チェック後に表示
-// }
-
-
-
-
-// Contact form7で生成された不要なbrを非表示
-
-// input#checkbox.checkbox + br {
-//   display: none;
-// }
-
-
 //※個人情報保護方針に同意してください。
 .privacy-error {
   font-family: $base-font-family;
@@ -453,6 +401,7 @@ span.error_required {
 }
 
 .contact-form__error {
+  text-align: center;
   padding: 0 rem(60);
 }
 

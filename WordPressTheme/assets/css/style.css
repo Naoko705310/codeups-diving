@@ -1544,10 +1544,6 @@ a {
 	height: 1.4375rem;
 }
 
-.contact-form__heading br {
-	display: none;
-}
-
 .contact-form__heading span {
 	align-items: center;
 	background-color: #C94800;
@@ -1589,8 +1585,8 @@ a {
 	width: 100%;
 }
 
-.input-area.errored,
-.text-area.errored {
+.input-area[aria-invalid=true],
+.text-area[aria-invalid=true] {
 	background: rgba(201, 72, 0, 0.2);
 	border: 1px solid #C94800;
 	color: #fff;
@@ -1602,6 +1598,7 @@ a {
 
 input[type=text],
 input[type=email],
+input[type=tel],
 textarea,
 select {
 	border: 1px solid #408F95;
@@ -1611,29 +1608,26 @@ select {
 	margin-top: 1.125rem;
 }
 
-.input-area::-moz-placeholder,
-.text-area::-moz-placeholder {
+.input-area::-moz-placeholder {
 	color: #DDF0F1;
 }
 
-.input-area::placeholder,
-.text-area::placeholder {
+.input-area::placeholder {
 	color: #DDF0F1;
 }
 
-.input-area.errored::-moz-placeholder,
-.text-area.errored::-moz-placeholder {
+.wpcf7-form-control-wrap input.errored::-moz-placeholder {
 	color: #fff;
 }
 
-.input-area.errored::placeholder,
-.text-area.errored::placeholder {
+.wpcf7-form-control-wrap input.errored::placeholder {
 	color: #fff;
 }
 
 .name-error,
 .email-error,
-.tel-error {
+.tel-error,
+.pull-down-error {
 	color: #408F95;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 0.875rem;
@@ -1659,7 +1653,7 @@ select {
 	position: relative;
 }
 
-input[type=checkbox][name="checkbox-555[]"] {
+input[type=checkbox][name="checkbox-659[]"] {
 	opacity: 0;
 	position: absolute;
 	z-index: -1;
@@ -1677,7 +1671,7 @@ input[type=checkbox][name="checkbox-555[]"] {
 	width: 14px;
 }
 
-input[type=checkbox][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::after {
+input[type=checkbox][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::after {
 	border-bottom: 2px solid #C94800;
 	border-left: 2px solid #C94800;
 	border-right: transparent;
@@ -1731,7 +1725,7 @@ input[type=checkbox][name="checkbox-555[]"]:checked + .wpcf7-list-item-label::af
 	transform: translateY(-50%);
 }
 
-input[type=checkbox][name="checkbox-499[]"] {
+input[type=checkbox][name="checkbox-954[]"] {
 	opacity: 0;
 	position: absolute;
 	z-index: -1;
@@ -1749,7 +1743,7 @@ input[type=checkbox][name="checkbox-499[]"] {
 	width: 14px;
 }
 
-input[type=checkbox][name="checkbox-499[]"]:checked + .wpcf7-list-item-label::after {
+input[type=checkbox][name="checkbox-954[]"]:checked + .wpcf7-list-item-label::after {
 	border-bottom: 2px solid #C94800;
 	border-left: 2px solid #C94800;
 	border-right: transparent;
@@ -1800,6 +1794,7 @@ span.error_required {
 
 .contact-form__error {
 	padding: 0 3.75rem;
+	text-align: center;
 }
 
 .error-message {
