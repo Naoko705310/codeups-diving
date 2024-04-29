@@ -1592,6 +1592,17 @@ a {
 	color: #fff;
 }
 
+.input-area:focus,
+.text-area:focus {
+	border: 1px solid #408F95;
+	color: #0D2936;
+}
+
+.input-area[aria-invalid=true]:focus,
+.text-area[aria-invalid=true]:focus {
+	color: #0D2936;
+}
+
 .input-area__postal-code {
 	width: 47.005%;
 }
@@ -1666,8 +1677,7 @@ input[type=checkbox][name="checkbox-659[]"] {
 	height: 14px;
 	left: 0;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 0;
 	width: 14px;
 }
 
@@ -1682,8 +1692,8 @@ input[type=checkbox][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::af
 	left: 3px;
 	position: absolute;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%) rotate(-45deg);
+	top: 15%;
+	transform: rotate(-45deg);
 	width: 9px;
 }
 
@@ -1725,25 +1735,13 @@ input[type=checkbox][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::af
 	transform: translateY(-50%);
 }
 
-input[type=checkbox][name="checkbox-954[]"] {
+input[type=checkbox][name=acceptance-332] {
 	opacity: 0;
 	position: absolute;
 	z-index: -1;
 }
 
-.wpcf7-list-item-label::before {
-	border: 1px solid #408F95;
-	content: "";
-	display: inline-block;
-	height: 14px;
-	left: 0;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 14px;
-}
-
-input[type=checkbox][name="checkbox-954[]"]:checked + .wpcf7-list-item-label::after {
+input[type=checkbox][name=acceptance-332]:checked + .wpcf7-list-item-label::after {
 	border-bottom: 2px solid #C94800;
 	border-left: 2px solid #C94800;
 	border-right: transparent;
@@ -1754,8 +1752,8 @@ input[type=checkbox][name="checkbox-954[]"]:checked + .wpcf7-list-item-label::af
 	left: 3px;
 	position: absolute;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%) rotate(-45deg);
+	top: 15%;
+	transform: rotate(-45deg);
 	width: 9px;
 }
 

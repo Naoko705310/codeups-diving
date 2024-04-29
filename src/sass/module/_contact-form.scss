@@ -129,6 +129,18 @@
   color: #fff;
 }
 
+// フォーカス中のスタイル
+.input-area:focus,
+.text-area:focus {
+  color: $green-deep; // または黒色など、希望の色に設定
+  border: 1px solid $green; // フォーカス時のボーダーも適宜調整可能
+}
+
+.input-area[aria-invalid="true"]:focus,
+.text-area[aria-invalid="true"]:focus {
+  color: $green-deep; // エラー状態でもフォーカス時はこの色を使用
+}
+
 // .input-area.errored,
 // .text-area.errored {
 //   border: 1px solid #C94800;
@@ -230,8 +242,9 @@ input[type="checkbox"][name="checkbox-659[]"] {
   border: 1px solid $green;
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  // top: 50%;
+  // transform: translateY(-50%);
 }
 
 // チェック後のチェックマーク
@@ -246,10 +259,12 @@ input[type="checkbox"][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::
   border-left: 2px solid #C94800;
   border-bottom: 2px solid #C94800;
   position: absolute;
-  top: 50%;
+  top: 15%;
+  // top: 50%;
   left: 3px;
   // transform: rotate(-45deg);
-  transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
+  transform: rotate(-45deg); // 中央からのオフセットと角度調整
+  // transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
 } 
 
 .checkbox-error {
@@ -318,27 +333,27 @@ input[type="checkbox"][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::
 
 
 // privacy：デフォルトチェックボックスinput
-input[type="checkbox"][name="checkbox-954[]"] {
+input[type="checkbox"][name="acceptance-332"] {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
 
 // privacy:チェックボックスの枠
-.wpcf7-list-item-label::before {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 1px solid $green;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+// .wpcf7-list-item-label::before {
+//   content: "";
+//   display: inline-block;
+//   width: 14px;
+//   height: 14px;
+//   border: 1px solid $green;
+//   position: absolute;
+//   left: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
 // privacy:チェック後のチェックマーク
-input[type="checkbox"][name="checkbox-954[]"]:checked + .wpcf7-list-item-label::after {
+input[type="checkbox"][name="acceptance-332"]:checked + .wpcf7-list-item-label::after {
   content: "";
   display: block;
   position: absolute;
@@ -349,10 +364,12 @@ input[type="checkbox"][name="checkbox-954[]"]:checked + .wpcf7-list-item-label::
   border-left: 2px solid #C94800;
   border-bottom: 2px solid #C94800;
   position: absolute;
-  top: 50%;
+  top: 15%;
+  // top: 50%;
   left: 3px;
   // transform: rotate(-45deg);
-  transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
+  transform: rotate(-45deg); // 中央からのオフセットと角度調整
+  // transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
 } 
 
 

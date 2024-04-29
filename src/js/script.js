@@ -322,6 +322,60 @@ jQuery(function ($) {
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
   /* -------------------------------------------- */
+  // フォーム上部の、「※必須項目が入力されていません。入力してください。」メッセージは、Contact form7とは別で実装する。
+  jQuery(document).ready(function($) {
+    // 最初はエラーメッセージを隠す
+    $('#js-error-message').hide();
+
+    // Contact Form 7がエラーを検出した時にエラーメッセージを表示
+    $(document).on('wpcf7invalid', function() {
+      $('#js-error-message').show();
+    });
+
+    // お問い合わせ内容のテキスト
+    // ※Contact form7のエラー検証は、送信する時のみ対象なので、リアルタイムのテキスト入力がされたかどうかのチェック機能は含まれていない。一度エラーになったテキストエリアに、文字を入力してエンターを押した時点でエラー解消するには、追加の記述↓が必要。
+    $('textarea').on('keypress', function(e) {
+      if (e.which == 13) { // エンターキーのキーコードは13
+      $(this).blur().focus(); // フォーカスを一旦外して再度フォーカスを当てる
+      }
+    });
+
+    // エラーメッセージをカスタマイズする
+    // Contact Form 7の無効イベントにフック
+  //   jQuery(document).ready(function($) {
+  //     $(document).on('wpcf7invalid', function(event) {
+  //         // 名前フィールドのエラーメッセージをカスタマイズ
+  //         var nameError = $(event.target).find('input[name="text-979"]').closest('dd').find('.name-error');
+  //         if (nameError.length) {
+  //             nameError.text('お名前を入力してください');
+  //         }
+  
+  //         // メールアドレスフィールドのエラーメッセージをカスタマイズ
+  //         var emailError = $(event.target).find('input[name="email-987"]').closest('dd').find('.email-error');
+  //         if (emailError.length) {
+  //             emailError.text('有効なメールアドレスを入力してください');
+  //         }
+  
+  //         // 電話番号フィールドのエラーメッセージをカスタマイズ
+  //         var telError = $(event.target).find('input[name="tel-98"]').closest('dd').find('.tel-error');
+  //         if (telError.length) {
+  //             telError.text('有効な電話番号を入力してください');
+  //         }
+  
+  //         // その他のフィールドも同様に設定
+  //         // ...
+  //     });
+  // });
+});
+
+
+
+
+
+
+
+
+  // contact form7で実装したので、下記の記述は一旦非表示
 //     //初期状態でエラーメッセージを非表示にする
 //     $(".error-message").hide();
 

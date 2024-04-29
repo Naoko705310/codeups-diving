@@ -29,15 +29,7 @@
 
             <?php echo do_shortcode('[contact-form-7 id="49ed2b5" title="お問い合わせ"]'); ?>
             
-
             <!-- お問い合わせフォームここまで -->
-
-
-
-
-
-
-
           </div>
         </div>
       </div>
