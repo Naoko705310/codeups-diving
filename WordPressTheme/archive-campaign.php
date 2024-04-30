@@ -63,26 +63,30 @@
                       <p class="page-campaign-card__tag category-tag">
                         <?php the_terms(get_the_ID(), 'campaign_category'); ?>
                       </p>
+                      <!-- キャンペーンタイトル -->
                       <h3 class="page-campaign-card__title">
                       <?php the_title(); ?>
                       </h3>
                       <div class="page-campaign-card__plan">
                       <p class="page-campaign-card__text">
-                        全部コミコミ(お一人様)
+                        <?php the_field('campaign-price_title'); ?>
                       </p>
                       <div class="page-campaign-card__price-wrapper">
+                        <!-- 割引前価格 -->
                         <p class="page-campaign-card__old-price">
-                          ¥<?php the_field('割引前の価格'); ?>
+                          ¥<?php the_field('price_previous'); ?>
                         </p>
+                        <!-- 割引後価格 -->
                         <p class="page-campaign-card__new-price">
-                          ¥<?php the_field('割引後の価格'); ?>
+                          ¥<?php the_field('price_new'); ?>
                         </p>
                       </div>
                       <p class="page-campaign-card__description u-desktop">
                       <?php the_content(); ?>
                       </p>
+                      <!-- キャンペーン期間 -->
                       <p class="page-campaign-card__period u-desktop">
-                        2023/6/1-9/30
+                        <?php the_field('campaign_period'); ?>
                       </p>
                     </div>
                     <p class="page-campaign-card__contact u-desktop">

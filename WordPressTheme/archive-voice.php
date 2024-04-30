@@ -45,6 +45,10 @@
                 </li>
               </ul>
             </div>
+
+
+            4/30
+
             <!-- ボイスカード群 -->
             <div class="page-voice__items voice-cards">
               <?php if (have_posts()): while (have_posts()): the_post(); ?>
@@ -53,8 +57,9 @@
                 <div class="voice-card__header-wrapper">
                   <div class="voice-card__header">
                     <div class="voice-card__information">
-                      <p class="voice-card__age">
-                        20代(女性)
+                      <!-- ACFで管理画面に年代を追加 -->
+                      <p class="wom-card__age">
+                        <?php echo get_field('age'); ?>
                       </p>
                       <p class="voice-card__tag category-tag">
                         <?php 
@@ -91,6 +96,7 @@
               <!-- ループ終了 -->
               <?php endwhile; endif; ?>
             </div>
+
             <!-- pagination -->
             <div class="page-blog__pagination sub-pagination">
               <?php wp_pagenavi(); ?>

@@ -144,9 +144,29 @@ function wpcf7_autop_return_false() {
     return false;
 } 
 
+// ブログ一覧・詳細：サイドバーウィジェット表示
+function my_theme_widgets_init() {
+    register_sidebar( array(
+        'name'          => __('ブログ一覧サイドバー', 'theme_text_domain'),
+        'id'            => 'blog_sidebar',
+        'description'   => __('Widgets in this area will be shown on all posts and pages.', 'theme_text_domain'),
+        'before_widget' => '<aside class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'my_theme_widgets_init' );
+
 
 // 固定ページを管理画面に表示
 // あとでやる
+// 料金一覧ページのメニューを表示
+
+function add_page_to_admin_menu() {
+    add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=14&action=edit', '', 'dashicons-book-alt', 3);
+}
+add_action( 'admin_menu', 'add_page_to_admin_menu' );
 
 
 
