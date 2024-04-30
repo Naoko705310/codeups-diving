@@ -53,12 +53,14 @@
             </div>
             <!-- aside サイドバー-->
             <aside class="page-blog__aside sub-aside ">
-
-
-
               <div class="sub-aside__inner inner">
                 <!-- 人気記事（ブログ） -->
                 <div class="sub-aside__contents-wrapper">
+                  
+                    <?php if ( is_active_sidebar( 'popular_articles_widget' ) ) : ?>
+                        <?php dynamic_sidebar( 'popular_articles_widget' ); ?>
+                    <?php endif; ?>
+
                   <div class="sub-aside__index">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
                     <h2 class="sub-aside__title">
@@ -66,11 +68,6 @@
                     </h2>
                   </div>
                   <div class="sub-aside__popular-articles popular-articles">
-                  <div class="sub-aside__popular-articles popular-articles">
-                  <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>
-                <?php dynamic_sidebar( 'blog_sidebar' ); ?>
-            <?php endif; ?>
-
                     <ul class="popular-articles__items popular-articles-cards">
                       <li class="popular-articles__item">
                         <a class="popular-articles-card" href="blog-details.html">
@@ -81,32 +78,6 @@
                             <time class="popular-articles-card__time" datetime="2023-11-17">2023.11/17</time>
                             <h3 class="popular-articles-card__title">
                               ライセンス取得
-                            </h3>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="popular-articles__item">
-                        <a class="popular-articles-card" href="blog-details.html">
-                          <figure class="popular-articles-card__image">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__image02.jpg" alt="ウミガメの画像">
-                          </figure>
-                          <div class="popular-articles-card__body">
-                            <time class="popular-articles-card__time" datetime="2023-11-17">2023.11/17</time>
-                            <h3 class="popular-articles-card__title">
-                              ウミガメと泳ぐ
-                            </h3>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="popular-articles__item">
-                        <a class="popular-articles-card" href="blog-details.html">
-                          <figure class="popular-articles-card__image">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__image03.jpg" alt="サンゴとクマノミの画像">
-                          </figure>
-                          <div class="popular-articles-card__body">
-                            <time class="popular-articles-card__time" datetime="2023-11-17">2023.11/17</time>
-                            <h3 class="popular-articles-card__title">
-                              カクレクマノミ
                             </h3>
                           </div>
                         </a>

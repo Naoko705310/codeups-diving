@@ -147,16 +147,85 @@ function wpcf7_autop_return_false() {
 // ブログ一覧・詳細：サイドバーウィジェット表示
 function my_theme_widgets_init() {
     register_sidebar( array(
-        'name'          => __('ブログ一覧サイドバー', 'theme_text_domain'),
-        'id'            => 'blog_sidebar',
-        'description'   => __('Widgets in this area will be shown on all posts and pages.', 'theme_text_domain'),
-        'before_widget' => '<aside class="widget %2$s">',
-        'after_widget'  => '</aside>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'name'          => '人気記事ウィジェット',
+        'id'            => 'popular_articles_widget',
+        'before_widget' => '<li class="popular-articles__item">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h3 class="popular-articles-card__title">',
+        'after_title'   => '</h3>',
     ) );
 }
 add_action( 'widgets_init', 'my_theme_widgets_init' );
+// function my_theme_widgets_init() {
+//     register_sidebar( array(
+//         'name'          => __('ブログ一覧サイドバー', 'theme_text_domain'),
+//         'id'            => 'blog_sidebar',
+//         'description'   => __('Widgets in this area will be shown on all posts and pages.', 'theme_text_domain'),
+//         'before_widget' => '<aside class="widget %2$s">',
+//         'after_widget'  => '</aside>',
+//         'before_title'  => '<h2 class="widget-title">',
+//         'after_title'   => '</h2>',
+//     ) );
+// }
+// add_action( 'widgets_init', 'my_theme_widgets_init' );
+
+
+// カスタムウィジェット（サイドバー）
+class Popular_Articles_Widget extends WP_Widget {
+
+    public function __construct() {
+        parent::__construct(
+            'popular_articles_widget', // Base ID
+            '人気記事ウィジェット', // Name
+            array('description' => '人気記事を表示するウィジェット') // Args
+        );
+    }
+
+    public function widget($args, $instance) {
+        echo $args['before_widget'];
+        if (!empty($instance['title'])) {
+            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+        }
+
+        // ここでカスタムのHTMLを出力
+        echo '<div class="popular-articles">';
+        echo '<ul class="popular-articles__items popular-articles-cards">';
+        // ここに記事をループして表示するコードを追加
+        echo '</ul>';
+        echo '</div>';
+
+        echo $args['after_widget'];
+    }
+
+    public function form($instance) {
+        $title = !empty($instance['title']) ? $instance['title'] : esc_html__('新しいタイトル', 'text_domain');
+        ?>
+        <p>
+        <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_attr_e('タイトル:', 'text_domain'); ?></label> 
+        <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
+        </p>
+        <?php 
+    }
+
+    public function update($new_instance, $old_instance) {
+        $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+
+        return $instance;
+    }
+}
+
+// ウィジェットを登録する
+function register_popular_articles_widget() {
+    register_widget('Popular_Articles_Widget');
+}
+add_action('widgets_init', 'register_popular_articles_widget');
+
+// カスタムウィジェットここまで
+
+
+
+
 
 
 // 固定ページを管理画面に表示

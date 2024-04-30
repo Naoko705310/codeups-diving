@@ -17,22 +17,46 @@
         <!-- top-fvスライダー -->
         <div class="swiper top-fv__swiper js-top-fv-swiper">
           <div class="swiper-wrapper">
-            <picture class="swiper-slide">
+<!-- top-fvスライダー -->
+<div class="swiper top-fv__swiper js-top-fv-swiper">
+  <div class="swiper-wrapper">
+
+    <?php if( have_rows('fv_images') ): ?>
+      <?php while( have_rows('fv_images') ): the_row(); 
+        $image = get_sub_field('image');
+      ?>
+        <picture class="swiper-slide">
+          <source srcset="<?php echo esc_url($image['sizes']['large']); ?>" media="(min-width: 768px)">
+          <img src="<?php echo esc_url($image['sizes']['medium']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+        </picture>
+      <?php endwhile; ?>
+    <?php endif; ?>
+
+    
+  </div>
+</div>
+
+
+
+
+
+
+            <!-- <picture class="swiper-slide">
               <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc-01.jpg" media="(min-width: 768px)">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp-01.jpg" alt="ウミガメのアップの画像">
-            </picture>
-            <picture class="swiper-slide">
+            </picture> -->
+            <!-- <picture class="swiper-slide">
               <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc-02.jpg" media="(min-width: 768px)">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp-02.jpg" alt="ウミガメとダイバー二人の画像">
-            </picture>
-            <picture class="swiper-slide">
+            </picture> -->
+            <!-- <picture class="swiper-slide">
               <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc-03.jpg" media="(min-width: 768px)">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp-03.jpg" alt="海と船の画像">
-            </picture>
-            <picture class="swiper-slide">
+            </picture> -->
+            <!-- <picture class="swiper-slide">
               <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-pc-04.jpg" media="(min-width: 768px)">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv-sp-04.jpg" alt="砂浜の画像">
-            </picture>
+            </picture> -->
           </div>
         </div>
       </div><!-- /.top-fv__inner -->
