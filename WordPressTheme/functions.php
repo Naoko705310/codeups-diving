@@ -231,13 +231,21 @@ add_action('widgets_init', 'register_popular_articles_widget');
 // 固定ページを管理画面に表示
 // あとでやる
 // 料金一覧ページのメニューを表示
-
 function add_page_to_admin_menu() {
     add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=14&action=edit', '', 'dashicons-book-alt', 3);
 }
 add_action( 'admin_menu', 'add_page_to_admin_menu' );
 
-
+// キャンペーンカード（３ページ共通）の共通関数を定義する
+function get_campaign_posts() {
+    $args = array(
+        'post_type' => 'campaign', // カスタム投稿タイプ名
+        'posts_per_page' => -1,    // 全ての投稿を取得
+        'no_found_rows' => true    // ページネーションを行わない場合はこれをtrueに設定
+    );
+    $campaigns = new WP_Query($args);
+    return $campaigns;
+}
 
 
 

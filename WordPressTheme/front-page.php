@@ -48,139 +48,48 @@
         </div>
         <!-- Campaign スワイパー -->
         <div class="campaign__swiper-container">
-          <div class="swiper campaign__swiper js-campaign-swiper">
-            <div class="swiper-wrapper campaign__swiper-wrapper">
-              <div class="swiper-slide campaign__swiper-slide">
-                <a href="campaign.html" class="campaign-card">
-                  <figure class="campaign-card__image">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-01.jpg" alt="海中の、色とりどりの魚の画像">
-                  </figure>
-                  <div class="campaign-card__body">
-                    <p class="campaign-card__tag category-tag">
-                      ライセンス講習
-                    </p>
-                    <h3 class="campaign-card__title">
-                      ライセンス取得
-                    </h3>
-                    <div class="campaign-card__plan">
-                      <p class="campaign-card__text">
-                        全部コミコミ(お一人様)
-                      </p>
-                      <div class="campaign-card__price-wrapper">
-                        <p class="campaign-card__old-price">
-                          ¥56,000
-                        </p>
-                        <p class="campaign-card__new-price">
-                          ¥46,000
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div><!-- /.swiper-slide campaign__swiper-slide -->
-              <!-- スライド02 -->
-              <div class="swiper-slide campaign__swiper-slide">
-                <a href="campaign.html" class="campaign-card">
-                  <figure class="campaign-card__image">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-02.jpg" alt="砂浜に浮かぶ船の画像">
-                  </figure>
-                  <div class="campaign-card__body">
-                    <p class="campaign-card__tag category-tag">
-                      体験ダイビング
-                    </p>
-                    <h3 class="campaign-card__title">
-                      貸切体験ダイビング
-                    </h3>
-                    <div class="campaign-card__plan">
-                      <p class="campaign-card__text">
-                        全部コミコミ(お一人様)
-                      </p>
-                      <div class="campaign-card__price-wrapper">
-                        <p class="campaign-card__old-price">
-                          ¥24,000
-                        </p>
-                        <p class="campaign-card__new-price">
-                          ¥18,000
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div><!-- /.swiper-slide campaign__swiper-slide -->
-              <!-- スライド03 -->
-              <div class="swiper-slide campaign__swiper-slide">
-                <a href="campaign.html" class="campaign-card">
-                  <figure class="campaign-card__image">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-03.jpg" alt="海中のクラゲの画像">
-                  </figure>
-                  <div class="campaign-card__body">
-                    <p class="campaign-card__tag category-tag">
-                      体験ダイビング
-                    </p>
-                    <h3 class="campaign-card__title">
-                      ナイトダイビング
-                    </h3>
-                    <div class="campaign-card__plan">
-                      <p class="campaign-card__text">
-                        全部コミコミ(お一人様)
-                      </p>
-                      <div class="campaign-card__price-wrapper">
-                        <p class="campaign-card__old-price">
-                          ¥10,000
-                        </p>
-                        <p class="campaign-card__new-price">
-                          ¥8,000
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div><!-- /.swiper-slide campaign__swiper-slide -->
-              <!-- スライド04 -->
-              <div class="swiper-slide campaign__swiper-slide">
-                <a href="campaign.html" class="campaign-card">
-                  <figure class="campaign-card__image">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-04.jpg" alt="海中のダイバーたちの画像">
-                  </figure>
-                  <div class="campaign-card__body">
-                    <p class="campaign-card__tag category-tag">
-                      ファンダイビング
-                    </p>
-                    <h3 class="campaign-card__title">
-                      貸切ファンダイビング
-                    </h3>
-                    <div class="campaign-card__plan">
-                      <p class="campaign-card__text">
-                        全部コミコミ(お一人様)
-                      </p>
-                      <div class="campaign-card__price-wrapper">
-                        <p class="campaign-card__old-price">
-                          ¥20,000
-                        </p>
-                        <p class="campaign-card__new-price">
-                          ¥16,000
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+            <div class="swiper campaign__swiper js-campaign-swiper">
+                <div class="swiper-wrapper campaign__swiper-wrapper">
+                    <?php
+                    $campaigns = get_campaign_posts();
+                    if ($campaigns->have_posts()) :
+                        while ($campaigns->have_posts()) : $campaigns->the_post();
+                            ?>
+                            <div class="swiper-slide">
+                                <a href="<?php the_permalink(); ?>" class="campaign-card">
+                                    <figure class="campaign-card__image">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                                        <?php endif; ?>
+                                    </figure>
+                                    <div class="campaign-card__body">
+                                        <p class="campaign-card__tag category-tag">
+                                            <?php $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                                            if (!empty($terms) && !is_wp_error($terms)) {
+                                                echo esc_html($terms[0]->name);
+                                            } ?>
+                                        </p>
+                                        <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                                        <div class="campaign-card__plan">
+                                            <p class="campaign-card__text"><?php the_field('campaign-price_title'); ?></p>
+                                            <div class="campaign-card__price-wrapper">
+                                                <p class="campaign-card__old-price">¥<?php the_field('price_previous'); ?></p>
+                                                <p class="campaign-card__new-price">¥<?php the_field('price_new'); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                    ?>
+                </div>
             </div>
-          </div> <!-- Campaign__swiper -->
-          <!-- 左右矢印 -->
-          <div class="campaign__swiper-button-wrapper">
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-        </div><!-- /.campaign__swiper-container -->
-        <!-- ボタン -->
-        <div class="campaign__button">
-          <a href="campaign.html" class="button">
-            <span>view more</span>
-          </a>
         </div>
       </div>
-    </section><!-- /campaign.html.campaign -->
+    </section>
     <!-- About Us セクション -->
     <section id="about-us" class="about-us top-about-us">
       <div class="about-us__inner inner">

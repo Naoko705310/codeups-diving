@@ -56,7 +56,7 @@
               <div class="sub-aside__inner inner">
                 <!-- 人気記事（ブログ） -->
                 <div class="sub-aside__contents-wrapper">
-                  
+
                     <?php if ( is_active_sidebar( 'popular_articles_widget' ) ) : ?>
                         <?php dynamic_sidebar( 'popular_articles_widget' ); ?>
                     <?php endif; ?>
@@ -144,108 +144,52 @@
                   </div>
                   <div class="sub-aside__campaign sub-campaign">
                     <ul class="sub-campaign__items aside-campaign-cards">
-                    <?php
-$campaigns = new WP_Query(array(
-    'post_type' => 'campaign', // カスタム投稿タイプ名
-    'posts_per_page' => 2     // 表示する投稿数を2に制限
-));
+                      <?php
+                        $campaigns = new WP_Query(array(
+                            'post_type' => 'campaign', // カスタム投稿タイプ名
+                            'posts_per_page' => 2     // 表示する投稿数を2に制限
+                        ));
 
-if ($campaigns->have_posts()) :
-    while ($campaigns->have_posts()) : $campaigns->the_post();
-?>
-        <li class="sub-campaign__item aside-campaign-card">
-            <a href="<?php the_permalink(); ?>" class="aside-campaign-card">
-                <figure class="aside-campaign-card__image">
-                    <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
-                    <?php endif; ?>
-                </figure>
-                <div class="aside-campaign-card__body">
-                    <h3 class="aside-campaign-card__title">
-                        <?php the_title(); ?>
-                    </h3>
-                    <div class="aside-campaign-card__plan">
-                        <p class="aside-campaign-card__text">
-                            <?php the_field('description'); // カスタムフィールド ?>
-                        </p>
-                        <p class="page-campaign-card__text">
-                        <?php the_field('campaign-price_title'); ?>
-                      </p>
-                        <div class="aside-campaign-card__price-wrapper">
-                            <p class="aside-campaign-card__old-price">
-                                ¥<?php echo get_field('price_previous'); // 値を正しく取得するために echo を使用 ?>
-                            </p>
-                            <p class="aside-campaign-card__new-price">
-                                ¥<?php echo get_field('price_new'); // 値を正しく取得するために echo を使用 ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-<?php
-    endwhile;
-    wp_reset_postdata();
-endif;
-?>
-
-
-
-
-
-
-
-
-                      <!-- <li class="sub-campaign__item aside-campaign-card">
-                        <a href="campaign.html" class="aside-campaign-card">
-                          <figure class="aside-campaign-card__image">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-01.jpg" alt="海中の、色とりどりの魚の画像">
-                          </figure>
-                          <div class="aside-campaign-card__body">
-                            <h3 class="aside-campaign-card__title">
-                              ライセンス取得
-                            </h3>
-                            <div class="aside-campaign-card__plan">
-                              <p class="aside-campaign-card__text">
-                                全部コミコミ(お一人様)
-                              </p>
-                              <div class="aside-campaign-card__price-wrapper">
-                              <p class="aside-campaign-card__old-price">
-                                ¥56,000
-                              </p>
-                              <p class="aside-campaign-card__new-price">
-                                ¥46,000
-                              </p>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
+                        if ($campaigns->have_posts()) :
+                            while ($campaigns->have_posts()) : $campaigns->the_post();
+                      ?>
                       <li class="sub-campaign__item aside-campaign-card">
-                        <a href="campaign.html" class="aside-campaign-card">
-                          <figure class="aside-campaign-card__image">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign-02.jpg" alt="砂浜に浮かぶ船の画像">
-                          </figure>
-                          <div class="aside-campaign-card__body">
-                            <h3 class="aside-campaign-card__title">
-                              貸切体験ダイビング
-                            </h3>
-                            <div class="aside-campaign-card__plan">
-                              <p class="aside-campaign-card__text">
-                                全部コミコミ(お一人様)
-                              </p>
-                              <div class="aside-campaign-card__price-wrapper">
-                              <p class="aside-campaign-card__old-price">
-                                ¥24,000
-                              </p>
-                              <p class="aside-campaign-card__new-price">
-                                ¥18,000
-                              </p>
+                          <a href="<?php the_permalink(); ?>" class="aside-campaign-card">
+                              <figure class="aside-campaign-card__image">
+                                  <?php if (has_post_thumbnail()) : ?>
+                                      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                                  <?php endif; ?>
+                              </figure>
+                              <div class="aside-campaign-card__body">
+                                <!-- プラン名 -->
+                                  <h3 class="aside-campaign-card__title">
+                                      <?php the_title(); ?>
+                                  </h3>
+                                  <div class="aside-campaign-card__plan">
+                                      <p class="aside-campaign-card__text">
+                                          <?php the_field('description'); // カスタムフィールド ?>
+                                      </p>
+                                      <p class="page-campaign-card__text">
+                                      <!-- 全部コミコミ（お一人様） -->
+                                      <?php the_field('campaign-price_title'); ?>
+                                    </p>
+                                      <div class="aside-campaign-card__price-wrapper">
+                                          <p class="aside-campaign-card__old-price">
+                                              ¥<?php echo get_field('price_previous'); // 値を正しく取得するために echo を使用 ?>
+                                          </p>
+                                          <p class="aside-campaign-card__new-price">
+                                              ¥<?php echo get_field('price_new'); // 値を正しく取得するために echo を使用 ?>
+                                          </p>
+                                      </div>
+                                  </div>
                               </div>
-                            </div>
-                          </div>
-                        </a>
-                      </li> -->
+                          </a>
+                      </li>
+                      <?php
+                          endwhile;
+                          wp_reset_postdata();
+                      endif;
+                      ?>
                     </ul>
                     <!-- ボタン -->
                     <div class="sub-aside__button">
