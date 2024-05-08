@@ -39,7 +39,7 @@
               </a>
               <!-- ボタン -->
               <div class="contact__button">
-                <a href="contact.html" class="button">
+                <a href="<?php echo get_permalink(18); ?>" class="button">
                   <span>contact us</span>
                 </a>
               </div>
@@ -104,13 +104,13 @@
                 <a href="http://codeupsdiving-wp.local/information/" class="footer-nav__heading">ダイビング情報</a>
                 <ul class="footer-nav__sub-items">
                   <li class="footer-nav__sub-item">
-                    <a href="information.html?tab=tab1">ライセンス講習</a>
+                    <a href="http://codeupsdiving-wp.local/information/?tab=tab1">ライセンス講習</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="information.html?tab=tab2">ファンダイビング</a>
+                    <a href="http://codeupsdiving-wp.local/information/?tab=tab2">ファンダイビング</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="information.html?tab=tab3">体験ダイビング</a>
+                    <a href="http://codeupsdiving-wp.local/information/?tab=tab3">体験ダイビング</a>
                   </li>
                 </ul>
               </li>

@@ -1,3 +1,6 @@
+<!-- ブログ記事：月別記事一覧 -->
+<!-- サイドバーのアーカイブから月別のリンクを取得し、date.phpで該当の記事のみを表示させる。 -->
+
 <!-- blog ブログ一覧 -->
 <?php get_header(); ?>
 
@@ -6,7 +9,18 @@
       <section class="sub-fv">
         <div class="sub-fv__inner">
           <h2 class="sub-fv__heading">
-            blog
+            <!-- headingに表示したい文字を以下のようにechoする -->
+            <?php
+                if ( is_day() ) {
+                    echo 'ブログ記事一覧：' . get_the_date('Y年n月j日');
+                } elseif ( is_month() ) {
+                    echo 'ブログ記事一覧：' . get_the_date('Y年n月');
+                } elseif ( is_year() ) {
+                    echo 'ブログ記事一覧：' . get_the_date('Y年');
+                } else {
+                    echo 'ブログ記事一覧';
+                }
+            ?>
           </h2>
           <picture class="sub-fv__image">
             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__fv-pc.jpg" media="(min-width: 768px)">
@@ -40,7 +54,7 @@
                     <h3 class="blog-card__heading">
                       <?php the_title(); ?>
                     </h3>
-                    <?php the_content(); ?>
+                    <?php the_excerpt(); ?>
                   </div>
                 </a>
                 <!-- ループ終了 -->

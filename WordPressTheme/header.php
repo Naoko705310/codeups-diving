@@ -7,6 +7,31 @@
   <meta name="format-detection" content="telephone=no">
   <!-- インデックス防止 -->
   <meta name="robots" content="noindex">
+
+  <!-- WP管理メニューが邪魔なので下に下げる。 不要になったら削除-->
+  <?php if( is_user_logged_in() ) : ?>
+      <style type="text/css">
+      html {
+        margin: 0 0 32px!important;
+      }
+      #wpadminbar {
+        top: unset!important;
+        bottom: 0;
+      }
+      </style>
+  <?php endif; ?>
+  <!-- WP管理メニューを下に下げる、ここまで -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E7JT16KLED"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E7JT16KLED');
+</script>
+	<meta name="google-site-verification" content="zQoo5i3w0I7BL__EIw2WsDYX-0Ec2TeMhArrJ_vhJF4" />
   <?php wp_head(); ?>
 </head>
 
@@ -16,7 +41,7 @@
     <div class="header__inner">
       <!-- ヘッダーロゴ -->
       <h1 class="header__logo header-logo">
-        <a href="index.html" class="header-logo__link">
+      <a href="<?php echo home_url(); ?>" class="header-logo__link">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/header-logo.png" alt="ヘッダーロゴ">
         </a>
       </h1>
@@ -27,6 +52,8 @@
         <span></span>
       </button><!-- /.header__hamburger hamburger js-hamburger -->
       <!-- SPナビ -->
+
+<!-- オリジナルのコード -->
       <div class="header__sp-nav js-drawer-menu">
         <nav class="sp-nav">
           <div class="sp-nav__items-wrapper--left">
@@ -54,13 +81,13 @@
                 <a href="http://codeupsdiving-wp.local/information/" class="sp-nav__heading">ダイビング情報</a>
                 <ul class="sp-nav__sub-items">
                   <li class="sp-nav__sub-item">
-                    <a href="information.html?tab=tab1">ライセンス講習</a>
+                    <a href="http://codeupsdiving-wp.local/information/?tab=tab1">ライセンス講習</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="information.html?tab=tab2">体験ダイビング</a>
+                    <a href="http://codeupsdiving-wp.local/information/?tab=tab3">体験ダイビング</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="information.html?tab=tab3">ファンダイビング</a>
+                    <a href="http://codeupsdiving-wp.local/information/?tab=tab2">ファンダイビング</a>
                   </li>
                 </ul>
               </li>
@@ -111,7 +138,7 @@
             </ul>
           </div>
         </nav>
-      </div><!-- /.header__sp-nav js-drawer-menu -->
+      </div> 
 
 
 

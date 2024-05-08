@@ -48,89 +48,86 @@
         </div>
         <!-- Campaign スワイパー -->
         <div class="campaign__swiper-container">
-            <div class="swiper campaign__swiper js-campaign-swiper">
-                <div class="swiper-wrapper campaign__swiper-wrapper">
-                    <?php
-                    $campaigns = get_campaign_posts();
-                    if ($campaigns->have_posts()) :
-                        while ($campaigns->have_posts()) : $campaigns->the_post();
-                            ?>
-                            <div class="swiper-slide">
-                                <a href="<?php the_permalink(); ?>" class="campaign-card">
-                                    <figure class="campaign-card__image">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
-                                        <?php endif; ?>
-                                    </figure>
-                                    <div class="campaign-card__body">
-                                        <p class="campaign-card__tag category-tag">
-                                            <?php $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                                            if (!empty($terms) && !is_wp_error($terms)) {
-                                                echo esc_html($terms[0]->name);
-                                            } ?>
-                                        </p>
-                                        <h3 class="campaign-card__title"><?php the_title(); ?></h3>
-                                        <div class="campaign-card__plan">
-                                            <p class="campaign-card__text"><?php the_field('campaign-price_title'); ?></p>
-                                            <div class="campaign-card__price-wrapper">
-                                                <p class="campaign-card__old-price">¥<?php the_field('price_previous'); ?></p>
-                                                <p class="campaign-card__new-price">¥<?php the_field('price_new'); ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php
-                        endwhile;
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                </div>
-            </div>
-        </div>
-      </div>
-    </section>
-    <!-- About Us セクション -->
-    <section id="about-us" class="about-us top-about-us">
-      <div class="about-us__inner inner">
-        <div class="about-us__section-title section-title">
-          <span class="section-title__en">
-            about us
-          </span>
-          <h2 class="section-title__jp">
-            私たちについて
-          </h2>
-        </div>
-        <div class="about-us__contents-wrapper">
-          <div class="about-us__image-wrapper">
-            <figure class="about-us__image-left">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/aboutus-01.jpg" alt="シーサーの画像">
-            </figure>
-            <figure class="about-us__image-right">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/aboutus-02.jpg" alt="黄色い魚の画像">
-            </figure>
-            <div class="about-us__body">
-              <h2 class="about-us__main-copy">
-                Dive into<br>
-                the Ocean
-              </h2>
-              <div class="about-us__text-wrapper">
-                <p class="about-us__text">
-                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                  ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-                </p>
-                <!-- ボタン -->
-                <div class="about-us__button">
-                  <a href="about-us.html" class="button">
-                    <span>view more</span>
-                  </a>
-                </div>
+          <div class="swiper campaign__swiper js-campaign-swiper">
+            <div class="swiper-wrapper campaign__swiper-wrapper">
+              <!-- functions.phpで定義したcampaignの共通関数を呼び出す -->
+              <?php
+              $campaigns = get_campaign_posts();
+              if ($campaigns->have_posts()) :
+                  while ($campaigns->have_posts()) : $campaigns->the_post();
+                      ?>
+              <div class="swiper-slide">
+                <a href="<?php the_permalink(); ?>" class="campaign-card">
+                  <figure class="campaign-card__image">
+                      <?php if (has_post_thumbnail()) : ?>
+                          <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                      <?php endif; ?>
+                  </figure>
+                  <div class="campaign-card__body">
+                    <!-- カテゴリータグ -->
+                    <p class="campaign-card__tag category-tag">
+                        <?php $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            echo esc_html($terms[0]->name);
+                        } ?>
+                    </p>
+                    <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                    <div class="campaign-card__plan">
+                      <p class="campaign-card__text"><?php the_field('campaign-price_title'); ?></p>
+                      <div class="campaign-card__price-wrapper">
+                        <p class="campaign-card__old-price">¥<?php the_field('price_previous'); ?></p>
+                        <p class="campaign-card__new-price">¥<?php the_field('price_new'); ?></p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
+              <?php endwhile;wp_reset_postdata();endif;?>
             </div>
           </div>
         </div>
-      </div><!-- /.about-us__inner inner -->
-    </section><!-- /.about-us -->
+      </div>
+    </section>
+<!-- About Us セクション -->
+<section id="about-us" class="about-us top-about-us">
+  <div class="about-us__inner inner">
+    <div class="about-us__section-title section-title">
+      <span class="section-title__en">
+        about us
+      </span>
+      <h2 class="section-title__jp">
+        私たちについて
+      </h2>
+    </div>
+    <div class="about-us__contents-wrapper">
+      <div class="about-us__image-wrapper">
+        <figure class="about-us__image-left">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/aboutus-01.jpg" alt="シーサーの画像">
+        </figure>
+        <figure class="about-us__image-right">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/aboutus-02.jpg" alt="黄色い魚の画像">
+        </figure>
+        <div class="about-us__body">
+          <h2 class="about-us__main-copy">
+            Dive into<br>
+            the Ocean
+          </h2>
+          <div class="about-us__text-wrapper">
+            <p class="about-us__text">
+              <?php echo nl2br(get_field('about-us_main-copy')); ?>
+            </p>
+            <!-- ボタン -->
+            <div class="about-us__button">
+              <a href="<?php echo get_permalink(9); ?>" class="button">
+                <span>view more</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.about-us__inner inner -->
+</section><!-- /.about-us -->
     <!-- Information セクション -->
     <section id="information" class="information top-information">
       <div class="information__inner inner">
@@ -156,7 +153,7 @@
             </p>
             <!-- ボタン -->
             <div class="information__button">
-              <a href="information.html" class="button">
+              <a href="<?php echo get_permalink(12); ?>" class="button">
                 <span>view more</span>
               </a>
             </div>
@@ -175,59 +172,44 @@
             ブログ
           </h2>
         </div>
+        <!-- WP_Query を使用してデータを取得 -->
+        <?php
+        // 最新のブログ投稿を取得するクエリ
+        $args = array(
+            'post_type' => 'post', // 投稿タイプ
+            'posts_per_page' => 3, // 表示する投稿数
+            'orderby' => 'date', // 日付で並び替え
+            'order' => 'DESC' // 降順
+        );
+        $blog_posts = new WP_Query($args);
+        ?>
         <!-- ブログカード群 -->
         <div class="blog__items blog-cards">
-          <a href="blog.html" class="blog-cards__item blog-card">
-            <figure class="blog-card__image">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-card-01.jpg" alt="サンゴの画像">
-            </figure>
-            <div class="blog-card__body">
-              <time class="blog-card__time" datetime="2023-11-17">2023.11.17</time>
-              <h3 class="blog-card__heading">
-                ライセンス取得
-              </h3>
-              <p class="blog-card__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </a>
-          <a href="blog.html" class="blog-cards__item blog-card">
-            <figure class="blog-card__image">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-card-02.jpg" alt="ウミガメの画像">
-            </figure>
-            <div class="blog-card__body">
-              <time class="blog-card__time" datetime="2023-11-17">2023.11.17</time>
-              <h3 class="blog-card__heading">
-                ウミガメと泳ぐ
-              </h3>
-              <p class="blog-card__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </a>
-          <a href="blog.html" class="blog-cards__item blog-card">
-            <figure class="blog-card__image">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-card-03.jpg" alt="イソギンチャクの中のクマノミの画像">
-            </figure>
-            <div class="blog-card__body">
-              <time class="blog-card__time" datetime="2023-11-17">2023.11.17</time>
-              <h3 class="blog-card__heading">
-                カクレクマノミ
-              </h3>
-              <p class="blog-card__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </a>
+            <?php if ($blog_posts->have_posts()) : ?>
+                <?php while ($blog_posts->have_posts()) : $blog_posts->the_post(); ?>
+                    <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
+                        <figure class="blog-card__image">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                            <?php endif; ?>
+                        </figure>
+                        <div class="blog-card__body">
+                            <time class="blog-card__time" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                            <h3 class="blog-card__heading"><?php the_title(); ?></h3>
+                            <p class="blog-card__text"><?php the_excerpt(); ?></p>
+                        </div>
+                    </a>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+                <p>No posts found.</p>
+            <?php endif; ?>
         </div>
         <!-- ボタン -->
         <div class="blog__button">
-          <a href="blog.html" class="button">
-            <span>view more</span>
-          </a>
+            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="button">
+                <span>view more</span>
+            </a>
         </div>
       </div><!-- /.blog__inner -->
     </section><!-- /.blog -->
@@ -244,60 +226,60 @@
         </div>
         <!-- ボイスカード群 -->
         <div class="voice__items voice-cards">
-          <a href="voice.html" class="voice-cards__item voice-card">
-            <div class="voice-card__header-wrapper">
-              <div class="voice-card__header">
-                <div class="voice-card__information">
-                  <p class="voice-card__age">
-                    20代(女性)
-                  </p>
-                  <p class="voice-card__tag category-tag">
-                    ライセンス講習
-                  </p>
+          <?php
+          $voice_args = array(
+            'post_type' => 'voice', // カスタム投稿タイプのスラッグ
+            'posts_per_page' => 3 // 表示する投稿数
+          );
+          $voice_query = new WP_Query($voice_args);
+          if ($voice_query->have_posts()) :
+            while ($voice_query->have_posts()) : $voice_query->the_post();
+              ?>
+              <a href="<?php the_permalink(); ?>" class="voice-cards__item voice-card">
+                <div class="voice-card__header-wrapper">
+                  <div class="voice-card__header">
+                    <div class="voice-card__information">
+                      <p class="voice-card__age">
+                        <?php the_field('age'); ?> <!-- 年齢や性別などのフィールド -->
+                      </p>
+                      <p class="voice-card__tag category-tag">
+                      <?php 
+                        $terms = get_the_terms(get_the_ID(), 'voice_category');
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            // 複数のカテゴリーがある場合は、最初のものを表示
+                            echo esc_html($terms[0]->name);
+                        } else {
+                            // カテゴリーが割り当てられていない場合のデフォルトテキスト
+                            echo 'カテゴリーなし';
+                        }
+                        ?>
+                      </p>
+                    </div>
+                    <h3 class="voice-card__title">
+                      <?php the_title(); ?>
+                    </h3>
+                  </div>
+                  <figure class="voice-card__image colorbox">
+                    <?php if (has_post_thumbnail()) : ?>
+                      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                    <?php endif; ?>
+                  </figure>
                 </div>
-                <h3 class="voice-card__title">
-                  ここにタイトルが入ります。ここにタイトル
-                </h3>
-              </div>
-              <figure class="voice-card__image colorbox">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/voice-01.jpg" alt="帽子をかぶっている女性の画像">
-              </figure>
-            </div>
-            <p class="voice-card__text">
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。
-            </p>
-          </a>
-          <a href="voice.html" class="voice-cards__item voice-card">
-            <div class="voice-card__header-wrapper">
-              <div class="voice-card__header">
-                <div class="voice-card__information">
-                  <p class="voice-card__age">
-                    30代(男性)
-                  </p>
-                  <p class="voice-card__tag category-tag">
-                    ファンダイビング
-                  </p>
-                </div>
-                <h3 class="voice-card__title">
-                  ここにタイトルが入ります。ここにタイトル
-                </h3>
-              </div>
-              <figure class="voice-card__image colorbox">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/voice-02.jpg" alt="右手でグッドサインをしている男性の画像">
-              </figure>
-            </div>
-            <p class="voice-card__text">
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-              ここにテキストが入ります。ここにテキストが入ります。
-            </p>
-          </a>
+                <p class="voice-card__text">
+                  <?php the_excerpt(); ?>
+                </p>
+              </a>
+              <?php
+            endwhile;
+            wp_reset_postdata();
+          else :
+            echo '<p>No voices found.</p>';
+          endif;
+          ?>
         </div>
         <!-- ボタン -->
         <div class="voice__button">
-          <a href="voice.html" class="button">
+          <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="button">
             <span>view more</span>
           </a>
         </div>
@@ -358,7 +340,7 @@
         </div>
         <!-- ボタン -->
         <div class="price__button">
-          <a href="price.html" class="button">
+          <a href="<?php echo get_permalink(14); ?>" class="button"> <!-- ここで14はpage-price.phpのページID -->
             <span>view more</span>
           </a>
         </div>

@@ -35,9 +35,14 @@
                 </h2>
                 <div class="about-us__text-wrapper">
                   <p class="about-us__text">
-                    ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>
-                    ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                    <?php echo nl2br(get_field('about-us_main-copy')); ?>
                   </p>
+                  <!-- ボタン -->
+                  <div class="about-us__button">
+                    <a href="<?php echo get_permalink(9); ?>" class="button">
+                      <span>view more</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -307,7 +307,7 @@ jQuery(function ($) {
       $(this).addClass("show");
     }
   });
-
+  
   // ※開閉操作をしているもの以外のアコーディオンは閉じるパターン。
   // $(".js-accordion__title").on("click", function () {
   //   // クリックされたタイトルの次の要素をトグル
@@ -322,6 +322,31 @@ jQuery(function ($) {
   //   // 閉じられた他のタイトルの表示/非表示のクラスを削除する
   //   $(".js-accordion__title").not($(this)).removeClass("show");
   // });
+
+  /* --------------------------------------------
+  /* 料金一覧ページを閲覧中にdrawer-menuから料金一覧のサブアイテムにリンクできる処理
+  /* -------------------------------------------- */
+
+//   $('.header__sp-nav a').on('click', function(e) {
+//     var targetId = $(this).attr('href').split('#')[1];
+//     if (targetId) {
+//         var targetElement = $('#' + targetId);
+//         if (targetElement.length) {
+//             e.preventDefault(); // デフォルトのアンカー動作を防止
+//             $('html, body').animate({
+//                 scrollTop: targetElement.offset().top
+//             }, 600); // スムーズスクロールの速度を600msに設定
+//             closeDrawerMenu(); // ドロワーメニューを閉じる関数を呼び出し
+//         }
+//     }
+// });
+
+// function closeDrawerMenu() {
+//     // ドロワーメニューを閉じるコードをここに追加
+//     $('.js-drawer-menu').removeClass('is-open');
+// }
+
+
 
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）

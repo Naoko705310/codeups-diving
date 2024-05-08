@@ -2815,6 +2815,10 @@ span.error_required {
 	grid-template-columns: 1fr;
 }
 
+.popular-articles__item::marker {
+	content: none; /* マーカーを非表示にする */
+}
+
 .section-title {
 	text-align: center;
 }
@@ -3157,6 +3161,7 @@ span.error_required {
 	left: 50%;
 	position: absolute;
 	text-align: center;
+	text-transform: capitalize;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	white-space: nowrap;

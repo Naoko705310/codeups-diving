@@ -28,7 +28,7 @@
                     <a href="campaign.html" class="site-map__heading">キャンペーン</a>
                     <ul class="site-map__sub-items">
                       <li class="site-map__sub-item">
-                        <a href="campaign.html">ライセンス取得</a>
+                        <a href="campaign.html">ライセンス講習</a>
                       </li>
                       <li class="site-map__sub-item">
                         <a href="campaign.html">貸切体験ダイビング</a>

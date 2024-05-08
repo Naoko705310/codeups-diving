@@ -6,7 +6,7 @@
       <section class="sub-fv">
         <div class="sub-fv__inner">
           <h2 class="sub-fv__heading sub-fv__heading--faq">
-            faq
+            FAQ
           </h2>
           <picture class="sub-fv__image">
             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-faq__fv-pc.jpg" media="(min-width: 768px)">
