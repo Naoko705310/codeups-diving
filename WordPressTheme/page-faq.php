@@ -41,48 +41,6 @@
                   echo "</li>";
               }
               ?>
-              <!-- <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li> -->
-              <!-- <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li>
-              <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li>
-              <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li>
-              <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li>
-              <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li>
-              <li class="accordion__item">
-                <h2 class="accordion__title js-accordion__title">ここに質問が入ります。</h2>
-                <div class="accordion__content">
-                  <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-                </div>
-              </li> -->
             </ul>  
           </div>
         </div>

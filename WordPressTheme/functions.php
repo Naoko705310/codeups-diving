@@ -29,7 +29,9 @@ function add_custom_scripts() {
 
 add_action('wp_enqueue_scripts', 'add_custom_scripts');
 
-// アイキャッチ画像の選択項目がメニューに表示されるようにする
+/* --------------------------------------------
+/* アイキャッチ画像の選択項目がメニューに表示されるようにする
+/* -------------------------------------------- */
 function my_setup() {
 	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
 	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
@@ -47,9 +49,11 @@ function my_setup() {
 }
 add_action( 'after_setup_theme', 'my_setup' );
 
-
-//アーカイブの表示件数変更
+/* --------------------------------------------
+/* //アーカイブの表示件数変更
 //※管理画面の設定の表示件数10件というのは、通常投稿（blog)にしか適用されない。
+/* -------------------------------------------- */
+
 function change_posts_per_page($query) {
     if (is_admin() || !$query->is_main_query())
         return;
@@ -66,8 +70,10 @@ function change_posts_per_page($query) {
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
+/* --------------------------------------------
+/* // キャンペーン一覧ページで、記事を分類する
+/* -------------------------------------------- */
 
-// キャンペーン一覧ページで、記事を分類する
 function filter_campaign_posts_by_category($query) {
     if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
         $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
@@ -84,7 +90,10 @@ function filter_campaign_posts_by_category($query) {
 }
 add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 
-// お客様の声一覧ページで、記事をカテゴリーごとに分類する
+/* --------------------------------------------
+/* // お客様の声一覧ページで、記事をカテゴリーごとに分類する
+/* -------------------------------------------- */
+
 function filter_voice_posts_by_category($query) {
     if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('voice')) {
         $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
@@ -101,8 +110,10 @@ function filter_voice_posts_by_category($query) {
 }
 add_action('pre_get_posts', 'filter_voice_posts_by_category');
 
+/* --------------------------------------------
+/* // ヘッダーとフッターのカスタムメニュー化（外観＞メニューに表示）
+/* -------------------------------------------- */
 
-// ヘッダーとフッターのカスタムメニュー化（外観＞メニューに表示）
 function register_my_menus() {
     register_nav_menus(
         array(
@@ -123,8 +134,10 @@ function custom_theme_setup() {
 add_action('after_setup_theme', 'custom_theme_setup');
 
 
+/* --------------------------------------------
+/* // pc-navを反映する（クラス名を付与して日本語と英語を二行に）
+/* -------------------------------------------- */
 
-// pc-navを反映する（クラス名を付与して日本語と英語を二行に）
 function my_custom_nav_menu_item($item_output, $item, $depth, $args) {
     if ($args->theme_location == 'pc_nav') {
         if (strpos($item->title, '|') !== false) {
@@ -140,7 +153,10 @@ function my_custom_nav_menu_item($item_output, $item, $depth, $args) {
 }
 add_filter('walker_nav_menu_start_el', 'my_custom_nav_menu_item', 10, 4);
 
-// pc-navの'li' タグに 'pc-nav__item' クラスを追加
+/* --------------------------------------------
+/* // pc-navの'li' タグに 'pc-nav__item' クラスを追加
+/* -------------------------------------------- */
+
 function add_classes_on_li($classes, $item, $args) {
     if ($args->theme_location == 'pc_nav') {
         $classes[] = 'pc-nav__item';
@@ -149,14 +165,18 @@ function add_classes_on_li($classes, $item, $args) {
 }
 add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
 
-
-// Contact Form 7で自動挿入されるPタグ、brタグを削除
+/* --------------------------------------------
+/* // Contact Form 7で自動挿入されるPタグ、brタグを削除
+/* -------------------------------------------- */
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false() {
     return false;
 } 
 
-// ブログ一覧・詳細：サイドバーウィジェット表示
+/* --------------------------------------------
+/* // ブログ一覧・詳細：サイドバーウィジェット表示
+/* -------------------------------------------- */
+
 function my_theme_widgets_init() {
     register_sidebar( array(
         'name'          => '人気記事ウィジェット',
@@ -169,8 +189,10 @@ function my_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'my_theme_widgets_init' );
 
+/* --------------------------------------------
+/* // カスタムウィジェット（サイドバー）
+/* -------------------------------------------- */
 
-// カスタムウィジェット（サイドバー）
 class Popular_Articles_Widget extends WP_Widget {
 
     public function __construct() {
@@ -223,16 +245,20 @@ add_action('widgets_init', 'register_popular_articles_widget');
 
 // カスタムウィジェットここまで
 
-
-// 固定ページを管理画面に表示
+/* --------------------------------------------
+/* // 固定ページを管理画面に表示
 // 料金一覧ページのメニューを表示
+/* -------------------------------------------- */
+
 function add_page_to_admin_menu() {
     add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=14&action=edit', '', 'dashicons-book-alt', 3);
 }
 add_action( 'admin_menu', 'add_page_to_admin_menu' );
 
 
-// キャンペーンカード（３ページ共通）の共通関数を定義する
+/* --------------------------------------------
+/* // キャンペーンカード（３ページ共通）の共通関数を定義する（不要？）
+/* -------------------------------------------- */
 function get_campaign_posts() {
     $args = array(
         'post_type' => 'campaign', // カスタム投稿タイプ名
@@ -243,7 +269,10 @@ function get_campaign_posts() {
     return $campaigns;
 }
 
-// ユーザーが URL に year と month パラメータを含むリンクをクリックした場合、その年と月に該当する投稿だけが表示
+/* --------------------------------------------
+/* ユーザーが URL に year と month パラメータを含むリンクをクリックした場合、その年と月に該当する投稿だけが表示
+/* -------------------------------------------- */
+
 function filter_posts_by_month($query) {
     if (!is_admin() && $query->is_main_query()) {
         if ($query->is_home()) {  // ホームページのクエリであることを確認
@@ -256,20 +285,7 @@ function filter_posts_by_month($query) {
 }
 add_action('pre_get_posts', 'filter_posts_by_month');
 
-// 特定の単語のみを小文字で表示（↓この場合はof)
-// function format_heading($title) {
-//     // 分割する単語を定義
-//     $lowercase_words = ['of'];
-//     $words = explode(' ', $title);
-//     $formatted_words = array_map(function($word) use ($lowercase_words) {
-//         if (in_array(strtolower($word), $lowercase_words)) {
-//             return '<span class="lowercase">' . $word . '</span>';
-//         }
-//         return $word;
-//     }, $words);
 
-//     return implode(' ', $formatted_words);
-// }
 
 
 

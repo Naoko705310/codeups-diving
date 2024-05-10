@@ -54,6 +54,7 @@
       <!-- SPナビ -->
 
 <!-- オリジナルのコード -->
+<!-- ※管理画面の外観＞メニューからナビゲーションを追加して実装しようとしたが、失敗したためオリジナルに戻した。 -->
       <div class="header__sp-nav js-drawer-menu">
         <nav class="sp-nav">
           <div class="sp-nav__items-wrapper--left">
@@ -139,8 +140,6 @@
           </div>
         </nav>
       </div> 
-
-
 
 
       <!-- PCナビ -->

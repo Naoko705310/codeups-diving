@@ -45,10 +45,6 @@
                 </li>
               </ul>
             </div>
-
-
-            4/30
-
             <!-- ボイスカード群 -->
             <div class="page-voice__items voice-cards">
               <?php if (have_posts()): while (have_posts()): the_post(); ?>

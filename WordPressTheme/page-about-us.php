@@ -70,24 +70,6 @@
                     <p>画像<?php echo $i; ?>はありません。</p> <!-- この行を追加 -->
                   <?php endif; ?>
                 <?php endfor; ?>
-                <!-- <li class="gallery__item">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-about-us__gallery01.jpg" alt="海中の、色とりどりの魚の画像">
-                </li>
-                <li class="gallery__item">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-about-us__gallery02.jpg" alt="海に浮かぶボートの画像">
-                </li>
-                <li class="gallery__item">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-about-us__gallery03.jpg" alt="海中の、二匹の黄色い魚の画像">
-                </li>
-                <li class="gallery__item">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-about-us__gallery04.jpg" alt="海中の、一匹の黄色い魚の画像">
-                </li>
-                <li class="gallery__item">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-about-us__gallery05.jpg" alt="海中の、小魚の群れの画像">
-                </li>
-                <li class="gallery__item">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-about-us__gallery06.jpg" alt="サンゴと黄色い魚の画像">
-                </li> -->
               </ul>
             </div>
           </div>
