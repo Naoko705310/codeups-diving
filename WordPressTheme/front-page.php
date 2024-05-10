@@ -57,14 +57,13 @@
                   while ($campaigns->have_posts()) : $campaigns->the_post();
                       ?>
               <div class="swiper-slide">
-                <a href="<?php the_permalink(); ?>" class="campaign-card">
+                <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="campaign-card">
                   <figure class="campaign-card__image">
                       <?php if (has_post_thumbnail()) : ?>
                           <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
                       <?php endif; ?>
                   </figure>
                   <div class="campaign-card__body">
-                    <!-- カテゴリータグ -->
                     <p class="campaign-card__tag category-tag">
                         <?php $terms = get_the_terms(get_the_ID(), 'campaign_category');
                         if (!empty($terms) && !is_wp_error($terms)) {
@@ -235,7 +234,7 @@
           if ($voice_query->have_posts()) :
             while ($voice_query->have_posts()) : $voice_query->the_post();
               ?>
-              <a href="<?php the_permalink(); ?>" class="voice-cards__item voice-card">
+              <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="voice-cards__item voice-card">
                 <div class="voice-card__header-wrapper">
                   <div class="voice-card__header">
                     <div class="voice-card__information">

@@ -1445,11 +1445,11 @@ a {
 	transition: 0.3s;
 }
 
-.category-tab__item--current {
+.category-tab__item.is-active {
 	background-color: #408F95;
 }
 
-.category-tab__item.category-tab__item--current a {
+.category-tab__item.is-active a {
 	color: #fff;
 }
 

@@ -37,6 +37,11 @@
   }
 }
 
+// 大文字にしない（小文字のまま）
+// .sub-fv__heading .lowercase {
+//   text-transform: lowercase;
+// }
+
 .sub-fv__heading span {
   text-transform: none;
 }

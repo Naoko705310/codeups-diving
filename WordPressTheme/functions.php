@@ -256,6 +256,20 @@ function filter_posts_by_month($query) {
 }
 add_action('pre_get_posts', 'filter_posts_by_month');
 
+// 特定の単語のみを小文字で表示（↓この場合はof)
+// function format_heading($title) {
+//     // 分割する単語を定義
+//     $lowercase_words = ['of'];
+//     $words = explode(' ', $title);
+//     $formatted_words = array_map(function($word) use ($lowercase_words) {
+//         if (in_array(strtolower($word), $lowercase_words)) {
+//             return '<span class="lowercase">' . $word . '</span>';
+//         }
+//         return $word;
+//     }, $words);
+
+//     return implode(' ', $formatted_words);
+// }
 
 
 

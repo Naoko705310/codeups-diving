@@ -22,23 +22,23 @@
         <!-- カテゴリータブ -->
         <div class="page-campaign__tab category-tab">
           <ul class="category-tab__items">
-            <li class="category-tab__item category-tab__item--current uppercase">
-              <a href="<?php echo esc_url(add_query_arg('category', 'all', get_post_type_archive_link('campaign'))); ?>" data-tag="all">
+            <li class="category-tab__item is-active uppercase">
+              <a href="<?php echo esc_url(add_query_arg('category', 'all', get_post_type_archive_link('campaign'))); ?>" data-tab="all">
                 all
               </a>
             </li>
             <li class="category-tab__item">
-              <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>" data-tag="license">
+              <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>" data-tab="license">
                 ライセンス講習
               </a>
             </li>
             <li class="category-tab__item">
-              <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>" data-tag="fun">
+              <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>" data-tab="fun">
                 ファンダイビング
               </a>
             </li>
             <li class="category-tab__item">
-              <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>" data-tag="experience">
+              <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>" data-tab="experience">
                 体験ダイビング
               </a>
             </li>

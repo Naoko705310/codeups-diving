@@ -162,6 +162,28 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
+  /* 下層ページcampaign :タブで分類された該当記事が表示されている時に、
+  タブの色を反転させる（タブ緑・文字白）
+  /* -------------------------------------------- */
+
+
+  // URLからクエリパラメータを取得
+  var urlParams = new URLSearchParams(window.location.search);
+  var category = urlParams.get('category'); // 'category' パラメータを取得
+
+  // カテゴリに基づいて対応するタブをアクティブにする
+  if (category) {
+    $('.category-tab__item').each(function() {
+      var tabCategory = $(this).find('a').attr('href').split('#')[1]; // 各タブの href 属性からカテゴリを取得
+      if (tabCategory === category) {
+        $(this).addClass('is-active'); // 対応するタブに 'is-active' クラスを追加
+      } else {
+        $(this).removeClass('is-active'); // 他のタブから 'is-active' クラスを削除
+      }
+    });
+  }
+
+  /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
 
@@ -307,7 +329,7 @@ jQuery(function ($) {
       $(this).addClass("show");
     }
   });
-  
+
   // ※開閉操作をしているもの以外のアコーディオンは閉じるパターン。
   // $(".js-accordion__title").on("click", function () {
   //   // クリックされたタイトルの次の要素をトグル

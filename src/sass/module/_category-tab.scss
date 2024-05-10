@@ -31,11 +31,11 @@
 }
 
 // Allの背景色は最初から緑
-.category-tab__item--current {
+.category-tab__item.is-active {
   background-color: $green;
 }
 
-.category-tab__item.category-tab__item--current a {
+.category-tab__item.is-active a {
   color: $white;
 }
 

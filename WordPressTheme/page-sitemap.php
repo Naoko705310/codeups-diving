@@ -25,81 +25,81 @@
               <div class="site-map__items-wrapper--left">
                 <ul class="site-map__items site-map__items--left01">
                   <li class="site-map__item">
-                    <a href="campaign.html" class="site-map__heading">キャンペーン</a>
+                    <a href="http://codeupsdiving-wp.local/campaign/" class="site-map__heading">キャンペーン</a>
                     <ul class="site-map__sub-items">
                       <li class="site-map__sub-item">
-                        <a href="campaign.html">ライセンス講習</a>
+                      <a href="http://codeupsdiving-wp.local/campaign/?category=license-training">ライセンス講習</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="campaign.html">貸切体験ダイビング</a>
+                      <a href="http://codeupsdiving-wp.local/campaign/?category=fun-diving">ファンダイビング</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="campaign.html">ナイトダイビング</a>
+                      <a href="http://codeupsdiving-wp.local/campaign/?category=trial-diving">体験ダイビング</a>
                       </li>
                     </ul>
                   </li>
                   <li class="site-map__item">
-                    <a href="about-us.html" class="site-map__heading">私たちについて</a>
+                    <a href="http://codeupsdiving-wp.local/about-us/" class="site-map__heading">私たちについて</a>
                   </li>
                 </ul>
                 <ul class="site-map__items site-map__items--left02">
                   <li class="site-map__item">
-                    <a href="information.html" class="site-map__heading">ダイビング情報</a>
+                    <a href="http://codeupsdiving-wp.local/information/" class="site-map__heading">ダイビング情報</a>
                     <ul class="site-map__sub-items">
                       <li class="site-map__sub-item">
-                        <a href="information.html?tab=tab1">ライセンス講習</a>
+                      <a href="http://codeupsdiving-wp.local/information/?tab=tab1">ライセンス講習</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="information.html?tab=tab3">体験ダイビング</a>
+                      <a href="http://codeupsdiving-wp.local/information/?tab=tab2">ファンダイビング</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="information.html?tab=tab2">ファンダイビング</a>
+                      <a href="http://codeupsdiving-wp.local/information/?tab=tab3">体験ダイビング</a>
                       </li>
                     </ul>
                   </li>
                   <li class="site-map__item">
-                    <a href="blog.html" class="site-map__heading">ブログ</a>
+                    <a href="http://codeupsdiving-wp.local/blog/" class="site-map__heading">ブログ</a>
                   </li>
                 </ul>
               </div>
               <div class="site-map__items-wrapper--right">
                 <ul class="site-map__items site-map__items--right01">
                   <li class="site-map__item">
-                    <a href="voice.html" class="site-map__heading">お客様の声</a>
+                    <a href="http://codeupsdiving-wp.local/voice/" class="site-map__heading">お客様の声</a>
                   </li>
                   <li class="site-map__item">
-                    <a href="price.html" class="site-map__heading">料金一覧</a>
+                    <a href="http://codeupsdiving-wp.local/price/" class="site-map__heading">料金一覧</a>
                     <ul class="site-map__sub-items">
                       <li class="site-map__sub-item">
-                        <a href="price.html">ライセンス講習</a>
+                      <a href="http://codeupsdiving-wp.local/price/#license">ライセンス講習</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="price.html">体験ダイビング</a>
+                      <a href="http://codeupsdiving-wp.local/price/#trial">体験ダイビング</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="price.html">ファンダイビング</a>
+                      <a href="http://codeupsdiving-wp.local/price/#fun">ファンダイビング</a>
                       </li>
                       <li class="site-map__sub-item">
-                        <a href="price.html">スペシャル<br class="u-mobile">ダイビング</a>
+                        <a href="http://codeupsdiving-wp.local/price/#special">スペシャル<br class="u-mobile">ダイビング</a>
                       </li>
                     </ul>
                   </li>
                 </ul>
                 <ul class="site-map__items site-map__items--right02">
                   <li class="site-map__item">
-                    <a href="faq.html" class="site-map__heading">よくある質問</a>
+                    <a href="http://codeupsdiving-wp.local/faq/" class="site-map__heading">よくある質問</a>
                   </li>
                   <li class="site-map__item">
-                    <a href="privacy-policy.html" class="site-map__heading">プライバシー<br class="xl">ポリシー</a>
+                    <a href="http://codeupsdiving-wp.local/privacy-policy/" class="site-map__heading">プライバシー<br class="xl">ポリシー</a>
                   </li>
                   <li class="site-map__item">
-                    <a href="terms.html" class="site-map__heading">利用規約</a>
+                    <a href="http://codeupsdiving-wp.local/terms/" class="site-map__heading">利用規約</a>
                   </li>
                   <li class="site-map__item">
-                    <a href="site-map.html" class="site-map__heading site-map__heading--contact">お問い合わせ</a>
+                    <a href="http://codeupsdiving-wp.local/contact/" class="site-map__heading site-map__heading--contact">お問い合わせ</a>
                   </li>
                   <li class="site-map__item">
-                    <a href="site-map.html" class="site-map__heading site-map__heading--contact">サイトマップ</a>
+                    <a href="#top" class="site-map__heading site-map__heading--contact">サイトマップ</a>
                   </li>
                 </ul>
               </div>
