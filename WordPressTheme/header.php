@@ -60,81 +60,81 @@
           <div class="sp-nav__items-wrapper--left">
             <ul class="sp-nav__items sp-nav__items--left01">
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/campaign/" class="sp-nav__heading">キャンペーン</a>
+                <a href="https://www.naoko-test.site/codeups-diving/campaign/" class="sp-nav__heading">キャンペーン</a>
                 <ul class="sp-nav__sub-items">
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/campaign/?category=license-training">ライセンス取得</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/campaign/?category=license-training">ライセンス取得</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/campaign/?category=fun-diving">ファンダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/campaign/?category=fun-diving">ファンダイビング</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/campaign/?category=trial-diving">体験ダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/campaign/?category=trial-diving">体験ダイビング</a>
                   </li>
                 </ul>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/about-us/" class="sp-nav__heading">私たちについて</a>
+                <a href="https://www.naoko-test.site/codeups-diving/about-us/" class="sp-nav__heading">私たちについて</a>
               </li>
             </ul>
             <ul class="sp-nav__items sp-nav__items--left02">
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/information/" class="sp-nav__heading">ダイビング情報</a>
+                <a href="https://www.naoko-test.site/codeups-diving/information/" class="sp-nav__heading">ダイビング情報</a>
                 <ul class="sp-nav__sub-items">
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/information/?tab=tab1">ライセンス講習</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/information/?tab=tab1">ライセンス講習</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/information/?tab=tab3">体験ダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/information/?tab=tab3">体験ダイビング</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/information/?tab=tab2">ファンダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/information/?tab=tab2">ファンダイビング</a>
                   </li>
                 </ul>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/blog/" class="sp-nav__heading">ブログ</a>
+                <a href="https://www.naoko-test.site/codeups-diving/blog/" class="sp-nav__heading">ブログ</a>
               </li>
             </ul>
           </div>
           <div class="sp-nav__items-wrapper--right">
             <ul class="sp-nav__items sp-nav__items--right01">
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/voice/" class="sp-nav__heading">お客様の声</a>
+                <a href="https://www.naoko-test.site/codeups-diving/voice/" class="sp-nav__heading">お客様の声</a>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/price/" class="sp-nav__heading">料金一覧</a>
+                <a href="https://www.naoko-test.site/codeups-diving/price/" class="sp-nav__heading">料金一覧</a>
                 <ul class="sp-nav__sub-items">
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/price/#license">ライセンス講習</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/price/#license">ライセンス講習</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/price/#trial">体験ダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/price/#trial">体験ダイビング</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/price/#fun">ファンダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/price/#fun">ファンダイビング</a>
                   </li>
                   <li class="sp-nav__sub-item">
-                    <a href="http://codeupsdiving-wp.local/price/#special">スペシャルダイビング</a>
+                    <a href="https://www.naoko-test.site/codeups-diving/price/#special">スペシャルダイビング</a>
                   </li>
                 </ul>
               </li>
             </ul>
             <ul class="sp-nav__items sp-nav__items--right02">
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/faq/" class="sp-nav__heading">よくある質問</a>
+                <a href="https://www.naoko-test.site/codeups-diving/faq/" class="sp-nav__heading">よくある質問</a>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/privacy-policy/" class="sp-nav__heading">プライバシー<br class="u-mobile">ポリシー</a>
+                <a href="https://www.naoko-test.site/codeups-diving/privacy-policy/" class="sp-nav__heading">プライバシー<br class="u-mobile">ポリシー</a>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/terms/" class="sp-nav__heading">利用規約</a>
+                <a href="https://www.naoko-test.site/codeups-diving/terms/" class="sp-nav__heading">利用規約</a>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/contact/" class="sp-nav__heading sp-nav__heading--contact">お問い合わせ</a>
+                <a href="https://www.naoko-test.site/codeups-diving/contact/" class="sp-nav__heading sp-nav__heading--contact">お問い合わせ</a>
               </li>
               <li class="sp-nav__item">
-                <a href="http://codeupsdiving-wp.local/sitemap/" class="sp-nav__heading sp-nav__heading--contact">サイトマップ</a>
+                <a href="https://www.naoko-test.site/codeups-diving/sitemap/" class="sp-nav__heading sp-nav__heading--contact">サイトマップ</a>
               </li>
             </ul>
           </div>
