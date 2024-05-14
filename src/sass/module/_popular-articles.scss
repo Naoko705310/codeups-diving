@@ -1,12 +1,20 @@
 @use "global" as *;
 
-.popular-articles__items {
+.popular-posts-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: rem(24);
 }
 
+// .popular-articles__items {
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   gap: rem(24);
+// }
+
+
 // wordpressで生成された不要な黒丸を非表示
 .popular-articles__item::marker {
   content: none; /* マーカーを非表示にする */
 }
+

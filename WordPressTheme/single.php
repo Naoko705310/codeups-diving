@@ -23,7 +23,10 @@
     <div class="page-blog-details__inner inner">
       <!-- main -->
       <div class="page-blog-details__contents-wrapper">
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); 
+                // ここで閲覧数をカウントする関数を呼び出す
+                track_post_views(get_the_ID());
+        ?>
             <!-- ループ処理開始 -->
             <div class="page-blog-details__main">
               <article class="blog-article">

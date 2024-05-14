@@ -2295,17 +2295,17 @@ span.error_required {
 	height: 100%;
 }
 
-.page-campaign-card__image {
+.page-campaign-card figure {
 	position: relative;
 }
 
-.page-campaign-card__image::before {
+.page-campaign-card figure::before {
 	content: "";
 	display: block;
 	padding-top: 67.142%;
 }
 
-.page-campaign-card__image img {
+.page-campaign-card figure img {
 	-o-object-fit: cover;
 	height: 100%;
 	left: 50%;
@@ -2764,7 +2764,7 @@ span.error_required {
 	text-transform: uppercase;
 }
 
-.popular-articles-card {
+.popular-post a {
 	align-items: flex-start;
 	background-color: #fff;
 	box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
@@ -2773,42 +2773,37 @@ span.error_required {
 	padding: 1rem;
 }
 
-.popular-articles-card__image {
-	aspect-ratio: 121/90;
-	max-width: 100%;
-	width: 46.183%;
-}
-
-.popular-articles-card img {
+.popular-post a img {
 	-o-object-fit: cover;
+	aspect-ratio: 121/90;
 	height: 100%;
 	max-width: 100%;
 	object-fit: cover;
-	width: 100%;
+	width: 46.183%;
 }
 
-.popular-articles-card__body {
+.popular-post-details {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 	justify-content: flex-start;
 }
 
-.popular-articles-card__time {
+.popular-post-details time {
 	color: #0D2936;
 	font-family: "Gotu", sans-serif;
 	font-size: 0.75rem;
 	font-weight: 400;
 }
 
-.popular-articles-card__title {
+.popular-post-details span {
 	color: #0D2936;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-.popular-articles__items {
+.popular-posts-list {
 	grid-gap: 1.5rem;
 	display: grid;
 	gap: 1.5rem;
@@ -3123,7 +3118,7 @@ span.error_required {
 	text-align: center;
 }
 
-.sub-aside__popular-articles {
+.popular-posts-list {
 	margin-top: 1.5rem;
 }
 
@@ -4551,7 +4546,7 @@ html {
 	padding: 0;
 }
 
-.page-campaign-card__image::before {
+.page-campaign-card figure::before {
 	padding-top: 66.73%;
 }
 
