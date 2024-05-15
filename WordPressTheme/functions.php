@@ -250,10 +250,10 @@ add_action('widgets_init', 'register_popular_articles_widget');
 // 料金一覧ページのメニューを表示
 /* -------------------------------------------- */
 
-function add_page_to_admin_menu() {
-    add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=14&action=edit', '', 'dashicons-book-alt', 3);
-}
-add_action( 'admin_menu', 'add_page_to_admin_menu' );
+// function add_page_to_admin_menu() {
+//     add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=14&action=edit', '', 'dashicons-book-alt', 3);
+// }
+// add_action( 'admin_menu', 'add_page_to_admin_menu' );
 
 
 /* --------------------------------------------
@@ -312,6 +312,18 @@ function track_post_views($post_id) {
 add_action('wp_head', 'track_post_views');
 
 
+/* --------------------------------------------
+/* 管理画面の「投稿」を「ブログ」に変更
+/* -------------------------------------------- */
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'ブログ'; // "投稿"を"ブログ"に変更
+    $submenu['edit.php'][5][0] = 'ブログ一覧';
+    $submenu['edit.php'][10][0] = '新しいブログ';
+    $submenu['edit.php'][16][0] = 'タグ';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
 
 
 

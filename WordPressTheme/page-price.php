@@ -31,12 +31,13 @@
                         'special' => 'スペシャルダイビング',
                     ];
 
-                    // クジラの画像URL
-                    $whale_image_url = 'http://codeupsdiving-wp.local/wp-content/uploads/2024/04/sub-price__icon-whale.png';
+                    // アップロードディレクトリのURLを取得してクジラの画像URLを設定
+                    $upload_dir = wp_upload_dir();
+                    $whale_image_url = $upload_dir['baseurl'] . '/2024/04/sub-price__icon-whale.png';
 
                     foreach ($sections as $key => $title) {
-                      $courses = SCF::get($key);
-                      if (!empty($courses)) {
+                        $courses = SCF::get($key);
+                        if (!empty($courses)) {
                         echo "<div class='page-price-list__item'>";
                         echo "<div class='page-price-list__heading'>";
                         // IDを付与
@@ -52,7 +53,7 @@
                         }
                         echo "</dl>"; // 変更: ulをdlに変更
                         echo "</div>";
-                      }
+                        }
                     }
                     ?>
                 </ul>

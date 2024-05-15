@@ -7,9 +7,9 @@ $page_title = get_the_title();
 
 // ※管理画面のタイトルは日本語（パンくずの表示は日本語にしたいから）で、この２ページのFVのみ英語にするため。
 // プライバシーポリシーまたは利用規約のページに対する条件分岐
-if (is_page('privacy-policy')) {
+if (is_page('privacypolicy')) {
   $page_title = 'Privacy Policy'; // 英語タイトルに上書き
-} elseif (is_page('terms')) {
+} elseif (is_page('terms-of-service')) {
   $page_title = 'Terms of Service'; // 英語タイトルに上書き
 }
 ?>

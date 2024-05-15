@@ -392,6 +392,8 @@ jQuery(function ($) {
       }
     });
 
+    // 以下は管理画面からcontact form7で実装するため、一旦コメントアウト
+
     // エラーメッセージをカスタマイズする
     // Contact Form 7の無効イベントにフック
     //   jQuery(document).ready(function($) {
@@ -418,6 +420,7 @@ jQuery(function ($) {
     //         // ...
     //     });
     // });
+    
   });
 
   // contact form7で実装したので、下記の記述は一旦非表示

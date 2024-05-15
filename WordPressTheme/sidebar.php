@@ -111,7 +111,7 @@
                 while ($campaigns->have_posts()) : $campaigns->the_post();
           ?>
           <li class="sub-campaign__item aside-campaign-card">
-              <a href="<?php the_permalink(); ?>" class="aside-campaign-card">
+          <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="aside-campaign-card">
                   <figure class="aside-campaign-card__image">
                       <?php if (has_post_thumbnail()) : ?>
                           <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">

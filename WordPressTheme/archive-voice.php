@@ -23,7 +23,7 @@
           <div class="page-voice__contents">
             <div class="page-voice__category-tab category-tab">
               <ul class="category-tab__items">
-                <li class="category-tab__item category-tab__item--current uppercase">
+                <li class="category-tab__item category-tab__item--current is-active uppercase">
                 <a href="?category=all" data-tag="all">
                     all
                   </a>

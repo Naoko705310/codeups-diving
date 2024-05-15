@@ -82,81 +82,81 @@
           <div class="footer-nav__items-wrapper--left">
             <ul class="footer-nav__items footer-nav__items--left01">
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/campaign/" class="footer-nav__heading">キャンペーン</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('campaign'))); ?>" class="footer-nav__heading">キャンペーン</a>
                 <ul class="footer-nav__sub-items">
-                <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/campaign/?category=license-training">ライセンス講習</a>
+                  <li class="footer-nav__sub-item">
+                    <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_permalink(get_page_by_path('campaign')))); ?>">ライセンス講習</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/campaign/?category=fun-diving">ファンダイビング</a>
+                    <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_permalink(get_page_by_path('campaign')))); ?>">ファンダイビング</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/campaign/?category=trial-diving">体験ダイビング</a>
+                    <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_permalink(get_page_by_path('campaign')))); ?>">体験ダイビング</a>
                   </li>
                 </ul>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/about-us/" class="footer-nav__heading">私たちについて</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>" class="footer-nav__heading">私たちについて</a>
               </li>
             </ul>
             <ul class="footer-nav__items footer-nav__items--left02">
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/information/" class="footer-nav__heading">ダイビング情報</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>" class="footer-nav__heading">ダイビング情報</a>
                 <ul class="footer-nav__sub-items">
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/information/?tab=tab1">ライセンス講習</a>
+                    <a href="<?php echo esc_url(add_query_arg('tab', 'tab1', get_permalink(get_page_by_path('information')))); ?>">ライセンス講習</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/information/?tab=tab2">ファンダイビング</a>
+                    <a href="<?php echo esc_url(add_query_arg('tab', 'tab2', get_permalink(get_page_by_path('information')))); ?>">ファンダイビング</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/information/?tab=tab3">体験ダイビング</a>
+                    <a href="<?php echo esc_url(add_query_arg('tab', 'tab3', get_permalink(get_page_by_path('information')))); ?>">体験ダイビング</a>
                   </li>
                 </ul>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/blog/" class="footer-nav__heading">ブログ</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('blog'))); ?>" class="footer-nav__heading">ブログ</a>
               </li>
             </ul>
           </div>
           <div class="footer-nav__items-wrapper--right">
             <ul class="footer-nav__items footer-nav__items--right01">
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/voice/" class="footer-nav__heading">お客様の声</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('voice'))); ?>" class="footer-nav__heading">お客様の声</a>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/price/" class="footer-nav__heading">料金一覧</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))); ?>" class="footer-nav__heading">料金一覧</a>
                 <ul class="footer-nav__sub-items">
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/price/#license">ライセンス講習</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))) . '#license'; ?>">ライセンス講習</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/price/#trial">体験ダイビング</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))) . '#trial'; ?>">体験ダイビング</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/price/#fun">ファンダイビング</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))) . '#fun'; ?>">ファンダイビング</a>
                   </li>
                   <li class="footer-nav__sub-item">
-                    <a href="https://www.naoko-test.site/codeups-diving/price/#special">スペシャルダイビング</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))) . '#special'; ?>">スペシャルダイビング</a>
                   </li>
                 </ul>
               </li>
             </ul>
             <ul class="footer-nav__items footer-nav__items--right02">
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/faq/" class="footer-nav__heading">よくある質問</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('faq'))); ?>" class="footer-nav__heading">よくある質問</a>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/privacy-policy/" class="footer-nav__heading">プライバシー<br class="u-mobile">ポリシー</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('privacypolicy'))); ?>" class="footer-nav__heading">プライバシーポリシー</a>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/terms/" class="footer-nav__heading">利用規約</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('terms-of-service'))); ?>" class="footer-nav__heading">利用規約</a>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/contact/" class="footer-nav__heading footer-nav__heading--contact">お問い合わせ</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="footer-nav__heading footer-nav__heading--contact">お問い合わせ</a>
               </li>
               <li class="footer-nav__item">
-                <a href="https://www.naoko-test.site/codeups-diving/sitemap/" class="footer-nav__heading footer-nav__heading--contact">サイトマップ</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('sitemap'))); ?>" class="footer-nav__heading footer-nav__heading--contact">サイトマップ</a>
               </li>
             </ul>
           </div>

@@ -59,17 +59,19 @@
             </div>
             <div class="gallery__image-wrapper">
               <ul class="gallery__items">
-                <?php for ($i = 1; $i <= 6; $i++): // 6枚の画像があると仮定 ?>
-                  <?php $image = get_field('gallery_image' . $i); ?>
-                  <?php if ($image): // 画像がある場合 ?>
-                    <!-- <pre><?php var_dump($image); ?></pre> この行を追加 -->
-                    <li class="gallery__item">
-                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                    </li>
-                    <?php else: ?>
-                    <p>画像<?php echo $i; ?>はありません。</p> <!-- この行を追加 -->
-                  <?php endif; ?>
-                <?php endfor; ?>
+                  <?php 
+                    $i = 1;
+                    while ($image = get_field('gallery_image' . $i)) { // 画像が存在するかチェック
+                      if ($image): // 画像がある場合
+                        ?>
+                        <li class="gallery__item">
+                          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        </li>
+                        <?php
+                      endif;
+                      $i++;
+                    }
+                  ?>
               </ul>
             </div>
           </div>
