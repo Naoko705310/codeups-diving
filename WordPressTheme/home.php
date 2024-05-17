@@ -29,6 +29,33 @@
                 <!-- ブログカード -->
                 <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
                   <figure class="blog-card__image">
+                      <?php if ( has_post_thumbnail() ) : ?>
+                          <img src="<?php echo get_the_post_thumbnail_url(null, 'large'); ?>" alt="<?php the_title_attribute(); ?>">
+                      <?php else : ?>
+                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/blog-card-01.jpg" alt="デフォルト画像">
+                      <?php endif; ?>
+                  </figure>
+                  <div class="blog-card__body">
+                      <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
+                      <h3 class="blog-card__heading"><?php the_title(); ?></h3>
+                      <p class="blog-card__text clamp-text">
+                        <?php echo get_the_excerpt(); ?>
+                      </p>
+                  </div>
+                </a>
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
+                  <figure class="blog-card__image">
                     <?php if ( has_post_thumbnail() ) : ?>
                       <img src="<?php echo get_the_post_thumbnail_url(null, 'large'); ?>" alt="<?php the_title_attribute(); ?>">
                     <?php else : ?>
@@ -42,7 +69,7 @@
                     </h3>
                     <?php the_content(); ?>
                   </div>
-                </a>
+                </a> -->
                 <!-- ループ終了 -->
                 <?php endwhile; endif; ?>
               </div>

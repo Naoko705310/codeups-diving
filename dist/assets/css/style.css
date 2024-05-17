@@ -1084,14 +1084,6 @@ a {
 	margin-top: 1rem;
 }
 
-.clamp-text {
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 5; /* 表示する行数 */
-	display: -webkit-box;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
 .blog-cards {
 	grid-gap: 2.4375rem;
 	display: grid;

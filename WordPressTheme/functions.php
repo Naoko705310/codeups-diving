@@ -326,7 +326,28 @@ function change_post_menu_label() {
 }
 add_action( 'admin_menu', 'change_post_menu_label' );
 
+/* --------------------------------------------
+/* 文字省略の文字数を変更する。(トップページのブログカードと口コミカード)
+// ※デフォルトでは、110文字
+/* -------------------------------------------- */
+function twpp_change_excerpt_length( $length ) {
+    if (is_front_page()) {
+        if (get_post_type() == 'post') {
+            return 85; // blog-card の文字数
+        } elseif (get_post_type() == 'voice') {
+            return 170; // voice-card の文字数
+        }
+    }
+    return $length;
+}
+add_filter( 'excerpt_length', 'twpp_change_excerpt_length', 999 );
 
+
+
+// function twpp_change_excerpt_length( $length ) {
+//     return 85; 
+// }
+// add_filter( 'excerpt_length', 'twpp_change_excerpt_length', 999 );
 
 
 

@@ -72,11 +72,3 @@
   margin-top: rem(16);
 }
 
-.clamp-text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5; /* 表示する行数 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
