@@ -22,26 +22,20 @@
         <!-- カテゴリータブ -->
         <div class="page-campaign__tab category-tab">
           <ul class="category-tab__items">
-            <li class="category-tab__item is-active uppercase">
-              <a href="<?php echo esc_url(add_query_arg('category', 'all', get_post_type_archive_link('campaign'))); ?>" data-tab="all">
-                all
-              </a>
-            </li>
-            <li class="category-tab__item">
-              <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>" data-tab="license">
-                ライセンス講習
-              </a>
-            </li>
-            <li class="category-tab__item">
-              <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>" data-tab="fun">
-                ファンダイビング
-              </a>
-            </li>
-            <li class="category-tab__item">
-              <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>" data-tab="experience">
-                体験ダイビング
-              </a>
-            </li>
+            <?php
+            $terms = get_terms(array(
+              'taxonomy' => 'campaign_category',
+              'hide_empty' => false,
+            ));
+            foreach ($terms as $term) :
+              $is_all = ($term->slug === 'all');
+            ?>
+              <li class="category-tab__item <?php echo $is_all ? 'is-active uppercase' : ''; ?>">
+                <a href="<?php echo esc_url(add_query_arg('category', $term->slug, get_post_type_archive_link('campaign'))); ?>" data-tab="<?php echo esc_attr($term->slug); ?>">
+                  <?php echo esc_html($term->name); ?>
+                </a>
+              </li>
+            <?php endforeach; ?>
           </ul>
         </div>
         <!-- 下層campaign カード群 -->
