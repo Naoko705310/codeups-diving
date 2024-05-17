@@ -10,11 +10,6 @@
   gap: rem(12);
 }
 
-// これは何か分からない？？
-.wp-pagenavi .pages {
-    
-}
-
 // 現在のページ番号のスタイル
 .wp-pagenavi .current {
   font-family: 'Lato', sans-serif;
@@ -58,6 +53,15 @@
   background-color: $green;
   color: $white;
 }
+
+// 矢印と数字の余白調整
+.wp-pagenavi .previouspostslink {
+  margin-right: rem(28);
+}
+.wp-pagenavi .nextpostslink {
+  margin-left: rem(28);
+}
+
 
 /* ============================================
 /* ブログ詳細のページネーション

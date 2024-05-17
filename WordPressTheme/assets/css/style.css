@@ -1084,6 +1084,14 @@ a {
 	margin-top: 1rem;
 }
 
+.clamp-text {
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5; /* 表示する行数 */
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .blog-cards {
 	grid-gap: 2.4375rem;
 	display: grid;
@@ -3226,6 +3234,14 @@ span.error_required {
 .wp-pagenavi .nextpostslink:hover {
 	background-color: #408F95;
 	color: #fff;
+}
+
+.wp-pagenavi .previouspostslink {
+	margin-right: 1.75rem;
+}
+
+.wp-pagenavi .nextpostslink {
+	margin-left: 1.75rem;
 }
 
 /* ============================================

@@ -79,9 +79,9 @@
                       ¥<?php the_field('price_new'); ?>
                     </p>
                   </div>
-                  <p class="page-campaign-card__description u-desktop">
-                  <?php the_content(); ?>
-                  </p>
+                  <div class="page-campaign-card__description u-desktop">
+                    <?php the_content(); ?>
+                  </div>
                   <!-- キャンペーン期間 -->
                   <p class="page-campaign-card__period u-desktop">
                     <?php the_field('campaign_period'); ?>
@@ -103,7 +103,7 @@
         </ul>
         <!-- pagination -->
         <div class="page-blog__pagination sub-pagination">
-          <?php wp_pagenavi(); ?>
+        <?php wp_pagenavi(); ?>
         </div>
         <?php else : ?>
         <p>No campaigns found in this category.</p>

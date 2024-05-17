@@ -162,28 +162,6 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
-  /* 下層ページcampaign :タブで分類された該当記事が表示されている時に、
-  タブの色を反転させる（タブ緑・文字白）
-  /* -------------------------------------------- */
-
-
-  // URLからクエリパラメータを取得
-  var urlParams = new URLSearchParams(window.location.search);
-  var category = urlParams.get('category'); // 'category' パラメータを取得
-
-  // カテゴリに基づいて対応するタブをアクティブにする
-  if (category) {
-    $('.category-tab__item').each(function() {
-      var tabCategory = $(this).find('a').attr('href').split('#')[1]; // 各タブの href 属性からカテゴリを取得
-      if (tabCategory === category) {
-        $(this).addClass('is-active'); // 対応するタブに 'is-active' クラスを追加
-      } else {
-        $(this).removeClass('is-active'); // 他のタブから 'is-active' クラスを削除
-      }
-    });
-  }
-
-  /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
 
@@ -346,31 +324,6 @@ jQuery(function ($) {
   // });
 
   /* --------------------------------------------
-  /* 料金一覧ページを閲覧中にdrawer-menuから料金一覧のサブアイテムにリンクできる処理
-  /* -------------------------------------------- */
-
-//   $('.header__sp-nav a').on('click', function(e) {
-//     var targetId = $(this).attr('href').split('#')[1];
-//     if (targetId) {
-//         var targetElement = $('#' + targetId);
-//         if (targetElement.length) {
-//             e.preventDefault(); // デフォルトのアンカー動作を防止
-//             $('html, body').animate({
-//                 scrollTop: targetElement.offset().top
-//             }, 600); // スムーズスクロールの速度を600msに設定
-//             closeDrawerMenu(); // ドロワーメニューを閉じる関数を呼び出し
-//         }
-//     }
-// });
-
-// function closeDrawerMenu() {
-//     // ドロワーメニューを閉じるコードをここに追加
-//     $('.js-drawer-menu').removeClass('is-open');
-// }
-
-
-
-  /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
   /* -------------------------------------------- */
   // フォーム上部の、「※必須項目が入力されていません。入力してください。」メッセージは、Contact form7とは別で実装する。
@@ -391,8 +344,6 @@ jQuery(function ($) {
         $(this).blur().focus(); // フォーカスを一旦外して再度フォーカスを当てる
       }
     });
-
-    // 以下は管理画面からcontact form7で実装するため、一旦コメントアウト
 
     // エラーメッセージをカスタマイズする
     // Contact Form 7の無効イベントにフック
@@ -420,7 +371,6 @@ jQuery(function ($) {
     //         // ...
     //     });
     // });
-    
   });
 
   // contact form7で実装したので、下記の記述は一旦非表示

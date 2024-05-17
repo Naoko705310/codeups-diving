@@ -85,6 +85,12 @@
             </div>
           </div>
         </div>
+        <!-- Campaignセクションのボタン -->
+        <div class="campaign__button">
+          <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="button">
+            <span>view more</span>
+          </a>
+        </div>
       </div>
     </section>
 <!-- About Us セクション -->
@@ -186,6 +192,7 @@
         <div class="blog__items blog-cards">
             <?php if ($blog_posts->have_posts()) : ?>
                 <?php while ($blog_posts->have_posts()) : $blog_posts->the_post(); ?>
+                <!-- ブログカード -->
                     <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
                         <figure class="blog-card__image">
                             <?php if (has_post_thumbnail()) : ?>
@@ -195,7 +202,8 @@
                         <div class="blog-card__body">
                             <time class="blog-card__time" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
                             <h3 class="blog-card__heading"><?php the_title(); ?></h3>
-                            <p class="blog-card__text"><?php the_excerpt(); ?></p>
+                            <!-- <div class="blog-card__text clamp-text"><?php the_excerpt(); ?></div> -->
+                            <p class="blog-card__text clamp-text"><?php echo get_the_excerpt(); ?></p>
                         </div>
                     </a>
                 <?php endwhile; ?>

@@ -67,10 +67,10 @@
         </div>
         <!-- SNSアイコン -->
         <div class="footer__sns footer-sns">
-          <a href="#" class="footer-sns__link footer-sns__link--facebook">
+          <a href="https://www.facebook.com/" target="_blank" class="footer-sns__link footer-sns__link--facebook">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook-icon.png" alt="facebookアイコン">
           </a>
-          <a href="#" class="footer-sns__link footer-sns__link--instagram">
+          <a href="https://www.instagram.com/" target="_blank" class="footer-sns__link footer-sns__link--instagram">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon.png" alt="instagramアイコン">
           </a>
         </div>
@@ -82,7 +82,7 @@
           <div class="footer-nav__items-wrapper--left">
             <ul class="footer-nav__items footer-nav__items--left01">
               <li class="footer-nav__item">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('campaign'))); ?>" class="footer-nav__heading">キャンペーン</a>
+              <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="footer-nav__heading">キャンペーン</a>
                 <ul class="footer-nav__sub-items">
                   <li class="footer-nav__sub-item">
                     <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_permalink(get_page_by_path('campaign')))); ?>">ライセンス講習</a>
@@ -122,7 +122,7 @@
           <div class="footer-nav__items-wrapper--right">
             <ul class="footer-nav__items footer-nav__items--right01">
               <li class="footer-nav__item">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('voice'))); ?>" class="footer-nav__heading">お客様の声</a>
+              <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="footer-nav__heading">お客様の声</a>
               </li>
               <li class="footer-nav__item">
                 <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))); ?>" class="footer-nav__heading">料金一覧</a>
