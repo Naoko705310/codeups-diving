@@ -1,7 +1,9 @@
 @use "global" as *;
 
 .inner.page-contact__inner {
-  max-width: rem(750);
-  margin: 0 auto;
+  max-width: rem(630);
+  @include mq(md) {
+    max-width: rem(750);
+  }
 }
 

@@ -239,7 +239,7 @@
           <?php
           $voice_args = array(
             'post_type' => 'voice', // カスタム投稿タイプのスラッグ
-            'posts_per_page' => 3 // 表示する投稿数
+            'posts_per_page' => 2 // 表示する投稿数
           );
           $voice_query = new WP_Query($voice_args);
           if ($voice_query->have_posts()) :

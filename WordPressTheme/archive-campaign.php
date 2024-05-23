@@ -38,6 +38,7 @@
             <?php endforeach; ?>
           </ul>
         </div>
+        
         <!-- 下層campaign カード群 -->
         <ul class="page-campaign__items page-campaign-cards">
           <?php if (have_posts()) : ?><?php while (have_posts()) : the_post(); ?>

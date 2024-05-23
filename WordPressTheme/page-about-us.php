@@ -59,19 +59,19 @@
             </div>
             <div class="gallery__image-wrapper">
               <ul class="gallery__items">
-                  <?php 
-                    $i = 1;
-                    while ($image = get_field('gallery_image' . $i)) { // 画像が存在するかチェック
-                      if ($image): // 画像がある場合
-                        ?>
-                        <li class="gallery__item">
-                          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                        </li>
-                        <?php
-                      endif;
-                      $i++;
-                    }
-                  ?>
+                <?php 
+                $i = 1;
+                while ($image = get_field('gallery_image' . $i)) { // 画像が存在するかチェック
+                  if ($image): // 画像がある場合
+                    ?>
+                    <li class="gallery__item">
+                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    </li>
+                    <?php
+                  endif;
+                  $i++;
+                }
+                ?>
               </ul>
             </div>
           </div>

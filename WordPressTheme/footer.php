@@ -84,7 +84,16 @@
               <li class="footer-nav__item">
               <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="footer-nav__heading">キャンペーン</a>
                 <ul class="footer-nav__sub-items">
-                  <li class="footer-nav__sub-item">
+                <li class="footer-nav__sub-item">
+            <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>">ライセンス講習</a>
+          </li>
+          <li class="footer-nav__sub-item">
+            <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>">ファンダイビング</a>
+          </li>
+          <li class="footer-nav__sub-item">
+            <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>">体験ダイビング</a>
+          </li>
+                  <!-- <li class="footer-nav__sub-item">
                     <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_permalink(get_page_by_path('campaign')))); ?>">ライセンス講習</a>
                   </li>
                   <li class="footer-nav__sub-item">
@@ -92,7 +101,7 @@
                   </li>
                   <li class="footer-nav__sub-item">
                     <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_permalink(get_page_by_path('campaign')))); ?>">体験ダイビング</a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
               <li class="footer-nav__item">

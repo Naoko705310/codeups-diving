@@ -162,6 +162,41 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
+  /* キャンペーンカテゴリーを選択した時にタブの色を変える
+  /* -------------------------------------------- */
+      $('.category-tab__item a').on('click', function(e) {
+        e.preventDefault(); // デフォルトのリンク動作を無効化
+        var category = $(this).data('tab');
+        window.location.href = '?category=' + category;
+    });
+
+    // URLパラメータを取得して現在のカテゴリーを判断し、スタイルを変更
+    function getParameterByName(name) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var currentCategory = getParameterByName('category');
+    if (currentCategory) {
+        $('.category-tab__item').each(function() {
+            var tabCategory = $(this).find('a').data('tab');
+            if (tabCategory === currentCategory) {
+                $(this).addClass('is-active');
+            } else {
+                $(this).removeClass('is-active');
+            }
+        });
+    } else {
+        // 初期状態で "all" カテゴリーをアクティブにする
+        $('.category-tab__item a[data-tab="all"]').closest('.category-tab__item').addClass('is-active');
+    }
+
+
+  /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
 
@@ -381,7 +416,7 @@ jQuery(function ($) {
   //     $("#js-submit").on("click", function () {
   //       // 全てのエラーメッセージをクリア
   //       $(
-  //         ".error_required, .radio-error, .privacy-error, .pull-down-error, .email-error, .name-error, .tel-error, .privacy-error"
+  //         ".error_required, .radio-error, .privacy-error, .drop-down-error, .email-error, .name-error, .tel-error, .privacy-error"
   //       ).text("");
 
   // // 要確認 エラー反映されていない
@@ -401,10 +436,10 @@ jQuery(function ($) {
   //         $(".radio-error").text("※ラジオボタンを選択してください.");
   //       }
 
-  //       if ($("#pull-down").val() === "") {
-  //         $(".pull-down-error").text("※キャンペーンを選択してください.");
+  //       if ($("#drop-down").val() === "") {
+  //         $(".drop-down-error").text("※キャンペーンを選択してください.");
   //       } else {
-  //         $(".pull-down-error").text(""); // 条件が成り立たない場合、エラーメッセージをクリア
+  //         $(".drop-down-error").text(""); // 条件が成り立たない場合、エラーメッセージをクリア
   //       }
 
   //       var checkboxChecked = $("#checkbox:checked").length;
@@ -438,7 +473,7 @@ jQuery(function ($) {
   //       if (
   //         $(".errored").length > 0 ||
   //         radioChecked === 0 ||
-  //         $("#pull-down").val() === "" ||
+  //         $("#drop-down").val() === "" ||
   //         checkboxChecked === 0 ||
   //         !emailRegex.test(emailInput) ||
   //         !nameRegex.test(nameInput) ||

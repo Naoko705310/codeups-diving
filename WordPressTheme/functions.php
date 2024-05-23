@@ -175,6 +175,54 @@ function wpcf7_autop_return_false() {
 } 
 
 /* --------------------------------------------
+/* Contact form7で、キャンペーンのドロップダウンに、記事一覧のタイトルを表示する
+/* -------------------------------------------- */
+function get_campaign_titles() {
+    $args = array(
+        'post_type' => 'campaign', // カスタム投稿タイプのスラッグ
+        'posts_per_page' => -1, // 全てのキャンペーン投稿を取得
+    );
+
+    $query = new WP_Query($args);
+    $titles = array();
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $titles[] = get_the_title();
+        }
+        wp_reset_postdata();
+    }
+
+    return $titles;
+}
+
+function campaign_titles_dropdown() {
+    $titles = get_campaign_titles();
+    $options = '<option value="">キャンペーン内容を選択</option>'; // 初期表示
+
+    foreach ($titles as $title) {
+        $options .= '<option value="' . esc_attr($title) . '">' . esc_html($title) . '</option>';
+    }
+
+    return $options;
+}
+
+add_shortcode('campaign_titles_dropdown', 'campaign_titles_dropdown');
+
+
+/* --------------------------------------------
+/* キャンペーンの選択肢に記事のタイトルを表示するための、ショートコードのフック
+/* -------------------------------------------- */
+function do_shortcode_in_cf7($form) {
+    return do_shortcode($form);
+}
+
+add_filter('wpcf7_form_elements', 'do_shortcode_in_cf7');
+
+
+
+/* --------------------------------------------
 /* // ブログ一覧・詳細：サイドバーウィジェット表示
 /* -------------------------------------------- */
 
@@ -331,7 +379,7 @@ add_action( 'admin_menu', 'change_post_menu_label' );
 // ※デフォルトでは、110文字
 /* -------------------------------------------- */
 function twpp_change_excerpt_length( $length ) {
-    if (is_front_page()) {
+    if (is_front_page() || is_home()) {
         if (get_post_type() == 'post') {
             return 85; // blog-card の文字数
         } elseif (get_post_type() == 'voice') {
@@ -343,14 +391,29 @@ function twpp_change_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'twpp_change_excerpt_length', 999 );
 
 
+/* --------------------------------------------
+/* お問い合わせフォーム送信後にthanksページに遷移する
+/* -------------------------------------------- */
+function my_custom_script() {
+    ?>
+    <script type="text/javascript">
+        document.addEventListener('wpcf7mailsent', function(event) {
+            var siteUrl = '<?php echo esc_url(home_url()); ?>';
+            location.href = siteUrl + '/contact/thanks/';
+        }, false);
+    </script>
+    <?php
+}
+add_action('wp_footer', 'my_custom_script');
 
-// function twpp_change_excerpt_length( $length ) {
-//     return 85; 
-// }
-// add_filter( 'excerpt_length', 'twpp_change_excerpt_length', 999 );
 
-
-
-
+/* --------------------------------------------
+/* キャンペーンカテゴリーを選択した時にタブの色を変える
+/* -------------------------------------------- */
+function enqueue_category_tab_script() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('category-tab', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), null, true);
+  }
+  add_action('wp_enqueue_scripts', 'enqueue_category_tab_script');
 
 

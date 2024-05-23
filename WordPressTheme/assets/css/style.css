@@ -119,6 +119,16 @@ textarea {
 	outline: none;
 }
 
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
 textarea {
 	resize: vertical;
 }
@@ -542,11 +552,10 @@ a {
 }
 
 .inner.page-contact__inner {
-	margin: 0 auto;
-	max-width: 46.875rem;
+	max-width: 39.375rem;
 }
 
-.page-faq__inner {
+.inner.page-faq__inner {
 	max-width: 39.375rem;
 }
 
@@ -565,9 +574,7 @@ a {
 	margin-top: 1rem;
 }
 
-.page-price__inner {
-	margin-left: auto;
-	margin-right: auto;
+.inner.page-price__inner {
 	max-width: 39.375rem;
 }
 
@@ -1521,20 +1528,7 @@ a {
 	padding-top: 0;
 }
 
-.contact-form__item dd {
-	display: flex;
-	flex-direction: column;
-	margin-top: 1rem;
-}
-
-.contact-form__item dd .input-area,
-.contact-form__item dd .text-area,
-.contact-form__item dd .input-area--pull-down {
-	flex: 1;
-	min-height: 30px;
-}
-
-.contact-form__heading {
+.contact-form__label {
 	align-items: center;
 	color: #0D2936;
 	display: flex;
@@ -1544,7 +1538,7 @@ a {
 	height: 1.4375rem;
 }
 
-.contact-form__heading span {
+.contact-form__label span {
 	align-items: center;
 	background-color: #C94800;
 	color: #fff;
@@ -1558,8 +1552,13 @@ a {
 	padding: 0.125rem 1rem;
 }
 
-.input-area {
+.contact-form__item dd {
+	margin-top: 1rem;
+}
+
+.contact-form__input-area {
 	background: #fff;
+	border: 1px solid #408F95;
 	color: #0D2936;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
@@ -1569,15 +1568,62 @@ a {
 	width: 100%;
 }
 
-.input-area.input-area--pull-down {
-	aspect-ratio: 345/40;
-	border: 1px solid #408F95;
-	height: 2.5rem;
-	padding-left: 0.375rem;
+.contact-form__input-area::-moz-placeholder {
+	color: #DDF0F1;
 }
 
-.text-area {
+.contact-form__input-area::placeholder {
+	color: #DDF0F1;
+}
+
+.contact-form__input-area[aria-invalid=true]::-moz-placeholder,
+.contact-form__text-area[aria-invalid=true]::-moz-placeholder {
+	color: #fff;
+}
+
+.contact-form__input-area[aria-invalid=true]::placeholder,
+.contact-form__text-area[aria-invalid=true]::placeholder {
+	color: #fff;
+}
+
+/* ドロップダウンメニュー（キャンペーン） */
+
+.contact-form__drop-down {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none; /* デフォルトの矢印を非表示にする */
 	background: #fff;
+	border: 1px solid #408F95;
+	color: #0D2936; /* 正常入力時の文字色 */
+	font-family: "Noto Sans JP", sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	height: 2.5rem;
+	padding: 0.4375rem 0.5rem;
+	position: relative;
+	width: 100%;
+}
+
+.dropdown-wrapper {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+}
+
+.dropdown-arrow {
+	color: #408F95;
+	content: "▼";
+	font-size: 0.75rem;
+	pointer-events: none;
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.contact-form__text-area {
+	background: #fff;
+	border: 1px solid #408F95;
 	color: #0D2936;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
@@ -1585,65 +1631,21 @@ a {
 	width: 100%;
 }
 
-.input-area[aria-invalid=true],
-.text-area[aria-invalid=true] {
+.contact-form__input-area[aria-invalid=true],
+.contact-form__text-area[aria-invalid=true] {
 	background: rgba(201, 72, 0, 0.2);
 	border: 1px solid #C94800;
-	color: #fff;
 }
 
-.input-area:focus,
-.text-area:focus {
+.contact-form__input-area:focus,
+.contact-form__text-area:focus {
 	border: 1px solid #408F95;
 	color: #0D2936;
 }
 
-.input-area[aria-invalid=true]:focus,
-.text-area[aria-invalid=true]:focus {
+.contact-form__input-area[aria-invalid=true]:focus,
+.contact-form__text-area[aria-invalid=true]:focus {
 	color: #0D2936;
-}
-
-.input-area__postal-code {
-	width: 47.005%;
-}
-
-input[type=text],
-input[type=email],
-input[type=tel],
-textarea,
-select {
-	border: 1px solid #408F95;
-}
-
-.contact-form__radio {
-	margin-top: 1.125rem;
-}
-
-.input-area::-moz-placeholder {
-	color: #DDF0F1;
-}
-
-.input-area::placeholder {
-	color: #DDF0F1;
-}
-
-.wpcf7-form-control-wrap input.errored::-moz-placeholder {
-	color: #fff;
-}
-
-.wpcf7-form-control-wrap input.errored::placeholder {
-	color: #fff;
-}
-
-.name-error,
-.email-error,
-.tel-error,
-.pull-down-error {
-	color: #408F95;
-	font-family: "Noto Sans JP", sans-serif;
-	font-size: 0.875rem;
-	font-weight: 400;
-	text-align: left;
 }
 
 .wpcf7-list-item {
@@ -1664,7 +1666,13 @@ select {
 	position: relative;
 }
 
-input[type=checkbox][name="checkbox-659[]"] {
+input[type=checkbox].contact-form__checkbox-inquiry {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+input[type=acceptance].contact-form__checkbox-privacy {
 	opacity: 0;
 	position: absolute;
 	z-index: -1;
@@ -1677,11 +1685,24 @@ input[type=checkbox][name="checkbox-659[]"] {
 	height: 14px;
 	left: 0;
 	position: absolute;
-	top: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	width: 14px;
 }
 
-input[type=checkbox][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::after {
+.contact-form__checkbox-privacy + .wpcf7-list-item-label::before {
+	border: 1px solid #408F95;
+	content: "";
+	display: inline-block;
+	height: 14px;
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 14px;
+}
+
+input[type=checkbox][name="checkbox-inquiry[]"]:checked + .wpcf7-list-item-label::after {
 	border-bottom: 2px solid #C94800;
 	border-left: 2px solid #C94800;
 	border-right: transparent;
@@ -1692,8 +1713,24 @@ input[type=checkbox][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::af
 	left: 3px;
 	position: absolute;
 	position: absolute;
-	top: 15%;
-	transform: rotate(-45deg);
+	top: 50%;
+	transform: translateY(-50%) rotate(-45deg);
+	width: 9px;
+}
+
+input[type=checkbox][name=checkbox-privacy]:checked + .wpcf7-list-item-label::after {
+	border-bottom: 2px solid #C94800;
+	border-left: 2px solid #C94800;
+	border-right: transparent;
+	border-top: transparent;
+	content: "";
+	display: block;
+	height: 5px;
+	left: 3px;
+	position: absolute;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) rotate(-45deg); /* 中央からのオフセットと角度調整 */
 	width: 9px;
 }
 
@@ -1702,59 +1739,6 @@ input[type=checkbox][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::af
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 0.875rem;
 	font-weight: 400;
-}
-
-.custom-select {
-	position: relative;
-}
-
-.custom-select select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background: #fff;
-	border: 1px solid rgba(0, 0, 0, 0.16);
-	color: #000;
-	cursor: pointer;
-	font-family: "Noto Sans JP", sans-serif;
-	font-size: 0.75rem;
-	font-weight: 400;
-	font-weight: 400;
-	width: 100%;
-}
-
-.custom-select::after {
-	color: #408F95;
-	content: "▼";
-	display: inline-block;
-	font-size: 0.75rem;
-	pointer-events: none;
-	position: absolute;
-	right: 0.5rem;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-input[type=checkbox][name=acceptance-332] {
-	opacity: 0;
-	position: absolute;
-	z-index: -1;
-}
-
-input[type=checkbox][name=acceptance-332]:checked + .wpcf7-list-item-label::after {
-	border-bottom: 2px solid #C94800;
-	border-left: 2px solid #C94800;
-	border-right: transparent;
-	border-top: transparent;
-	content: "";
-	display: block;
-	height: 5px;
-	left: 3px;
-	position: absolute;
-	position: absolute;
-	top: 15%;
-	transform: rotate(-45deg);
-	width: 9px;
 }
 
 .contact-form__privacy {
@@ -1803,6 +1787,17 @@ span.error_required {
 	margin-bottom: 2.5rem;
 	margin-top: 3.25rem;
 	position: relative;
+	text-align: left;
+}
+
+.name-error,
+.email-error,
+.tel-error,
+.drop-down-error {
+	color: #408F95;
+	font-family: "Noto Sans JP", sans-serif;
+	font-size: 0.875rem;
+	font-weight: 400;
 	text-align: left;
 }
 
@@ -3935,7 +3930,11 @@ html {
 	margin-right: auto;
 }
 
-.page-faq__inner {
+.inner.page-contact__inner {
+	max-width: 46.875rem;
+}
+
+.inner.page-faq__inner {
 	max-width: 46.875rem;
 }
 
@@ -3943,7 +3942,7 @@ html {
 	margin-top: 1.5rem;
 }
 
-.page-price__inner {
+.inner.page-price__inner {
 	max-width: 46.875rem;
 }
 
@@ -4256,33 +4255,24 @@ html {
 	width: 30rem;
 }
 
-.contact-form__item--pull-down {
-	padding-top: 2.25rem;
-}
-
-.input-area {
+.contact-form__input-area {
 	font-size: 1rem;
 	margin-top: 0;
 	width: 30rem;
 }
 
-.input-area.input-area--pull-down {
-	aspect-ratio: 480/30;
-	height: 1.875rem;
-	padding: 0.4375rem 0.5625rem 0.375rem 0.5rem;
+.contact-form__drop-down {
+	font-size: 1rem;
+	margin-top: 0;
 	width: 30rem;
 }
 
-.text-area {
-	margin-top: 0;
-}
-
-.contact-form__radio {
-	margin-top: 0;
-}
-
-.custom-select::after {
+.dropdown-arrow {
 	top: 50%;
+}
+
+.contact-form__text-area {
+	margin-top: 0;
 }
 
 .contact-form__privacy {

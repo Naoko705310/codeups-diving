@@ -26,35 +26,8 @@
   padding-top: 0;
 }
 
-// 入力エリア
-.contact-form__item dd {
-  //input-areaなど中の子要素を100%にするためflexを使う
-  display: flex; 
-  flex-direction: column;
-  margin-top: rem(16);
-  @include mq(md) {
-    width: rem(480);
-    margin-top: 0;
-  }
-}
-
-.contact-form__item dd .input-area,
-.contact-form__item dd .text-area,
-.contact-form__item dd .input-area--pull-down {
-    flex: 1; // 子要素を均等に伸縮させる
-    min-height: 30px; // 最小の高さを設定
-}
-
-
-
-.contact-form__item--pull-down {
-  @include mq(md) {
-    padding-top: rem(36);
-  }
-}
-
-//見出し
-.contact-form__heading {
+//見出し(label）
+.contact-form__label {
   height: rem(23);
   font-family: $base-font-family;
   font-size: rem(16);
@@ -65,7 +38,7 @@
 }
 
 //「必須」タグ
-.contact-form__heading span {
+.contact-form__label span {
   font-family: $base-font-family;
   font-size: rem(12);
   color: $white;
@@ -79,8 +52,17 @@
   padding: rem(2) rem(16);
 }
 
-// 入力エリア
-.input-area { 
+// 入力エリアのコンテナ
+.contact-form__item dd {
+  margin-top: rem(16);
+  @include mq(md) {
+    width: rem(480);
+    margin-top: 0;
+  }
+}
+
+// 入力エリア（名前、メルアド、電話番号）
+.contact-form__input-area { 
   width: 100%;
   height: rem(40);
   background: #fff;
@@ -89,6 +71,7 @@
   color: $green-deep;//正常入力時の文字色
   font-weight: $normal;
   padding: rem(7) rem(16);
+  border: 1px solid $green;
   @include mq(md) {
     width: rem(480);
     font-size: rem(16);
@@ -96,123 +79,106 @@
   }
 }
 
-.input-area.input-area--pull-down {
-  height: rem(40); //aspect-ratioで高さ制御できないので追記
-  aspect-ratio: 345/40;
+//placeholder文字色
+.contact-form__input-area::placeholder { 
+  color: $green-light; 
+}
+
+// エラー時のplaceholderの文字色
+.contact-form__input-area[aria-invalid="true"]::placeholder,
+.contact-form__text-area[aria-invalid="true"]::placeholder {
+  color: #fff; 
+}
+
+
+/* ドロップダウンメニュー（キャンペーン） */
+.contact-form__drop-down {
+  width: 100%;
+  height: rem(40);
+  background: #fff;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $green-deep; /* 正常入力時の文字色 */
+  font-weight: $normal;
   border: 1px solid $green;
-  padding-left: rem(6);
+  padding: rem(7) rem(8);
+  position: relative;
+  appearance: none; /* デフォルトの矢印を非表示にする */
   @include mq(md) {
     width: rem(480);
-    height: rem(30);
-    aspect-ratio: 480/30;
-    padding: rem(7) rem(9) rem(6) rem(8);
+    font-size: rem(16);
+    margin-top: 0;
   }
 }
 
-// お問い合わせ内容の入力エリア
-.text-area {
+// 下矢印
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropdown-arrow {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: rem(8);
+  transform: translateY(-50%);
+  font-size: rem(12);
+  color: $green;
+  pointer-events: none;
+  @include mq(md) {
+    top: 50%;
+  }
+}
+
+
+// 入力エリア（お問い合わせ内容）
+.contact-form__text-area {
   width: 100%;
   background: #fff;
   font-family: $base-font-family;
   font-size: rem(16);
   color: $green-deep;
   font-weight: $normal;
+  border: 1px solid $green;
   @include mq(md) {
     margin-top: 0;
   }
 }
 
-.input-area[aria-invalid="true"],
-.text-area[aria-invalid="true"] {
+// 入力エリアに入力がない時（エラー時）
+.contact-form__input-area[aria-invalid="true"],
+.contact-form__text-area[aria-invalid="true"] {
   border: 1px solid #C94800;
   background: rgba(201, 72, 0, 0.20);
-  color: #fff;
 }
 
-// フォーカス中のスタイル
-.input-area:focus,
-.text-area:focus {
-  color: $green-deep; // または黒色など、希望の色に設定
-  border: 1px solid $green; // フォーカス時のボーダーも適宜調整可能
+// フォーカス中（入力中）のスタイル
+.contact-form__input-area:focus,
+.contact-form__text-area:focus {
+  color: $green-deep; 
+  border: 1px solid $green; 
 }
 
-.input-area[aria-invalid="true"]:focus,
-.text-area[aria-invalid="true"]:focus {
-  color: $green-deep; // エラー状態でもフォーカス時はこの色を使用
+// エラー状態で入力中の文字色
+.contact-form__input-area[aria-invalid="true"]:focus,
+.contact-form__text-area[aria-invalid="true"]:focus {
+  color: $green-deep; 
 }
 
-// .input-area.errored,
-// .text-area.errored {
-//   border: 1px solid #C94800;
-//   background: rgba(201, 72, 0, 0.20);
-//   color: #fff;
-// }
-
-.input-area__postal-code {
-  width: 47.005%;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea,
-select {
-  border: 1px solid $green;
-}
-
-.contact-form__radio {
-  margin-top: rem(18);
-  @include mq(md) {
-    margin-top: 0;
-  }
-}
-
-//placeholder文字色
-.input-area::placeholder { //input-areaを修正
-  color: $green-light; 
-}
-
-
-
-// .input-area::placeholder,
-// .text-area::placeholder {
-//   color: $green-light; 
-// }
-
-//placeholderエラー時文字色
-.wpcf7-form-control-wrap input.errored::placeholder { //input-areaを変更
-  color: $white;
-}
-
-// .input-area.errored::placeholder,
-// .text-area.errored::placeholder {
-//   color: $white; 
-// }
-
-//正規表現チェックのテキスト
-.name-error,
-.email-error,
-.tel-error,
-.pull-down-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: $green;
-  font-weight: $normal;
-  text-align: left;
-}
-
-//** お問い合わせ項目（チェックボックス）のデザイン **
+//チェックボックス（お問い合わせ項目）
 //inputタグのデフォルトデザインを消す
 
 // Contact form 7のCSS
-// ラベル（ボックスとテキスト）のコンテナ
+// チェックボックスのラベル（ボックスとテキスト）のコンテナ
 .wpcf7-list-item {
   display: block;
   margin-left: 0; //デフォルトの余白を消す
   margin-bottom: rem(2);
 }
 
-// ラベル（ボックスとテキスト）
+// チェックボックスのラベル（ボックスとテキスト）
 .wpcf7-list-item label {
   display: inline-block;
   font-family: $base-font-family;
@@ -225,9 +191,14 @@ select {
   cursor: pointer;
 }
 
+// お問い合わせ項目のチェックボックススタイル
+input[type="checkbox"].contact-form__checkbox-inquiry {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
 
-// チェックボックスinput
-input[type="checkbox"][name="checkbox-659[]"] {
+input[type="acceptance"].contact-form__checkbox-privacy {
   position: absolute;
   opacity: 0;
   z-index: -1;
@@ -242,13 +213,29 @@ input[type="checkbox"][name="checkbox-659[]"] {
   border: 1px solid $green;
   position: absolute;
   left: 0;
-  top: 0;
-  // top: 50%;
-  // transform: translateY(-50%);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+// // 承諾確認のチェックボックスの枠
+.contact-form__checkbox-privacy + .wpcf7-list-item-label::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid $green;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
 // チェック後のチェックマーク
-input[type="checkbox"][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::after {
+// checkbox-inquiry（お問い合わせ項目）のチェックボックス
+// （複数選択）は配列形式[]が必要
+input[type="checkbox"][name="checkbox-inquiry[]"]:checked + .wpcf7-list-item-label::after {
   content: "";
   display: block;
   position: absolute;
@@ -259,13 +246,28 @@ input[type="checkbox"][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::
   border-left: 2px solid #C94800;
   border-bottom: 2px solid #C94800;
   position: absolute;
-  top: 15%;
-  // top: 50%;
+  top: 50%;
   left: 3px;
-  // transform: rotate(-45deg);
-  transform: rotate(-45deg); // 中央からのオフセットと角度調整
-  // transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
+  transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
 } 
+// チェック後のチェックマーク
+// checkbox-privacy（プライバシー）のチェックボックス
+input[type="checkbox"][name="checkbox-privacy"]:checked + .wpcf7-list-item-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: 2px solid #C94800;
+  border-bottom: 2px solid #C94800;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%) rotate(-45deg); /* 中央からのオフセットと角度調整 */
+}
+
 
 .checkbox-error {
   font-family: $base-font-family;
@@ -273,105 +275,6 @@ input[type="checkbox"][name="checkbox-659[]"]:checked + .wpcf7-list-item-label::
   color: #C94800;
   font-weight: $normal;
 }
-
-//プルダウンメニュー
-.custom-select {
-  position: relative;
-}
-
-.custom-select select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  background: #fff;
-  font-family: $base-font-family;
-  font-size: rem(12);
-  color: #000;
-  font-weight: $normal;
-  font-weight: $normal;
-  cursor: pointer;
-}
-
-// 下矢印
-.custom-select::after {
-  content: '\25BC'; 
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: rem(8);
-  transform: translateY(-50%);
-  font-size: rem(12);
-  color: $green;
-  pointer-events: none;
-  @include mq(md) {
-  top: 50%;
-  }
-}
-
-// 「個人情報保護方針」のチェックボックス
-// ラベル（ボックスとテキスト）のコンテナ
-// .wpcf7-list-item {
-//   display: block;
-//   margin-left: 0; //デフォルトの余白を消す
-//   margin-bottom: rem(2);
-// }
-
-// ラベル（ボックスとテキスト）
-// .wpcf7-list-item label {
-//   display: inline-block;
-//   font-family: $base-font-family;
-//   font-size: rem(16);
-//   color: $green-deep;
-//   font-weight: $normal;
-//   padding-left: rem(22);//枠14+余白8
-//   position: relative;
-//   margin-bottom: rem(2);//4→2 ピクパ調整
-//   cursor: pointer;
-// }
-
-
-// privacy：デフォルトチェックボックスinput
-input[type="checkbox"][name="acceptance-332"] {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
-
-// privacy:チェックボックスの枠
-// .wpcf7-list-item-label::before {
-//   content: "";
-//   display: inline-block;
-//   width: 14px;
-//   height: 14px;
-//   border: 1px solid $green;
-//   position: absolute;
-//   left: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-
-// privacy:チェック後のチェックマーク
-input[type="checkbox"][name="acceptance-332"]:checked + .wpcf7-list-item-label::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 9px;
-  height: 5px;
-  border-top: transparent;
-  border-right: transparent;
-  border-left: 2px solid #C94800;
-  border-bottom: 2px solid #C94800;
-  position: absolute;
-  top: 15%;
-  // top: 50%;
-  left: 3px;
-  // transform: rotate(-45deg);
-  transform: rotate(-45deg); // 中央からのオフセットと角度調整
-  // transform: translateY(-50%) rotate(-45deg); // 中央からのオフセットと角度調整
-} 
-
 
 // 元のコード
 // プライバシーポリシーのチェックボックススタイル
@@ -436,4 +339,19 @@ span.error_required {
   @include mq(md) {
     margin-top: rem(150);
   }
+}
+
+
+
+
+//正規表現チェックのテキスト
+.name-error,
+.email-error,
+.tel-error,
+.drop-down-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $green;
+  font-weight: $normal;
+  text-align: left;
 }
