@@ -30,7 +30,7 @@ function add_custom_scripts() {
 add_action('wp_enqueue_scripts', 'add_custom_scripts');
 
 /* --------------------------------------------
-/* アイキャッチ画像の選択項目がメニューに表示されるようにする
+/* 「アイキャッチ画像」という選択項目がメニューに表示されるようにする
 /* -------------------------------------------- */
 function my_setup() {
 	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
@@ -50,8 +50,8 @@ function my_setup() {
 add_action( 'after_setup_theme', 'my_setup' );
 
 /* --------------------------------------------
-/* //アーカイブの表示件数変更
-//※管理画面の設定の表示件数10件というのは、通常投稿（blog)にしか適用されない。
+/* アーカイブの表示件数変更
+//※管理画面で設定した「表示件数10件」というのは、通常投稿（blog)にしか適用されない。
 /* -------------------------------------------- */
 
 function change_posts_per_page($query) {
@@ -69,26 +69,6 @@ function change_posts_per_page($query) {
     }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
-
-/* --------------------------------------------
-/* // キャンペーン一覧ページで、記事を分類する
-/* -------------------------------------------- */
-
-function filter_campaign_posts_by_category($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
-        $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
-    if (!empty($category_slug) && $category_slug != 'all') {
-        $query->set('tax_query', array(
-            array(
-            'taxonomy' => 'campaign_category',
-            'field'    => 'slug',
-            'terms'    => $category_slug,
-            ),
-        ));
-        }
-    }
-}
-add_action('pre_get_posts', 'filter_campaign_posts_by_category');
 
 /* --------------------------------------------
 /* // お客様の声一覧ページで、記事をカテゴリーごとに分類する
