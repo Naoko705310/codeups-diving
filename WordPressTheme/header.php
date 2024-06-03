@@ -8,19 +8,7 @@
   <!-- インデックス防止 -->
   <meta name="robots" content="noindex">
 
-  <!-- WP管理メニューが邪魔なので下に下げる。 不要になったら削除-->
-  <?php if( is_user_logged_in() ) : ?>
-      <style type="text/css">
-      html {
-        margin: 0 0 32px!important;
-      }
-      #wpadminbar {
-        top: unset!important;
-        bottom: 0;
-      }
-      </style>
-  <?php endif; ?>
-  <!-- WP管理メニューを下に下げる、ここまで -->
+
 
 
   <?php wp_head(); ?>
