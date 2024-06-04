@@ -41,28 +41,7 @@
                 </div>
                 <!-- ボイスカード群 -->
                 <div class="page-voice__items voice-cards">
-                    <?php
-                    $category = isset($_GET['category']) ? $_GET['category'] : 'all';
-
-                    $args = array(
-                        'post_type' => 'voice',
-                        'posts_per_page' => 6, // 表示件数を6に指定
-                    );
-
-                    if ($category !== 'all') {
-                        $args['tax_query'] = array(
-                            array(
-                                'taxonomy' => 'voice_category',
-                                'field'    => 'slug',
-                                'terms'    => $category,
-                            ),
-                        );
-                    }
-
-                    $query = new WP_Query($args);
-                    ?>
-
-                    <?php if ($query->have_posts()): while ($query->have_posts()): $query->the_post(); ?>
+                    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <!-- ループ処理開始 -->
                         <a href="<?php the_permalink(); ?>" class="voice-cards__item voice-card">
                             <div class="voice-card__header-wrapper">
@@ -87,7 +66,7 @@
                                     </h3>
                                 </div>
                                 <figure>
-                                    <?php if (get_the_post_thumbnail()) : ?>
+                                    <?php if (has_post_thumbnail()) : ?>
                                         <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
                                     <?php else : ?>
                                         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.jpg" alt="">
@@ -99,13 +78,14 @@
                             </div>
                         </a>
                         <!-- ループ終了 -->
-                        <?php endwhile; endif; wp_reset_postdata(); ?>
+                    <?php endwhile; endif; ?>
                 </div>
 
                 <!-- pagination -->
                 <div class="page-blog__pagination sub-pagination">
                     <?php wp_pagenavi(); ?>
                 </div>
+
 
             </div>
         </div>
