@@ -50,7 +50,54 @@ function my_setup() {
 add_action( 'after_setup_theme', 'my_setup' );
 
 /* --------------------------------------------
-/* アーカイブの表示件数変更
+/* 管理画面の「投稿」を「ブログ」に変更
+/* -------------------------------------------- */
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'ブログ'; // "投稿"を"ブログ"に変更
+    $submenu['edit.php'][5][0] = 'ブログ一覧';
+    $submenu['edit.php'][10][0] = '新しいブログ';
+    $submenu['edit.php'][16][0] = 'タグ';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+
+
+/* --------------------------------------------
+/* // pc-navを反映する（クラス名を付与して日本語と英語を二行に）
+// ※管理画面の外観＞メニュー＞pc_navの、メニュー名入力のところで、
+'|'を使用して英語と日本語を併記したため。'|'がある場合とない場合でスタイルを変える。
+/* -------------------------------------------- */
+
+function my_custom_nav_menu_item($item_output, $item, $depth, $args) {
+    if ($args->theme_location == 'pc_nav') {
+        if (strpos($item->title, '|') !== false) {
+            list($english, $japanese) = explode('|', $item->title);
+            // 'pc-nav__link' クラスをaタグに適用
+            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . trim($english) . '<span>' . trim($japanese) . '</span></a>';
+        } else {
+            // タイトルに '|' がない場合も 'pc-nav__link' クラスを適用
+            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . $item->title . '</a>';
+        }
+    }
+    return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'my_custom_nav_menu_item', 10, 4);
+
+/* --------------------------------------------
+/* // pc-navの'li' タグに 'pc-nav__item' クラスを追加
+/* -------------------------------------------- */
+
+function add_classes_on_li($classes, $item, $args) {
+    if ($args->theme_location == 'pc_nav') {
+        $classes[] = 'pc-nav__item';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
+
+/* --------------------------------------------
+/* アーカイブの表示件数変更（キャンペーンとお客様の声）
 //※管理画面で設定した「表示件数10件」というのは、通常投稿（blog)にしか適用されない。
 /* -------------------------------------------- */
 
@@ -71,7 +118,8 @@ function change_posts_per_page($query) {
 add_action('pre_get_posts', 'change_posts_per_page');
 
 /* --------------------------------------------
-/* // お客様の声一覧ページで、記事をカテゴリーごとに分類する
+/* // お客様の声一覧ページで、記事をカテゴリーごとに分類して表示する
+// ※タブをクリックしたら、該当するものだけが表示される。
 /* -------------------------------------------- */
 
 function filter_voice_posts_by_category($query) {
@@ -115,36 +163,6 @@ function custom_theme_setup() {
 add_action('after_setup_theme', 'custom_theme_setup');
 
 
-/* --------------------------------------------
-/* // pc-navを反映する（クラス名を付与して日本語と英語を二行に）
-/* -------------------------------------------- */
-
-function my_custom_nav_menu_item($item_output, $item, $depth, $args) {
-    if ($args->theme_location == 'pc_nav') {
-        if (strpos($item->title, '|') !== false) {
-            list($english, $japanese) = explode('|', $item->title);
-            // 'pc-nav__link' クラスをaタグに適用
-            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . trim($english) . '<span>' . trim($japanese) . '</span></a>';
-        } else {
-            // タイトルに '|' がない場合も 'pc-nav__link' クラスを適用
-            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . $item->title . '</a>';
-        }
-    }
-    return $item_output;
-}
-add_filter('walker_nav_menu_start_el', 'my_custom_nav_menu_item', 10, 4);
-
-/* --------------------------------------------
-/* // pc-navの'li' タグに 'pc-nav__item' クラスを追加
-/* -------------------------------------------- */
-
-function add_classes_on_li($classes, $item, $args) {
-    if ($args->theme_location == 'pc_nav') {
-        $classes[] = 'pc-nav__item';
-    }
-    return $classes;
-}
-add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
 
 /* --------------------------------------------
 /* // Contact Form 7で自動挿入されるPタグ、brタグを削除
@@ -274,15 +292,6 @@ add_action('widgets_init', 'register_popular_articles_widget');
 
 // カスタムウィジェットここまで
 
-/* --------------------------------------------
-/* // 固定ページを管理画面に表示
-// 料金一覧ページのメニューを表示
-/* -------------------------------------------- */
-
-// function add_page_to_admin_menu() {
-//     add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=14&action=edit', '', 'dashicons-book-alt', 3);
-// }
-// add_action( 'admin_menu', 'add_page_to_admin_menu' );
 
 
 /* --------------------------------------------
@@ -341,18 +350,7 @@ function track_post_views($post_id) {
 add_action('wp_head', 'track_post_views');
 
 
-/* --------------------------------------------
-/* 管理画面の「投稿」を「ブログ」に変更
-/* -------------------------------------------- */
-function change_post_menu_label() {
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'ブログ'; // "投稿"を"ブログ"に変更
-    $submenu['edit.php'][5][0] = 'ブログ一覧';
-    $submenu['edit.php'][10][0] = '新しいブログ';
-    $submenu['edit.php'][16][0] = 'タグ';
-}
-add_action( 'admin_menu', 'change_post_menu_label' );
+
 
 /* --------------------------------------------
 /* 文字省略の文字数を変更する。(トップページのブログカードと口コミカード)

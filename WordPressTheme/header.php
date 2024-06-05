@@ -29,7 +29,7 @@
         <span></span>
         <span></span>
         <span></span>
-      </button><!-- /.header__hamburger hamburger js-hamburger -->
+      </button>
       <!-- SPナビ -->
       <!-- オリジナルのコード↓ -->
       <!-- ※管理画面の外観＞メニューからナビゲーションを追加して実装しようとしたが、失敗したためオリジナルに戻した。 -->

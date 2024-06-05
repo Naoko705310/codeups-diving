@@ -48,9 +48,11 @@
                                 <div class="voice-card__header">
                                     <div class="voice-card__information">
                                         <p class="wom-card__age">
+                                            <!-- ACFで設定したカスタムフィールドから年齢を取得 -->
                                             <?php echo get_field('age'); ?>
                                         </p>
                                         <p class="voice-card__tag category-tag">
+                                            <!-- voice_categoryで設定したカテゴリー名を表示 -->
                                             <?php 
                                             $terms = get_the_terms(get_the_ID(), 'voice_category');
                                             if (!empty($terms) && !is_wp_error($terms)) {
@@ -66,14 +68,17 @@
                                     </h3>
                                 </div>
                                 <figure>
+                                    <!-- アイキャッチ画像があればurlを取得して表示 -->
                                     <?php if (has_post_thumbnail()) : ?>
                                         <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
                                     <?php else : ?>
+                                        <!-- なければno-image.jpgを表示 -->
                                         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.jpg" alt="">
                                     <?php endif; ?>
                                 </figure>
                             </div>
                             <div class="voice-card__body">
+                                <!-- 現在の投稿の本文を出力 -->
                                 <?php the_content(); ?>
                             </div>
                         </a>
