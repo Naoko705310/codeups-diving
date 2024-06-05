@@ -47,48 +47,47 @@
           </h2>
         </div>
         <!-- Campaign スワイパー -->
-<!-- Campaign スワイパー -->
-<div class="campaign__swiper-container">
-  <div class="swiper campaign__swiper js-campaign-swiper">
-    <div class="swiper-wrapper campaign__swiper-wrapper">
-      <?php
-      $campaign_posts = get_posts(array(
-          'post_type' => 'campaign',
-          'posts_per_page' => -1, // 全てのキャンペーン投稿を取得
-          'no_found_rows' => true // ページネーションが不要
-      ));
+        <div class="campaign__swiper-container">
+          <div class="swiper campaign__swiper js-campaign-swiper">
+            <div class="swiper-wrapper campaign__swiper-wrapper">
+              <?php
+              $campaign_posts = get_posts(array(
+                  'post_type' => 'campaign',
+                  'posts_per_page' => -1, // 全てのキャンペーン投稿を取得
+                  'no_found_rows' => true // ページネーションが不要
+              ));
 
-      foreach ($campaign_posts as $post) : setup_postdata($post);
-          ?>
-          <div class="swiper-slide">
-            <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="campaign-card">
-              <figure class="campaign-card__image">
-                  <?php if (has_post_thumbnail()) : ?>
-                      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
-                  <?php endif; ?>
-              </figure>
-              <div class="campaign-card__body">
-                <p class="campaign-card__tag category-tag">
-                    <?php $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                    if (!empty($terms) && !is_wp_error($terms)) {
-                        echo esc_html($terms[0]->name);
-                    } ?>
-                </p>
-                <h3 class="campaign-card__title"><?php the_title(); ?></h3>
-                <div class="campaign-card__plan">
-                  <p class="campaign-card__text"><?php the_field('campaign-price_title'); ?></p>
-                  <div class="campaign-card__price-wrapper">
-                    <p class="campaign-card__old-price">¥<?php the_field('price_previous'); ?></p>
-                    <p class="campaign-card__new-price">¥<?php the_field('price_new'); ?></p>
+              foreach ($campaign_posts as $post) : setup_postdata($post);
+                  ?>
+                  <div class="swiper-slide">
+                    <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="campaign-card">
+                      <figure class="campaign-card__image">
+                          <?php if (has_post_thumbnail()) : ?>
+                              <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                          <?php endif; ?>
+                      </figure>
+                      <div class="campaign-card__body">
+                        <p class="campaign-card__tag category-tag">
+                            <?php $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                            if (!empty($terms) && !is_wp_error($terms)) {
+                                echo esc_html($terms[0]->name);
+                            } ?>
+                        </p>
+                        <h3 class="campaign-card__title"><?php the_title(); ?></h3>
+                        <div class="campaign-card__plan">
+                          <p class="campaign-card__text"><?php the_field('campaign-price_title'); ?></p>
+                          <div class="campaign-card__price-wrapper">
+                            <p class="campaign-card__old-price">¥<?php the_field('price_previous'); ?></p>
+                            <p class="campaign-card__new-price">¥<?php the_field('price_new'); ?></p>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                </div>
-              </div>
-            </a>
+                  <?php endforeach; wp_reset_postdata(); ?>
+            </div>
           </div>
-          <?php endforeach; wp_reset_postdata(); ?>
-    </div>
-  </div>
-</div>
+        </div>
         <!-- Campaignセクションのボタン -->
         <div class="campaign__button">
           <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="button">
