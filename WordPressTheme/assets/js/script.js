@@ -162,41 +162,6 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
-  /* キャンペーンカテゴリーを選択した時にタブの色を変える
-  /* -------------------------------------------- */
-      $('.category-tab__item a').on('click', function(e) {
-        e.preventDefault(); // デフォルトのリンク動作を無効化
-        var category = $(this).data('tab');
-        window.location.href = '?category=' + category;
-    });
-
-    // URLパラメータを取得して現在のカテゴリーを判断し、スタイルを変更
-    function getParameterByName(name) {
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(window.location.href);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    var currentCategory = getParameterByName('category');
-    if (currentCategory) {
-        $('.category-tab__item').each(function() {
-            var tabCategory = $(this).find('a').data('tab');
-            if (tabCategory === currentCategory) {
-                $(this).addClass('is-active');
-            } else {
-                $(this).removeClass('is-active');
-            }
-        });
-    } else {
-        // 初期状態で "all" カテゴリーをアクティブにする
-        $('.category-tab__item a[data-tab="all"]').closest('.category-tab__item').addClass('is-active');
-    }
-
-
-  /* --------------------------------------------
   /* 下層ページabout-us モーダル
   /* -------------------------------------------- */
 

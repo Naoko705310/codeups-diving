@@ -31,8 +31,6 @@
         <span></span>
       </button>
       <!-- SPナビ -->
-      <!-- オリジナルのコード↓ -->
-      <!-- ※管理画面の外観＞メニューからナビゲーションを追加して実装しようとしたが、失敗したためオリジナルに戻した。 -->
       <div class="header__sp-nav js-drawer-menu">
         <nav class="sp-nav">
           <div class="sp-nav__items-wrapper--left">
@@ -118,17 +116,68 @@
           </div>
         </nav>
       </div>
-
-
-      <!-- PCナビ -->
+            <!-- 下記コメントアウト -->
       <div class="header__pc-nav pc-nav u-desktop">
-        <?php wp_nav_menu( array(
+      <?php wp_nav_menu( array(
           'theme_location' => 'pc_nav',
           'container' => false, // コンテナを無効化
           'menu_class' => 'pc-nav__items', // <ul> タグに適用するクラス
           'items_wrap' => '<ul class="%2$s">%3$s</ul>', // <ul> タグのラップ方法
         )); ?>
       </div>
+      <!-- PCナビ -->
+      <!-- <div class="header__pc-nav pc-nav u-desktop">
+        <ul class="pc-nav__items">
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('campaign'))); ?>" class="pc-nav__link">
+              campaign
+              <span>キャンペーン</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>" class="pc-nav__link">
+              about us
+              <span>私たちについて</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>" class="pc-nav__link">
+              information
+              <span>ダイビング情報</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('blog'))); ?>" class="pc-nav__link">
+              blog
+              <span>ブログ</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('voice'))); ?>" class="pc-nav__link">
+              voice
+              <span>お客様の声</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))); ?>" class="pc-nav__link">
+              price
+              <span>料金一覧</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('faq'))); ?>" class="pc-nav__link uppercase">
+              faq
+              <span>よくある質問</span>
+            </a>
+          </li>
+          <li class="pc-nav__item">
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="pc-nav__link">
+              contact
+              <span>お問い合わせ</span>
+            </a>
+          </li>
+        </ul>
+      </div> -->
     </div><!-- /.header__inner inner -->
   </header><!-- /.header -->
   <!-- ヘッダーここまで -->
