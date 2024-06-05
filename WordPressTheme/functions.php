@@ -118,6 +118,15 @@ function change_posts_per_page($query) {
 add_action('pre_get_posts', 'change_posts_per_page');
 
 /* --------------------------------------------
+/* キャンペーンカテゴリーを選択した時にタブの色を変える
+/* -------------------------------------------- */
+function enqueue_category_tab_script() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('category-tab', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_category_tab_script');
+
+/* --------------------------------------------
 /* // お客様の声一覧ページで、記事をカテゴリーごとに分類して表示する
 // ※タブをクリックしたら、該当するものだけが表示される。
 /* -------------------------------------------- */
@@ -139,89 +148,8 @@ function filter_voice_posts_by_category($query) {
 add_action('pre_get_posts', 'filter_voice_posts_by_category');
 
 /* --------------------------------------------
-/* // ヘッダーとフッターのカスタムメニュー化（外観＞メニューに表示）
-// うまく実装できなかったので保留。
-/* -------------------------------------------- */
-
-function register_my_menus() {
-    register_nav_menus(
-        array(
-            'sp_nav_left' => __('SP Navigation Left'),  // SPナビゲーション 左
-            'sp_nav_right' => __('SP Navigation Right'), // SPナビゲーション 右
-            'pc_nav' => __('PC Navigation'),             // PCナビゲーション
-            'footer_nav' => __('Footer Navigation')      // フッターナビゲーション
-        )
-    );
-}
-add_action('init', 'register_my_menus');
-
-// sp-navのカスタムメニュー化
-// functions.php
-function custom_theme_setup() {
-    add_theme_support('menus');
-}
-add_action('after_setup_theme', 'custom_theme_setup');
-
-
-
-/* --------------------------------------------
-/* // Contact Form 7で自動挿入されるPタグ、brタグを削除
-/* -------------------------------------------- */
-add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
-function wpcf7_autop_return_false() {
-    return false;
-} 
-
-/* --------------------------------------------
-/* Contact form7で、キャンペーンのドロップダウンに、記事一覧のタイトルを表示する
-/* -------------------------------------------- */
-function get_campaign_titles() {
-    $args = array(
-        'post_type' => 'campaign', // カスタム投稿タイプのスラッグ
-        'posts_per_page' => -1, // 全てのキャンペーン投稿を取得
-    );
-
-    $query = new WP_Query($args);
-    $titles = array();
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $titles[] = get_the_title();
-        }
-        wp_reset_postdata();
-    }
-
-    return $titles;
-}
-
-function campaign_titles_dropdown() {
-    $titles = get_campaign_titles();
-    $options = '<option value="">キャンペーン内容を選択</option>'; // 初期表示
-
-    foreach ($titles as $title) {
-        $options .= '<option value="' . esc_attr($title) . '">' . esc_html($title) . '</option>';
-    }
-
-    return $options;
-}
-
-add_shortcode('campaign_titles_dropdown', 'campaign_titles_dropdown');
-
-
-/* --------------------------------------------
-/* キャンペーンの選択肢に記事のタイトルを表示するための、ショートコードのフック
-/* -------------------------------------------- */
-function do_shortcode_in_cf7($form) {
-    return do_shortcode($form);
-}
-
-add_filter('wpcf7_form_elements', 'do_shortcode_in_cf7');
-
-
-
-/* --------------------------------------------
-/* // ブログ一覧・詳細：サイドバーウィジェット表示
+/* 【サイドバー】ブログ一覧・詳細：サイドバーウィジェット表示
+// ※サイドバーの実装は、ウィジェットエリアを定義して、そのエリアに必要なウィジェットを追加する。
 /* -------------------------------------------- */
 
 function my_theme_widgets_init() {
@@ -237,7 +165,7 @@ function my_theme_widgets_init() {
 add_action( 'widgets_init', 'my_theme_widgets_init' );
 
 /* --------------------------------------------
-/* // カスタムウィジェット（サイドバー）
+/* 【サイドバー】カスタムウィジェット
 /* -------------------------------------------- */
 
 class Popular_Articles_Widget extends WP_Widget {
@@ -290,25 +218,8 @@ function register_popular_articles_widget() {
 }
 add_action('widgets_init', 'register_popular_articles_widget');
 
-// カスタムウィジェットここまで
-
-
-
 /* --------------------------------------------
-/* // キャンペーンカード（３ページ共通）の共通関数を定義する（不要？）
-/* -------------------------------------------- */
-function get_campaign_posts() {
-    $args = array(
-        'post_type' => 'campaign', // カスタム投稿タイプ名
-        'posts_per_page' => -1,    // 全ての投稿を取得
-        'no_found_rows' => true    // ページネーションを行わない場合はこれをtrueに設定
-    );
-    $campaigns = new WP_Query($args);
-    return $campaigns;
-}
-
-/* --------------------------------------------
-/* ユーザーが URL に year と month パラメータを含むリンクをクリックした場合、その年と月に該当する投稿だけが表示
+/* 【サイドバー】ユーザーが URL に year と month パラメータを含むリンクをクリックした場合、その年と月に該当する投稿だけが表示
 /* -------------------------------------------- */
 
 function filter_posts_by_month($query) {
@@ -324,7 +235,8 @@ function filter_posts_by_month($query) {
 add_action('pre_get_posts', 'filter_posts_by_month');
 
 /* --------------------------------------------
-/* ブログ記事の訪問数をカウントする
+/* 【ブログ記事】ブログ記事の訪問数をカウントする
+// ※訪問数が多い記事から順番にサイドバーに表示するため
 /* -------------------------------------------- */
 function set_post_views($postID) {
     $count_key = 'post_views_count';
@@ -349,9 +261,6 @@ function track_post_views($post_id) {
 }
 add_action('wp_head', 'track_post_views');
 
-
-
-
 /* --------------------------------------------
 /* 文字省略の文字数を変更する。(トップページのブログカードと口コミカード)
 // ※デフォルトでは、110文字
@@ -368,9 +277,64 @@ function twpp_change_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'twpp_change_excerpt_length', 999 );
 
+/* --------------------------------------------
+/* 【Contact Form 7】自動挿入されるPタグ、brタグを削除
+/* -------------------------------------------- */
+add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
+function wpcf7_autop_return_false() {
+    return false;
+} 
 
 /* --------------------------------------------
-/* お問い合わせフォーム送信後にthanksページに遷移する
+/* 【Contact Form 7】キャンペーンのドロップダウンに、記事一覧のタイトルを表示する
+// ※タイトルを取得し、配列として返す。
+/* -------------------------------------------- */
+function get_campaign_titles() {
+    $args = array(
+        'post_type' => 'campaign', // カスタム投稿タイプのスラッグ
+        'posts_per_page' => -1, // 全てのキャンペーン投稿を取得
+    );
+
+    $query = new WP_Query($args);
+    $titles = array();
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $titles[] = get_the_title();
+        }
+        wp_reset_postdata();
+    }
+
+    return $titles;
+}
+
+function campaign_titles_dropdown() {
+    $titles = get_campaign_titles();
+    $options = '<option value="">キャンペーン内容を選択</option>'; // 初期表示
+
+    foreach ($titles as $title) {
+        $options .= '<option value="' . esc_attr($title) . '">' . esc_html($title) . '</option>';
+    }
+
+    return $options;
+}
+
+add_shortcode('campaign_titles_dropdown', 'campaign_titles_dropdown');
+
+
+/* --------------------------------------------
+/* 【Contact Form 7】キャンペーンの選択肢に記事のタイトルを表示するための、ショートコードのフック
+// ※プラグインでデータを利用可能にするためのフック。
+/* -------------------------------------------- */
+function do_shortcode_in_cf7($form) {
+    return do_shortcode($form);
+}
+
+add_filter('wpcf7_form_elements', 'do_shortcode_in_cf7');
+
+/* --------------------------------------------
+/* 【Contact Form 7】お問い合わせフォーム送信後にthanksページに遷移する
 /* -------------------------------------------- */
 function my_custom_script() {
     ?>
@@ -385,13 +349,6 @@ function my_custom_script() {
 add_action('wp_footer', 'my_custom_script');
 
 
-/* --------------------------------------------
-/* キャンペーンカテゴリーを選択した時にタブの色を変える
-/* -------------------------------------------- */
-function enqueue_category_tab_script() {
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('category-tab', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), null, true);
-  }
-  add_action('wp_enqueue_scripts', 'enqueue_category_tab_script');
+
 
 
