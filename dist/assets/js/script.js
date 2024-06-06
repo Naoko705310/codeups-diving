@@ -7,59 +7,289 @@ jQuery(function ($) {
   /* ハンバーガーメニュー
   /* -------------------------------------------- */
 
-  // ↓コンソールにエラーを出力するためのコードを追記。
+  // パッシブイベントリスナーを追加（正常に動くが、ドロワーメニューをスクロールできない）
+  // jQuery.noConflict();
+  // (function($) {
+  //     $(document).ready(function() {
+  //         // 現在のイベントリスナーの数を確認
+  //         console.log("Before setting click event:");
+  //         console.log($._data($('.js-hamburger')[0], 'events'));
+
+  //         // ハンバーガーメニューのクリックイベント
+  //         $(".js-hamburger").off("click").on("click", function (event) {
+  //             event.preventDefault(); // デフォルトのイベント行動をキャンセル
+  //             event.stopImmediatePropagation(); // イベント伝播の即時停止
+  //             console.log("Hamburger clicked");
+
+  //             if ($(this).hasClass("is-open")) {
+  //                 console.log("Menu is open, now closing...");
+  //                 closeDrawerMenu();
+  //             } else {
+  //                 console.log("Menu is closed, now opening...");
+  //                 openDrawerMenu();
+  //             }
+  //         });
+
+  //         // イベントリスナー設定後に再確認
+  //         console.log("After setting click event:");
+  //         console.log($._data($('.js-hamburger')[0], 'events'));
+
+  //         // ドロワーメニューを開く関数
+  //         function openDrawerMenu() {
+  //             console.log("Opening drawer menu...");
+  //             $(".js-drawer-menu").fadeIn(function() {
+  //                 console.log("Drawer menu opened");
+  //             });
+  //             $(".js-hamburger").addClass("is-open");
+  //             $("body").css("overflow", "hidden");
+
+  //             // 背景のスクロールを防ぐイベントリスナー
+  //             document.addEventListener('touchmove', preventScroll, { passive: false });
+  //             document.addEventListener('wheel', preventScroll, { passive: false });
+  //         }
+
+  //         // ドロワーメニューを閉じる関数
+  //         function closeDrawerMenu() {
+  //             console.log("Closing drawer menu...");
+  //             $(".js-drawer-menu").fadeOut(function() {
+  //                 console.log("Drawer menu closed");
+  //             });
+  //             $(".js-hamburger").removeClass("is-open");
+  //             $("body").css("overflow", "auto");
+
+  //             // スクロールを再度許可するためにイベントリスナーを削除
+  //             document.removeEventListener('touchmove', preventScroll, { passive: false });
+  //             document.removeEventListener('wheel', preventScroll, { passive: false });
+  //         }
+
+  //         // スクロールを防ぐ関数
+  //         function preventScroll(event) {
+  //             event.preventDefault();
+  //         }
+
+  //         // パッシブイベントリスナーの設定例
+  //         document.addEventListener('touchstart', function(event) {
+  //             // 処理を追加
+  //         }, { passive: true });
+
+  //     });
+  // })(jQuery);
+
+  // GPTからの完全なコード
+  // jQuery.noConflict();
+  // (function($) {
+  //     $(document).ready(function() {
+  //         // 現在のイベントリスナーの数を確認
+  //         console.log("Before setting click event:");
+  //         console.log($._data($('.js-hamburger')[0], 'events'));
+
+  //         // ハンバーガーメニューのクリックイベント
+  //         $(".js-hamburger").off("click").on("click", function (event) {
+  //             event.preventDefault(); // デフォルトのイベント行動をキャンセル
+  //             event.stopImmediatePropagation(); // イベント伝播の即時停止
+  //             console.log("Hamburger clicked");
+
+  //             if ($(this).hasClass("is-open")) {
+  //                 console.log("Menu is open, now closing...");
+  //                 closeDrawerMenu();
+  //             } else {
+  //                 console.log("Menu is closed, now opening...");
+  //                 openDrawerMenu();
+  //             }
+  //         });
+
+  //         // イベントリスナー設定後に再確認
+  //         console.log("After setting click event:");
+  //         console.log($._data($('.js-hamburger')[0], 'events'));
+
+  //         // ドロワーメニューを開く関数
+  //         function openDrawerMenu() {
+  //             console.log("Opening drawer menu...");
+  //             $(".js-drawer-menu").fadeIn(function() {
+  //                 console.log("Drawer menu opened");
+  //             });
+  //             $(".js-hamburger").addClass("is-open");
+  //             $("body").css("overflow", "hidden");
+  //             $(".js-header").css("background-color", "#408F95");
+  //         }
+
+  //         // ドロワーメニューを閉じる関数
+  //         function closeDrawerMenu() {
+  //             console.log("Closing drawer menu...");
+  //             $(".js-drawer-menu").fadeOut(function() {
+  //                 console.log("Drawer menu closed");
+  //             });
+  //             $(".js-hamburger").removeClass("is-open");
+  //             $("body").css("overflow", "auto");
+  //             $(".js-header").css("background-color", "");
+  //         }
+  //     });
+  // })(jQuery);
+
+  // // クリックイベントの前後にログを追加
+  //     // 現在のイベントリスナーの数を確認
+  //     console.log("Before setting click event:");
+  //     console.log($._data($('.js-hamburger')[0], 'events'));
+
+  //     // ハンバーガーメニューのクリックイベント
+  //     $(".js-hamburger").off("click").on("click", function (event) {
+  //         event.preventDefault(); // デフォルトのイベント行動をキャンセル
+  //         event.stopImmediatePropagation(); // イベント伝播の即時停止
+  //         console.log("Hamburger clicked");
+
+  //         if ($(this).hasClass("is-open")) {
+  //             console.log("Menu is open, now closing...");
+  //             closeDrawerMenu();
+  //         } else {
+  //             console.log("Menu is closed, now opening...");
+  //             openDrawerMenu();
+  //         }
+  //     });
+
+  //     // イベントリスナー設定後に再確認
+  //     console.log("After setting click event:");
+  //     console.log($._data($('.js-hamburger')[0], 'events'));
+
+  //     // ドロワーメニューを開く関数
+  //     function openDrawerMenu() {
+  //         console.log("Opening drawer menu...");
+  //         $(".js-drawer-menu").fadeIn();
+  //         $(".js-hamburger").addClass("is-open");
+  //         $("body").css("overflow", "hidden");
+  //         $(".js-header").css("background-color", "#408F95");
+  //     }
+
+  //     // ドロワーメニューを閉じる関数
+  //     function closeDrawerMenu() {
+  //         console.log("Closing drawer menu...");
+  //         $(".js-drawer-menu").fadeOut();
+  //         $(".js-hamburger").removeClass("is-open");
+  //         $("body").css("overflow", "auto");
+  //         $(".js-header").css("background-color", "");
+  //     }
+
+  // 現在のイベントリスナーの数を確認
+  // console.log($._data($('.js-hamburger')[0], 'events'));
+
+  // // ハンバーガーメニューのクリックイベント
+  // $(".js-hamburger").off("click").on("click", function (event) {
+  //   event.preventDefault(); // デフォルトのイベント行動をキャンセル
+  //   event.stopImmediatePropagation(); // イベント伝播の即時停止
+  //   console.log("Hamburger clicked");
+
+  //   if ($(this).hasClass("is-open")) {
+  //     console.log("Menu is open, now closing...");
+  //     closeDrawerMenu();
+  //   } else {
+  //     console.log("Menu is closed, now opening...");
+  //     openDrawerMenu();
+  //   }
+  // });
+
+  // // ドロワーメニューを開く関数
+  // function openDrawerMenu() {
+  //   console.log("Opening drawer menu...");
+  //   $(".js-drawer-menu").fadeIn();
+  //   $(".js-hamburger").addClass("is-open");
+  //   $("body").css("overflow", "hidden");
+  //   $(".js-header").css("background-color", "#408F95");
+  // }
+
+  // // ドロワーメニューを閉じる関数
+  // function closeDrawerMenu() {
+  //   console.log("Closing drawer menu...");
+  //   $(".js-drawer-menu").fadeOut();
+  //   $(".js-hamburger").removeClass("is-open");
+  //   $("body").css("overflow", "auto");
+  //   $(".js-header").css("background-color", "");
+  // }
 
   // ハンバーガーメニューのクリックイベント
-  $(".js-hamburger").on("click", function (event) {
-    event.preventDefault(); // デフォルトのイベント行動をキャンセル
-    event.stopPropagation(); // イベント伝播の停止
-    console.log("Hamburger clicked");
-    if ($(this).hasClass("is-open")) {
-      console.log("Menu is open, now closing...");
-      closeDrawerMenu();
-    } else {
-      console.log("Menu is closed, now opening...");
-      $(".js-drawer-menu").fadeIn();
-      $(this).addClass("is-open");
-      $("body").css("overflow", "hidden");
-      $(".js-header").css("background-color", "#408F95");
-    }
-  });
+  // $(".js-hamburger").on("click", function (event) {
+  //   event.preventDefault(); // デフォルトのイベント行動をキャンセル
+  //   event.stopImmediatePropagation(); // イベント伝播の即時停止
+  //   console.log("Hamburger clicked");
 
-  // ナビのリンクがクリックされたときの処理
-  $(".sp-nav__link, .sp-nav__heading").on("click", function () {
-    console.log("Navigation link clicked, closing menu...");
-    closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+  //   if ($(this).hasClass("is-open")) {
+  //     console.log("Menu is open, now closing...");
+  //     closeDrawerMenu();
+  //   } else {
+  //     console.log("Menu is closed, now opening...");
+  //     openDrawerMenu();
+  //   }
+  // });
 
-    var targetSection = $(this).attr("href");
-    $("html, body").animate({
-      scrollTop: $(targetSection).offset().top
-    }, 1000);
-  });
+  // // ドロワーメニューを開く関数
+  // function openDrawerMenu() {
+  //   console.log("Opening drawer menu...");
+  //   $(".js-drawer-menu").fadeIn();
+  //   $(".js-hamburger").addClass("is-open");
+  //   $("body").css("overflow", "hidden");
+  //   $(".js-header").css("background-color", "#408F95");
+  // }
 
-  // メニューを閉じる関数
-  function closeDrawerMenu() {
-    console.log("Executing closeDrawerMenu function");
-    $(".js-drawer-menu").fadeOut();
-    $(".js-hamburger").removeClass("is-open");
-    $("body").css("overflow", "auto");
-    $(".js-header").css("background-color", "");
-  }
+  // // ドロワーメニューを閉じる関数
+  // function closeDrawerMenu() {
+  //   console.log("Closing drawer menu...");
+  //   $(".js-drawer-menu").fadeOut();
+  //   $(".js-hamburger").removeClass("is-open");
+  //   $("body").css("overflow", "auto");
+  //   $(".js-header").css("background-color", "");
+  // }
 
-  // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-  $(window).resize(function () {
-    console.log("Window resized");
-    if ($(window).width() > 768) {
-      console.log("Window width > 768, closing menu...");
-      closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    }
-  });
+  // ↓元のコードを一旦コメントアウト 6/6
 
-  // ページ読み込み時にもPC幅を超えたらメニューを閉じる
-  if ($(window).width() > 768) {
-    console.log("Initial window width > 768, closing menu...");
-    closeDrawerMenu();
-  }
+  // ハンバーガーメニューのクリックイベント
+  // $(".js-hamburger").on("click", function (event) {
+  //   event.preventDefault();  // デフォルトのイベント行動をキャンセル
+  //   event.stopPropagation();  // イベント伝播の停止
+  //   console.log("Hamburger clicked");
+  //   if ($(this).hasClass("is-open")) {
+  //     console.log("Menu is open, now closing...");
+  //     closeDrawerMenu();
+  //   } else {
+  //     console.log("Menu is closed, now opening...");
+  //     $(".js-drawer-menu").fadeIn();
+  //     $(this).addClass("is-open");
+  //     $("body").css("overflow", "hidden");
+  //     $(".js-header").css("background-color", "#408F95");
+  //   }
+  // });
+
+  // // ナビのリンクがクリックされたときの処理
+  // $(".sp-nav__link, .sp-nav__heading").on("click", function () {
+  //   console.log("Navigation link clicked, closing menu...");
+  //   closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+
+  //   var targetSection = $(this).attr("href");
+  //   $("html, body").animate({
+  //     scrollTop: $(targetSection).offset().top,
+  //   }, 1000);
+  // });
+
+  // // メニューを閉じる関数
+  // function closeDrawerMenu() {
+  //   console.log("Executing closeDrawerMenu function");
+  //   $(".js-drawer-menu").fadeOut();
+  //   $(".js-hamburger").removeClass("is-open");
+  //   $("body").css("overflow", "auto");
+  //   $(".js-header").css("background-color", "");
+  // }
+
+  // // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+  // $(window).resize(function () {
+  //   console.log("Window resized");
+  //   if ($(window).width() > 768) {
+  //     console.log("Window width > 768, closing menu...");
+  //     closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+  //   }
+  // });
+
+  // // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+  // if ($(window).width() > 768) {
+  //   console.log("Initial window width > 768, closing menu...");
+  //   closeDrawerMenu();
+  // }
 
   /* --------------------------------------------
   /* トップページのFVスワイパー
