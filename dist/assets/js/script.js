@@ -218,11 +218,13 @@ jQuery(function ($) {
   /* 下層ページ information ダイビング情報のタブ
   /* -------------------------------------------- */
 
+  // ↓元のコード
+
   // ページが読み込まれたときの処理
   handleTabFromURL();
 
-  // global-navのaタグがクリックされたときの処理
-  $(".global-nav__sub-item a").on("click", function (e) {
+  // footer-navとsp-navのaタグがクリックされたときの処理
+  $(".footer-nav__sub-item a, .sp-nav__sub-item a").on("click", function (e) {
     // e.preventDefault();
 
     // クリックしたリンクのhref属性からパラメーターを取得

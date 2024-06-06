@@ -214,17 +214,20 @@ if ($(window).width() > 768) {
   /* 下層ページ information ダイビング情報のタブ
   /* -------------------------------------------- */
 
+
+// ↓元のコード
+
     // ページが読み込まれたときの処理
     handleTabFromURL();
   
-    // global-navのaタグがクリックされたときの処理
-    $(".global-nav__sub-item a").on("click", function (e) {
+    // footer-navとsp-navのaタグがクリックされたときの処理
+    $(".footer-nav__sub-item a, .sp-nav__sub-item a").on("click", function (e) {
       // e.preventDefault();
-  
+
       // クリックしたリンクのhref属性からパラメーターを取得
       let href = $(this).attr("href");
       let params = getURLParams(href);
-  
+
       // パラメーターが存在すれば対応するタブをアクティブにする
       if (params && params.tab) {
         // 対応するinformation.htmlのページに遷移する
