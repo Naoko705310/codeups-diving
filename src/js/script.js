@@ -6,18 +6,52 @@ jQuery(function ($) {
   /* -------------------------------------------- */
 
   // ハンバーガーメニューのクリックイベント
-  $(".js-hamburger").on("click", function () {
+  $(".js-hamburger").on("click", function (event) {
+    console.log("Hamburger clicked");
     if ($(this).hasClass("is-open")) {
-      closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+      console.log("Menu is open, closing now");
+      closeDrawerMenu();
     } else {
+      console.log("Menu is closed, opening now");
       $(".js-drawer-menu").fadeIn();
       $(this).addClass("is-open");
-      // メニューが開いたときにスクロールを無効にする
       $("body").css("overflow", "hidden");
-      // メニューが開いたときに背景色を設定
       $(".js-header").css("background-color", "#408F95");
     }
-  });
+});
+
+
+
+
+  // これに書き換えても違いなし
+//   $(".js-hamburger").on("click", function (event) {
+//     event.stopPropagation();
+//     if ($(this).hasClass("is-open")) {
+//       closeDrawerMenu();
+//     } else {
+//       $(".js-drawer-menu").fadeIn();
+//       $(this).addClass("is-open");
+//       $("body").css("overflow", "hidden");
+//       $(".js-header").css("background-color", "#408F95");
+//     }
+// });
+
+
+
+
+
+  // $(".js-hamburger").on("click", function () {
+  //   if ($(this).hasClass("is-open")) {
+  //     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+  //   } else {
+  //     $(".js-drawer-menu").fadeIn();
+  //     $(this).addClass("is-open");
+  //     // メニューが開いたときにスクロールを無効にする
+  //     $("body").css("overflow", "hidden");
+  //     // メニューが開いたときに背景色を設定
+  //     $(".js-header").css("background-color", "#408F95");
+  //   }
+  // });
 
   // ナビのリンクがクリックされたときの処理
   $(".global-nav__link, .global-nav__heading").on("click", function () {

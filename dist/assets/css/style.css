@@ -2211,7 +2211,6 @@ span.error_required {
 
 .header__sp-nav {
 	background-color: #408F95;
-	display: none;
 	height: 100vh;
 	left: 0;
 	overflow: scroll; /* 縦スクロールを可能にする */
