@@ -1,5 +1,5 @@
 @use "global" as *;
-// SPナビとfooterナビ共通（左右50%で横並び）-->WP実装の時にsp-navとfooter-navに分離してからphp実装。htmlにはglobal-navのままなので、このスタイリングはそのまま保持。
+// SPナビとfooterナビ共通（左右50%で横並び）-->WP実装の時に、global-navをsp-navとfooter-navに分離してからphp実装。htmlにはglobal-navのままなので、このスタイリングはそのまま保持。
 
 .global-nav {
   display: flex;

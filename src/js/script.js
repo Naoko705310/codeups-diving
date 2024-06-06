@@ -5,89 +5,62 @@ jQuery(function ($) {
   /* ハンバーガーメニュー
   /* -------------------------------------------- */
 
-  // ハンバーガーメニューのクリックイベント
-  $(".js-hamburger").on("click", function (event) {
-    console.log("Hamburger clicked");
-    if ($(this).hasClass("is-open")) {
-      console.log("Menu is open, closing now");
-      closeDrawerMenu();
-    } else {
-      console.log("Menu is closed, opening now");
-      $(".js-drawer-menu").fadeIn();
-      $(this).addClass("is-open");
-      $("body").css("overflow", "hidden");
-      $(".js-header").css("background-color", "#408F95");
-    }
+  // ↓コンソールにエラーを出力するためのコードを追記。
+
+
+// ハンバーガーメニューのクリックイベント
+$(".js-hamburger").on("click", function (event) {
+  event.preventDefault();  // デフォルトのイベント行動をキャンセル
+  event.stopPropagation();  // イベント伝播の停止
+  console.log("Hamburger clicked");
+  if ($(this).hasClass("is-open")) {
+    console.log("Menu is open, now closing...");
+    closeDrawerMenu();
+  } else {
+    console.log("Menu is closed, now opening...");
+    $(".js-drawer-menu").fadeIn();
+    $(this).addClass("is-open");
+    $("body").css("overflow", "hidden");
+    $(".js-header").css("background-color", "#408F95");
+  }
 });
 
+// ナビのリンクがクリックされたときの処理
+$(".sp-nav__link, .sp-nav__heading").on("click", function () {
+  console.log("Navigation link clicked, closing menu...");
+  closeDrawerMenu(); // メニューを閉じる関数を呼び出す
 
+  var targetSection = $(this).attr("href");
+  $("html, body").animate({
+    scrollTop: $(targetSection).offset().top,
+  }, 1000);
+});
 
+// メニューを閉じる関数
+function closeDrawerMenu() {
+  console.log("Executing closeDrawerMenu function");
+  $(".js-drawer-menu").fadeOut();
+  $(".js-hamburger").removeClass("is-open");
+  $("body").css("overflow", "auto");
+  $(".js-header").css("background-color", "");
+}
 
-  // これに書き換えても違いなし
-//   $(".js-hamburger").on("click", function (event) {
-//     event.stopPropagation();
-//     if ($(this).hasClass("is-open")) {
-//       closeDrawerMenu();
-//     } else {
-//       $(".js-drawer-menu").fadeIn();
-//       $(this).addClass("is-open");
-//       $("body").css("overflow", "hidden");
-//       $(".js-header").css("background-color", "#408F95");
-//     }
-// });
-
-
-
-
-
-  // $(".js-hamburger").on("click", function () {
-  //   if ($(this).hasClass("is-open")) {
-  //     closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-  //   } else {
-  //     $(".js-drawer-menu").fadeIn();
-  //     $(this).addClass("is-open");
-  //     // メニューが開いたときにスクロールを無効にする
-  //     $("body").css("overflow", "hidden");
-  //     // メニューが開いたときに背景色を設定
-  //     $(".js-header").css("background-color", "#408F95");
-  //   }
-  // });
-
-  // ナビのリンクがクリックされたときの処理
-  $(".global-nav__link, .global-nav__heading").on("click", function () {
-    closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-
-    // ナビのリンクからhref属性を取得し、該当のセクションへスクロール
-    var targetSection = $(this).attr("href");
-    $("html, body").animate(
-      {
-        scrollTop: $(targetSection).offset().top,
-      },
-      1000
-    ); // スクロールのアニメーション時間を調整
-  });
-
-  // メニューを閉じる関数
-  function closeDrawerMenu() {
-    $(".js-drawer-menu").fadeOut();
-    $(".js-hamburger").removeClass("is-open");
-    // メニューが閉じたときにスクロールを有効にする
-    $("body").css("overflow", "auto");
-    // ヘッダーの背景色を元に戻す
-    $(".js-header").css("background-color", "");
-  }
-
-  // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-  $(window).resize(function () {
-    if ($(window).width() > 768) {
-      closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    }
-  });
-
-  // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+// ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+$(window).resize(function () {
+  console.log("Window resized");
   if ($(window).width() > 768) {
-    closeDrawerMenu();
+    console.log("Window width > 768, closing menu...");
+    closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
   }
+});
+
+// ページ読み込み時にもPC幅を超えたらメニューを閉じる
+if ($(window).width() > 768) {
+  console.log("Initial window width > 768, closing menu...");
+  closeDrawerMenu();
+}
+
+
 
   /* --------------------------------------------
   /* トップページのFVスワイパー
