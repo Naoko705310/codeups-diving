@@ -7,8 +7,7 @@ jQuery(function ($) {
   /* ハンバーガーメニュー
   /* -------------------------------------------- */
 
-  // イベント行動をキャンセルと伝播の停止を追記
-  //ハンバーガーメニューのクリックイベント
+  // ハンバーガーメニューのクリックイベント
   $(".js-hamburger").on("click", function (event) {
     event.preventDefault(); // デフォルトのイベント行動をキャンセル
     event.stopImmediatePropagation(); // イベント伝播の即時停止
@@ -38,6 +37,24 @@ jQuery(function ($) {
     $(".js-hamburger").removeClass("is-open");
     $("body").css("overflow", "auto");
     $(".js-header").css("background-color", "");
+  }
+
+  // 画面幅が768pxを超えたらメニューを閉じる
+  $(window).on("resize", function () {
+    if ($(window).width() > 768) {
+      if ($(".js-hamburger").hasClass("is-open")) {
+        console.log("Window resized to more than 768px, closing menu...");
+        closeDrawerMenu();
+      }
+    }
+  });
+
+  // ページ読み込み時に画面幅が768pxを超えたらメニューを閉じる
+  if ($(window).width() > 768) {
+    if ($(".js-hamburger").hasClass("is-open")) {
+      console.log("Page loaded with width more than 768px, closing menu...");
+      closeDrawerMenu();
+    }
   }
 
   /* --------------------------------------------

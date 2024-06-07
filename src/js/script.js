@@ -5,39 +5,56 @@ jQuery(function ($) {
   /* ハンバーガーメニュー
   /* -------------------------------------------- */
 
-  // イベント行動をキャンセルと伝播の停止を追記
-    //ハンバーガーメニューのクリックイベント
+    // ハンバーガーメニューのクリックイベント
     $(".js-hamburger").on("click", function (event) {
       event.preventDefault(); // デフォルトのイベント行動をキャンセル
       event.stopImmediatePropagation(); // イベント伝播の即時停止
       console.log("Hamburger clicked");
 
       if ($(this).hasClass("is-open")) {
-        console.log("Menu is open, now closing...");
-        closeDrawerMenu();
+          console.log("Menu is open, now closing...");
+          closeDrawerMenu();
       } else {
-        console.log("Menu is closed, now opening...");
-        openDrawerMenu();
+          console.log("Menu is closed, now opening...");
+          openDrawerMenu();
       }
-    });
+  });
 
-    // ドロワーメニューを開く関数
-    function openDrawerMenu() {
+  // ドロワーメニューを開く関数
+  function openDrawerMenu() {
       console.log("Opening drawer menu...");
       $(".js-drawer-menu").fadeIn();
       $(".js-hamburger").addClass("is-open");
       $("body").css("overflow", "hidden");
       $(".js-header").css("background-color", "#408F95");
-    }
+  }
 
-    // ドロワーメニューを閉じる関数
-    function closeDrawerMenu() {
+  // ドロワーメニューを閉じる関数
+  function closeDrawerMenu() {
       console.log("Closing drawer menu...");
       $(".js-drawer-menu").fadeOut();
       $(".js-hamburger").removeClass("is-open");
       $("body").css("overflow", "auto");
       $(".js-header").css("background-color", "");
-    }
+  }
+
+  // 画面幅が768pxを超えたらメニューを閉じる
+  $(window).on("resize", function () {
+      if ($(window).width() > 768) {
+          if ($(".js-hamburger").hasClass("is-open")) {
+              console.log("Window resized to more than 768px, closing menu...");
+              closeDrawerMenu();
+          }
+      }
+  });
+
+  // ページ読み込み時に画面幅が768pxを超えたらメニューを閉じる
+  if ($(window).width() > 768) {
+      if ($(".js-hamburger").hasClass("is-open")) {
+          console.log("Page loaded with width more than 768px, closing menu...");
+          closeDrawerMenu();
+      }
+  }
 
   /* --------------------------------------------
   /* トップページのFVスワイパー
