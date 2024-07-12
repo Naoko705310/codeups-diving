@@ -80,34 +80,36 @@
       <footer>
         <div class="footer__nav footer-nav">
           <div class="footer-nav__items-wrapper--left">
+            <!-- フッターナビアイテム（左側01） -->
             <ul class="footer-nav__items footer-nav__items--left01">
               <li class="footer-nav__item">
-              <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="footer-nav__heading">キャンペーン</a>
-                <ul class="footer-nav__sub-items">
-                <li class="footer-nav__sub-item">
-            <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>">ライセンス講習</a>
-          </li>
-          <li class="footer-nav__sub-item">
-            <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>">ファンダイビング</a>
-          </li>
-          <li class="footer-nav__sub-item">
-            <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>">体験ダイビング</a>
-          </li>
-                  <!-- <li class="footer-nav__sub-item">
-                    <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_permalink(get_page_by_path('campaign')))); ?>">ライセンス講習</a>
-                  </li>
-                  <li class="footer-nav__sub-item">
-                    <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_permalink(get_page_by_path('campaign')))); ?>">ファンダイビング</a>
-                  </li>
-                  <li class="footer-nav__sub-item">
-                    <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_permalink(get_page_by_path('campaign')))); ?>">体験ダイビング</a>
-                  </li> -->
-                </ul>
+                <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="footer-nav__heading">キャンペーン</a>
+                  <ul class="footer-nav__sub-items">
+                    <li class="footer-nav__sub-item">
+                      <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_post_type_archive_link('campaign'))); ?>">ライセンス講習</a>
+                    </li>
+                    <li class="footer-nav__sub-item">
+                      <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_post_type_archive_link('campaign'))); ?>">ファンダイビング</a>
+                    </li>
+                    <li class="footer-nav__sub-item">
+                      <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_post_type_archive_link('campaign'))); ?>">体験ダイビング</a>
+                    </li>
+                    <!-- <li class="footer-nav__sub-item">
+                      <a href="<?php echo esc_url(add_query_arg('category', 'license-training', get_permalink(get_page_by_path('campaign')))); ?>">ライセンス講習</a>
+                    </li>
+                    <li class="footer-nav__sub-item">
+                      <a href="<?php echo esc_url(add_query_arg('category', 'fun-diving', get_permalink(get_page_by_path('campaign')))); ?>">ファンダイビング</a>
+                    </li>
+                    <li class="footer-nav__sub-item">
+                      <a href="<?php echo esc_url(add_query_arg('category', 'trial-diving', get_permalink(get_page_by_path('campaign')))); ?>">体験ダイビング</a>
+                    </li> -->
+                  </ul>
               </li>
               <li class="footer-nav__item">
                 <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>" class="footer-nav__heading">私たちについて</a>
               </li>
             </ul>
+            <!-- フッターナビアイテム（左側02） -->
             <ul class="footer-nav__items footer-nav__items--left02">
               <li class="footer-nav__item">
                 <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>" class="footer-nav__heading">ダイビング情報</a>
@@ -129,6 +131,7 @@
             </ul>
           </div>
           <div class="footer-nav__items-wrapper--right">
+            <!-- フッターナビアイテム（右側01） -->
             <ul class="footer-nav__items footer-nav__items--right01">
               <li class="footer-nav__item">
               <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="footer-nav__heading">お客様の声</a>
@@ -151,6 +154,7 @@
                 </ul>
               </li>
             </ul>
+            <!-- フッターナビアイテム（右側02） -->
             <ul class="footer-nav__items footer-nav__items--right02">
               <li class="footer-nav__item">
                 <a href="<?php echo esc_url(get_permalink(get_page_by_path('faq'))); ?>" class="footer-nav__heading">よくある質問</a>

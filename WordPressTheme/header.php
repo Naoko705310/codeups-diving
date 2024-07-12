@@ -116,20 +116,11 @@
           </div>
         </nav>
       </div>
-            <!-- 下記コメントアウト -->
-      <div class="header__pc-nav pc-nav u-desktop">
-      <?php wp_nav_menu( array(
-          'theme_location' => 'pc_nav',
-          'container' => false, // コンテナを無効化
-          'menu_class' => 'pc-nav__items', // <ul> タグに適用するクラス
-          'items_wrap' => '<ul class="%2$s">%3$s</ul>', // <ul> タグのラップ方法
-        )); ?>
-      </div>
       <!-- PCナビ -->
-      <!-- <div class="header__pc-nav pc-nav u-desktop">
+      <div class="header__pc-nav pc-nav u-desktop">
         <ul class="pc-nav__items">
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('campaign'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="pc-nav__link">
               campaign
               <span>キャンペーン</span>
             </a>
@@ -153,7 +144,7 @@
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('voice'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="pc-nav__link">
               voice
               <span>お客様の声</span>
             </a>
@@ -177,7 +168,7 @@
             </a>
           </li>
         </ul>
-      </div> -->
+      </div>
     </div><!-- /.header__inner inner -->
   </header><!-- /.header -->
   <!-- ヘッダーここまで -->
