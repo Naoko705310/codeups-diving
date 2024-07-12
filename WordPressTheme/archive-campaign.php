@@ -19,8 +19,37 @@
   <div class="page-campaign page-layout">
     <div class="page-campaign__inner inner">
       <div class="page-campaign__contents">
-        <!-- カテゴリータブ -->
-        <div class="page-campaign__tab category-tab">
+        <!-- カテゴリータブ　書き直し -->
+            <!-- カテゴリータブ -->
+            <div class="page-campaign__tab category-tab">
+              <ul class="category-tab__items">
+                <li class="category-tab__item <?php echo !get_query_var('campaign_category') ? 'category-tab__item--current uppercase' : ''; ?>">
+                  <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" data-tag="all">
+                    all
+                  </a>
+                </li>
+                <?php
+                $terms = get_terms(array(
+                  'taxonomy' => 'campaign_category',
+                  'hide_empty' => false,
+                ));
+                foreach ($terms as $term) :
+                  $is_current = (get_query_var('campaign_category') === $term->slug);
+                ?>
+                  <li class="category-tab__item <?php echo $is_current ? 'category-tab__item--current uppercase' : ''; ?>">
+                    <a href="<?php echo esc_url(get_term_link($term)); ?>" data-tag="<?php echo esc_attr($term->slug); ?>">
+                      <?php echo esc_html($term->name); ?>
+                    </a>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+
+
+
+
+        <!-- カテゴリータブ 非表示-->
+        <!-- <div class="page-campaign__tab category-tab">
           <ul class="category-tab__items">
             <?php
             $terms = get_terms(array(
@@ -37,7 +66,7 @@
               </li>
             <?php endforeach; ?>
           </ul>
-        </div>
+        </div> -->
         
         <!-- 下層campaign カード群 -->
         <ul class="page-campaign__items page-campaign-cards">
