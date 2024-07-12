@@ -19,55 +19,32 @@
   <div class="page-campaign page-layout">
     <div class="page-campaign__inner inner">
       <div class="page-campaign__contents">
-        <!-- カテゴリータブ　書き直し -->
-            <!-- カテゴリータブ -->
-            <div class="page-campaign__tab category-tab">
-              <ul class="category-tab__items">
-                <li class="category-tab__item <?php echo !get_query_var('campaign_category') ? 'category-tab__item--current uppercase' : ''; ?>">
-                  <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" data-tag="all">
-                    all
-                  </a>
-                </li>
-                <?php
-                $terms = get_terms(array(
-                  'taxonomy' => 'campaign_category',
-                  'hide_empty' => false,
-                ));
-                foreach ($terms as $term) :
-                  $is_current = (get_query_var('campaign_category') === $term->slug);
-                ?>
-                  <li class="category-tab__item <?php echo $is_current ? 'category-tab__item--current uppercase' : ''; ?>">
-                    <a href="<?php echo esc_url(get_term_link($term)); ?>" data-tag="<?php echo esc_attr($term->slug); ?>">
-                      <?php echo esc_html($term->name); ?>
-                    </a>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div>
-
-
-
-
-        <!-- カテゴリータブ 非表示-->
-        <!-- <div class="page-campaign__tab category-tab">
+        <!-- カテゴリータブ(CPT UIで追加したタクソノミーを表示・切り替え) -->
+        <div class="page-campaign__tab category-tab">
           <ul class="category-tab__items">
+            <!-- 「ALL」タグはそのまま表示 -->
+            <li class="category-tab__item <?php echo !get_query_var('campaign_category') ? 'is-active' : ''; ?> uppercase">
+              <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" data-tag="all">
+                all
+              </a>
+            </li>
+            <!-- それ以外の３つのタグをforeachで回す -->
             <?php
             $terms = get_terms(array(
               'taxonomy' => 'campaign_category',
               'hide_empty' => false,
             ));
             foreach ($terms as $term) :
-              $is_all = ($term->slug === 'all');
+              $is_current = (get_query_var('campaign_category') === $term->slug);
             ?>
-              <li class="category-tab__item <?php echo $is_all ? 'is-active uppercase' : ''; ?>">
-                <a href="<?php echo esc_url(add_query_arg('category', $term->slug, get_post_type_archive_link('campaign'))); ?>" data-tab="<?php echo esc_attr($term->slug); ?>">
+              <li class="category-tab__item <?php echo $is_current ? 'is-active' : ''; ?>">
+                <a href="<?php echo esc_url(add_query_arg('campaign_category', $term->slug, get_post_type_archive_link('campaign'))); ?>" data-tag="<?php echo esc_attr($term->slug); ?>">
                   <?php echo esc_html($term->name); ?>
                 </a>
               </li>
             <?php endforeach; ?>
           </ul>
-        </div> -->
-        
+        </div>
         <!-- 下層campaign カード群 -->
         <ul class="page-campaign__items page-campaign-cards">
           <?php if (have_posts()) : ?><?php while (have_posts()) : the_post(); ?>
