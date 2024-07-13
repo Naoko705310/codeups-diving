@@ -8,20 +8,10 @@
       <!-- 下層 FV -->
       <section class="sub-fv">
         <div class="sub-fv__inner">
-          <h2 class="sub-fv__heading">
-            <!-- headingに表示したい文字を以下のようにechoする -->
-            <?php
-                if ( is_day() ) {
-                    echo 'ブログ記事一覧：' . get_the_date('Y年n月j日');
-                } elseif ( is_month() ) {
-                    echo 'ブログ記事一覧：' . get_the_date('Y年n月');
-                } elseif ( is_year() ) {
-                    echo 'ブログ記事一覧：' . get_the_date('Y年');
-                } else {
-                    echo 'ブログ記事一覧';
-                }
-            ?>
-          </h2>
+        <h2 class="sub-fv__heading">
+            <!-- カスタムタイトル（ブログ記事一覧）を表示する -->
+            <?php echo esc_html(get_the_archive_title()); ?>
+        </h2>
           <picture class="sub-fv__image">
             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__fv-pc.jpg" media="(min-width: 768px)">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__fv-sp.jpg" alt="小魚の大群の画像">

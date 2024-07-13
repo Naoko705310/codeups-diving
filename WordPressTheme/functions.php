@@ -235,6 +235,37 @@ function filter_posts_by_month($query) {
 add_action('pre_get_posts', 'filter_posts_by_month');
 
 /* --------------------------------------------
+/* サイドバーをクリックして月別アーカイブを表示した時の、
+タイトル(sub-fv__heading)の出力をカスタマイズ
+/* -------------------------------------------- */
+function custom_archive_title($title) {
+    //カスタムのタイトルを$prefixで入れる
+    $prefix = 'ブログ記事一覧：';
+
+    if (is_category()) {
+        $title = $prefix . single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = $prefix . single_tag_title('', false);
+    } elseif (is_tax()) {
+        $title = $prefix . single_term_title('', false);
+    } elseif (is_post_type_archive()) {
+        $title = $prefix . post_type_archive_title('', false);
+    } elseif (is_date()) {
+        $title = $prefix . get_the_time('Y年n月');
+    } elseif (is_search()) {
+        $title = '検索結果：' . esc_html(get_search_query(false));
+    } elseif (is_404()) {
+        $title = '「404」ページが見つかりません';
+    } else {
+        $title = $prefix . 'アーカイブ';
+    }
+    return $title;
+}
+//デフォルトではなく、カスタムのタイトルを表示するためのフック
+add_filter('get_the_archive_title', 'custom_archive_title');
+
+
+/* --------------------------------------------
 /* 【ブログ記事】ブログ記事の訪問数をカウントする
 // ※訪問数が多い記事から順番にサイドバーに表示するため
 /* -------------------------------------------- */

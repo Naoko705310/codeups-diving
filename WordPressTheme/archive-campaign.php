@@ -93,7 +93,7 @@
                 </p>
                 <!-- ボタン -->
                 <div class="page-campaign-card__button u-desktop">
-                  <a href="<?php echo site_url('/contact'); ?>" class="button">
+                  <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button">
                     <span>contact us</span>
                   </a>
                 </div>
