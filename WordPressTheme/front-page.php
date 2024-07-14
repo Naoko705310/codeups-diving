@@ -126,7 +126,7 @@
             </p>
             <!-- ボタン -->
             <div class="about-us__button">
-              <a href="<?php echo get_permalink(9); ?>" class="button">
+              <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us')->ID)); ?>" class="button">
                 <span>view more</span>
               </a>
             </div>
@@ -161,10 +161,11 @@
             </p>
             <!-- ボタン -->
             <div class="information__button">
-              <a href="<?php echo get_permalink(12); ?>" class="button">
+              <a href="<?php echo esc_url(get_permalink(get_page_by_path('information')->ID)); ?>" class="button">
                 <span>view more</span>
               </a>
             </div>
+
           </div>
         </div>
       </div><!-- /.information__inner -->
@@ -353,7 +354,7 @@
         </div>
         <!-- ボタン -->
         <div class="price__button">
-          <a href="<?php echo get_permalink(14); ?>" class="button"> <!-- ここで14はpage-price.phpのページID -->
+          <a href="<?php echo esc_url(get_permalink(get_page_by_path('price')->ID)); ?>" class="button">
             <span>view more</span>
           </a>
         </div>
