@@ -40,6 +40,7 @@
                     <?php endif; ?>
                   </figure>
                   <div class="blog-card__body">
+                    <!-- 日付と時間 -->
                     <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
                     <h3 class="blog-card__heading">
                       <?php the_title(); ?>
@@ -55,10 +56,10 @@
                 <?php wp_pagenavi(); ?>
               </div>
             </div>
-            <!-- aside サイドバー-->
-            <aside class="page-blog__aside sub-aside ">
+            <!-- aside（サイドバー）を読み込み -->
+            <div class="page-blog__aside">
               <?php get_sidebar(); ?>
-            </aside>
+            </div>
           </div>
         </div>
       </div>

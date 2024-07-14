@@ -1,47 +1,48 @@
 <!-- 下層ページのサイドバー（該当ページに、get_sidebar();を使って読み込む。 -->
 
 <!-- aside サイドバー-->
+<aside class="sub-aside">
   <div class="sub-aside__inner inner">
     <!-- 人気記事（ブログ） -->
     <div class="sub-aside__contents-wrapper">
-  <div class="sub-aside__index">
-    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
-    <h2 class="sub-aside__title">人気記事</h2>
-  </div>
-  <?php
-  // 人気記事を取得するカスタムクエリ
-  $popular_posts_args = array(
-      'post_type' => 'post', // 投稿タイプ
-      'posts_per_page' => 3, // 取得する投稿数
-      'meta_key' => 'post_views_count', // アクセス数を保存しているカスタムフィールド
-      'orderby' => 'meta_value_num', // 数値としてソート
-      'order' => 'DESC' // 降順
-  );
-  $popular_posts_query = new WP_Query($popular_posts_args);
+      <div class="sub-aside__index">
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
+        <h2 class="sub-aside__title">人気記事</h2>
+      </div>
+      <?php
+      // 人気記事を取得するカスタムクエリ
+      $popular_posts_args = array(
+          'post_type' => 'post', // 投稿タイプ
+          'posts_per_page' => 3, // 取得する投稿数
+          'meta_key' => 'post_views_count', // アクセス数を保存しているカスタムフィールド
+          'orderby' => 'meta_value_num', // 数値としてソート
+          'order' => 'DESC' // 降順
+      );
+      $popular_posts_query = new WP_Query($popular_posts_args);
 
-  if ($popular_posts_query->have_posts()) : ?>
-    <ul class="popular-posts-list">
-      <?php while ($popular_posts_query->have_posts()) : $popular_posts_query->the_post(); ?>
-        <li class="popular-post">
-          <a href="<?php the_permalink(); ?>">
-            <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title_attribute(); ?>">
-            <?php endif; ?>
-            <div class="popular-post-details">
-              <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m/d'); ?></time>
-              <span><?php the_title(); ?></span>
-            </div>
-          </a>
-        </li>
-      <?php endwhile; ?>
-    </ul>
-    <?php wp_reset_postdata(); ?>
-  <?php else : ?>
-    <p>人気の記事はありません。</p>
-  <?php endif; ?>
-</div>
-
-
+      if ($popular_posts_query->have_posts()) : ?>
+      <!-- 人気記事リスト -->
+      <ul class="popular-posts-list">
+        <?php while ($popular_posts_query->have_posts()) : $popular_posts_query->the_post(); ?>
+          <li class="popular-post">
+            <a href="<?php the_permalink(); ?>">
+              <?php if (has_post_thumbnail()) : ?>
+                <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title_attribute(); ?>">
+              <?php endif; ?>
+              <div class="popular-post-details">
+                <!-- 日付と時間 -->
+                <time datetime="<?php echo esc_attr(get_the_time('c')); ?>"><?php echo esc_html(get_the_time('Y.m.d')); ?></time>
+                <span><?php the_title(); ?></span>
+              </div>
+            </a>
+          </li>
+        <?php endwhile; ?>
+      </ul>
+      <?php wp_reset_postdata(); ?>
+        <?php else : ?>
+          <p>人気の記事はありません。</p>
+        <?php endif; ?>
+    </div>
     <!-- 口コミ（お客様の声） -->
     <div class="sub-aside__contents-wrapper">
       <div class="sub-aside__index">
@@ -83,7 +84,7 @@
             wp_reset_postdata();
             ?>
         </div>
-        <!-- ボタン -->
+        <!-- 口コミのボタン -->
         <div class="sub-aside__button">
           <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="button">
             <span>view more</span>
@@ -148,7 +149,7 @@
           endif;
           ?>
         </ul>
-        <!-- ボタン -->
+        <!-- キャンペーンのボタン -->
         <div class="sub-aside__button">
           <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="button">
             <span>view more</span>
@@ -156,6 +157,7 @@
         </div>
       </div> 
     </div>
+    <!-- アーカイブ -->
     <div class="sub-aside__contents-wrapper">
       <div class="sub-aside__index">
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
@@ -185,3 +187,5 @@
       </div>
     </div>
   </div>
+</aside>
+  
