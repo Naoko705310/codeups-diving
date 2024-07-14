@@ -39,7 +39,7 @@
                   </p>
                   <!-- ボタン -->
                   <div class="about-us__button">
-                    <a href="<?php echo get_permalink(9); ?>" class="button">
+                    <a href="<?php echo get_permalink(get_page_by_path('about-us')->ID); ?>" class="button">
                       <span>view more</span>
                     </a>
                   </div>
