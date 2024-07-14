@@ -39,7 +39,7 @@
               </a>
               <!-- ボタン -->
               <div class="contact__button">
-                <a href="<?php echo get_permalink(18); ?>" class="button">
+                <a href="<?php echo get_permalink(get_page_by_path('contact')->ID); ?>" class="button">
                   <span>contact us</span>
                 </a>
               </div>
