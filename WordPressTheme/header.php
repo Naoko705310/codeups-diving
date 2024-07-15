@@ -17,11 +17,11 @@
   <header class="header js-header">
     <div class="header__inner">
       <!-- ヘッダーロゴ ※front-pageはh1, 下層ページはdiv-->
-      <?php echo is_front_page() ? '<h1 class="header__logo header-logo">' : '<div class="header__logo header-logo">'; ?>
+      <<?php echo is_front_page() ? 'h1' : 'div'; ?> class="header__logo header-logo">
         <a href="<?php echo home_url(); ?>" class="header-logo__link">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/header-logo.png" alt="ヘッダーロゴ">
         </a>
-      <?php echo is_front_page() ? '</h1>' : '</div>'; ?>
+      </<?php echo is_front_page() ? 'h1' : 'div'; ?>>
       <!-- ハンバーガー -->
       <button class="header__hamburger hamburger js-hamburger">
         <span></span>
