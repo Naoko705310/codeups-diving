@@ -4,7 +4,6 @@ jQuery(function ($) {
   /* --------------------------------------------
   /* ハンバーガーメニュー
   /* -------------------------------------------- */
-
     // ハンバーガーメニューのクリックイベント
     $(".js-hamburger").on("click", function (event) {
       event.preventDefault(); // デフォルトのイベント行動をキャンセル
@@ -296,31 +295,7 @@ jQuery(function ($) {
 /* -------------------------------------------- */
 // .showクラスのつけ外しで、プラスマイナスマークを切り替える。
 
-  //   // アコーディオンのタイトルをクリックしたときのイベントハンドラー
-  //   $('.js-accordion__title').click(function() {
-  //     // クリックされたタイトルの親要素（.accordion__item）を取得
-  //     var parentItem = $(this).parent('.accordion__item');
-      
-  //     // アコーディオンのコンテンツを取得
-  //     var content = parentItem.find('.accordion__content');
-      
-  //     // .showクラスの切り替え
-  //     if (content.hasClass('show')) {
-  //         content.removeClass('show');
-  //     } else {
-  //         // 他の開いているアコーディオンを閉じる（必要ならばコメントアウト）
-  //         $('.accordion__content').removeClass('show');
-  //         content.addClass('show');
-  //     }
-  // });
-
-
-
-
-
-
 // 元のコード
-    // ※それぞれのアコーディオンの操作が独立しているパターン。
     $(".js-accordion__title").on("click", function () {
       $(this).next().slideToggle();
       if ($(this).hasClass("show")) {
@@ -330,7 +305,6 @@ jQuery(function ($) {
       }
     });
 
-    
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
   /* -------------------------------------------- */
@@ -352,4 +326,5 @@ jQuery(function ($) {
       }
     });
 });
+
 }); //jQuery 閉じタグ

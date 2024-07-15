@@ -716,7 +716,7 @@ a {
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
-	padding: 0.9375rem;
+	padding: 0.9375rem 3.125rem 0.9375rem 0.9375rem;
 	position: relative;
 }
 

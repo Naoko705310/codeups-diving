@@ -16,7 +16,7 @@ position: relative;
   font-weight: $normal;
   background-color: $green;
   position: relative;
-  padding: rem(15);
+  padding: rem(15) rem(50) rem(15) rem(15);
   cursor: pointer;
   @include mq(md) {
     font-size: rem(20);
@@ -63,19 +63,19 @@ position: relative;
 .accordion__title.show::after {
   transform: translateY(-50%) rotate(90deg);
 }
+
 .accordion__content {
-  // display: none;//最初は隠す場合
   display: block;//最初から開く場合
   height: auto;
   border: 1px solid $green;
   padding: rem(20) rem(16);// ピクパ調整
-  // padding: rem(24) rem(16);//元の数値
   margin-top: 0;
   @include mq(md) {
     margin-top: rem(16);
     padding: rem(36) rem(40);//ピクパ調整
   }
 }
+
 .accordion__text {
   font-family: $base-font-family;
   font-size: rem(16);
