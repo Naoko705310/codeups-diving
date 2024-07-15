@@ -5,9 +5,9 @@
       <!-- 下層 FV -->
       <section class="sub-fv">
         <div class="sub-fv__inner">
-          <h2 class="sub-fv__heading">
+          <h1 class="sub-fv__heading">
             Site MAP
-          </h2>
+          </h1>
           <picture class="sub-fv__image">
             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-site-map__fv-pc.jpg" media="(min-width: 768px)">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-site-map__fv-sp.jpg" alt="海中のサンゴの画像">
