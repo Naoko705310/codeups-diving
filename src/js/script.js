@@ -290,10 +290,36 @@ jQuery(function ($) {
     $(this).next('.archive__month-list').slideToggle();
   });
 
-  /* --------------------------------------------
-  /* 下層ページ FAQ アコーディオン
-  /* -------------------------------------------- */
 
+  /* --------------------------------------------
+/* 下層ページ FAQ アコーディオン
+/* -------------------------------------------- */
+// .showクラスのつけ外しで、プラスマイナスマークを切り替える。
+
+  //   // アコーディオンのタイトルをクリックしたときのイベントハンドラー
+  //   $('.js-accordion__title').click(function() {
+  //     // クリックされたタイトルの親要素（.accordion__item）を取得
+  //     var parentItem = $(this).parent('.accordion__item');
+      
+  //     // アコーディオンのコンテンツを取得
+  //     var content = parentItem.find('.accordion__content');
+      
+  //     // .showクラスの切り替え
+  //     if (content.hasClass('show')) {
+  //         content.removeClass('show');
+  //     } else {
+  //         // 他の開いているアコーディオンを閉じる（必要ならばコメントアウト）
+  //         $('.accordion__content').removeClass('show');
+  //         content.addClass('show');
+  //     }
+  // });
+
+
+
+
+
+
+// 元のコード
     // ※それぞれのアコーディオンの操作が独立しているパターン。
     $(".js-accordion__title").on("click", function () {
       $(this).next().slideToggle();
@@ -304,6 +330,7 @@ jQuery(function ($) {
       }
     });
 
+    
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
   /* -------------------------------------------- */

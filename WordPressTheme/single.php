@@ -35,7 +35,6 @@
                   <h3 class="blog-article__heading">
                     <?php the_title(); ?>
                   </h3>
-
                   <figure>
                     <?php if (get_the_post_thumbnail()) : ?>
                       <!-- もし画像があったらこれを表示 -->
@@ -46,31 +45,10 @@
                     <?php endif; ?>
                   </figure>
                   <!-- 記事の中身 -->
-                  <?php the_content(); ?>
+                  <div class="blog-article__contents">
+                    <?php the_content(); ?>
+                  </div>
 
-                  <figure>
-                    <?php if (get_the_post_thumbnail()) : ?>
-                      <!-- もし画像があったらこれを表示 -->
-                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
-                    <?php else : ?>
-                      <!-- そうでなければ（無かったら）これを表示 -->
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.jpg" alt="">
-                    <?php endif; ?>
-                  </figure>
-                  <!-- 記事の中身 -->
-                  <?php the_content(); ?>
-                  <ul>
-                    <li>
-                      リスト１
-                    </li>
-                    <li>
-                      リスト2
-                    </li>
-                    <li>
-                      リスト3
-                    </li>
-                  </ul>
-                  <?php the_content(); ?>
                   <!-- 前の記事・次の記事 flex-->
                   <div class="blog-article__pagination sub-pagination sub-pagination--blog-article">
                     <!-- 前の記事を取得 -->
