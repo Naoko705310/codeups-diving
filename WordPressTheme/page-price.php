@@ -23,7 +23,6 @@
             <div class="page-price__price-list page-price-list">
                 <ul class="page-price-list__items">
                     <?php
-                    // 各セクションのカスタムフィールドから情報を取得し表示
                     $sections = [
                         'license' => 'ライセンス講習',
                         'trial' => '体験ダイビング',
@@ -31,28 +30,26 @@
                         'special' => 'スペシャルダイビング',
                     ];
 
-                    // アップロードディレクトリのURLを取得してクジラの画像URLを設定
                     $upload_dir = wp_upload_dir();
                     $whale_image_url = $upload_dir['baseurl'] . '/2024/04/sub-price__icon-whale.png';
 
                     foreach ($sections as $key => $title) {
                         $courses = SCF::get($key);
                         if (!empty($courses)) {
-                        echo "<div class='page-price-list__item'>";
-                        echo "<div class='page-price-list__heading'>";
-                        // IDを付与
-                        echo "<h2 id='{$key}'>{$title}</h2>";
-                        echo "<img src='{$whale_image_url}' alt='Whale Icon' class='whale-icon'>";
-                        echo "</div>";
-                        echo "<dl class='page-price-list__body'>"; // 変更: ulをdlに変更
-                        foreach ($courses as $course) {
-                            $course_name = esc_html($course["{$key}_course_name"]);
-                            $price = esc_html($course["{$key}_price"]);
-                            echo "<dt>{$course_name}</dt>"; // 変更: liをdtに変更
-                            echo "<dd>¥{$price}</dd>"; // 追加: ddを追加
-                        }
-                        echo "</dl>"; // 変更: ulをdlに変更
-                        echo "</div>";
+                            ?>
+                            <div class="page-price-list__item">
+                                <div class="page-price-list__heading">
+                                    <h2 id="<?php echo $key; ?>"><?php echo $title; ?></h2>
+                                    <img src="<?php echo $whale_image_url; ?>" alt="Whale Icon" class="whale-icon">
+                                </div>
+                                <dl class="page-price-list__body">
+                                    <?php foreach ($courses as $course): ?>
+                                        <dt><?php echo esc_html($course["{$key}_course_name"]); ?></dt>
+                                        <dd>¥<?php echo esc_html($course["{$key}_price"]); ?></dd>
+                                    <?php endforeach; ?>
+                                </dl>
+                            </div>
+                            <?php
                         }
                     }
                     ?>
