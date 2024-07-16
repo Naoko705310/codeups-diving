@@ -22,7 +22,6 @@
             <!-- FAQアコーディオン -->
             <div class="page-faq__accordion accordion">
                 <ul class="accordion__items">
-                    
                     <?php
                     // 固定ページのスラッグが 'faq' のページIDを取得
                     $faq_page = get_page_by_path('faq');
@@ -34,21 +33,20 @@
                     foreach ($faqs as $faq) {
                         $question = esc_html($faq['question']); // 'question'は質問のフィールドキー
                         $answer = esc_html($faq['answer']); // 'answer'は回答のフィールドキー
-                        ?>
-                        
-                        <li class="accordion__item">
-                            <h2 class="accordion__title js-accordion__title"><?php echo $question; ?></h2>
-                            <div class="accordion__content">
-                                <p class="accordion__text"><?php echo $answer; ?></p>
-                            </div>
-                        </li>
-                        <?php
-                    }
                     ?>
+
+                    <li class="accordion__item">
+                        <h2 class="accordion__title js-accordion-title show"><?php echo $question; ?></h2>
+                        <div class="accordion__content">
+                            <p class="accordion__text"><?php echo $answer; ?></p>
+                        </div>
+                    </li>
+                <?php
+                }
+                ?>
                 </ul>
             </div>
         </div>
     </div>
 
-<?php get_footer(); ?>
-
+    <?php get_footer(); ?>

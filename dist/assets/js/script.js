@@ -300,15 +300,60 @@ jQuery(function ($) {
   /* -------------------------------------------- */
   // .showクラスのつけ外しで、プラスマイナスマークを切り替える。
 
-  // 元のコード
-  $(".js-accordion__title").on("click", function () {
-    $(this).next().slideToggle();
-    if ($(this).hasClass("show")) {
-      $(this).removeClass("show");
-    } else {
-      $(this).addClass("show");
-    }
+  $(document).ready(function () {
+    // 初期状態で全てのアコーディオンを開いた状態にする処理を削除
+
+    // クリックイベントでアコーディオンの開閉をトグル
+    $('.js-accordion-title').click(function () {
+      var content = $(this).next('.accordion__content');
+      if ($(this).hasClass('show')) {
+        content.slideUp(300, function () {
+          $(this).prev('.js-accordion-title').removeClass('show');
+        });
+      } else {
+        content.slideDown(300, function () {
+          $(this).prev('.js-accordion-title').addClass('show');
+        });
+      }
+    });
   });
+
+  // $(document).ready(function() {
+  //   $('.js-accordion-title').click(function() {
+  //       var content = $(this).next('.accordion__content');
+
+  //       if (content.hasClass('show')) {
+  //           content.removeClass('show').slideUp();
+  //       } else {
+  //           content.addClass('show').slideDown();
+  //       }
+  //   });
+  // });
+
+  // コンソールに出力するコード
+  // $(".js-accordion-title").on("click", function () {
+  //   console.log("Accordion title clicked:", this);
+  //   $(this).next().slideToggle(function() {
+  //     console.log("Content toggled:", this);
+  //   });
+  //   if ($(this).hasClass("show")) {
+  //     console.log("Removing 'show' class");
+  //     $(this).removeClass("show");
+  //   } else {
+  //     console.log("Adding 'show' class");
+  //     $(this).addClass("show");
+  //   }
+  // });
+
+  // 元のコード
+  // $(".js-accordion-title").on("click", function () {
+  //   $(this).next().slideToggle();
+  //   if ($(this).hasClass("show")) {
+  //     $(this).removeClass("show");
+  //   } else {
+  //     $(this).addClass("show");
+  //   }
+  // });
 
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）

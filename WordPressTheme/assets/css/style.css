@@ -741,7 +741,7 @@ a {
 	position: absolute;
 	right: 1rem;
 	top: 50%;
-	transform: translateY(-50%) rotate(180deg);
+	transform: translateY(-50%) rotate(90deg);
 	transition: transform 0.3s;
 	width: 2rem;
 }
@@ -751,7 +751,7 @@ a {
 }
 
 .accordion__title.show::after {
-	transform: translateY(-50%) rotate(90deg);
+	transform: translateY(-50%) rotate(0deg);
 }
 
 .accordion__content {
@@ -760,6 +760,10 @@ a {
 	height: auto;
 	margin-top: 0;
 	padding: 1.25rem 1rem;
+}
+
+.accordion__title.show + .accordion__content {
+	display: block; /* showクラスが適用された場合に表示 */
 }
 
 .accordion__text {
