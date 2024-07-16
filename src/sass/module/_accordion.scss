@@ -50,8 +50,6 @@ position: relative;
   right: rem(16);
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
-  // transform: translateY(-50%) rotate(0deg);
-  // transform: translateY(-50%) rotate(180deg);
   transition: transform .3s;
   @include mq(md) {
     right: rem(40);
@@ -63,9 +61,7 @@ position: relative;
 }
 
 .accordion__title.show::after {
-  // transform: translateY(-50%) rotate(90deg);
-  // transform: translateY(-50%) rotate(180deg);
-  transform: translateY(-50%) rotate(0deg); // Change rotation to 0 degrees
+  transform: translateY(-50%) rotate(0deg); 
 }
 
 .accordion__content {

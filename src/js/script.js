@@ -294,9 +294,7 @@ jQuery(function ($) {
 /* 下層ページ FAQ アコーディオン
 /* -------------------------------------------- */
 // .showクラスのつけ外しで、プラスマイナスマークを切り替える。
-
-$(document).ready(function() {
-  // 初期状態で全てのアコーディオンを開いた状態にする処理を削除
+// ※WP実装後に不具合発生。→アニメーションが完了してからクラスのつけ外しする処理を追加
 
   // クリックイベントでアコーディオンの開閉をトグル
   $('.js-accordion-title').click(function() {
@@ -304,59 +302,17 @@ $(document).ready(function() {
 
       if ($(this).hasClass('show')) {
           content.slideUp(300, function() {
+            // アニメーションが完了した後にクラスを削除
               $(this).prev('.js-accordion-title').removeClass('show');
           });
       } else {
           content.slideDown(300, function() {
+            // アニメーションが完了した後にクラスを追加
               $(this).prev('.js-accordion-title').addClass('show');
           });
       }
   });
-});
 
-
-
-
-// $(document).ready(function() {
-//   $('.js-accordion-title').click(function() {
-//       var content = $(this).next('.accordion__content');
-      
-//       if (content.hasClass('show')) {
-//           content.removeClass('show').slideUp();
-//       } else {
-//           content.addClass('show').slideDown();
-//       }
-//   });
-// });
-
-
-
-// コンソールに出力するコード
-// $(".js-accordion-title").on("click", function () {
-//   console.log("Accordion title clicked:", this);
-//   $(this).next().slideToggle(function() {
-//     console.log("Content toggled:", this);
-//   });
-//   if ($(this).hasClass("show")) {
-//     console.log("Removing 'show' class");
-//     $(this).removeClass("show");
-//   } else {
-//     console.log("Adding 'show' class");
-//     $(this).addClass("show");
-//   }
-// });
-
-
-
-// 元のコード
-    // $(".js-accordion-title").on("click", function () {
-    //   $(this).next().slideToggle();
-    //   if ($(this).hasClass("show")) {
-    //     $(this).removeClass("show");
-    //   } else {
-    //     $(this).addClass("show");
-    //   }
-    // });
 
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）
