@@ -9,8 +9,8 @@
         blog
       </h1>
       <picture class="sub-fv__image">
-        <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__fv-pc.jpg" media="(min-width: 768px)">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__fv-sp.jpg" alt="小魚の大群の画像">
+        <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__fv-pc.jpg')); ?>" media="(min-width: 768px)">
+        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__fv-sp.jpg')); ?>" alt="<?php esc_attr_e('小魚の大群の画像', 'text-domain'); ?>">
       </picture>
     </div>
   </section>
@@ -31,17 +31,17 @@
             <div class="page-blog-details__main">
               <article class="blog-article">
                 <div class="blog-article__body">
-                  <time class="blog-article__date" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
+                  <time class="blog-article__date" datetime="<?php echo esc_attr(get_the_time('c')); ?>"><?php echo esc_html(get_the_time('Y.m.d')); ?></time>
                   <h3 class="blog-article__heading">
-                    <?php the_title(); ?>
+                    <?php echo esc_html(get_the_title()); ?>
                   </h3>
                   <figure>
                     <?php if (get_the_post_thumbnail()) : ?>
                       <!-- もし画像があったらこれを表示 -->
-                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
+                      <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>" alt="<?php echo esc_attr(get_the_title()) . esc_html('のアイキャッチ画像'); ?>">
                     <?php else : ?>
                       <!-- そうでなければ（無かったら）これを表示 -->
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.jpg" alt="">
+                      <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/no-image.jpg')); ?>" alt="<?php esc_attr_e('No image available', 'text-domain'); ?>">
                     <?php endif; ?>
                   </figure>
                   <!-- 記事の中身 -->
@@ -59,11 +59,11 @@
                     $next_url = !empty($next) ? esc_url(get_permalink($next->ID)) : '';
                     ?>
                       <!-- 前の記事が存在すればリンクする -->
-                      <?php if(!empty($prev)): ?>
+                      <?php if (!empty($prev)) : ?>
                       <a href="<?php echo $prev_url; ?>" class="page-link__prev"></a>
                       <?php endif; ?>
                       <!-- 次の記事が存在すればリンクする -->
-                      <?php if(!empty($next)): ?>
+                      <?php if (!empty($next)) : ?>
                       <a href="<?php echo $next_url; ?>" class="page-link__next"></a>
                       <?php endif; ?>
                   </div>
@@ -76,12 +76,12 @@
 
 
         <!-- aside -->
-        <aside class="page-blog-details__aside sub-aside ">
+        <aside class="page-blog-details__aside sub-aside">
         <?php get_sidebar(); ?>
         </aside>
       </div>
     </div>
   </div>
+</main>
+<?php get_footer(); ?>
 
-
-  <?php get_footer(); ?>

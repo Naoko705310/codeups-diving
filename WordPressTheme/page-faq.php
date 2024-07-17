@@ -9,8 +9,8 @@
                 FAQ
             </h1>
             <picture class="sub-fv__image">
-                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-faq__fv-pc.jpg" media="(min-width: 768px)">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-faq__fv-sp.jpg" alt="砂浜の画像">
+                <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-faq__fv-pc.jpg')); ?>" media="(min-width: 768px)">
+                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-faq__fv-sp.jpg')); ?>" alt="砂浜の画像">
             </picture>
         </div>
     </section>
@@ -36,9 +36,9 @@
                     ?>
 
                     <li class="accordion__item">
-                        <h2 class="accordion__title js-accordion-title show"><?php echo $question; ?></h2>
+                        <h2 class="accordion__title js-accordion-title show"><?php echo esc_html($question); ?></h2>
                         <div class="accordion__content">
-                            <p class="accordion__text"><?php echo $answer; ?></p>
+                            <p class="accordion__text"><?php echo wp_kses_post($answer); ?></p>
                         </div>
                     </li>
                 <?php
