@@ -8,20 +8,18 @@
   <!-- インデックス防止 -->
   <meta name="robots" content="noindex">
 
-
   <?php wp_head(); ?>
 </head>
-
 <body>
   <!-- ヘッダー -->
   <header class="header js-header">
     <div class="header__inner">
       <!-- ヘッダーロゴ ※front-pageはh1, 下層ページはdiv-->
-      <<?php echo is_front_page() ? 'h1' : 'div'; ?> class="header__logo header-logo">
-        <a href="<?php echo home_url(); ?>" class="header-logo__link">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/header-logo.png" alt="ヘッダーロゴ">
+      <<?php echo esc_attr(is_front_page() ? 'h1' : 'div'); ?> class="header__logo header-logo">
+        <a href="<?php echo esc_url(home_url()); ?>" class="header-logo__link">
+          <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/header-logo.png')); ?>" alt="<?php echo esc_attr('ヘッダーロゴ'); ?>">
         </a>
-      </<?php echo is_front_page() ? 'h1' : 'div'; ?>>
+      </<?php echo esc_attr(is_front_page() ? 'h1' : 'div'); ?>>
       <!-- ハンバーガー -->
       <button class="header__hamburger hamburger js-hamburger">
         <span></span>
@@ -120,49 +118,49 @@
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="pc-nav__link">
               campaign
-              <span>キャンペーン</span>
+              <span><?php echo esc_html('キャンペーン'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>" class="pc-nav__link">
               about us
-              <span>私たちについて</span>
+              <span><?php echo esc_html('私たちについて'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>" class="pc-nav__link">
               information
-              <span>ダイビング情報</span>
+              <span><?php echo esc_html('ダイビング情報'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('blog'))); ?>" class="pc-nav__link">
               blog
-              <span>ブログ</span>
+              <span><?php echo esc_html('ブログ'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="pc-nav__link">
               voice
-              <span>お客様の声</span>
+              <span><?php echo esc_html('お客様の声'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))); ?>" class="pc-nav__link">
               price
-              <span>料金一覧</span>
+              <span><?php echo esc_html('料金一覧'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('faq'))); ?>" class="pc-nav__link uppercase">
               faq
-              <span>よくある質問</span>
+              <span><?php echo esc_html('よくある質問'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="pc-nav__link">
               contact
-              <span>お問い合わせ</span>
+              <span><?php echo esc_html('お問い合わせ'); ?></span>
             </a>
           </li>
         </ul>
