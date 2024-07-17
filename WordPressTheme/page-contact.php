@@ -9,8 +9,8 @@
             contact
           </h1>
           <picture class="sub-fv__image">
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-contact__fv-pc.jpg" media="(min-width: 768px)">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-contact__fv-sp.jpg" alt="波打ち際の画像">
+            <source srcset="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/sub-contact__fv-pc.jpg" media="(min-width: 768px)">
+            <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/sub-contact__fv-sp.jpg" alt="波打ち際の画像">
           </picture>
         </div>
       </section>
@@ -33,5 +33,6 @@
           </div>
         </div>
       </div>
-      
+</main>
+
 <?php get_footer(); ?>
