@@ -9,8 +9,8 @@
                 voice
             </h1>
             <picture class="sub-fv__image">
-                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-voice__fv-pc.jpg" media="(min-width: 768px)">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-voice__fv-sp.jpg" alt="海に浮かぶダイバーたちの画像">
+                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/sub-voice__fv-pc.jpg" media="(min-width: 768px)">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/sub-voice__fv-sp.jpg" alt="海に浮かぶダイバーたちの画像">
             </picture>
         </div>
     </section>
@@ -47,9 +47,9 @@
                             <div class="voice-card__header-wrapper">
                                 <div class="voice-card__header">
                                     <div class="voice-card__information">
-                                        <p class="wom-card__age">
+                                        <p class="voice-card__age">
                                             <!-- ACFで設定したカスタムフィールドから年齢を取得 -->
-                                            <?php echo get_field('age'); ?>
+                                            <?php echo esc_html(get_field('age')); ?>
                                         </p>
                                         <p class="voice-card__tag category-tag">
                                             <!-- voice_categoryで設定したカテゴリー名を表示 -->
@@ -58,7 +58,7 @@
                                             if (!empty($terms) && !is_wp_error($terms)) {
                                                 echo esc_html($terms[0]->name);
                                             } else {
-                                                echo 'カテゴリーなし';
+                                                echo esc_html('カテゴリーなし');
                                             }
                                             ?>
                                         </p>
@@ -70,10 +70,10 @@
                                 <figure>
                                     <!-- アイキャッチ画像があればurlを取得して表示 -->
                                     <?php if (has_post_thumbnail()) : ?>
-                                        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
+                                        <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
                                     <?php else : ?>
                                         <!-- なければno-image.jpgを表示 -->
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.jpg" alt="">
+                                        <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/no-image.jpg" alt="">
                                     <?php endif; ?>
                                 </figure>
                             </div>
@@ -90,12 +90,9 @@
                 <div class="page-blog__pagination sub-pagination">
                     <?php wp_pagenavi(); ?>
                 </div>
-
-
             </div>
         </div>
     </div>
 </main>
 
 <?php get_footer(); ?>
-                    
