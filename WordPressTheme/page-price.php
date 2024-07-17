@@ -9,8 +9,8 @@
                 price
             </h1>
             <picture class="sub-fv__image">
-                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__fv-pc.jpg" media="(min-width: 768px)">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price__fv-sp.jpg" alt="海面から覗くダイバーの頭の画像">
+                <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-price__fv-pc.jpg')); ?>" media="(min-width: 768px)">
+                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-price__fv-sp.jpg')); ?>" alt="<?php esc_attr_e('海面から覗くダイバーの頭の画像', 'text-domain'); ?>">
             </picture>
         </div>
     </section>
@@ -31,7 +31,7 @@
                     ];
 
                     $upload_dir = wp_upload_dir();
-                    $whale_image_url = $upload_dir['baseurl'] . '/2024/04/sub-price__icon-whale.png';
+                    $whale_image_url = esc_url($upload_dir['baseurl'] . '/2024/04/sub-price__icon-whale.png');
 
                     foreach ($sections as $key => $title) {
                         $courses = SCF::get($key);
@@ -39,8 +39,8 @@
                             ?>
                             <div class="page-price-list__item">
                                 <div class="page-price-list__heading">
-                                    <h2 id="<?php echo $key; ?>"><?php echo $title; ?></h2>
-                                    <img src="<?php echo $whale_image_url; ?>" alt="Whale Icon" class="whale-icon">
+                                    <h2 id="<?php echo esc_attr($key); ?>"><?php echo esc_html($title); ?></h2>
+                                    <img src="<?php echo $whale_image_url; ?>" alt="<?php esc_attr_e('Whale Icon', 'text-domain'); ?>" class="whale-icon">
                                 </div>
                                 <dl class="page-price-list__body">
                                     <?php foreach ($courses as $course): ?>
@@ -57,5 +57,6 @@
             </div>
         </div>
     </div>
+</main>
 
 <?php get_footer(); ?>
