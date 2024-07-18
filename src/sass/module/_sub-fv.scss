@@ -37,6 +37,10 @@
   }
 }
 
+.sub-fv__heading--date {
+font-size: clamp(1.5rem, 0.444rem + 4.507vw, 4.5rem);//24~72px
+}
+
 // 大文字にしない（小文字のまま）
 // .sub-fv__heading .lowercase {
 //   text-transform: lowercase;

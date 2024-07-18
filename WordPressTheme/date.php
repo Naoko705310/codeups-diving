@@ -8,7 +8,7 @@
       <!-- 下層 FV -->
       <section class="sub-fv">
         <div class="sub-fv__inner">
-        <h2 class="sub-fv__heading">
+        <h2 class="sub-fv__heading sub-fv__heading--date">
             <!-- カスタムタイトル（ブログ記事一覧）を表示する -->
             <?php echo esc_html(get_the_archive_title()); ?>
         </h2>

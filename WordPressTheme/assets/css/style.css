@@ -3162,6 +3162,10 @@ span.error_required {
 	white-space: nowrap;
 }
 
+.sub-fv__heading--date {
+	font-size: clamp(1.5rem, 0.444rem + 4.507vw, 4.5rem);
+}
+
 .sub-fv__heading span {
 	text-transform: none;
 }
