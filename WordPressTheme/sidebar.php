@@ -6,7 +6,7 @@
     <!-- 人気記事（ブログ） -->
     <div class="sub-aside__contents-wrapper">
       <div class="sub-aside__index">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
+        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__icon-whale.png')); ?>" alt="クジラのアイコン画像">
         <h2 class="sub-aside__title">人気記事</h2>
       </div>
       <?php
@@ -27,12 +27,12 @@
           <li class="popular-post">
             <a href="<?php the_permalink(); ?>">
               <?php if (has_post_thumbnail()) : ?>
-                <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title_attribute(); ?>">
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'thumbnail')); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
               <?php endif; ?>
               <div class="popular-post-details">
                 <!-- 日付と時間 -->
                 <time datetime="<?php echo esc_attr(get_the_time('c')); ?>"><?php echo esc_html(get_the_time('Y.m.d')); ?></time>
-                <span><?php the_title(); ?></span>
+                <span><?php echo esc_html(get_the_title()); ?></span>
               </div>
             </a>
           </li>
@@ -46,7 +46,7 @@
     <!-- 口コミ（お客様の声） -->
     <div class="sub-aside__contents-wrapper">
       <div class="sub-aside__index">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
+        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__icon-whale.png')); ?>" alt="クジラのアイコン画像">
         <h2 class="sub-aside__title">
           口コミ
         </h2>
@@ -65,17 +65,17 @@
             <div class="wom__card wom-card">
                 <figure class="wom-card__image">
                     <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
+                        <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
                     <?php else : ?>
-                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__image-wom.jpg" alt="デフォルトの画像">
+                        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__image-wom.jpg')); ?>" alt="デフォルトの画像">
                     <?php endif; ?>
                 </figure>
                 <div class="wom-card__body">
                 <p class="wom-card__age">
-                  <?php echo get_field('age'); ?>
+                  <?php echo esc_html(get_field('age')); ?>
                 </p>
                     <h3 class="wom-card__title">
-                        <?php the_title(); ?>
+                        <?php echo esc_html(get_the_title()); ?>
                     </h3>
                 </div>
             </div>
@@ -86,7 +86,7 @@
         </div>
         <!-- 口コミのボタン -->
         <div class="sub-aside__button">
-          <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="button">
+          <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="button">
             <span>view more</span>
           </a>
         </div>
@@ -95,7 +95,7 @@
     <!-- キャンペーン -->
     <div class="sub-aside__contents-wrapper">
       <div class="sub-aside__index">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
+        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__icon-whale.png')); ?>" alt="クジラのアイコン画像">
         <h2 class="sub-aside__title">
           キャンペーン
         </h2>
@@ -112,31 +112,31 @@
                 while ($campaigns->have_posts()) : $campaigns->the_post();
           ?>
           <li class="sub-campaign__item aside-campaign-card">
-          <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="aside-campaign-card">
+          <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="aside-campaign-card">
                   <figure class="aside-campaign-card__image">
                       <?php if (has_post_thumbnail()) : ?>
-                          <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                          <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
                       <?php endif; ?>
                   </figure>
                   <div class="aside-campaign-card__body">
                     <!-- プラン名 -->
                       <h3 class="aside-campaign-card__title">
-                          <?php the_title(); ?>
+                          <?php echo esc_html(get_the_title()); ?>
                       </h3>
                       <div class="aside-campaign-card__plan">
                           <p class="aside-campaign-card__text">
-                              <?php the_field('description'); // カスタムフィールド ?>
+                              <?php echo esc_html(get_field('description')); // カスタムフィールド ?>
                           </p>
                           <p class="page-campaign-card__text">
                           <!-- 全部コミコミ（お一人様） -->
-                          <?php the_field('campaign-price_title'); ?>
+                          <?php echo esc_html(get_field('campaign-price_title')); ?>
                         </p>
                           <div class="aside-campaign-card__price-wrapper">
                               <p class="aside-campaign-card__old-price">
-                                  ¥<?php echo get_field('price_previous'); // 値を正しく取得するために echo を使用 ?>
+                                  ¥<?php echo esc_html(get_field('price_previous')); // 値を正しく取得するために echo を使用 ?>
                               </p>
                               <p class="aside-campaign-card__new-price">
-                                  ¥<?php echo get_field('price_new'); // 値を正しく取得するために echo を使用 ?>
+                                  ¥<?php echo esc_html(get_field('price_new')); // 値を正しく取得するために echo を使用 ?>
                               </p>
                           </div>
                       </div>
@@ -151,7 +151,7 @@
         </ul>
         <!-- キャンペーンのボタン -->
         <div class="sub-aside__button">
-          <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="button">
+          <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="button">
             <span>view more</span>
           </a>
         </div>
@@ -160,7 +160,7 @@
     <!-- アーカイブ -->
     <div class="sub-aside__contents-wrapper">
       <div class="sub-aside__index">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-blog__icon-whale.png" alt="クジラのアイコン画像">
+        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__icon-whale.png')); ?>" alt="クジラのアイコン画像">
         <h2 class="sub-aside__title">
           アーカイブ
         </h2>
@@ -173,12 +173,12 @@
           $months_jp = ['01' => '1月', '02' => '2月', '03' => '3月', '04' => '4月', '05' => '5月', '06' => '6月', '07' => '7月', '08' => '8月', '09' => '9月', '10' => '10月', '11' => '11月', '12' => '12月'];
           $years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY post_date DESC");
           foreach ($years as $year) {
-            echo '<li class="archive__item"><p class="archive__year js-toggle-year"><span></span>' . $year . '</p><ul class="archive__month-list">';
-            $months = $wpdb->get_results("SELECT DISTINCT MONTH(post_date) as month, count(ID) as posts FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = '{$year}' GROUP BY month ORDER BY month DESC", OBJECT);
+            echo '<li class="archive__item"><p class="archive__year js-toggle-year"><span></span>' . esc_html($year) . '</p><ul class="archive__month-list">';
+            $months = $wpdb->get_results($wpdb->prepare("SELECT DISTINCT MONTH(post_date) as month, count(ID) as posts FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND YEAR(post_date) = %d GROUP BY month ORDER BY month DESC", $year));
             foreach ($months as $month) {
               $month_num = str_pad($month->month, 2, '0', STR_PAD_LEFT); // 月を2桁の文字列に整形
               $link = get_month_link($year, $month_num); // 年と月からアーカイブページへのリンクを取得
-              echo '<li class="archive__month"><a href="' . $link . '"><span></span>' . $months_jp[$month_num] . ' (' . $month->posts . ')</a></li>';
+              echo '<li class="archive__month"><a href="' . esc_url($link) . '"><span></span>' . esc_html($months_jp[$month_num]) . ' (' . esc_html($month->posts) . ')</a></li>';
             }
             echo '</ul></li>';
           }
@@ -188,4 +188,3 @@
     </div>
   </div>
 </aside>
-  
