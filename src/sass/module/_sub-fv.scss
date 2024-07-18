@@ -41,17 +41,10 @@
 font-size: clamp(1.5rem, 0.444rem + 4.507vw, 4.5rem);//24~72px
 }
 
-// 大文字にしない（小文字のまま）
-// .sub-fv__heading .lowercase {
-//   text-transform: lowercase;
-// }
-
 .sub-fv__heading span {
   text-transform: none;
 }
-.sub-fv__heading--faq {
-  // text-transform: uppercase;
-}
+
 
 .sub-fv__image {
   width: 100%;
