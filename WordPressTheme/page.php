@@ -22,8 +22,8 @@ if (is_page('privacypolicy')) {
       <?php echo esc_html($page_title); ?>
     </h2>
       <picture class="sub-fv__image">
-        <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-privacy__fv-pc.jpg" media="(min-width: 768px)">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-privacy__fv-sp.jpg" alt="海中のサンゴの画像">
+        <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-privacy__fv-pc.jpg')); ?>" media="(min-width: 768px)">
+        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-privacy__fv-sp.jpg')); ?>" alt="海中のサンゴの画像">
       </picture>
     </div>
   </section>
