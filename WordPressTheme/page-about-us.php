@@ -85,6 +85,6 @@
             </div>
         </div><!-- page-about-us__inner -->
     </section><!-- page-about-us -->
-</main>
+
 
 <?php get_footer(); ?>

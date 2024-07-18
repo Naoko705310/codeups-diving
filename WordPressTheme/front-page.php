@@ -361,6 +361,6 @@
             </div>
         </div><!-- /.price__inner -->
     </section><!-- /.price -->
-</main>
+
 
 <?php get_footer(); ?>
