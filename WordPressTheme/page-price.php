@@ -37,7 +37,7 @@
                         $courses = SCF::get($key);
                         if (!empty($courses)) {
                             ?>
-                            <div class="page-price-list__item">
+                            <li class="page-price-list__item">
                                 <div class="page-price-list__heading">
                                     <h2 id="<?php echo esc_attr($key); ?>"><?php echo esc_html($title); ?></h2>
                                     <img src="<?php echo $whale_image_url; ?>" alt="<?php esc_attr_e('Whale Icon', 'text-domain'); ?>" class="whale-icon">
@@ -48,7 +48,7 @@
                                         <dd>¥<?php echo esc_html($course["{$key}_price"]); ?></dd>
                                     <?php endforeach; ?>
                                 </dl>
-                            </div>
+                            </li>
                             <?php
                         }
                     }
