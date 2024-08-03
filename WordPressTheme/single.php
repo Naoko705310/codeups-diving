@@ -5,9 +5,10 @@
   <!-- 下層 FV -->
   <section class="sub-fv">
     <div class="sub-fv__inner">
-      <h1 class="sub-fv__heading">
+      <!-- 詳細ページは記事タイトルがh1で、ここはdiv -->
+      <div class="sub-fv__heading">
         blog
-      </h1>
+      </div>
       <picture class="sub-fv__image">
         <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__fv-pc.jpg')); ?>" media="(min-width: 768px)">
         <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-blog__fv-sp.jpg')); ?>" alt="<?php esc_attr_e('小魚の大群の画像', 'text-domain'); ?>">
@@ -32,9 +33,10 @@
               <article class="blog-article">
                 <div class="blog-article__body">
                   <time class="blog-article__date" datetime="<?php echo esc_attr(get_the_time('c')); ?>"><?php echo esc_html(get_the_time('Y.m.d')); ?></time>
-                  <h3 class="blog-article__heading">
+                  <!-- 詳細ページは記事のタイトルがh1 -->
+                  <h1 class="blog-article__heading">
                     <?php echo esc_html(get_the_title()); ?>
-                  </h3>
+                  </h1>
                   <figure>
                     <?php if (get_the_post_thumbnail()) : ?>
                       <!-- もし画像があったらこれを表示 -->

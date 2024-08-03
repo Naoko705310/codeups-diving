@@ -70,26 +70,38 @@
                                             <?php the_title(); ?>
                                         </h3>
                                         <div class="page-campaign-card__plan">
-                                            <p class="page-campaign-card__text">
-                                                <?php echo esc_html(get_field('campaign-price_title')); ?>
-                                            </p>
-                                            <div class="page-campaign-card__price-wrapper">
-                                                <!-- 割引前価格 -->
-                                                <p class="page-campaign-card__old-price">
-                                                    ¥<?php echo esc_html(get_field('price_previous')); ?>
+                                            <?php if (get_field('campaign-price_title')) : ?>
+                                                <p class="page-campaign-card__text">
+                                                    <?php echo esc_html(get_field('campaign-price_title')); ?>
                                                 </p>
-                                                <!-- 割引後価格 -->
-                                                <p class="page-campaign-card__new-price">
-                                                    ¥<?php echo esc_html(get_field('price_new')); ?>
-                                                </p>
-                                            </div>
-                                            <div class="page-campaign-card__description u-desktop">
-                                                <?php the_content(); ?>
-                                            </div>
+                                            <?php endif; ?>
+                                            <?php if (get_field('price_previous') || get_field('price_new')) : ?>
+                                                <div class="page-campaign-card__price-wrapper">
+                                                    <!-- 割引前価格 -->
+                                                    <?php if (get_field('price_previous')) : ?>
+                                                        <p class="page-campaign-card__old-price">
+                                                            ¥<?php echo esc_html(get_field('price_previous')); ?>
+                                                        </p>
+                                                    <?php endif; ?>
+                                                    <!-- 割引後価格 -->
+                                                    <?php if (get_field('price_new')) : ?>
+                                                        <p class="page-campaign-card__new-price">
+                                                            ¥<?php echo esc_html(get_field('price_new')); ?>
+                                                        </p>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if (get_the_content()) : ?>
+                                                <div class="page-campaign-card__description u-desktop">
+                                                    <?php the_content(); ?>
+                                                </div>
+                                            <?php endif; ?>
                                             <!-- キャンペーン期間 -->
-                                            <p class="page-campaign-card__period u-desktop">
-                                                <?php echo esc_html(get_field('campaign_period')); ?>
-                                            </p>
+                                            <?php if (get_field('campaign_period')) : ?>
+                                                <p class="page-campaign-card__period u-desktop">
+                                                    <?php echo esc_html(get_field('campaign_period')); ?>
+                                                </p>
+                                            <?php endif; ?>
                                         </div>
                                         <p class="page-campaign-card__contact u-desktop">
                                             ご予約・お問い合わせはコチラ
@@ -115,6 +127,4 @@
             </div>
         </div>
     </div>
-
-
 <?php get_footer(); ?>
