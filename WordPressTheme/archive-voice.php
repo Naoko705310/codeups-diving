@@ -19,20 +19,27 @@
     <!-- 下層 コンテンツ -->
     <div class="page-voice page-layout">
         <div class="page-voice__inner inner">
-            <!-- カテゴリータブ -->
             <div class="page-voice__contents">
+                <!-- カテゴリータブ(CPT UIで追加したタクソノミーを表示・切り替え) -->
                 <div class="page-voice__category-tab category-tab">
                     <ul class="category-tab__items">
+                        <!-- 「ALL」タグを表示 -->
+                        <li class="category-tab__item <?php echo !get_query_var('voice_category') ? 'is-active' : ''; ?> uppercase">
+                            <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" data-tag="all">
+                                all
+                            </a>
+                        </li>
+                        <!-- それ以外のタグをforeachで回す -->
                         <?php
                         $terms = get_terms(array(
                             'taxonomy' => 'voice_category',
                             'hide_empty' => false,
                         ));
                         foreach ($terms as $term) :
-                            $is_all = ($term->slug === 'all');
+                            $is_current = (get_query_var('voice_category') === $term->slug);
                         ?>
-                            <li class="category-tab__item <?php echo $is_all ? 'is-active uppercase' : ''; ?>">
-                                <a href="<?php echo esc_url(add_query_arg('category', $term->slug, get_post_type_archive_link('voice'))); ?>" data-tab="<?php echo esc_attr($term->slug); ?>">
+                            <li class="category-tab__item <?php echo $is_current ? 'is-active' : ''; ?>">
+                                <a href="<?php echo esc_url(add_query_arg('voice_category', $term->slug, get_post_type_archive_link('voice'))); ?>" data-tab="<?php echo esc_attr($term->slug); ?>">
                                     <?php echo esc_html($term->name); ?>
                                 </a>
                             </li>
