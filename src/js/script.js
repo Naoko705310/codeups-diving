@@ -5,7 +5,7 @@ jQuery(function ($) {
   /* ハンバーガーメニュー
   /* -------------------------------------------- */
     // ハンバーガーメニューのクリックイベント
-    $(".js-hamburger").on("click", function (event) {
+    $(".js-hamburger").on("click", function(event) {
       event.preventDefault(); // デフォルトのイベント行動をキャンセル
       event.stopImmediatePropagation(); // イベント伝播の即時停止
       console.log("Hamburger clicked");
@@ -38,7 +38,7 @@ jQuery(function ($) {
   }
 
   // 画面幅が768pxを超えたらメニューを閉じる
-  $(window).on("resize", function () {
+  $(window).on("resize", function() {
       if ($(window).width() > 768) {
           if ($(".js-hamburger").hasClass("is-open")) {
               console.log("Window resized to more than 768px, closing menu...");
@@ -54,6 +54,13 @@ jQuery(function ($) {
           closeDrawerMenu();
       }
   }
+
+  // ドロワーメニュー内のリンクをクリックしたときにメニューを閉じる
+  $(".sp-nav__sub-item a").on("click", function(event) {
+      if ($(".js-hamburger").hasClass("is-open")) {
+          closeDrawerMenu();
+      }
+  });
 
   /* --------------------------------------------
   /* トップページのFVスワイパー
@@ -312,7 +319,6 @@ jQuery(function ($) {
           });
       }
   });
-
 
   /* --------------------------------------------
   /* お問い合わせフォーム（バリデーション）

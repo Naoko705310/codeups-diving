@@ -56,6 +56,13 @@ jQuery(function ($) {
     }
   }
 
+  // ドロワーメニュー内のリンクをクリックしたときにメニューを閉じる
+  $(".sp-nav__sub-item a").on("click", function (event) {
+    if ($(".js-hamburger").hasClass("is-open")) {
+      closeDrawerMenu();
+    }
+  });
+
   /* --------------------------------------------
   /* トップページのFVスワイパー
   /* -------------------------------------------- */

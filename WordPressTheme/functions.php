@@ -147,6 +147,28 @@ function filter_voice_posts_by_category($query) {
 }
 add_action('pre_get_posts', 'filter_voice_posts_by_category');
 
+
+/* --------------------------------------------
+/* // キャンペーン一覧ページで、記事をカテゴリーごとに分類して表示する
+// ※タブをクリックしたら、該当するものだけが表示される。
+/* -------------------------------------------- */
+function filter_campaign_posts_by_category($query) {
+    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
+        $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
+        if (!empty($category_slug) && $category_slug != 'all') {
+            $query->set('tax_query', array(
+                array(
+                    'taxonomy' => 'campaign_category', // タクソノミー名を指定
+                    'field'    => 'slug',
+                    'terms'    => $category_slug,
+                ),
+            ));
+        }
+    }
+}
+add_action('pre_get_posts', 'filter_campaign_posts_by_category');
+
+
 /* --------------------------------------------
 /* 【サイドバー】ブログ一覧・詳細：サイドバーウィジェット表示
 // ※サイドバーの実装は、ウィジェットエリアを定義して、そのエリアに必要なウィジェットを追加する。

@@ -120,6 +120,7 @@
                         </h2>
                         <div class="about-us__text-wrapper">
                             <p class="about-us__text">
+                                <!-- ACFを使用して、管理画面から編集可にしているが不要？ -->
                                 <?php echo nl2br(esc_html(get_field('about-us_main-copy'))); ?>
                             </p>
                             <!-- ボタン -->
