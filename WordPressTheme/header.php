@@ -112,60 +112,60 @@
           </div>
         </nav>
       </div>
-
       <!-- PCナビ -->
       <div class="header__pc-nav pc-nav u-desktop">
         <ul class="pc-nav__items">
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="pc-nav__link">
               campaign
               <span><?php echo esc_html('キャンペーン'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="pc-nav__link">
               about us
               <span><?php echo esc_html('私たちについて'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('information'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/information/')); ?>" class="pc-nav__link">
               information
               <span><?php echo esc_html('ダイビング情報'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('blog'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="pc-nav__link">
               blog
               <span><?php echo esc_html('ブログ'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="pc-nav__link">
               voice
               <span><?php echo esc_html('お客様の声'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('price'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/price/')); ?>" class="pc-nav__link">
               price
               <span><?php echo esc_html('料金一覧'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('faq'))); ?>" class="pc-nav__link uppercase">
+            <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="pc-nav__link uppercase">
               faq
               <span><?php echo esc_html('よくある質問'); ?></span>
             </a>
           </li>
           <li class="pc-nav__item">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="pc-nav__link">
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="pc-nav__link">
               contact
               <span><?php echo esc_html('お問い合わせ'); ?></span>
             </a>
           </li>
         </ul>
       </div>
+
     </div><!-- /.header__inner inner -->
   </header><!-- /.header -->
   <!-- ヘッダーここまで -->
