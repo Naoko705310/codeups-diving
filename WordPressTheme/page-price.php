@@ -5,17 +5,17 @@
     <!-- 下層 FV -->
     <section class="sub-fv">
         <div class="sub-fv__inner">
-            <h1 class="sub-fv__heading">
-                price
-            </h1>
+            <h1 class="sub-fv__heading">price</h1>
             <picture class="sub-fv__image">
                 <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-price__fv-pc.jpg')); ?>" media="(min-width: 768px)">
                 <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-price__fv-sp.jpg')); ?>" alt="<?php esc_attr_e('海面から覗くダイバーの頭の画像', 'text-domain'); ?>">
             </picture>
         </div>
     </section>
+    
     <!-- パンくずリスト -->
     <?php get_template_part('parts/breadcrumb'); ?>
+    
     <!-- 下層 コンテンツ -->
     <div class="page-price page-layout">
         <div class="page-price__inner inner">
@@ -33,10 +33,9 @@
                     $upload_dir = wp_upload_dir();
                     $whale_image_url = esc_url($upload_dir['baseurl'] . '/2024/04/sub-price__icon-whale.png');
 
-                    foreach ($sections as $key => $title) {
+                    foreach ($sections as $key => $title):
                         $courses = SCF::get($key);
-                        if (!empty($courses)) {
-                            ?>
+                        if (!empty($courses)): ?>
                             <li class="page-price-list__item">
                                 <div class="page-price-list__heading">
                                     <h2 id="<?php echo esc_attr($key); ?>"><?php echo esc_html($title); ?></h2>
@@ -49,10 +48,8 @@
                                     <?php endforeach; ?>
                                 </dl>
                             </li>
-                            <?php
-                        }
-                    }
-                    ?>
+                        <?php endif;
+                    endforeach; ?>
                 </ul>
             </div>
         </div>

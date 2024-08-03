@@ -87,10 +87,16 @@
             </div>
             <!-- Campaignセクションのボタン -->
             <div class="campaign__button">
-                <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="button">
+                <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="button">
                     <span>view more</span>
                 </a>
             </div>
+            <!-- ※元のコードの方を推奨と言われたので念の為残してあります。 -->
+            <!-- <div class="campaign__button">
+                <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="button">
+                    <span>view more</span>
+                </a>
+            </div> -->
         </div>
     </section>
 
@@ -125,7 +131,7 @@
                             </p>
                             <!-- ボタン -->
                             <div class="about-us__button">
-                                <a href="<?php echo esc_url(get_permalink(get_page_by_path('about-us')->ID)); ?>" class="button">
+                                <a href="<?php echo esc_url(home_url('/about-us')); ?>" class="button">
                                     <span>view more</span>
                                 </a>
                             </div>
@@ -161,10 +167,16 @@
                     </p>
                     <!-- ボタン -->
                     <div class="information__button">
-                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('information')->ID)); ?>" class="button">
+                        <a href="<?php echo esc_url(home_url('/information/')); ?>" class="button">
                             <span>view more</span>
                         </a>
                     </div>
+                    <!-- ※元のコードの方を推奨と言われたので念の為残してあります。 -->
+                    <!-- <div class="information__button">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('information')->ID)); ?>" class="button">
+                            <span>view more</span>
+                        </a>
+                    </div> -->
                 </div>
             </div>
         </div><!-- /.information__inner -->
@@ -221,10 +233,16 @@
             </div>
             <!-- ボタン -->
             <div class="blog__button">
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="button">
+                <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="button">
                     <span>view more</span>
                 </a>
             </div>
+            <!-- ※元のコードの方を推奨と言われたので念の為残してあります。 -->
+            <!-- <div class="blog__button">
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="button">
+                    <span>view more</span>
+                </a>
+            </div> -->
         </div><!-- /.blog__inner -->
     </section><!-- /.blog -->
 
@@ -294,10 +312,15 @@
             </div>
             <!-- ボタン -->
             <div class="voice__button">
-                <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="button">
+                <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="button">
                     <span>view more</span>
                 </a>
             </div>
+            <!-- <div class="voice__button">
+                <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="button">
+                    <span>view more</span>
+                </a>
+            </div> -->
         </div><!-- /.voice__inner -->
     </section><!-- /.voice -->
 
@@ -356,10 +379,15 @@
             </div>
             <!-- ボタン -->
             <div class="price__button">
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('price')->ID)); ?>" class="button">
+                <a href="<?php echo esc_url(home_url('/price/')); ?>" class="button">
                     <span>view more</span>
                 </a>
             </div>
+            <!-- <div class="price__button">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('price')->ID)); ?>" class="button">
+                    <span>view more</span>
+                </a>
+            </div> -->
         </div><!-- /.price__inner -->
     </section><!-- /.price -->
 
