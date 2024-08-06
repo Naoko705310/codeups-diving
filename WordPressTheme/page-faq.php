@@ -30,24 +30,21 @@
                     // カスタムフィールドの値を取得
                     $faqs = SCF::get('faq', $page_id); // 'faq'はSmart Custom Fieldsで設定したグループキー
 
-                    if (!empty($faqs)) :
-                        foreach ($faqs as $faq) {
+                    if ($faqs && is_array($faqs)) : // FAQが存在し、配列であることを確認
+                        foreach ($faqs as $faq) :
                             $question = esc_html($faq['question']); // 'question'は質問のフィールドキー
                             $answer = esc_html($faq['answer']); // 'answer'は回答のフィールドキー
-
-                            if (!empty($question) && !empty($answer)) : // 質問と回答が空でないか確認
                     ?>
-
-                    <li class="accordion__item">
-                        <h2 class="accordion__title js-accordion-title show"><?php echo $question; ?></h2>
-                        <div class="accordion__content">
-                            <p class="accordion__text"><?php echo wp_kses_post($answer); ?></p>
-                        </div>
-                    </li>
-
+                            <li class="accordion__item">
+                                <h2 class="accordion__title js-accordion-title show"><?php echo $question; ?></h2>
+                                <div class="accordion__content">
+                                    <p class="accordion__text"><?php echo wp_kses_post($answer); ?></p>
+                                </div>
+                            </li>
                     <?php
-                            endif;
                         endforeach;
+                    else :
+                        echo '<li>FAQが見つかりません。</li>';
                     endif;
                     ?>
                 </ul>

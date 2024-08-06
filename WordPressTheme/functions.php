@@ -64,39 +64,6 @@ add_action( 'admin_menu', 'change_post_menu_label' );
 
 
 /* --------------------------------------------
-/* // pc-navを反映する（クラス名を付与して日本語と英語を二行に）
-// ※管理画面の外観＞メニュー＞pc_navの、メニュー名入力のところで、
-'|'を使用して英語と日本語を併記したため。'|'がある場合とない場合でスタイルを変える。
-/* -------------------------------------------- */
-
-function my_custom_nav_menu_item($item_output, $item, $depth, $args) {
-    if ($args->theme_location == 'pc_nav') {
-        if (strpos($item->title, '|') !== false) {
-            list($english, $japanese) = explode('|', $item->title);
-            // 'pc-nav__link' クラスをaタグに適用
-            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . trim($english) . '<span>' . trim($japanese) . '</span></a>';
-        } else {
-            // タイトルに '|' がない場合も 'pc-nav__link' クラスを適用
-            $item_output = '<a href="' . $item->url . '" class="pc-nav__link">' . $item->title . '</a>';
-        }
-    }
-    return $item_output;
-}
-add_filter('walker_nav_menu_start_el', 'my_custom_nav_menu_item', 10, 4);
-
-/* --------------------------------------------
-/* // pc-navの'li' タグに 'pc-nav__item' クラスを追加
-/* -------------------------------------------- */
-
-function add_classes_on_li($classes, $item, $args) {
-    if ($args->theme_location == 'pc_nav') {
-        $classes[] = 'pc-nav__item';
-    }
-    return $classes;
-}
-add_filter('nav_menu_css_class', 'add_classes_on_li', 1, 3);
-
-/* --------------------------------------------
 /* アーカイブの表示件数変更（キャンペーンとお客様の声）
 //※管理画面で設定した「表示件数10件」というのは、通常投稿（blog)にしか適用されない。
 /* -------------------------------------------- */
@@ -118,7 +85,7 @@ function change_posts_per_page($query) {
 add_action('pre_get_posts', 'change_posts_per_page');
 
 /* --------------------------------------------
-/* キャンペーンカテゴリーを選択した時にタブの色を変える
+/* campaign/voiceの、カテゴリーを選択した時にタブの色を変える
 /* -------------------------------------------- */
 function enqueue_category_tab_script() {
     wp_enqueue_script('jquery');
@@ -127,47 +94,28 @@ function enqueue_category_tab_script() {
 add_action('wp_enqueue_scripts', 'enqueue_category_tab_script');
 
 /* --------------------------------------------
-/* // お客様の声一覧ページで、記事をカテゴリーごとに分類して表示する
-// ※タブをクリックしたら、該当するものだけが表示される。
+/* お客様の声とキャンペーン一覧ページで、記事をカテゴリーごとに分類して表示する
+/* タブをクリックしたら、該当するものだけが表示される
 /* -------------------------------------------- */
-
-function filter_voice_posts_by_category($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('voice')) {
-        $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
-        if (!empty($category_slug) && $category_slug != 'all') {
-            $query->set('tax_query', array(
-                array(
-                    'taxonomy' => 'voice_category',
-                    'field'    => 'slug',
-                    'terms'    => $category_slug,
-                ),
-            ));
+function filter_posts_by_category($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        $post_type = $query->get('post_type');
+        if ($post_type === 'voice' || $post_type === 'campaign') {
+            $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
+            if (!empty($category_slug) && $category_slug != 'all') {
+                $taxonomy = $post_type . '_category';
+                $query->set('tax_query', array(
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field'    => 'slug',
+                        'terms'    => $category_slug,
+                    ),
+                ));
+            }
         }
     }
 }
-add_action('pre_get_posts', 'filter_voice_posts_by_category');
-
-
-/* --------------------------------------------
-/* // キャンペーン一覧ページで、記事をカテゴリーごとに分類して表示する
-// ※タブをクリックしたら、該当するものだけが表示される。
-/* -------------------------------------------- */
-function filter_campaign_posts_by_category($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('campaign')) {
-        $category_slug = isset($_GET['category']) ? $_GET['category'] : '';
-        if (!empty($category_slug) && $category_slug != 'all') {
-            $query->set('tax_query', array(
-                array(
-                    'taxonomy' => 'campaign_category', // タクソノミー名を指定
-                    'field'    => 'slug',
-                    'terms'    => $category_slug,
-                ),
-            ));
-        }
-    }
-}
-add_action('pre_get_posts', 'filter_campaign_posts_by_category');
-
+add_action('pre_get_posts', 'filter_posts_by_category');
 
 /* --------------------------------------------
 /* 【サイドバー】ブログ一覧・詳細：サイドバーウィジェット表示
