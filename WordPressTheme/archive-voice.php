@@ -54,10 +54,14 @@
                             <div class="voice-card__header-wrapper">
                                 <div class="voice-card__header">
                                     <div class="voice-card__information">
-                                        <p class="voice-card__age">
-                                            <!-- ACFで設定したカスタムフィールドから年齢を取得 -->
-                                            <?php echo esc_html(get_field('age')); ?>
-                                        </p>
+                                        <!-- ACFで設定したカスタムフィールドから年齢を取得 -->
+                                        <?php
+                                        $age = get_field('age');
+                                        if (!empty($age)) : ?>
+                                            <p class="voice-card__age">
+                                                <?php echo esc_html($age); ?>
+                                            </p>
+                                        <?php endif; ?>
                                         <p class="voice-card__tag category-tag">
                                             <!-- voice_categoryで設定したカテゴリー名を表示 -->
                                             <?php 
