@@ -1170,12 +1170,11 @@ a {
 	border-radius: 50%;
 	bottom: 1.25rem;
 	display: inline-block;
+	display: none;
 	height: 3rem;
 	max-width: 100%;
-	opacity: 0;
 	position: fixed;
 	right: 1.25rem;
-	visibility: hidden;
 	width: 3rem;
 	z-index: 999999;
 }
@@ -1202,7 +1201,7 @@ a {
 }
 
 .button-to-top.active {
-	opacity: 1;
+	display: inline-block;
 }
 
 .button {
